@@ -28,14 +28,14 @@ include "checkAdmin.php";
             <tr>
                 <td class="mit">2</td>
                 <td class="mit-v">
-                    <a href="<?php echo base_url('index.php/manage_Self_Evaluation/ManageSubtopicOneSelf') ?>" class="record_border">Subtopics of the Main Topic Self-Evaluation</a>
+                    <a href="<?php echo base_url('index.php/manage_Self_Evaluation/ManageSubtopicOneSelf'); ?>" class="record_border">Subtopics of the Main Topic Self-Evaluation</a>
                 </td>
                 <td class="mit">Manage</td>
             </tr>
             <tr>
                 <td class="mit">3</td>
                 <td class="mit-v">
-                    <a href="" class="record_border">Subtopics of subtopics of the Main Topic Self-Evaluation</a>
+                    <a href="<?php echo base_url('index.php/manage_Self_Evaluation/ManageSubtopicTwoSelf'); ?>" class="record_border">Subtopics of subtopics of the Main Topic Self-Evaluation</a>
                 </td>
                 <td class="mit">Manage</td>
             </tr>

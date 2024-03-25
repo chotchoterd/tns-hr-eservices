@@ -164,4 +164,14 @@ class Manage_Self_Evaluation extends CI_Controller
         }
         $this->read_json($json);
     }
+
+    function ManageSubtopicTwoSelf()
+    {
+
+        $title['title'] = 'Manage Main Topic Self-Evaluation';
+        $this->load->view('include/header', $title);
+        $this->load->view('include/menu');
+        $this->load->view('ManageSubtopicTwoSelf');
+        $this->load->view('include/footer');
+    }
 }
