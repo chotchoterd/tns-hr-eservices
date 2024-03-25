@@ -167,11 +167,12 @@ class Manage_Self_Evaluation extends CI_Controller
 
     function ManageSubtopicTwoSelf()
     {
-
+        $sub_topic_self_status_1['sub_topic_self_status_1'] = $this->hr->model_sub_topic_self_status_1();
+        $main_topic_status_1['main_topic_status_1'] = $this->hr->model_main_topic_status_1();
         $title['title'] = 'Manage Main Topic Self-Evaluation';
         $this->load->view('include/header', $title);
         $this->load->view('include/menu');
-        $this->load->view('ManageSubtopicTwoSelf');
+        $this->load->view('ManageSubtopicTwoSelf', $main_topic_status_1 + $sub_topic_self_status_1);
         $this->load->view('include/footer');
     }
 }

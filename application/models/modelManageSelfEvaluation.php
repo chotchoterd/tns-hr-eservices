@@ -126,4 +126,13 @@ class ModelManageSelfEvaluation extends CI_Model
         }
         return $rs;
     }
+
+    function model_sub_topic_self_status_1()
+    {
+        $sql = "SELECT * FROM tb_sub_topic_self_evaluation WHERE status = 1";
+        $rs = $this->db_hr
+            ->query($sql)
+            ->result();
+        return $rs;
+    }
 }
