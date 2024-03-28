@@ -1,18 +1,22 @@
+<?php
+$i = 0;
+?>
 <div class="container-fluid mt-3">
     <a href="<?php echo base_url('index.php/manage_Self_Evaluation/PageSelfEvaluationManage'); ?>" class="btn btn-primary btn_color_df" style="width: 300px !important;">Manage Topic & Sub-Item Self-Evaluation</a>
 </div>
 <div class="container-fluid mt-3">
     <table class="table table-form border">
         <tr>
-            <th colspan="6" class="topic-background mit border h1">Manage Subtopics of subtopics of the Main Topic Self-Evaluation</th>
+            <th colspan="7" class="topic-background mit border h1">Manage Subtopics of subtopics of the Main Topic Self-Evaluation</th>
         </tr>
         <tr>
-            <th class="border topic-background mit" style="width: 200px;">Main Topic</th>
-            <th class="border topic-background mit" style="width: 200px;">Sub-Topic</th>
-            <th class="border topic-background mit" style="width: 200px;">Sub-Topic in Sub-Topic</th>
+            <th class="border topic-background mit" style="width: 150px;">Main Topic</th>
+            <th class="border topic-background mit" style="width: 150px;">Sub-Topic</th>
+            <th class="border topic-background mit" style="width: 150px;">Sub-Topic in Sub-Topic</th>
             <th class="border topic-background mit">Sub-Topic in Sub-Topic Details</th>
+            <th class="border topic-background mit">Remark</th>
             <th class="border topic-background mit" style="width: 150px;">Status</th>
-            <th class="border topic-background mit" style="width: 150px;">Action</th>
+            <th class="border topic-background mit" style="width: 100px;">Action</th>
         </tr>
         <tr>
             <td class="border mit-v td_border">
@@ -46,6 +50,9 @@
                     </label>
                 </div>
                 <div id="alert_sub_topic_in_sub_topic_details" class="mt-1 font-eigth red" style="display: none;">Please fill in Sub-Topic in Sub-Topic Details !</div>
+            </td>
+            <td class="border mit-v td_border">
+                <textarea name="" id="" class="form-control h-textarea" style="height: 100px;"></textarea>
             </td>
             <td class="border mit-v td_border">
                 <select name="" id="" class="form-select">
@@ -118,17 +125,40 @@
             <th class="border topic-background mit">Sub-Topic</th>
             <th class="border topic-background mit">Sub-Topic in Sub-Topic</th>
             <th class="border topic-background mit">Sub-Topic in Sub-Topic Details</th>
+            <th class="border topic-background mit">Remark</th>
             <th class="border topic-background mit">Status</th>
             <th class="border topic-background mit">Action</th>
         </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+        <?php foreach ($subtopic_in_subtopic_self as $subtopic_in_subtopic_selfs) {
+            $i++; ?>
+            <tr>
+                <td class="border mit"><?php echo $i; ?>.</td>
+                <td class="border">
+                    <?php echo $subtopic_in_subtopic_selfs->main_topic . '.' . $subtopic_in_subtopic_selfs->t_topic; ?>
+                </td>
+                <td class="border">
+                    <?php echo $subtopic_in_subtopic_selfs->sub_topic . ' ' . $subtopic_in_subtopic_selfs->s_sub_topic; ?>
+                </td>
+                <td class="border mit">
+                    <?php echo $subtopic_in_subtopic_selfs->subtopic_in_subtopic; ?>
+                </td>
+                <td class="border">
+                    <?php echo $subtopic_in_subtopic_selfs->subtopic_in_subtopic_text; ?>
+                </td>
+                <td class="border">
+                    <?php echo $subtopic_in_subtopic_selfs->remark; ?>
+                </td>
+                <td class="border mit">
+                    <?php if ($subtopic_in_subtopic_selfs->status == 1) {
+                        echo "Active";
+                    } else {
+                        echo "Inactive";
+                    } ?>
+                </td>
+                <td class="border mit">
+                    <a href="<?php echo base_url('index.php/manage_Self_Evaluation/ManageSubtopicTwoSelf/?id=') ?><?php echo $subtopic_in_subtopic_selfs->id; ?>" class="btn btn-primary btn_color_df btn-sm">Edit</a>
+                </td>
+            </tr>
+        <?php } ?>
     </table>
 </div>

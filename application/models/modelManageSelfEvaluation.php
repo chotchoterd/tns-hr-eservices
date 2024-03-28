@@ -135,4 +135,15 @@ class ModelManageSelfEvaluation extends CI_Model
             ->result();
         return $rs;
     }
+
+    function model_subtopic_in_subtopic_self()
+    {
+        $sql = "SELECT topic.topic AS t_topic, sub_topic.sub_topic_text AS s_sub_topic, subtopic_in_subtopic.* FROM tb_subtopic_in_subtopic_self_evaluation subtopic_in_subtopic
+        LEFT JOIN tb_sub_topic_self_evaluation sub_topic ON (sub_topic.sub_topic = subtopic_in_subtopic.sub_topic)
+        LEFT JOIN tb_topic_self_evaluation topic ON (topic.main_topic = sub_topic.main_topic)";
+        $rs = $this->db_hr
+            ->query($sql)
+            ->result();
+        return $rs;
+    }
 }
