@@ -146,4 +146,13 @@ class ModelManageSelfEvaluation extends CI_Model
             ->result();
         return $rs;
     }
+
+    function model_subtopic_in_subtopic_self_id($id)
+    {
+        $sql = "SELECT * FROM tb_subtopic_in_subtopic_self_evaluation WHERE id = '" . $id . "'";
+        $rs = $this->db_hr
+            ->query($sql)
+            ->result();
+        return $rs;
+    }
 }

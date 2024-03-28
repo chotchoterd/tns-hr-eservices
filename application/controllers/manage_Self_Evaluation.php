@@ -172,13 +172,14 @@ class Manage_Self_Evaluation extends CI_Controller
         } else {
             $id = "";
         }
+        $subtopic_in_subtopic_self_id['subtopic_in_subtopic_self_id'] = $this->hr->model_subtopic_in_subtopic_self_id($id);
         $subtopic_in_subtopic_self['subtopic_in_subtopic_self'] = $this->hr->model_subtopic_in_subtopic_self();
         $sub_topic_self_status_1['sub_topic_self_status_1'] = $this->hr->model_sub_topic_self_status_1();
         $main_topic_status_1['main_topic_status_1'] = $this->hr->model_main_topic_status_1();
         $title['title'] = 'Manage Main Topic Self-Evaluation';
         $this->load->view('include/header', $title);
         $this->load->view('include/menu');
-        $this->load->view('ManageSubtopicTwoSelf', $main_topic_status_1 + $sub_topic_self_status_1 + $subtopic_in_subtopic_self);
+        $this->load->view('ManageSubtopicTwoSelf', $main_topic_status_1 + $sub_topic_self_status_1 + $subtopic_in_subtopic_self + $subtopic_in_subtopic_self_id);
         $this->load->view('include/footer');
     }
 }
