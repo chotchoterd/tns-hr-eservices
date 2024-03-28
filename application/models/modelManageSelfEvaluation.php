@@ -155,4 +155,22 @@ class ModelManageSelfEvaluation extends CI_Model
             ->result();
         return $rs;
     }
+
+    function model_submit_sub_in_sub($main_topic, $sub_topic, $sub_in_sub, $sub_in_sub_details, $remark, $status)
+    {
+        $this->db_hr->where('subtopic_in_subtopic', $sub_in_sub);
+        $check_sub_in_sub = $this->db_hr->get('tb_subtopic_in_subtopic_self_evaluation');
+        if ($check_sub_in_sub->num_rows() == 0) {
+            $rs = $this->db_hr
+                ->set("main_topic", $main_topic)
+                ->set("sub_topic", $sub_topic)
+                ->set("subtopic_in_subtopic", $sub_in_sub)
+                ->set("subtopic_in_subtopic_text", $sub_in_sub_details)
+                ->set("remark", $remark)
+                ->set("status", $status)
+                ->set("modified_date", date('Y-m-d H:i:s'))
+                ->insert();
+        }
+        return $rs;
+    }
 }

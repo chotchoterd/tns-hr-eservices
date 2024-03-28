@@ -182,4 +182,22 @@ class Manage_Self_Evaluation extends CI_Controller
         $this->load->view('ManageSubtopicTwoSelf', $main_topic_status_1 + $sub_topic_self_status_1 + $subtopic_in_subtopic_self + $subtopic_in_subtopic_self_id);
         $this->load->view('include/footer');
     }
+
+    function submit_sub_in_sub_ajax()
+    {
+        $main_topic = $this->input->post('main_topic');
+        $sub_topic = $this->input->post('sub_topic');
+        $sub_in_sub = $this->input->post('sub_in_sub');
+        $sub_in_sub_details = $this->input->post('sub_in_sub_details');
+        $remark = $this->input->post('remark');
+        $status = $this->input->post('status');
+
+        $rs = $this->hr->model_submit_sub_in_sub($main_topic, $sub_topic, $sub_in_sub, $sub_in_sub_details, $remark, $status);
+        if ($rs) {
+            $json = '{"ok": true}';
+        } else {
+            $json = '{"ok": false}';
+        }
+        $this->read_json($json);
+    }
 }

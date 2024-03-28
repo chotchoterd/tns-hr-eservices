@@ -1,6 +1,7 @@
 <?php
 $i = 0;
 $update_indicator = 0;
+include "scriptManageSubtopicTwoSelf.php";
 ?>
 <div class="container-fluid mt-3">
     <a href="<?php echo base_url('index.php/manage_Self_Evaluation/PageSelfEvaluationManage'); ?>" class="btn btn-primary btn_color_df" style="width: 300px !important;">Manage Topic & Sub-Item Self-Evaluation</a>
