@@ -138,38 +138,38 @@ if (isset($_GET['s_superior_grade'])) {
         <?php foreach ($emp_hr_import_page as $emp_hr_import_pages) {
             $i++; ?>
             <tr>
-                <td class="border mit">
+                <td class="border">
                     <?php echo $i; ?>
                 </td>
-                <td class="border mit">
+                <td class="border">
                     <?php echo $emp_hr_import_pages->emp_id; ?>
                 </td>
-                <td class="border mit">
+                <td class="border">
                     <?php echo $emp_hr_import_pages->emp_name; ?>
                 </td>
-                <td class="border mit">
+                <td class="border">
                     <?php echo $emp_hr_import_pages->emp_grade; ?>
                 </td>
-                <td class="border mit">
+                <td class="border">
                     <?php
                     $date_format = DateTime::createFromFormat('d/m/Y', $emp_hr_import_pages->emp_hired_date)->format('d-M-Y');
                     echo $date_format;
                     // echo $emp_hr_import_pages->emp_hired_date;
                     ?>
                 </td>
-                <td class="border mit">
+                <td class="border">
                     <?php echo $emp_hr_import_pages->emp_section; ?>
                 </td>
-                <td class="border mit">
+                <td class="border">
                     <?php echo $emp_hr_import_pages->emp_division; ?>
                 </td>
-                <td class="border mit">
+                <td class="border">
                     <?php echo $emp_hr_import_pages->superior_name; ?>
                 </td>
-                <td class="border mit">
+                <td class="border">
                     <?php echo $emp_hr_import_pages->superior_grade; ?>
                 </td>
-                <td class="border mit">
+                <td class="border">
                     <?php
                     if ($emp_hr_import_pages->status == "1") {
                         echo "Active";
