@@ -589,11 +589,13 @@ $current_year = date('Y');
                 <td colspan="6" class="mit border-0">
                     <?php if ($_SESSION["emp_email"] == $self_evaluation_ids->emp_email) { ?>
                         <a href="<?php echo base_url('index.php/hr_controller/PrintPDFSelfEvaluation/') ?><?php echo $self_evaluation_ids->id ?>" class="btn btn-primary btn_color_df" id="">Click to PDF</a>
-                        <button style="display: none;" onclick="window.print();" class="btn btn-primary btn_color_df">Click to PDF</button>
-                        <button type="button" class="btn btn-primary btn_color_df" id="bt_Submit">Re-Submit</button>
+                        <!-- <button style="display: none;" onclick="window.print();" class="btn btn-primary btn_color_df">Click to PDF</button> -->
+                        <?php if ($self_evaluation_ids->year_submit == $current_year) { ?>
+                            <button type="button" class="btn btn-primary btn_color_df" id="bt_Submit">Re-Submit</button>
+                        <?php } ?>
                     <?php } else { ?>
                         <a href="<?php echo base_url('index.php/hr_controller/PrintPDFSelfEvaluation/') ?><?php echo $self_evaluation_ids->id ?>" class="btn btn-primary btn_color_df" id="">Click to PDF</a>
-                        <button style="display: none;" onclick="window.print();" class="btn btn-primary btn_color_df">Click to PDF</button>
+                        <!-- <button style="display: none;" onclick="window.print();" class="btn btn-primary btn_color_df">Click to PDF</button> -->
                         <!-- <button type="button" class="btn btn-primary btn_color_df" id="bt_Submit">Re-Submit</button> -->
                     <?php } ?>
                 </td>
