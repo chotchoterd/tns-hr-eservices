@@ -137,9 +137,10 @@ class Manage_Self_Evaluation extends CI_Controller
         $main_topic = $this->input->post('main_topic');
         $sub_topic = $this->input->post('sub_topic');
         $sub_item_details = $this->input->post('sub_item_details');
+        $year = $this->input->post('year');
         $status = $this->input->post('status');
 
-        $rs = $this->hr->model_Submit_ManageSub_topicOneSelf($main_topic, $sub_topic, $sub_item_details, $status);
+        $rs = $this->hr->model_Submit_ManageSub_topicOneSelf($main_topic, $sub_topic, $sub_item_details, $year, $status);
         if ($rs) {
             $json = '{"ok": true}';
         } else {
@@ -154,9 +155,10 @@ class Manage_Self_Evaluation extends CI_Controller
         $up_main_topic = $this->input->post('up_main_topic');
         $up_sub_topic = $this->input->post('up_sub_topic');
         $up_sub_item_details = $this->input->post('up_sub_item_details');
+        $up_year = $this->input->post('up_year');
         $up_status = $this->input->post('up_status');
 
-        $rs = $this->hr->model_Update_ManageSub_topicOneSelf($up_id, $up_main_topic, $up_sub_topic, $up_sub_item_details, $up_status);
+        $rs = $this->hr->model_Update_ManageSub_topicOneSelf($up_id, $up_main_topic, $up_sub_topic, $up_sub_item_details, $up_year, $up_status);
         if ($rs) {
             $json = '{"ok": true}';
         } else {
@@ -190,9 +192,30 @@ class Manage_Self_Evaluation extends CI_Controller
         $sub_in_sub = $this->input->post('sub_in_sub');
         $sub_in_sub_details = $this->input->post('sub_in_sub_details');
         $remark = $this->input->post('remark');
+        $year = $this->input->post('year');
         $status = $this->input->post('status');
 
-        $rs = $this->hr->model_submit_sub_in_sub($main_topic, $sub_topic, $sub_in_sub, $sub_in_sub_details, $remark, $status);
+        $rs = $this->hr->model_submit_sub_in_sub($main_topic, $sub_topic, $sub_in_sub, $sub_in_sub_details, $remark, $year, $status);
+        if ($rs) {
+            $json = '{"ok": true}';
+        } else {
+            $json = '{"ok": false}';
+        }
+        $this->read_json($json);
+    }
+
+    function update_sub_in_sub_ajax()
+    {
+        $up_id = $this->input->post('up_id');
+        $up_main_topic = $this->input->post('up_main_topic');
+        $up_sub_topic = $this->input->post('up_sub_topic');
+        $up_sub_in_sub = $this->input->post('up_sub_in_sub');
+        $up_sub_in_sub_details = $this->input->post('up_sub_in_sub_details');
+        $up_remark = $this->input->post('up_remark');
+        $up_year = $this->input->post('up_year');
+        $up_status = $this->input->post('up_status');
+
+        $rs = $this->hr->model_update_sub_in_sub($up_id, $up_main_topic, $up_sub_topic, $up_sub_in_sub, $up_sub_in_sub_details, $up_remark, $up_year, $up_status);
         if ($rs) {
             $json = '{"ok": true}';
         } else {

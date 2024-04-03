@@ -111,6 +111,7 @@
         let main_topic = document.getElementById("main_topic").value;
         let sub_topic = document.getElementById("sub_topic").value;
         let sub_item_details = document.getElementById("sub_item_details").value;
+        let year = document.getElementById("year").value;
         let status = document.getElementById("status").value;
 
         $.ajax({
@@ -121,6 +122,7 @@
                 main_topic: main_topic,
                 sub_topic: sub_topic,
                 sub_item_details: sub_item_details,
+                year: year,
                 status: status
             },
             success: function(data) {
@@ -151,6 +153,7 @@
         let up_main_topic = document.getElementById("up_main_topic").value;
         let up_sub_topic = document.getElementById("up_sub_topic").value;
         let up_sub_item_details = document.getElementById("up_sub_item_details").value;
+        let up_year = document.getElementById("up_year").value;
         let up_status = document.getElementById("up_status").value;
 
         $.ajax({
@@ -162,6 +165,7 @@
                 up_main_topic: up_main_topic,
                 up_sub_topic: up_sub_topic,
                 up_sub_item_details: up_sub_item_details,
+                up_year: up_year,
                 up_status: up_status
             },
             success: function(data) {

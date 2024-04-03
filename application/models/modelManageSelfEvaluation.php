@@ -96,7 +96,7 @@ class ModelManageSelfEvaluation extends CI_Model
         return $rs;
     }
 
-    function model_Submit_ManageSub_topicOneSelf($main_topic, $sub_topic, $sub_item_details, $status)
+    function model_Submit_ManageSub_topicOneSelf($main_topic, $sub_topic, $sub_item_details, $year, $status)
     {
         $this->db_hr->where("sub_topic", $sub_topic);
         $check_tb_sub_topic_self = $this->db_hr->get("tb_sub_topic_self_evaluation");
@@ -105,22 +105,26 @@ class ModelManageSelfEvaluation extends CI_Model
                 ->set("main_topic", $main_topic)
                 ->set("sub_topic", $sub_topic)
                 ->set("sub_topic_text", $sub_item_details)
+                ->set("year", $year)
                 ->set("status", $status)
+                ->set("modified_date", date('Y-m-d H:i:s'))
                 ->insert("tb_sub_topic_self_evaluation");
         }
         return $rs;
     }
 
-    function model_Update_ManageSub_topicOneSelf($up_id, $up_main_topic, $up_sub_topic, $up_sub_item_details, $up_status)
+    function model_Update_ManageSub_topicOneSelf($up_id, $up_main_topic, $up_sub_topic, $up_sub_item_details, $up_year, $up_status)
     {
-        $this->db_hr->where("sub_topic", $up_sub_topic)->where("id !=", $up_id)->where("status != 0");;
+        $this->db_hr->where("sub_topic", $up_sub_topic)->where("id !=", $up_id)->where("status != 0");
         $check_tb_sub_topic_self = $this->db_hr->get("tb_sub_topic_self_evaluation");
         if ($check_tb_sub_topic_self->num_rows() == 0) {
             $rs = $this->db_hr
                 ->set("main_topic", $up_main_topic)
                 ->set("sub_topic", $up_sub_topic)
                 ->set("sub_topic_text", $up_sub_item_details)
+                ->set("year", $up_year)
                 ->set("status", $up_status)
+                ->set("modified_date", date('Y-m-d H:i:s'))
                 ->where("id", $up_id)
                 ->update("tb_sub_topic_self_evaluation");
         }
@@ -156,7 +160,7 @@ class ModelManageSelfEvaluation extends CI_Model
         return $rs;
     }
 
-    function model_submit_sub_in_sub($main_topic, $sub_topic, $sub_in_sub, $sub_in_sub_details, $remark, $status)
+    function model_submit_sub_in_sub($main_topic, $sub_topic, $sub_in_sub, $sub_in_sub_details, $remark, $year, $status)
     {
         $this->db_hr->where('subtopic_in_subtopic', $sub_in_sub);
         $check_sub_in_sub = $this->db_hr->get('tb_subtopic_in_subtopic_self_evaluation');
@@ -167,9 +171,30 @@ class ModelManageSelfEvaluation extends CI_Model
                 ->set("subtopic_in_subtopic", $sub_in_sub)
                 ->set("subtopic_in_subtopic_text", $sub_in_sub_details)
                 ->set("remark", $remark)
+                ->set("year", $year)
                 ->set("status", $status)
                 ->set("modified_date", date('Y-m-d H:i:s'))
-                ->insert();
+                ->insert("tb_subtopic_in_subtopic_self_evaluation");
+        }
+        return $rs;
+    }
+
+    function model_update_sub_in_sub($up_id, $up_main_topic, $up_sub_topic, $up_sub_in_sub, $up_sub_in_sub_details, $up_remark, $up_year, $up_status)
+    {
+        $this->db_hr->where('subtopic_in_subtopic', $up_sub_in_sub)->where("id !=", $up_id)->where("status != 0");
+        $check_sub_in_sub = $this->db_hr->get('tb_subtopic_in_subtopic_self_evaluation');
+        if ($check_sub_in_sub->num_rows() == 0) {
+            $rs = $this->db_hr
+                ->set("main_topic", $up_main_topic)
+                ->set("sub_topic", $up_sub_topic)
+                ->set("subtopic_in_subtopic", $up_sub_in_sub)
+                ->set("subtopic_in_subtopic_text", $up_sub_in_sub_details)
+                ->set("remark", $up_remark)
+                ->set("year", $up_year)
+                ->set("status", $up_status)
+                ->set("modified_date", date('Y-m-d H:i:s'))
+                ->where("id", $up_id)
+                ->update("tb_subtopic_in_subtopic_self_evaluation");
         }
         return $rs;
     }

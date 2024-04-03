@@ -18,6 +18,11 @@ if (isset($_GET['s_sub_topic_details'])) {
 } else {
     $s_sub_topic_details = '';
 }
+// if (isset($_GET['year'])) {
+//     $s_year = date('Y');
+// } else {
+//     $s_year = '';
+// }
 if (isset($_GET['s_status'])) {
     $s_status = $_GET['s_status'];
 } else {
@@ -37,12 +42,13 @@ if (isset($_GET['s_status'])) {
     } ?>
     <table class="table table-form border">
         <tr>
-            <th colspan="5" class="topic-background mit border h1">Manage Subtopics of the Main Topic Self-Evaluation</th>
+            <th colspan="6" class="topic-background mit border h1">Manage Subtopics of the Main Topic Self-Evaluation</th>
         </tr>
         <tr>
             <th class="border topic-background mit" style="width: 200px;">Main Topic</th>
             <th class="border topic-background mit" style="width: 200px;">Sub-Topic</th>
             <th class="border topic-background mit">Sub-Topic Details</th>
+            <th class="border topic-background mit">Year</th>
             <th class="border topic-background mit" style="width: 150px;">Status</th>
             <th class="border topic-background mit" style="width: 150px;">Action</th>
         </tr>
@@ -98,6 +104,26 @@ if (isset($_GET['s_status'])) {
                     </div>
                     <div id="alert_Sub_Topic_Details" class="mt-1 font-eigth red" style="display: none;">Please fill in Sub-Topic Details !</div>
                 <?php } ?>
+            </td>
+            <td class="border mit-v td_border">
+                <?php if ($update_indicator == 1) { ?>
+                    <select name="up_year" id="up_year" class="form-select">
+                        <?php
+                        $current_year = date('Y');
+                        for ($y = $current_year - 5; $y < $current_year + 5; $y++) { ?>
+                            <option value="<?php echo $y; ?>" <?php if ($y == $sub_topic_self_ids->year) echo "selected"; ?>><?php echo $y; ?></option>
+                        <?php } ?>
+                    </select>
+                <?php } else { ?>
+                    <select name="year" id="year" class="form-select">
+                        <?php
+                        $current_year = date('Y');
+                        for ($y = $current_year - 5; $y < $current_year + 5; $y++) { ?>
+                            <option value="<?php echo $y; ?>" <?php if ($y == $current_year) echo "selected"; ?>><?php echo $y; ?></option>
+                        <?php } ?>
+                    </select>
+                <?php } ?>
+
             </td>
             <td class="border mit-v td_border">
                 <?php if ($update_indicator == 1) { ?>
@@ -175,6 +201,7 @@ if (isset($_GET['s_status'])) {
             <th class="topic-background mit border">Main Topic</th>
             <th class="topic-background mit border">Sub-Topic</th>
             <th class="topic-background mit border">Sub-Topic Details</th>
+            <th class="topic-background mit border">Year</th>
             <th class="topic-background mit border">Status</th>
             <th class="topic-background mit border">Action</th>
         </tr>
@@ -185,6 +212,7 @@ if (isset($_GET['s_status'])) {
                 <td class="border mit-v"><?php echo $sub_topic_self_datas->main_topic . ". " . $sub_topic_self_datas->main_text; ?></td>
                 <td class="border mit"><?php echo $sub_topic_self_datas->sub_topic; ?></td>
                 <td class="border mit-v"><?php echo $sub_topic_self_datas->sub_topic_text; ?></td>
+                <td class="border mit"><?php echo $sub_topic_self_datas->year; ?></td>
                 <td class="border mit">
                     <?php if ($sub_topic_self_datas->status == "1") {
                         echo "Active";
