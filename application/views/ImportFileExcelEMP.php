@@ -128,7 +128,7 @@ if (isset($_GET['s_superior_grade'])) {
             <th class="topic-background mit border">Employee ID</th>
             <th class="topic-background mit border">Employee name</th>
             <th class="topic-background mit border">Employee Grade</th>
-            <th class="topic-background mit border">Hired date</th>
+            <th class="topic-background mit border" style="width: 100px;">Hired date</th>
             <th class="topic-background mit border">Section</th>
             <th class="topic-background mit border">Division</th>
             <th class="topic-background mit border">Superior name</th>
@@ -147,7 +147,7 @@ if (isset($_GET['s_superior_grade'])) {
                 <td class="border">
                     <?php echo $emp_hr_import_pages->emp_name; ?>
                 </td>
-                <td class="border">
+                <td class="border mit">
                     <?php echo $emp_hr_import_pages->emp_grade; ?>
                 </td>
                 <td class="border">
@@ -164,10 +164,10 @@ if (isset($_GET['s_superior_grade'])) {
                     <?php echo $emp_hr_import_pages->emp_division; ?>
                 </td>
                 <td class="border">
-                    <?php echo $emp_hr_import_pages->superior_name; ?>
+                    <?php echo $emp_hr_import_pages->superior_name1; ?>
                 </td>
-                <td class="border">
-                    <?php echo $emp_hr_import_pages->superior_grade; ?>
+                <td class="border mit">
+                    <?php echo $emp_hr_import_pages->superior_grade1; ?>
                 </td>
                 <td class="border">
                     <?php

@@ -30,15 +30,21 @@ class Import_file_controller extends CI_Controller
                         if (!empty($worksheet->getCellByColumnAndRow(0, $row)->getValue())) {
                             $emp_id = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
                             $emp_name = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
-                            $emp_grade = $worksheet->getCellByColumnAndRow(2, $row)->getValue();
-                            $emp_division = $worksheet->getCellByColumnAndRow(3, $row)->getValue();
-                            $emp_section = $worksheet->getCellByColumnAndRow(4, $row)->getValue();
-                            $emp_hired_date = $worksheet->getCellByColumnAndRow(5, $row)->getValue();
-                            $emp_email = $worksheet->getCellByColumnAndRow(6, $row)->getValue();
-                            $superior_name = $worksheet->getCellByColumnAndRow(7, $row)->getValue();
-                            $superior_grade = $worksheet->getCellByColumnAndRow(8, $row)->getValue();
-                            $superior_email = $worksheet->getCellByColumnAndRow(9, $row)->getValue();
-                            $status_excel = $worksheet->getCellByColumnAndRow(10, $row)->getValue();
+                            $emp_t_name = $worksheet->getCellByColumnAndRow(2, $row)->getValue();
+                            $emp_grade = $worksheet->getCellByColumnAndRow(3, $row)->getValue();
+                            $emp_division = $worksheet->getCellByColumnAndRow(4, $row)->getValue();
+                            $emp_section = $worksheet->getCellByColumnAndRow(5, $row)->getValue();
+                            $emp_hired_date = date('d/m/Y', PHPExcel_Shared_Date::ExcelToPHP($worksheet->getCellByColumnAndRow(6, $row)->getValue()));
+                            $emp_email = $worksheet->getCellByColumnAndRow(7, $row)->getValue();
+                            $superior_emp_id1 = $worksheet->getCellByColumnAndRow(8, $row)->getValue();
+                            $superior_name1 = $worksheet->getCellByColumnAndRow(9, $row)->getValue();
+                            $superior_grade1 = $worksheet->getCellByColumnAndRow(10, $row)->getValue();
+                            $superior_email1 = $worksheet->getCellByColumnAndRow(11, $row)->getValue();
+                            $superior_emp_id2 = $worksheet->getCellByColumnAndRow(12, $row)->getValue();
+                            $superior_name2 = $worksheet->getCellByColumnAndRow(13, $row)->getValue();
+                            $superior_grade2 = $worksheet->getCellByColumnAndRow(14, $row)->getValue();
+                            $superior_email2 = $worksheet->getCellByColumnAndRow(15, $row)->getValue();
+                            $status_excel = $worksheet->getCellByColumnAndRow(16, $row)->getValue();
 
                             if ($status_excel == "Active") {
                                 $status = '1';
@@ -50,14 +56,20 @@ class Import_file_controller extends CI_Controller
                             $data[] = array(
                                 'emp_id' => trim($emp_id),
                                 'emp_name' => trim($emp_name),
+                                't_name_emp' => trim($emp_t_name),
                                 'emp_grade' => trim($emp_grade),
                                 'emp_division' => trim($emp_division),
                                 'emp_section' => trim($emp_section),
                                 'emp_hired_date' => trim($emp_hired_date),
                                 'emp_email' => trim($emp_email),
-                                'superior_name' => trim($superior_name),
-                                'superior_grade' => trim($superior_grade),
-                                'superior_email' => trim($superior_email),
+                                'superior_emp_id1' => trim($superior_emp_id1),
+                                'superior_name1' => trim($superior_name1),
+                                'superior_grade1' => trim($superior_grade1),
+                                'superior_email1' => trim($superior_email1),
+                                'superior_emp_id2' => trim($superior_emp_id2),
+                                'superior_name2' => trim($superior_name2),
+                                'superior_grade2' => trim($superior_grade2),
+                                'superior_email2' => trim($superior_email2),
                                 'status' => $status,
                                 'updated_date' => date('Y-m-d H:i:s')
                             );

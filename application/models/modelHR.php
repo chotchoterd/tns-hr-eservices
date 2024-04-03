@@ -85,8 +85,8 @@ class ModelHR extends CI_Model
         AND status LIKE '%" . $s_status . "%'
         AND emp_section LIKE '%" . $s_emp_section . "%'
         AND emp_division LIKE '%" . $s_emp_division . "%'
-        AND superior_name LIKE '%" . $s_superior_name . "%'
-        AND superior_grade LIKE '%" . $s_superior_grade . "%'";
+        AND superior_name1 LIKE '%" . $s_superior_name . "%'
+        AND superior_grade1 LIKE '%" . $s_superior_grade . "%'";
         $rs = $this->db_hr
             ->query($sql)
             ->result();
@@ -268,8 +268,6 @@ class ModelHR extends CI_Model
 
     function model_hr_insert_emp($data)
     {
-        $errors = [];
-
         foreach ($data as $row) {
             $emp_id = $row['emp_id'];
             $emp_name = $row['emp_name'];
@@ -278,32 +276,17 @@ class ModelHR extends CI_Model
             $emp_section = $row['emp_section'];
             $emp_hired_date = $row['emp_hired_date'];
             $emp_email = $row['emp_email'];
-            $superior_name = $row['superior_name'];
-            $superior_grade = $row['superior_grade'];
-            $superior_email = $row['superior_email'];
             $status = $row['status'];
 
-            if ($emp_name != "" && $emp_grade != "" && $emp_division != "" && $emp_section != "" && $emp_hired_date != "" && $emp_email != "" && $superior_name != "" && $superior_grade != "" && $superior_email != "" && $status != "") {
-                if (in_array("", $row)) {
-                    $errors[] = "ข้อมูลมีช่องว่าง: " . $emp_name;
+            if ($emp_name != "" && $emp_grade != "" && $emp_division != "" && $emp_section != "" && $emp_hired_date != "" && $emp_email != "" && $status != "") {
+                $existing_record = $this->db_hr->get_where('tb_emp_hr_import', array('emp_id' => $emp_id))->row();
+                if ($existing_record) {
+                    $this->db_hr->where('emp_id', $emp_id);
+                    $this->db_hr->update('tb_emp_hr_import', $row);
                 } else {
-                    $existing_record = $this->db_hr->get_where('tb_emp_hr_import', array('emp_id' => $emp_id))->row();
-                    if ($existing_record) {
-                        $this->db_hr->where('emp_id', $emp_id);
-                        $this->db_hr->update('tb_emp_hr_import', $row);
-                    } else {
-                        $this->db_hr->insert('tb_emp_hr_import', $row);
-                    }
+                    $this->db_hr->insert('tb_emp_hr_import', $row);
                 }
-            } else {
-                $errors[] = "ข้อมูลไม่ครบถ้วนสำหรับพนักงาน: " . $emp_name;
             }
-        }
-
-        if (!empty($errors)) {
-            http_response_code(400);
-            echo json_encode(array("errors" => $errors));
-            exit;
         }
     }
 

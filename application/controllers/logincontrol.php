@@ -42,9 +42,9 @@ class Logincontrol extends CI_Controller
                         $emp_section = $get_emp_ids->emp_section;
                         $emp_hired_date = $get_emp_ids->emp_hired_date;
                         $emp_email = $get_emp_ids->emp_email;
-                        $superior_name = $get_emp_ids->superior_name;
-                        $superior_grade = $get_emp_ids->superior_grade;
-                        $superior_email = $get_emp_ids->superior_email;
+                        $superior_name = $get_emp_ids->superior_name1;
+                        $superior_grade = $get_emp_ids->superior_grade1;
+                        $superior_email = $get_emp_ids->superior_email1;
                     }
                     if (session_id() == '') {
                         session_start();
