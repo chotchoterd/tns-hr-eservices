@@ -331,4 +331,105 @@ class Manage_Self_Evaluation extends CI_Controller
         }
         $this->read_json($json);
     }
+
+    function ManageItemOptionIsSubtopic()
+    {
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+        } else {
+            $id = "";
+        }
+        if (isset($_GET['s_main_topic'])) {
+            $s_main_topic = $_GET['s_main_topic'];
+        } else {
+            $s_main_topic = "";
+        }
+        if (isset($_GET['s_sub_topic'])) {
+            $s_sub_topic = $_GET['s_sub_topic'];
+        } else {
+            $s_sub_topic = "";
+        }
+        if (isset($_GET['s_sub_in_sub'])) {
+            $s_sub_in_sub = $_GET['s_sub_in_sub'];
+        } else {
+            $s_sub_in_sub = "";
+        }
+        if (isset($_GET['s_sub_in_sub_details'])) {
+            $s_sub_in_sub_details = $_GET['s_sub_in_sub_details'];
+        } else {
+            $s_sub_in_sub_details = "";
+        }
+        if (isset($_GET['s_division'])) {
+            $s_division = $_GET['s_division'];
+        } else {
+            $s_division = "";
+        }
+        if (isset($_GET['s_sub_division'])) {
+            $s_sub_division = $_GET['s_sub_division'];
+        } else {
+            $s_sub_division = "";
+        }
+        if (isset($_GET['s_year'])) {
+            $s_year = $_GET['s_year'];
+        } else {
+            $s_year = "";
+        }
+        if (isset($_GET['s_status'])) {
+            $s_status = $_GET['s_status'];
+        } else {
+            $s_status = "";
+        }
+        $main_topic_status_1['main_topic_status_1'] = $this->hr->model_main_topic_status_1();
+        $sub_topic_self_status_1['sub_topic_self_status_1'] = $this->hr->model_sub_topic_self_status_1();
+        $sub_in_sub_status_1['sub_in_sub_status_1'] = $this->hr->model_sub_in_sub_status_1();
+        $division_status_1['division_status_1'] = $this->hr->model_division_status_1();
+        $item_is_sub_in_sub['item_is_sub_in_sub'] = $this->hr->model_item_is_sub_in_sub($s_main_topic, $s_sub_topic, $s_sub_in_sub, $s_sub_in_sub_details, $s_division, $s_sub_division, $s_year, $s_status);
+        $item_is_sub_in_sub_id['item_is_sub_in_sub_id'] = $this->hr->model_item_is_sub_in_sub_id($id);
+        $title['title'] = 'Manage Item Option is Subtopic Self-Evaluation';
+        $this->load->view('include/header', $title);
+        $this->load->view('include/menu');
+        $this->load->view('ManageItemOptionIsSubtopic', $main_topic_status_1 + $sub_topic_self_status_1 + $sub_in_sub_status_1 + $division_status_1 + $item_is_sub_in_sub + $item_is_sub_in_sub_id);
+        $this->load->view('include/footer');
+    }
+
+    function Submit_Item_Option_is_Subtopic_ajax()
+    {
+        $main_topic = $this->input->post('main_topic');
+        $sub_topic = $this->input->post('sub_topic');
+        $sub_in_sub = $this->input->post('sub_in_sub');
+        $sub_in_sub_details = $this->input->post('sub_in_sub_details');
+        $division = $this->input->post('division');
+        $sub_division = $this->input->post('sub_division');
+        $year = $this->input->post('year');
+        $status = $this->input->post('status');
+
+        $rs = $this->hr->model_Submit_Item_Option_is_Subtopic($main_topic, $sub_topic, $sub_in_sub, $sub_in_sub_details, $division, $sub_division, $year, $status);
+        if ($rs) {
+            $json = '{"ok": true}';
+        } else {
+            $json = '{"ok": false}';
+        }
+        $this->read_json($json);
+    }
+
+    function Update_Item_Option_is_Subtopic_ajax()
+    {
+        $up_id = $this->input->post('up_id');
+        $up_main_topic = $this->input->post('up_main_topic');
+        $up_sub_topic = $this->input->post('up_sub_topic');
+        $up_sub_in_sub = $this->input->post('up_sub_in_sub');
+        $up_sub_in_sub_details = $this->input->post('up_sub_in_sub_details');
+        $up_division = $this->input->post('up_division');
+        $up_sub_division = $this->input->post('up_sub_division');
+        $up_year = $this->input->post('up_year');
+        $up_status = $this->input->post('up_status');
+
+        $rs = $this->hr->model_Update_Item_Option_is_Subtopic($up_id, $up_main_topic, $up_sub_topic, $up_sub_in_sub, $up_sub_in_sub_details, $up_division, $up_sub_division, $up_year, $up_status);
+        if ($rs) {
+            $json = '{"ok": true}';
+        } else {
+            $json = '{"ok": false}';
+        }
+        $this->read_json($json);
+    }
 }

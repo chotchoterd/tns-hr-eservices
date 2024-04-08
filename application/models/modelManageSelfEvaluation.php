@@ -18,6 +18,7 @@ class ModelManageSelfEvaluation extends CI_Model
         $rs = $this->db_hr
             ->query($sql)
             ->result();
+        // print_r($sql);
         return $rs;
     }
 
@@ -254,6 +255,97 @@ class ModelManageSelfEvaluation extends CI_Model
             ->set("modified_date", date('Y-m-d H:i:s'))
             ->where("id", $up_id)
             ->update("tb_item_option_self_evaluation");
+        return $rs;
+    }
+
+    function model_sub_in_sub_status_1()
+    {
+        $sql = "SELECT * FROM tb_subtopic_in_subtopic_self_evaluation WHERE status = 1";
+        $rs = $this->db_hr
+            ->query($sql)
+            ->result();
+        return $rs;
+    }
+
+    function model_division_status_1()
+    {
+        $sql = "SELECT * FROM tb_division WHERE status = 1";
+        $rs = $this->db_hr
+            ->query($sql)
+            ->result();
+        return $rs;
+    }
+
+    function model_item_is_sub_in_sub($s_main_topic, $s_sub_topic, $s_sub_in_sub, $s_sub_in_sub_details, $s_division, $s_sub_division, $s_year, $s_status)
+    {
+        $sql = "SELECT topic.topic AS t_topic, sub_topic.sub_topic_text AS s_sub_topic, sub_in_sub.subtopic_in_subtopic_text AS t_sub_in_sub, item_is_sub_in_sub.* FROM tb_item_option_is_subtopic_in_subtopic_self_evaluation item_is_sub_in_sub
+        LEFT JOIN tb_sub_topic_self_evaluation sub_topic ON (sub_topic.sub_topic = item_is_sub_in_sub.sub_topic)
+        LEFT JOIN tb_topic_self_evaluation topic ON (topic.main_topic = sub_topic.main_topic)
+        LEFT JOIN tb_subtopic_in_subtopic_self_evaluation sub_in_sub ON (sub_in_sub.subtopic_in_subtopic = item_is_sub_in_sub.subtopic_in_subtopic)
+        WHERE item_is_sub_in_sub.main_topic LIKE '%" . $s_main_topic . "%'
+        AND item_is_sub_in_sub.sub_topic LIKE '%" . $s_sub_topic . "%'
+        AND item_is_sub_in_sub.subtopic_in_subtopic LIKE '%" . $s_sub_in_sub . "%'";
+        if ($s_sub_in_sub_details != "") {
+            $sql .= " AND item_is_sub_in_sub.subtopic_in_subtopic_text LIKE '%" . $s_sub_in_sub_details . "%'";
+        }
+        if ($s_division != "") {
+            $sql .= " AND item_is_sub_in_sub.division LIKE '%" . $s_division . "%'";
+        }
+        if ($s_sub_division != "") {
+            $sql .= " AND item_is_sub_in_sub.sub_division LIKE '%" . $s_sub_division . "%'";
+        }
+        $sql .= " AND item_is_sub_in_sub.year LIKE '%" . $s_year . "%'
+        AND item_is_sub_in_sub.status LIKE '%" . $s_status . "%'";
+        $rs = $this->db_hr
+            ->query($sql)
+            ->result();
+        // print_r($sql);
+        return $rs;
+    }
+
+    function model_item_is_sub_in_sub_id($id)
+    {
+        $sql = "SELECT * FROM tb_item_option_is_subtopic_in_subtopic_self_evaluation WHERE id = '" . $id . "'";
+        $rs = $this->db_hr
+            ->query($sql)
+            ->result();
+        return $rs;
+    }
+
+    function model_Submit_Item_Option_is_Subtopic($main_topic, $sub_topic, $sub_in_sub, $sub_in_sub_details, $division, $sub_division, $year, $status)
+    {
+        $rs = $this->db_hr
+            ->set("main_topic", $main_topic)
+            ->set("sub_topic", $sub_topic)
+            ->set("subtopic_in_subtopic", $sub_in_sub)
+            ->set("subtopic_in_subtopic_text", $sub_in_sub_details)
+            ->set("division", $division)
+            ->set("sub_division", $sub_division)
+            ->set("status", $status)
+            ->set("year", $year)
+            ->set("modified_date", date('Y-m-d H:i:s'))
+            ->insert("tb_item_option_is_subtopic_in_subtopic_self_evaluation");
+        return $rs;
+    }
+
+    function model_Update_Item_Option_is_Subtopic($up_id, $up_main_topic, $up_sub_topic, $up_sub_in_sub, $up_sub_in_sub_details, $up_division, $up_sub_division, $up_year, $up_status)
+    {
+        $this->db_hr->where('sub_division', $up_sub_division)->where("id !=", $up_id)->where("status != 0");
+        $check_dup = $this->db_hr->get("tb_item_option_is_subtopic_in_subtopic_self_evaluation");
+        if ($check_dup->num_rows() == 0) {
+            $rs = $this->db_hr
+                ->set("main_topic", $up_main_topic)
+                ->set("sub_topic", $up_sub_topic)
+                ->set("subtopic_in_subtopic", $up_sub_in_sub)
+                ->set("subtopic_in_subtopic_text", $up_sub_in_sub_details)
+                ->set("division", $up_division)
+                ->set("sub_division", $up_sub_division)
+                ->set("status", $up_status)
+                ->set("year", $up_year)
+                ->set("modified_date", date('Y-m-d H:i:s'))
+                ->where("id", $up_id)
+                ->update("tb_item_option_is_subtopic_in_subtopic_self_evaluation");
+        }
         return $rs;
     }
 }

@@ -49,7 +49,7 @@ include "checkAdmin.php";
             <tr>
                 <td class="mit">5</td>
                 <td class="mit-v">
-                    <a href="" class="record_border">Item option of subtopics of subtopics of the Main Topic Self-Evaluation</a>
+                    <a href="<?php echo base_url('index.php/manage_Self_Evaluation/ManageItemOptionIsSubtopic') ?>" class="record_border">Item option of subtopics of subtopics of the Main Topic Self-Evaluation</a>
                 </td>
                 <td class="mit">Manage</td>
             </tr>
