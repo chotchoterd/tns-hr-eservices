@@ -174,8 +174,38 @@ class Manage_Self_Evaluation extends CI_Controller
         } else {
             $id = "";
         }
+        if (isset($_GET['s_main_topic'])) {
+            $s_main_topic = $_GET['s_main_topic'];
+        } else {
+            $s_main_topic = "";
+        }
+        if (isset($_GET['s_sub_topic'])) {
+            $s_sub_topic = $_GET['s_sub_topic'];
+        } else {
+            $s_sub_topic = "";
+        }
+        if (isset($_GET['s_sub_in_sub'])) {
+            $s_sub_in_sub = $_GET['s_sub_in_sub'];
+        } else {
+            $s_sub_in_sub = "";
+        }
+        if (isset($_GET['s_sub_in_sub_details'])) {
+            $s_sub_in_sub_details = $_GET['s_sub_in_sub_details'];
+        } else {
+            $s_sub_in_sub_details = "";
+        }
+        if (isset($_GET['s_status'])) {
+            $s_status = $_GET['s_status'];
+        } else {
+            $s_status = "";
+        }
+        if (isset($_GET['s_year'])) {
+            $s_year = $_GET['s_year'];
+        } else {
+            $s_year = "";
+        }
         $subtopic_in_subtopic_self_id['subtopic_in_subtopic_self_id'] = $this->hr->model_subtopic_in_subtopic_self_id($id);
-        $subtopic_in_subtopic_self['subtopic_in_subtopic_self'] = $this->hr->model_subtopic_in_subtopic_self();
+        $subtopic_in_subtopic_self['subtopic_in_subtopic_self'] = $this->hr->model_subtopic_in_subtopic_self($s_main_topic, $s_sub_topic, $s_sub_in_sub, $s_sub_in_sub_details, $s_status, $s_year);
         $sub_topic_self_status_1['sub_topic_self_status_1'] = $this->hr->model_sub_topic_self_status_1();
         $main_topic_status_1['main_topic_status_1'] = $this->hr->model_main_topic_status_1();
         $title['title'] = 'Manage Main Topic Self-Evaluation';
@@ -216,6 +246,84 @@ class Manage_Self_Evaluation extends CI_Controller
         $up_status = $this->input->post('up_status');
 
         $rs = $this->hr->model_update_sub_in_sub($up_id, $up_main_topic, $up_sub_topic, $up_sub_in_sub, $up_sub_in_sub_details, $up_remark, $up_year, $up_status);
+        if ($rs) {
+            $json = '{"ok": true}';
+        } else {
+            $json = '{"ok": false}';
+        }
+        $this->read_json($json);
+    }
+
+    function ManageItemOption()
+    {
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+        } else {
+            $id = "";
+        }
+        if (isset($_GET['s_main_topic'])) {
+            $s_main_topic = $_GET['s_main_topic'];
+        } else {
+            $s_main_topic = "";
+        }
+        if (isset($_GET['s_sub_topic'])) {
+            $s_sub_topic = $_GET['s_sub_topic'];
+        } else {
+            $s_sub_topic = "";
+        }
+        if (isset($_GET['s_item_option'])) {
+            $s_item_option = $_GET['s_item_option'];
+        } else {
+            $s_item_option = "";
+        }
+        if (isset($_GET['s_year'])) {
+            $s_year = $_GET['s_year'];
+        } else {
+            $s_year = "";
+        }
+        if (isset($_GET['s_status'])) {
+            $s_status = $_GET['s_status'];
+        } else {
+            $s_status = "";
+        }
+        $item_option_data_id['item_option_data_id'] = $this->hr->model_item_option_data_id($id);
+        $item_option_data['item_option_data'] = $this->hr->model_item_option_data($s_main_topic, $s_sub_topic, $s_item_option, $s_year, $s_status);
+        $main_topic_status_1['main_topic_status_1'] = $this->hr->model_main_topic_status_1();
+        $sub_topic_self_status_1['sub_topic_self_status_1'] = $this->hr->model_sub_topic_self_status_1();
+        $title['title'] = 'Manage Item Option Self-Evaluation';
+        $this->load->view('include/header', $title);
+        $this->load->view('include/menu');
+        $this->load->view('ManageItemOption', $main_topic_status_1 + $sub_topic_self_status_1 + $item_option_data + $item_option_data_id);
+        $this->load->view('include/footer');
+    }
+
+    function Submit_item_option_ajax()
+    {
+        $main_topic = $this->input->post('main_topic');
+        $sub_topic = $this->input->post('sub_topic');
+        $item_option = $this->input->post('item_option');
+        $year = $this->input->post('year');
+        $status = $this->input->post('status');
+
+        $rs = $this->hr->model_Submit_item_option($main_topic, $sub_topic, $item_option, $year, $status);
+        if ($rs) {
+            $json = '{"ok": true}';
+        } else {
+            $json = '{"ok": false}';
+        }
+        $this->read_json($json);
+    }
+
+    function Update_item_option_ajax()
+    {
+        $up_id = $this->input->post('up_id');
+        $up_main_topic = $this->input->post('up_main_topic');
+        $up_sub_topic = $this->input->post('up_sub_topic');
+        $up_item_option = $this->input->post('up_item_option');
+        $up_year = $this->input->post('up_year');
+        $up_status = $this->input->post('up_status');
+
+        $rs = $this->hr->model_Update_item_option($up_id, $up_main_topic, $up_sub_topic, $up_item_option, $up_year, $up_status);
         if ($rs) {
             $json = '{"ok": true}';
         } else {

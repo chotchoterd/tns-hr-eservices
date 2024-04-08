@@ -140,11 +140,17 @@ class ModelManageSelfEvaluation extends CI_Model
         return $rs;
     }
 
-    function model_subtopic_in_subtopic_self()
+    function model_subtopic_in_subtopic_self($s_main_topic, $s_sub_topic, $s_sub_in_sub, $s_sub_in_sub_details, $s_status, $s_year)
     {
         $sql = "SELECT topic.topic AS t_topic, sub_topic.sub_topic_text AS s_sub_topic, subtopic_in_subtopic.* FROM tb_subtopic_in_subtopic_self_evaluation subtopic_in_subtopic
         LEFT JOIN tb_sub_topic_self_evaluation sub_topic ON (sub_topic.sub_topic = subtopic_in_subtopic.sub_topic)
-        LEFT JOIN tb_topic_self_evaluation topic ON (topic.main_topic = sub_topic.main_topic)";
+        LEFT JOIN tb_topic_self_evaluation topic ON (topic.main_topic = sub_topic.main_topic)
+        WHERE subtopic_in_subtopic.main_topic LIKE '%" . $s_main_topic . "%'
+        AND subtopic_in_subtopic.sub_topic LIKE '%" . $s_sub_topic . "%'
+        AND subtopic_in_subtopic.subtopic_in_subtopic LIKE '%" . $s_sub_in_sub . "%'
+        AND subtopic_in_subtopic.subtopic_in_subtopic_text LIKE '%" . $s_sub_in_sub_details . "%'
+        AND subtopic_in_subtopic.status LIKE '%" . $s_status . "%'
+        AND subtopic_in_subtopic.year LIKE '%" . $s_year . "%'";
         $rs = $this->db_hr
             ->query($sql)
             ->result();
@@ -196,6 +202,58 @@ class ModelManageSelfEvaluation extends CI_Model
                 ->where("id", $up_id)
                 ->update("tb_subtopic_in_subtopic_self_evaluation");
         }
+        return $rs;
+    }
+
+    function model_item_option_data($s_main_topic, $s_sub_topic, $s_item_option, $s_year, $s_status)
+    {
+        $sql = "SELECT topic.topic AS t_topic, sub_topic.sub_topic_text AS s_sub_topic, item_option.* FROM tb_item_option_self_evaluation item_option
+        LEFT JOIN tb_sub_topic_self_evaluation sub_topic ON (sub_topic.sub_topic = item_option.sub_topic)
+        LEFT JOIN tb_topic_self_evaluation topic ON (topic.main_topic = sub_topic.main_topic)
+        WHERE item_option.main_topic LIKE '%" . $s_main_topic . "%'
+        AND item_option.sub_topic LIKE '%" . $s_sub_topic . "%'
+        AND item_option.item_option LIKE '%" . $s_item_option . "%'
+        AND item_option.year LIKE '%" . $s_year . "%'
+        AND item_option.status LIKE '%" . $s_status . "%'";
+        $rs = $this->db_hr
+            ->query($sql)
+            ->result();
+        return $rs;
+    }
+
+    function model_item_option_data_id($id)
+    {
+        $sql = "SELECT * FROM tb_item_option_self_evaluation WHERE id = '" . $id . "'";
+        $rs = $this->db_hr
+            ->query($sql)
+            ->result();
+        return $rs;
+    }
+
+    function model_Submit_item_option($main_topic, $sub_topic, $item_option, $year, $status)
+    {
+        $rs = $this->db_hr
+            ->set("main_topic", $main_topic)
+            ->set("sub_topic", $sub_topic)
+            ->set("item_option", $item_option)
+            ->set("year", $year)
+            ->set("status", $status)
+            ->set("modified_date", date('Y-m-d H:i:s'))
+            ->insert("tb_item_option_self_evaluation");
+        return $rs;
+    }
+
+    function model_Update_item_option($up_id, $up_main_topic, $up_sub_topic, $up_item_option, $up_year, $up_status)
+    {
+        $rs = $this->db_hr
+            ->set("main_topic", $up_main_topic)
+            ->set("sub_topic", $up_sub_topic)
+            ->set("item_option", $up_item_option)
+            ->set("year", $up_year)
+            ->set("status", $up_status)
+            ->set("modified_date", date('Y-m-d H:i:s'))
+            ->where("id", $up_id)
+            ->update("tb_item_option_self_evaluation");
         return $rs;
     }
 }

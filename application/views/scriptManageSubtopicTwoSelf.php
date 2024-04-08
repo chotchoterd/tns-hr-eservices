@@ -234,4 +234,8 @@
             "&s_sub_in_sub=" + encodeURIComponent(s_sub_in_sub) + "&s_sub_in_sub_details=" + encodeURIComponent(s_sub_in_sub_details) + "&s_status=" + encodeURIComponent(s_status) +
             "&s_year=" + encodeURIComponent(s_year)
     }
+
+    function claer_search_Subtopics_of_subtopics() {
+        window.location = "<?php echo base_url('index.php/manage_Self_Evaluation/ManageSubtopicTwoSelf'); ?>"
+    }
 </script>
