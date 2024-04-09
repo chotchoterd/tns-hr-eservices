@@ -103,7 +103,7 @@ $check_count = 0;
                     <td class="border mit td_border"><?php echo $self_evaluation_hrs->self_evaluation_status ?></td>
                     <td class="border mit td_border">
                         <?php if ($self_evaluation_hrs->self_evaluation_status == "Draft") {
-                            echo "Null";
+                            echo "Draft";
                         } else { ?>
                             <a href="<?php echo base_url('index.php/hr_controller/PrintPDFSelfEvaluation/') ?><?php echo $self_evaluation_hrs->id ?>">Download</a>
                         <?php } ?>

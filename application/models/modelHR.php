@@ -22,7 +22,9 @@ class ModelHR extends CI_Model
 
     function model_topic_selfevaluation()
     {
-        $sql = "SELECT * FROM tb_topic_self_evaluation WHERE status = 1";
+        $current_year = date('Y');
+        $sql = "SELECT * FROM tb_topic_self_evaluation WHERE status = 1
+        AND year = " . $current_year . "";
         $rs = $this->db_hr
             ->query($sql)
             ->result();
@@ -31,7 +33,9 @@ class ModelHR extends CI_Model
 
     function model_sub_topic_selfevaluation()
     {
-        $sql = "SELECT * FROM tb_sub_topic_self_evaluation WHERE status = 1";
+        $current_year = date('Y');
+        $sql = "SELECT * FROM tb_sub_topic_self_evaluation WHERE status = 1
+        AND year = " . $current_year . "";
         $rs = $this->db_hr
             ->query($sql)
             ->result();
@@ -40,7 +44,9 @@ class ModelHR extends CI_Model
 
     function model_item_option_selfevaluation()
     {
-        $sql = "SELECT * FROM tb_item_option_self_evaluation WHERE status = 1";
+        $current_year = date('Y');
+        $sql = "SELECT * FROM tb_item_option_self_evaluation WHERE status = 1
+        AND year = " . $current_year . "";
         $rs = $this->db_hr
             ->query($sql)
             ->result();
@@ -49,7 +55,9 @@ class ModelHR extends CI_Model
 
     function model_subtopic_in_subtopic()
     {
-        $sql = "SELECT * FROM tb_subtopic_in_subtopic_self_evaluation WHERE status = 1";
+        $current_year = date('Y');
+        $sql = "SELECT * FROM tb_subtopic_in_subtopic_self_evaluation WHERE status = 1
+        AND year = " . $current_year . "";
         $rs = $this->db_hr
             ->query($sql)
             ->result();
@@ -58,7 +66,9 @@ class ModelHR extends CI_Model
 
     function model_item_option_is_subtopic_in_subtopic()
     {
-        $sql = "SELECT * FROM tb_item_option_is_subtopic_in_subtopic_self_evaluation WHERE status = 1";
+        $current_year = date('Y');
+        $sql = "SELECT * FROM tb_item_option_is_subtopic_in_subtopic_self_evaluation WHERE status = 1
+        AND year = " . $current_year . "";
         $rs = $this->db_hr
             ->query($sql)
             ->result();
@@ -67,9 +77,11 @@ class ModelHR extends CI_Model
 
     function model_item_option_is_subtopic_in_subtopic_division()
     {
+        $current_year = date('Y');
         $sql = "SELECT DISTINCT(division) AS division_option FROM tb_item_option_is_subtopic_in_subtopic_self_evaluation 
         WHERE status = 1
-        AND division != ' '";
+        AND division != ' '
+        AND year = " . $current_year . "";
         $rs = $this->db_hr
             ->query($sql)
             ->result();
@@ -227,6 +239,7 @@ class ModelHR extends CI_Model
         $rs = $this->db_hr
             ->query($sql)
             ->result();
+        // print_r($sql);
         return $rs;
     }
 
