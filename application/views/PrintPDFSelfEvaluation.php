@@ -33,7 +33,7 @@ $html .= '<body>';
 $html .= '<table>';
 $html .= '<tr>';
 $html .= '<th align="left">';
-$html .= '<img src="' . base_url("/img/images.png") . '" alt="" width="60px">' . nbs(3) . 'THAI NIPPON STEEL ENGINEERING & CONSTRUCTION CORPORATION LTD.';
+$html .= '<img src="img/images.png" alt="" width="60px">' . nbs(3) . 'THAI NIPPON STEEL ENGINEERING & CONSTRUCTION CORPORATION LTD.';
 $html .= '</th>';
 $html .= '</tr>';
 $html .= '<tr>';

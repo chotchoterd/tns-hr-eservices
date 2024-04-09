@@ -45,6 +45,7 @@ if (isset($_GET['s_status'])) {
 ?>
 <div class="container-fluid mt-3">
     <a href="<?php echo base_url('index.php/manage_Self_Evaluation/PageSelfEvaluationManage'); ?>" class="btn btn-primary btn_color_df" style="width: 300px !important;">Manage Topic & Sub-Item Self-Evaluation</a>
+    <a href="<?php echo base_url('index.php/manage_Self_Evaluation/ManageDivision'); ?>" class="btn btn-primary btn_color_df" style="width: 150px !important;">Manage Division</a>
 </div>
 <div class="container-fluid mt-3">
     <?php foreach ($item_is_sub_in_sub_id as $item_is_sub_in_sub_ids) {

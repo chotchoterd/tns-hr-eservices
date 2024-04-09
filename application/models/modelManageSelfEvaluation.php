@@ -348,4 +348,43 @@ class ModelManageSelfEvaluation extends CI_Model
         }
         return $rs;
     }
+
+    function model_division_data()
+    {
+        $sql = "SELECT * FROM tb_division";
+        $rs = $this->db_hr
+            ->query($sql)
+            ->result();
+        return $rs;
+    }
+
+    function model_division_data_id($id)
+    {
+        $sql = "SELECT * FROM tb_division WHERE id = '" . $id . "'";
+        $rs = $this->db_hr
+            ->query($sql)
+            ->result();
+        return $rs;
+    }
+
+    function model_Submit_division($division, $year, $status)
+    {
+        $rs = $this->db_hr
+            ->set("division", $division)
+            ->set("year", $year)
+            ->set("status", $status)
+            ->insert("tb_division");
+        return $rs;
+    }
+
+    function model_Update_division($up_id, $up_division, $up_year, $up_status)
+    {
+        $rs = $this->db_hr
+            ->set("division", $up_division)
+            ->set("year", $up_year)
+            ->set("status", $up_status)
+            ->where("id", $up_id)
+            ->update("tb_division");
+        return $rs;
+    }
 }

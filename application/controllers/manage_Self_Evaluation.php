@@ -432,4 +432,51 @@ class Manage_Self_Evaluation extends CI_Controller
         }
         $this->read_json($json);
     }
+
+    function ManageDivision()
+    {
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+        } else {
+            $id = "";
+        }
+        $division_data['division_data'] = $this->hr->model_division_data();
+        $division_data_id['division_data_id'] = $this->hr->model_division_data_id($id);
+        $title['title'] = 'Manage Division';
+        $this->load->view('include/header', $title);
+        $this->load->view('include/menu');
+        $this->load->view('ManageDivision', $division_data + $division_data_id);
+        $this->load->view('include/footer');
+    }
+
+    function Submit_division_ajax()
+    {
+        $division = $this->input->post('division');
+        $year = $this->input->post('year');
+        $status = $this->input->post('status');
+
+        $rs = $this->hr->model_Submit_division($division, $year, $status);
+        if ($rs) {
+            $json = '{"ok": true}';
+        } else {
+            $json = '{"ok": false}';
+        }
+        $this->read_json($json);
+    }
+
+    function Update_division_ajax()
+    {
+        $up_id = $this->input->post('up_id');
+        $up_division = $this->input->post('up_division');
+        $up_year = $this->input->post('up_year');
+        $up_status = $this->input->post('up_status');
+
+        $rs = $this->hr->model_Update_division($up_id, $up_division, $up_year, $up_status);
+        if ($rs) {
+            $json = '{"ok": true}';
+        } else {
+            $json = '{"ok": false}';
+        }
+        $this->read_json($json);
+    }
 }
