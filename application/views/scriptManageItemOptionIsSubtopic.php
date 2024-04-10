@@ -93,6 +93,49 @@
                 Update_Item_Option_is_Subtopic();
             }
         });
+
+        $('#btn_copy').click(function() {
+            let year_from = document.getElementById("year_from").value;
+            let year_to = document.getElementById("year_to").value;
+            if (year_from == year_to) {
+                let alert_copy = document.getElementById("alert_copy");
+                alert_copy.style.display = "block";
+            } else {
+                $.ajax({
+                    url: "<?php echo base_url('index.php/manage_Self_Evaluation/Item_Option_is_Subtopic_ajax') ?>",
+                    dataType: "json",
+                    type: "POST",
+                    data: {
+                        year_from: year_from,
+                        year_to: year_to
+                    },
+                    success: function(data) {
+                        Swal.fire({
+                            title: "Copied successfully",
+                            text: "",
+                            icon: "success",
+                            timer: 1500,
+                            showConfirmButton: false,
+                            allowOutsideClick: false,
+                            customClass: {
+                                title: 'custom-title-class'
+                            }
+                        }).then(function() {
+                            window.location = '<?php echo base_url('index.php/manage_Self_Evaluation/ManageItemOptionIsSubtopic'); ?>';
+                        });
+                    }
+                });
+            }
+        });
+
+        $('#year_from').change(function() {
+            let alert_copy = document.getElementById("alert_copy");
+            alert_copy.style.display = "none";
+        });
+        $('#year_to').change(function() {
+            let alert_copy = document.getElementById("alert_copy");
+            alert_copy.style.display = "none";
+        });
     });
 
     function Submit_Item_Option_is_Subtopic() {
@@ -192,8 +235,8 @@
         let s_status = document.getElementById("s_status").value;
 
         window.location = "?s_main_topic=" + encodeURIComponent(s_main_topic) + "&s_sub_topic=" + encodeURIComponent(s_sub_topic) + "&s_sub_in_sub=" + encodeURIComponent(s_sub_in_sub) +
-        "&s_sub_in_sub_details=" + encodeURIComponent(s_sub_in_sub_details) + "&s_division=" + encodeURIComponent(s_division) + "&s_sub_division=" + encodeURIComponent(s_sub_division) +
-        "&s_year=" + encodeURIComponent(s_year) + "&s_status=" + encodeURIComponent(s_status)
+            "&s_sub_in_sub_details=" + encodeURIComponent(s_sub_in_sub_details) + "&s_division=" + encodeURIComponent(s_division) + "&s_sub_division=" + encodeURIComponent(s_sub_division) +
+            "&s_year=" + encodeURIComponent(s_year) + "&s_status=" + encodeURIComponent(s_status)
     }
 
     function Clear_Search_Item_Option_Subtopic() {

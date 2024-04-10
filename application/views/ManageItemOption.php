@@ -31,6 +31,36 @@ if (isset($_GET['s_status'])) {
 <div class="container-fluid mt-3">
     <a href="<?php echo base_url('index.php/manage_Self_Evaluation/PageSelfEvaluationManage') ?>" class="btn btn-primary btn_color_df" style="width: 300px !important;">Manage Topic & Sub-Item Self-Evaluation</a>
 </div>
+<div class="container mt-3">
+    <table class="table table-form">
+        <tr>
+            <th class="topic-background mit border">Copy Item Option From</th>
+            <th class="topic-background mit border">
+                <select name="year_from" id="year_from" class="form-select">
+                    <?php
+                    $current_year = date('Y');
+                    for ($f = $current_year - 5; $f < $current_year + 5; $f++) { ?>
+                        <option value="<?php echo $f ?>" <?php if ($f == $current_year - 1) echo "selected"; ?>><?php echo $f ?></option>
+                    <?php } ?>
+                </select>
+            </th>
+            <th class="topic-background mit border">To</th>
+            <th class="topic-background mit border">
+                <select name="year_to" id="year_to" class="form-select">
+                    <?php
+                    $current_year = date('Y');
+                    for ($f = $current_year - 5; $f < $current_year + 5; $f++) { ?>
+                        <option value="<?php echo $f ?>" <?php if ($f == $current_year) echo "selected"; ?>><?php echo $f ?></option>
+                    <?php } ?>
+                </select>
+            </th>
+            <td class="topic-background mit border">
+                <button class="btn btn-primary btn_color_df" id="btn_copy">Copy</button>
+                <div class="mt-1 font-eigth red" id="alert_copy" style="display: none;">Copy unsuccessfully due to Year From equal Year To</div>
+            </td>
+        </tr>
+    </table>
+</div>
 <div class="container-fluid mt-3">
     <?php foreach ($item_option_data_id as $item_option_data_ids) {
         if (count($item_option_data_id) != 0) {

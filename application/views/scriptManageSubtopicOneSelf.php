@@ -105,6 +105,50 @@
             let alert_status = document.getElementById("alert_status");
             alert_status.style.display = "none";
         });
+
+        $('#btn_copy').click(function() {
+            let year_from = document.getElementById("year_from").value;
+            let year_to = document.getElementById("year_to").value;
+
+            if (year_from == year_to) {
+                let alert_copy = document.getElementById("alert_copy");
+                alert_copy.style.display = "block";
+            } else {
+                $.ajax({
+                    url: "<?php echo base_url('index.php/manage_Self_Evaluation/Copy_Sub_topicOneSelf_ajax') ?>",
+                    dataType: "json",
+                    type: "POST",
+                    data: {
+                        year_from: year_from,
+                        year_to: year_to
+                    },
+                    success: function(data) {
+                        Swal.fire({
+                            title: "Copied successfully",
+                            text: "",
+                            icon: "success",
+                            timer: 1500,
+                            showConfirmButton: false,
+                            allowOutsideClick: false,
+                            customClass: {
+                                title: 'custom-title-class'
+                            }
+                        }).then(function() {
+                            window.location = '<?php echo base_url('index.php/manage_Self_Evaluation/ManageSubtopicOneSelf'); ?>';
+                        });
+                    }
+                });
+            }
+        });
+
+        $('#year_from').change(function() {
+            let alert_copy = document.getElementById("alert_copy");
+            alert_copy.style.display = "none";
+        });
+        $('#year_to').change(function() {
+            let alert_copy = document.getElementById("alert_copy");
+            alert_copy.style.display = "none";
+        });
     });
 
     function Submit_ManageSub_topicOneSelf() {

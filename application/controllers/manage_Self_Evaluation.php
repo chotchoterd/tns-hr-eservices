@@ -513,4 +513,74 @@ class Manage_Self_Evaluation extends CI_Controller
         }
         $this->read_json($json);
     }
+
+    function copy_Item_Option_ajax()
+    {
+        $year_from = $this->input->post('year_from');
+        $year_to = $this->input->post('year_to');
+
+        $rs = $this->hr->model_copy_Item_Option($year_from, $year_to);
+        if ($rs) {
+            $json = '{"ok": true}';
+        } else {
+            $json = '{"ok": false}';
+        }
+        $this->read_json($json);
+    }
+
+    function Item_Option_is_Subtopic_ajax()
+    {
+        $year_from = $this->input->post('year_from');
+        $year_to = $this->input->post('year_to');
+
+        $rs = $this->hr->model_copy_Item_Option_is_Subtopic($year_from, $year_to);
+        if ($rs) {
+            $json = '{"ok": true}';
+        } else {
+            $json = '{"ok": false}';
+        }
+        $this->read_json($json);
+    }
+
+    function Copy_Sub_topicOneSelf_ajax()
+    {
+        $year_from = $this->input->post('year_from');
+        $year_to = $this->input->post('year_to');
+
+        $rs = $this->hr->model_Copy_Sub_topicOneSelf($year_from, $year_to);
+        if ($rs) {
+            $json = '{"ok": true}';
+        } else {
+            $json = '{"ok": false}';
+        }
+        $this->read_json($json);
+    }
+
+    function Copy_sub_in_sub_ajax()
+    {
+        $year_from = $this->input->post('year_from');
+        $year_to = $this->input->post('year_to');
+
+        $rs = $this->hr->model_Copy_sub_in_sub($year_from, $year_to);
+        if ($rs) {
+            $json = '{"ok": true}';
+        } else {
+            $json = '{"ok": false}';
+        }
+        $this->read_json($json);
+    }
+
+    function Copy_division()
+    {
+        $year_from = $this->input->post('year_from');
+        $year_to = $this->input->post('year_to');
+
+        $rs = $this->hr->model_Copy_division($year_from, $year_to);
+        if ($rs) {
+            $json = '{"ok": true}';
+        } else {
+            $json = '{"ok": false}';
+        }
+        $this->read_json($json);
+    }
 }

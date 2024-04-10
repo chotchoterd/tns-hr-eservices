@@ -50,9 +50,10 @@ if (isset($_GET['s_status'])) {
                     <?php } ?>
                 </select>
             </th>
-            <th class="topic-background mit border">
+            <td class="topic-background mit border">
                 <button class="btn btn-primary btn_color_df" id="btn_copy">Copy</button>
-            </th>
+                <div class="mt-1 font-eigth red" id="alert_copy" style="display: none;">Copy unsuccessfully due to Year From equal Year To</div>
+            </td>
         </tr>
     </table>
 </div>

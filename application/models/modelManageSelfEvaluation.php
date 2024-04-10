@@ -82,7 +82,8 @@ class ModelManageSelfEvaluation extends CI_Model
         } else {
             $sql .= " AND topic.year LIKE '%" . $s_year . "%'";
         }
-        $sql .= " AND topic.status LIKE '%" . $s_status . "%'
+        $sql .= " AND main.year = '" . $current_year . "'
+        AND topic.status LIKE '%" . $s_status . "%'
         ORDER BY topic.main_topic,topic.sub_topic ASC";
         $rs = $this->db_hr
             ->query($sql)
@@ -169,7 +170,9 @@ class ModelManageSelfEvaluation extends CI_Model
         } else {
             $sql .= " AND subtopic_in_subtopic.year LIKE '%" . $s_year . "%'";
         }
-        $sql .= " AND subtopic_in_subtopic.status LIKE '%" . $s_status . "%'";
+        $sql .= " AND sub_topic.year = '" . $current_year . "'
+        AND topic.year = '" . $current_year . "'
+        AND subtopic_in_subtopic.status LIKE '%" . $s_status . "%'";
         $rs = $this->db_hr
             ->query($sql)
             ->result();
@@ -239,10 +242,12 @@ class ModelManageSelfEvaluation extends CI_Model
         } else {
             $sql .= " AND item_option.year LIKE '%" . $s_year . "%'";
         }
-        $sql .= " AND item_option.status LIKE '%" . $s_status . "%'";
+        $sql .= " AND topic.year = '" . $current_year . "'
+        AND item_option.status LIKE '%" . $s_status . "%'";
         $rs = $this->db_hr
             ->query($sql)
             ->result();
+        // print_r($sql);
         return $rs;
     }
 
@@ -324,7 +329,10 @@ class ModelManageSelfEvaluation extends CI_Model
         } else {
             $sql .= " AND item_is_sub_in_sub.year LIKE '%" . $s_year . "%'";
         }
-        $sql .= " AND item_is_sub_in_sub.status LIKE '%" . $s_status . "%'";
+        $sql .= " AND topic.year = '" . $current_year . "'
+        AND sub_in_sub.year = '" . $current_year . "'
+        AND item_is_sub_in_sub.status LIKE '%" . $s_status . "%'
+        ORDER BY item_is_sub_in_sub.subtopic_in_subtopic,item_is_sub_in_sub.id ASC";
         $rs = $this->db_hr
             ->query($sql)
             ->result();
@@ -404,6 +412,7 @@ class ModelManageSelfEvaluation extends CI_Model
             ->set("division", $division)
             ->set("year", $year)
             ->set("status", $status)
+            ->set("modified_date", date('Y-m-d H:i:s'))
             ->insert("tb_division");
         return $rs;
     }
@@ -414,6 +423,7 @@ class ModelManageSelfEvaluation extends CI_Model
             ->set("division", $up_division)
             ->set("year", $up_year)
             ->set("status", $up_status)
+            ->set("modified_date", date('Y-m-d H:i:s'))
             ->where("id", $up_id)
             ->update("tb_division");
         return $rs;
@@ -428,6 +438,66 @@ class ModelManageSelfEvaluation extends CI_Model
             FROM tb_topic_self_evaluation
             WHERE year = ?
             AND status = 1';
+        $this->db_hr->query($sql, array($year_to, $current_year, $year_from));
+    }
+
+    function model_copy_Item_Option($year_from, $year_to)
+    {
+        $current_year = date('Y-m-d H:i:s');
+        $sql = 'INSERT INTO tb_item_option_self_evaluation 
+            (main_topic, sub_topic, item_option, status, year, modified_date)
+            SELECT main_topic, sub_topic, item_option, status, ?, ?
+            FROM tb_item_option_self_evaluation
+            WHERE year = ?
+            AND status = 1';
+        $this->db_hr->query($sql, array($year_to, $current_year, $year_from));
+    }
+
+    function model_copy_Item_Option_is_Subtopic($year_from, $year_to)
+    {
+        $current_year = date('Y-m-d H:i:s');
+        $sql = 'INSERT INTO tb_item_option_is_subtopic_in_subtopic_self_evaluation 
+            (main_topic, sub_topic,subtopic_in_subtopic, subtopic_in_subtopic_text, division, sub_division, status, year, modified_date)
+            SELECT main_topic, sub_topic,subtopic_in_subtopic, subtopic_in_subtopic_text, division, sub_division, status, ?, ?
+            FROM tb_item_option_is_subtopic_in_subtopic_self_evaluation
+            WHERE year = ?
+            AND status = 1';
+        $this->db_hr->query($sql, array($year_to, $current_year, $year_from));
+    }
+
+    function model_Copy_Sub_topicOneSelf($year_from, $year_to)
+    {
+        $current_year = date('Y-m-d H:i:s');
+        $sql = 'INSERT INTO tb_sub_topic_self_evaluation 
+            (main_topic, sub_topic, sub_topic_text, status, year, modified_date)
+            SELECT main_topic, sub_topic, sub_topic_text, status, ?, ?
+            FROM tb_sub_topic_self_evaluation
+            WHERE year = ?
+            AND status = 1';
+        $this->db_hr->query($sql, array($year_to, $current_year, $year_from));
+    }
+
+    function model_Copy_sub_in_sub($year_from, $year_to)
+    {
+        $current_year = date('Y-m-d H:i:s');
+        $sql = 'INSERT INTO tb_subtopic_in_subtopic_self_evaluation 
+            (main_topic, sub_topic, subtopic_in_subtopic, subtopic_in_subtopic_text, remark, status, year, modified_date)
+            SELECT main_topic, sub_topic, subtopic_in_subtopic, subtopic_in_subtopic_text, remark, status, ?, ?
+            FROM tb_subtopic_in_subtopic_self_evaluation
+            WHERE year = ?
+            AND status = 1';
+        $this->db_hr->query($sql, array($year_to, $current_year, $year_from));
+    }
+
+    function model_Copy_division($year_from, $year_to)
+    {
+        $current_year = date('Y-m-d H:i:s');
+        $sql = 'INSERT INTO tb_division 
+                (division, status, year, modified_date)
+                SELECT division, status, ?, ?
+                FROM tb_division
+                WHERE year = ?
+                AND status = 1';
         $this->db_hr->query($sql, array($year_to, $current_year, $year_from));
     }
 }
