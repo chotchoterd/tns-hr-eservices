@@ -116,4 +116,16 @@
             }
         });
     }
+
+    function Search_division() {
+        let s_division = document.getElementById("s_division").value;
+        let s_year = document.getElementById("s_year").value;
+        let s_status = document.getElementById("s_status").value;
+
+        window.location = "?s_division=" + encodeURIComponent(s_division) + "&s_year=" + encodeURIComponent(s_year) + "&s_status=" + encodeURIComponent(s_status);
+    }
+
+    function Clear_Search_division() {
+        window.location = "<?php echo base_url('index.php/manage_Self_Evaluation/ManageDivision') ?>";
+    }
 </script>

@@ -49,16 +49,35 @@ if (isset($_GET['s_year'])) {
             <th colspan="8" class="topic-background mit border h1">Manage Subtopics of subtopics of the Main Topic Self-Evaluation</th>
         </tr>
         <tr>
+            <th class="border topic-background mit">Year</th>
             <th class="border topic-background mit" style="width: 150px;">Main Topic</th>
             <th class="border topic-background mit" style="width: 150px;">Sub-Topic</th>
             <th class="border topic-background mit" style="width: 150px;">Sub-Topic in Sub-Topic</th>
             <th class="border topic-background mit">Sub-Topic in Sub-Topic Details</th>
             <th class="border topic-background mit">Remark</th>
-            <th class="border topic-background mit">Year</th>
             <th class="border topic-background mit" style="width: 150px;">Status</th>
             <th class="border topic-background mit" style="width: 100px;">Action</th>
         </tr>
         <tr>
+            <td class="border mit-v td_border">
+                <?php if ($update_indicator == 1) { ?>
+                    <select name="up_year" id="up_year" class="form-select">
+                        <?php
+                        $current_year = date('Y');
+                        for ($y = $current_year - 5; $y < $current_year + 5; $y++) { ?>
+                            <option class="mit" value="<?php echo $y; ?>" <?php if ($y == $subtopic_in_subtopic_self_ids->year) echo "selected"; ?>><?php echo $y; ?></option>
+                        <?php } ?>
+                    </select>
+                <?php } else { ?>
+                    <select name="year" id="year" class="form-select">
+                        <?php
+                        $current_year = date('Y');
+                        for ($y = $current_year - 5; $y < $current_year + 5; $y++) { ?>
+                            <option class="mit" value="<?php echo $y; ?>" <?php if ($y == $current_year) echo "selected"; ?>><?php echo $y; ?></option>
+                        <?php } ?>
+                    </select>
+                <?php } ?>
+            </td>
             <td class="border mit-v td_border">
                 <?php if ($update_indicator == 1) { ?>
                     <input type="hidden" name="up_id" id="up_id" value="<?php echo $subtopic_in_subtopic_self_ids->id ?>">
@@ -114,8 +133,7 @@ if (isset($_GET['s_year'])) {
                     <div class="form-floating">
                         <textarea name="up_sub_in_sub_details" id="up_sub_in_sub_details" class="form-control h-textarea" style="height: 100px;"><?php echo $subtopic_in_subtopic_self_ids->subtopic_in_subtopic_text ?></textarea>
                         <label for="" class="font-twelve">
-                            Please fill in Sub-Topic in Sub-Topic Details
-                            <span class="red font-twelve">*</span>
+                            Please fill in <span class="red font-twelve">*</span>
                         </label>
                     </div>
                     <div id="alert_sub_topic_in_sub_topic_details" class="mt-1 font-eigth red" style="display: none;">Please fill in Sub-Topic in Sub-Topic Details !</div>
@@ -123,8 +141,7 @@ if (isset($_GET['s_year'])) {
                     <div class="form-floating">
                         <textarea name="sub_in_sub_details" id="sub_in_sub_details" class="form-control h-textarea" style="height: 100px;"></textarea>
                         <label for="" class="font-twelve">
-                            Please fill in Sub-Topic in Sub-Topic Details
-                            <span class="red font-twelve">*</span>
+                            Please fill in <span class="red font-twelve">*</span>
                         </label>
                     </div>
                     <div id="alert_sub_topic_in_sub_topic_details" class="mt-1 font-eigth red" style="display: none;">Please fill in Sub-Topic in Sub-Topic Details !</div>
@@ -135,25 +152,6 @@ if (isset($_GET['s_year'])) {
                     <textarea name="up_remark" id="up_remark" class="form-control h-textarea" style="height: 100px;"><?php echo $subtopic_in_subtopic_self_ids->remark ?></textarea>
                 <?php } else { ?>
                     <textarea name="remark" id="remark" class="form-control h-textarea" style="height: 100px;"></textarea>
-                <?php } ?>
-            </td>
-            <td class="border mit-v td_border">
-                <?php if ($update_indicator == 1) { ?>
-                    <select name="up_year" id="up_year" class="form-select">
-                        <?php
-                        $current_year = date('Y');
-                        for ($y = $current_year - 5; $y < $current_year + 5; $y++) { ?>
-                            <option value="<?php echo $y; ?>" <?php if ($y == $subtopic_in_subtopic_self_ids->year) echo "selected"; ?>><?php echo $y; ?></option>
-                        <?php } ?>
-                    </select>
-                <?php } else { ?>
-                    <select name="year" id="year" class="form-select">
-                        <?php
-                        $current_year = date('Y');
-                        for ($y = $current_year - 5; $y < $current_year + 5; $y++) { ?>
-                            <option value="<?php echo $y; ?>" <?php if ($y == $current_year) echo "selected"; ?>><?php echo $y; ?></option>
-                        <?php } ?>
-                    </select>
                 <?php } ?>
             </td>
             <td class="border mit-v td_border">
@@ -254,6 +252,7 @@ if (isset($_GET['s_year'])) {
             <th class="border topic-background mit">Sub-Topic in Sub-Topic</th>
             <th class="border topic-background mit">Sub-Topic in Sub-Topic Details</th>
             <th class="border topic-background mit">Remark</th>
+            <th class="border topic-background mit">Year</th>
             <th class="border topic-background mit">Status</th>
             <th class="border topic-background mit">Action</th>
         </tr>
@@ -275,6 +274,9 @@ if (isset($_GET['s_year'])) {
                 </td>
                 <td class="border">
                     <?php echo $subtopic_in_subtopic_selfs->remark; ?>
+                </td>
+                <td class="border mit">
+                    <?php echo $subtopic_in_subtopic_selfs->year; ?>
                 </td>
                 <td class="border mit">
                     <?php if ($subtopic_in_subtopic_selfs->status == 1) {

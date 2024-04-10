@@ -117,6 +117,11 @@ class Manage_Self_Evaluation extends CI_Controller
         } else {
             $s_sub_topic_details = '';
         }
+        if (isset($_GET['s_year'])) {
+            $s_year = $_GET['s_year'];
+        } else {
+            $s_year = date('Y');
+        }
         if (isset($_GET['s_status'])) {
             $s_status = $_GET['s_status'];
         } else {
@@ -124,7 +129,7 @@ class Manage_Self_Evaluation extends CI_Controller
         }
         $main_topic_status_1['main_topic_status_1'] = $this->hr->model_main_topic_status_1();
         $sub_topic_self_id['sub_topic_self_id'] = $this->hr->model_sub_topic_self_id($id);
-        $sub_topic_self_data['sub_topic_self_data'] = $this->hr->model_sub_topic_self_data($s_main_topic, $s_sub_topic, $s_sub_topic_details, $s_status);
+        $sub_topic_self_data['sub_topic_self_data'] = $this->hr->model_sub_topic_self_data($s_main_topic, $s_sub_topic, $s_sub_topic_details, $s_year, $s_status);
         $title['title'] = 'Manage Subtopics of the Main Topic Self-Evaluation';
         $this->load->view('include/header', $title);
         $this->load->view('include/menu');
@@ -440,7 +445,22 @@ class Manage_Self_Evaluation extends CI_Controller
         } else {
             $id = "";
         }
-        $division_data['division_data'] = $this->hr->model_division_data();
+        if (isset($_GET['s_division'])) {
+            $s_division = $_GET['s_division'];
+        } else {
+            $s_division = "";
+        }
+        if (isset($_GET['s_year'])) {
+            $s_year = $_GET['s_year'];
+        } else {
+            $s_year = date('Y');
+        }
+        if (isset($_GET['s_status'])) {
+            $s_status = $_GET['s_status'];
+        } else {
+            $s_status = "";
+        }
+        $division_data['division_data'] = $this->hr->model_division_data($s_division, $s_year, $s_status);
         $division_data_id['division_data_id'] = $this->hr->model_division_data_id($id);
         $title['title'] = 'Manage Division';
         $this->load->view('include/header', $title);
@@ -472,6 +492,20 @@ class Manage_Self_Evaluation extends CI_Controller
         $up_status = $this->input->post('up_status');
 
         $rs = $this->hr->model_Update_division($up_id, $up_division, $up_year, $up_status);
+        if ($rs) {
+            $json = '{"ok": true}';
+        } else {
+            $json = '{"ok": false}';
+        }
+        $this->read_json($json);
+    }
+
+    function copy_Main_Topic_ajax()
+    {
+        $year_from = $this->input->post('year_from');
+        $year_to = $this->input->post('year_to');
+
+        $rs = $this->hr->model_copy_Main_Topic($year_from, $year_to);
         if ($rs) {
             $json = '{"ok": true}';
         } else {

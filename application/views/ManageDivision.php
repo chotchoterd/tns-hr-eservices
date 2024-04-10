@@ -2,6 +2,21 @@
 $n = 0;
 $update_indicator = 0;
 include "scriptManageDivision.php";
+if (isset($_GET['s_division'])) {
+    $s_division = $_GET['s_division'];
+} else {
+    $s_division = "";
+}
+if (isset($_GET['s_year'])) {
+    $s_year = $_GET['s_year'];
+} else {
+    $s_year = date('Y');
+}
+if (isset($_GET['s_status'])) {
+    $s_status = $_GET['s_status'];
+} else {
+    $s_status = "";
+}
 ?>
 <div class="container-fluid mt-3">
     <a href="<?php echo base_url('index.php/manage_Self_Evaluation/ManageItemOptionIsSubtopic'); ?>" class="btn btn-primary btn_color_df" style="width: 250px !important;">Manage Item-Option is Subtopic</a>
@@ -20,22 +35,12 @@ include "scriptManageDivision.php";
             <th colspan="4" class="topic-background mit border h1">Manage Division</th>
         </tr>
         <tr>
-            <th class="border topic-background mit">Division</th>
             <th class="border topic-background mit">Year</th>
+            <th class="border topic-background mit">Division</th>
             <th class="border topic-background mit">Status</th>
             <th class="border topic-background mit">Action</th>
         </tr>
         <tr>
-            <td class="border mit-v td_border">
-                <?php if ($update_indicator == 1) { ?>
-                    <input type="hidden" name="up_id" id="up_id" value="<?php echo $division_data_ids->id ?>">
-                    <input id="up_division" name="up_division" type="text" class="form-control" placeholder="Please fill in Division !" value="<?php echo $division_data_ids->division ?>">
-                    <div class="mt-1 font-eigth red" id="alert_division" style="display: none;">Please fill in Division !</div>
-                <?php } else { ?>
-                    <input id="division" name="division" type="text" class="form-control" placeholder="Please fill in Division !">
-                    <div class="mt-1 font-eigth red" id="alert_division" style="display: none;">Please fill in Division !</div>
-                <?php } ?>
-            </td>
             <td class="border mit-v td_border">
                 <?php if ($update_indicator == 1) { ?>
                     <select name="up_year" id="up_year" class="form-select">
@@ -53,6 +58,16 @@ include "scriptManageDivision.php";
                             <option class="mit" value="<?php echo $y; ?>" <?php if ($y == $current_year) echo "selected"; ?>><?php echo $y; ?></option>
                         <?php } ?>
                     </select>
+                <?php } ?>
+            </td>
+            <td class="border mit-v td_border">
+                <?php if ($update_indicator == 1) { ?>
+                    <input type="hidden" name="up_id" id="up_id" value="<?php echo $division_data_ids->id ?>">
+                    <input id="up_division" name="up_division" type="text" class="form-control" placeholder="Please fill in Division !" value="<?php echo $division_data_ids->division ?>">
+                    <div class="mt-1 font-eigth red" id="alert_division" style="display: none;">Please fill in Division !</div>
+                <?php } else { ?>
+                    <input id="division" name="division" type="text" class="form-control" placeholder="Please fill in Division !">
+                    <div class="mt-1 font-eigth red" id="alert_division" style="display: none;">Please fill in Division !</div>
                 <?php } ?>
             </td>
             <td class="border mit-v td_border">
@@ -88,24 +103,24 @@ include "scriptManageDivision.php";
         <tr>
             <th class="border-0" style="width: 300px;">
                 Division :
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" id="s_division" name="s_division" value="<?php echo $s_division ?>">
             </th>
             <th class="border-0" style="width: 300px;">
                 Year :
-                <select name="" id="" class="form-select">
+                <select name="s_year" id="s_year" class="form-select">
                     <?php
                     $current_year = date('Y');
                     for ($y = $current_year - 5; $y < $current_year + 5; $y++) { ?>
-                        <option class="mit" value="<?php echo $y; ?>" <?php if ($y == $current_year) echo "selected"; ?>><?php echo $y; ?></option>
+                        <option class="mit" value="<?php echo $y; ?>" <?php if ($y == $s_year) echo "selected"; ?>><?php echo $y; ?></option>
                     <?php } ?>
                 </select>
             </th>
             <th class="border-0" style="width: 300px;">
                 Status :
-                <select name="" id="" class="form-select">
+                <select name="s_status" id="s_status" class="form-select">
                     <option value="" class="mit">- Select -</option>
-                    <option value="1">Active</option>
-                    <option value="0">Inactive</option>
+                    <option value="1" <?php if ($s_status == "1") echo "selected"; ?>>Active</option>
+                    <option value="0" <?php if ($s_status == "0") echo "selected"; ?>>Inactive</option>
                 </select>
             </th>
         </tr>
@@ -113,8 +128,8 @@ include "scriptManageDivision.php";
             <th class="border-0"></th>
             <th class="border-0"></th>
             <th class="border-0 text-end">
-                <button class="btn btn-primary btn_color_df">Search</button>
-                <button class="btn btn-primary btn_color_df">Clear</button>
+                <button class="btn btn-primary btn_color_df" onclick="Search_division();">Search</button>
+                <button class="btn btn-primary btn_color_df" onclick="Clear_Search_division();">Clear</button>
             </th>
         </tr>
     </table>

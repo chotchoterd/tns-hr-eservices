@@ -28,6 +28,35 @@ if (isset($_GET['s_status'])) {
     <a href="<?php echo base_url('index.php/manage_Self_Evaluation/PageSelfEvaluationManage'); ?>" class="btn btn-primary btn_color_df" style="width: 300px !important;">Manage Topic & Sub-Item Self-Evaluation</a>
 </div>
 <div class="container mt-3">
+    <table class="table table-form">
+        <tr>
+            <th class="topic-background mit border">Copy Main Topic From</th>
+            <th class="topic-background mit border">
+                <select name="year_from" id="year_from" class="form-select">
+                    <?php
+                    $current_year = date('Y');
+                    for ($f = $current_year - 5; $f < $current_year + 5; $f++) { ?>
+                        <option value="<?php echo $f ?>" <?php if ($f == $current_year - 1) echo "selected"; ?>><?php echo $f ?></option>
+                    <?php } ?>
+                </select>
+            </th>
+            <th class="topic-background mit border">To</th>
+            <th class="topic-background mit border">
+                <select name="year_to" id="year_to" class="form-select">
+                    <?php
+                    $current_year = date('Y');
+                    for ($f = $current_year - 5; $f < $current_year + 5; $f++) { ?>
+                        <option value="<?php echo $f ?>" <?php if ($f == $current_year) echo "selected"; ?>><?php echo $f ?></option>
+                    <?php } ?>
+                </select>
+            </th>
+            <th class="topic-background mit border">
+                <button class="btn btn-primary btn_color_df" id="btn_copy">Copy</button>
+            </th>
+        </tr>
+    </table>
+</div>
+<div class="container mt-3">
     <?php foreach ($main_topic_data_id as $main_topic_data_ids) {
         if (count($main_topic_data_id) != 0) {
             $update_indicator = 1;
@@ -40,13 +69,32 @@ if (isset($_GET['s_status'])) {
             <th colspan="5" class="topic-background mit border h1">Manage Main Topic Self-Evaluation</th>
         </tr>
         <tr>
+            <th class="border topic-background mit">Year</th>
             <th class="border topic-background mit" style="width: 150px;">Main Topic</th>
             <th class="border topic-background mit">Topic</th>
-            <th class="border topic-background mit">Year</th>
             <th class="border topic-background mit">Status</th>
             <th class="border topic-background mit">Action</th>
         </tr>
         <tr>
+            <td class="border mit-v td_border">
+                <?php if ($update_indicator == 1) { ?>
+                    <select name="up_year" id="up_year" class="form-select">
+                        <?php
+                        $current_year = date('Y');
+                        for ($q = $current_year - 5; $q < $current_year + 5; $q++) { ?>
+                            <option class="mit" value="<?php echo $q; ?>" <?php if ($q == $main_topic_data_ids->year) echo "selected"; ?>><?php echo $q; ?></option>
+                        <?php } ?>
+                    </select>
+                <?php } else { ?>
+                    <select name="year" id="year" class="form-select">
+                        <?php
+                        $current_year = date('Y');
+                        for ($q = $current_year - 5; $q < $current_year + 5; $q++) { ?>
+                            <option class="mit" value="<?php echo $q; ?>" <?php if ($q == $current_year) echo "selected"; ?>><?php echo $q; ?></option>
+                        <?php } ?>
+                    </select>
+                <?php } ?>
+            </td>
             <td class="border mit-v td_border">
                 <?php if ($update_indicator == 1) { ?>
                     <input type="hidden" name="up_id" id="up_id" value="<?php echo $main_topic_data_ids->id; ?>">
@@ -78,25 +126,6 @@ if (isset($_GET['s_status'])) {
                         </label>
                     </div>
                     <div id="alert_topic" class="mt-1 font-eigth red" style="display: none;">Please fill in Topic !</div>
-                <?php } ?>
-            </td>
-            <td class="border mit-v td_border">
-                <?php if ($update_indicator == 1) { ?>
-                    <select name="up_year" id="up_year" class="form-select">
-                        <?php
-                        $current_year = date('Y');
-                        for ($q = $current_year - 5; $q < $current_year + 5; $q++) { ?>
-                            <option value="<?php echo $q; ?>" <?php if ($q == $main_topic_data_ids->year) echo "selected"; ?>><?php echo $q; ?></option>
-                        <?php } ?>
-                    </select>
-                <?php } else { ?>
-                    <select name="year" id="year" class="form-select">
-                        <?php
-                        $current_year = date('Y');
-                        for ($q = $current_year - 5; $q < $current_year + 5; $q++) { ?>
-                            <option value="<?php echo $q; ?>" <?php if ($q == $current_year) echo "selected"; ?>><?php echo $q; ?></option>
-                        <?php } ?>
-                    </select>
                 <?php } ?>
             </td>
             <td class="border mit-v td_border">

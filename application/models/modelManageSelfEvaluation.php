@@ -11,10 +11,15 @@ class ModelManageSelfEvaluation extends CI_Model
 
     function model_main_topic_data($s_main_topic, $s_topic, $s_year, $s_status)
     {
+        $current_year = date('Y');
         $sql = "SELECT * FROM tb_topic_self_evaluation WHERE topic LIKE '%" . $s_topic . "%'
-        AND main_topic LIKE '%" . $s_main_topic . "%'
-        AND year LIKE '%" . $s_year . "%'
-        AND status LIKE '%" . $s_status . "%'";
+        AND main_topic LIKE '%" . $s_main_topic . "%'";
+        if ($s_year == "") {
+            $sql .= " AND year = '" . $current_year . "'";
+        } else {
+            $sql .= " AND year LIKE '%" . $s_year . "%'";
+        }
+        $sql .= " AND status LIKE '%" . $s_status . "%'";
         $rs = $this->db_hr
             ->query($sql)
             ->result();
@@ -49,7 +54,7 @@ class ModelManageSelfEvaluation extends CI_Model
 
     function model_Update_Main_Topic($up_id, $up_main_topic, $up_topic, $up_year, $up_status)
     {
-        $this->db_hr->where("main_topic", $up_main_topic)->where('id !=', $up_id)->where('status != 0');
+        $this->db_hr->where("main_topic", $up_main_topic)->where('id !=', $up_id)->where('status != 0')->where('year =', $up_year);
         $check_tb_topic_self = $this->db_hr->get("tb_topic_self_evaluation");
         if ($check_tb_topic_self->num_rows() == 0) {
             $rs = $this->db_hr
@@ -64,14 +69,20 @@ class ModelManageSelfEvaluation extends CI_Model
         return $rs;
     }
 
-    function model_sub_topic_self_data($s_main_topic, $s_sub_topic, $s_sub_topic_details, $s_status)
+    function model_sub_topic_self_data($s_main_topic, $s_sub_topic, $s_sub_topic_details, $s_year, $s_status)
     {
+        $current_year = date('Y');
         $sql = "SELECT main.topic AS main_text, topic.* FROM tb_sub_topic_self_evaluation topic
         LEFT JOIN tb_topic_self_evaluation main ON (main.main_topic = topic.main_topic)
         WHERE topic.main_topic LIKE '%" . $s_main_topic . "%'
         AND topic.sub_topic LIKE '%" . $s_sub_topic . "%'
-        AND topic.sub_topic_text LIKE '%" . $s_sub_topic_details . "%'
-        AND topic.status LIKE '%" . $s_status . "%'
+        AND topic.sub_topic_text LIKE '%" . $s_sub_topic_details . "%'";
+        if ($s_year == "") {
+            $sql .= " AND topic.year = '" . $current_year . "'";
+        } else {
+            $sql .= " AND topic.year LIKE '%" . $s_year . "%'";
+        }
+        $sql .= " AND topic.status LIKE '%" . $s_status . "%'
         ORDER BY topic.main_topic,topic.sub_topic ASC";
         $rs = $this->db_hr
             ->query($sql)
@@ -90,7 +101,9 @@ class ModelManageSelfEvaluation extends CI_Model
 
     function model_main_topic_status_1()
     {
-        $sql = "SELECT * FROM tb_topic_self_evaluation WHERE status = 1";
+        $current_year = date('Y');
+        $sql = "SELECT * FROM tb_topic_self_evaluation WHERE status = 1
+        AND year = '" . $current_year . "'";
         $rs = $this->db_hr
             ->query($sql)
             ->result();
@@ -143,18 +156,24 @@ class ModelManageSelfEvaluation extends CI_Model
 
     function model_subtopic_in_subtopic_self($s_main_topic, $s_sub_topic, $s_sub_in_sub, $s_sub_in_sub_details, $s_status, $s_year)
     {
+        $current_year = date('Y');
         $sql = "SELECT topic.topic AS t_topic, sub_topic.sub_topic_text AS s_sub_topic, subtopic_in_subtopic.* FROM tb_subtopic_in_subtopic_self_evaluation subtopic_in_subtopic
         LEFT JOIN tb_sub_topic_self_evaluation sub_topic ON (sub_topic.sub_topic = subtopic_in_subtopic.sub_topic)
-        LEFT JOIN tb_topic_self_evaluation topic ON (topic.main_topic = sub_topic.main_topic)
+        LEFT JOIN tb_topic_self_evaluation topic ON (topic.main_topic = subtopic_in_subtopic.main_topic)
         WHERE subtopic_in_subtopic.main_topic LIKE '%" . $s_main_topic . "%'
         AND subtopic_in_subtopic.sub_topic LIKE '%" . $s_sub_topic . "%'
         AND subtopic_in_subtopic.subtopic_in_subtopic LIKE '%" . $s_sub_in_sub . "%'
-        AND subtopic_in_subtopic.subtopic_in_subtopic_text LIKE '%" . $s_sub_in_sub_details . "%'
-        AND subtopic_in_subtopic.status LIKE '%" . $s_status . "%'
-        AND subtopic_in_subtopic.year LIKE '%" . $s_year . "%'";
+        AND subtopic_in_subtopic.subtopic_in_subtopic_text LIKE '%" . $s_sub_in_sub_details . "%'";
+        if ($s_year == "") {
+            $sql .= " AND subtopic_in_subtopic.year = '" . $current_year . "'";
+        } else {
+            $sql .= " AND subtopic_in_subtopic.year LIKE '%" . $s_year . "%'";
+        }
+        $sql .= " AND subtopic_in_subtopic.status LIKE '%" . $s_status . "%'";
         $rs = $this->db_hr
             ->query($sql)
             ->result();
+        // print_r($sql);
         return $rs;
     }
 
@@ -208,14 +227,19 @@ class ModelManageSelfEvaluation extends CI_Model
 
     function model_item_option_data($s_main_topic, $s_sub_topic, $s_item_option, $s_year, $s_status)
     {
+        $current_year = date('Y');
         $sql = "SELECT topic.topic AS t_topic, sub_topic.sub_topic_text AS s_sub_topic, item_option.* FROM tb_item_option_self_evaluation item_option
         LEFT JOIN tb_sub_topic_self_evaluation sub_topic ON (sub_topic.sub_topic = item_option.sub_topic)
-        LEFT JOIN tb_topic_self_evaluation topic ON (topic.main_topic = sub_topic.main_topic)
+        LEFT JOIN tb_topic_self_evaluation topic ON (topic.main_topic = item_option.main_topic)
         WHERE item_option.main_topic LIKE '%" . $s_main_topic . "%'
         AND item_option.sub_topic LIKE '%" . $s_sub_topic . "%'
-        AND item_option.item_option LIKE '%" . $s_item_option . "%'
-        AND item_option.year LIKE '%" . $s_year . "%'
-        AND item_option.status LIKE '%" . $s_status . "%'";
+        AND item_option.item_option LIKE '%" . $s_item_option . "%'";
+        if ($s_year == "") {
+            $sql .= " AND item_option.year = '" . $current_year . "'";
+        } else {
+            $sql .= " AND item_option.year LIKE '%" . $s_year . "%'";
+        }
+        $sql .= " AND item_option.status LIKE '%" . $s_status . "%'";
         $rs = $this->db_hr
             ->query($sql)
             ->result();
@@ -278,9 +302,10 @@ class ModelManageSelfEvaluation extends CI_Model
 
     function model_item_is_sub_in_sub($s_main_topic, $s_sub_topic, $s_sub_in_sub, $s_sub_in_sub_details, $s_division, $s_sub_division, $s_year, $s_status)
     {
+        $current_year = date('Y');
         $sql = "SELECT topic.topic AS t_topic, sub_topic.sub_topic_text AS s_sub_topic, sub_in_sub.subtopic_in_subtopic_text AS t_sub_in_sub, item_is_sub_in_sub.* FROM tb_item_option_is_subtopic_in_subtopic_self_evaluation item_is_sub_in_sub
         LEFT JOIN tb_sub_topic_self_evaluation sub_topic ON (sub_topic.sub_topic = item_is_sub_in_sub.sub_topic)
-        LEFT JOIN tb_topic_self_evaluation topic ON (topic.main_topic = sub_topic.main_topic)
+        LEFT JOIN tb_topic_self_evaluation topic ON (topic.main_topic = item_is_sub_in_sub.main_topic)
         LEFT JOIN tb_subtopic_in_subtopic_self_evaluation sub_in_sub ON (sub_in_sub.subtopic_in_subtopic = item_is_sub_in_sub.subtopic_in_subtopic)
         WHERE item_is_sub_in_sub.main_topic LIKE '%" . $s_main_topic . "%'
         AND item_is_sub_in_sub.sub_topic LIKE '%" . $s_sub_topic . "%'
@@ -294,8 +319,12 @@ class ModelManageSelfEvaluation extends CI_Model
         if ($s_sub_division != "") {
             $sql .= " AND item_is_sub_in_sub.sub_division LIKE '%" . $s_sub_division . "%'";
         }
-        $sql .= " AND item_is_sub_in_sub.year LIKE '%" . $s_year . "%'
-        AND item_is_sub_in_sub.status LIKE '%" . $s_status . "%'";
+        if ($s_year == "") {
+            $sql .= " AND item_is_sub_in_sub.year = '" . $current_year . "'";
+        } else {
+            $sql .= " AND item_is_sub_in_sub.year LIKE '%" . $s_year . "%'";
+        }
+        $sql .= " AND item_is_sub_in_sub.status LIKE '%" . $s_status . "%'";
         $rs = $this->db_hr
             ->query($sql)
             ->result();
@@ -349,9 +378,11 @@ class ModelManageSelfEvaluation extends CI_Model
         return $rs;
     }
 
-    function model_division_data()
+    function model_division_data($s_division, $s_year, $s_status)
     {
-        $sql = "SELECT * FROM tb_division";
+        $sql = "SELECT * FROM tb_division WHERE division LIKE '%" . $s_division . "%'
+        AND year LIKE '%" . $s_year . "%'
+        AND status LIKE '%" . $s_status . "%'";
         $rs = $this->db_hr
             ->query($sql)
             ->result();
@@ -386,5 +417,17 @@ class ModelManageSelfEvaluation extends CI_Model
             ->where("id", $up_id)
             ->update("tb_division");
         return $rs;
+    }
+
+    function model_copy_Main_Topic($year_from, $year_to)
+    {
+        $current_year = date('Y-m-d H:i:s');
+        $sql = 'INSERT INTO tb_topic_self_evaluation 
+            (topic, main_topic, status, year, modified_date)
+            SELECT topic, main_topic, status, ?, ?
+            FROM tb_topic_self_evaluation
+            WHERE year = ?
+            AND status = 1';
+        $this->db_hr->query($sql, array($year_to, $current_year, $year_from));
     }
 }

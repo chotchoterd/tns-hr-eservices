@@ -195,10 +195,11 @@
         let s_main_topic = document.getElementById("s_main_topic").value;
         let s_sub_topic = document.getElementById("s_sub_topic").value;
         let s_sub_topic_details = document.getElementById("s_sub_topic_details").value;
+        let s_year = document.getElementById("s_year").value;
         let s_status = document.getElementById("s_status").value;
 
         window.location = "?s_main_topic=" + encodeURIComponent(s_main_topic) + "&s_sub_topic=" + encodeURIComponent(s_sub_topic) +
-            "&s_sub_topic_details=" + encodeURIComponent(s_sub_topic_details) + "&s_status=" + encodeURIComponent(s_status);
+            "&s_sub_topic_details=" + encodeURIComponent(s_sub_topic_details) + "&s_year=" + encodeURIComponent(s_year) + "&s_status=" + encodeURIComponent(s_status);
     }
 
     function Clear_Search_Subtopics_Main_Topic() {

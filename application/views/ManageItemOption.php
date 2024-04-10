@@ -44,14 +44,33 @@ if (isset($_GET['s_status'])) {
             <th colspan="6" class="topic-background mit border h1">Manage Item Option</th>
         </tr>
         <tr>
+            <th class="border topic-background mit">Year</th>
             <th class="border topic-background mit" style="width: 250px;">Main Topic</th>
             <th class="border topic-background mit" style="width: 250px;">Sub-Topic</th>
             <th class="border topic-background mit">Item Option</th>
-            <th class="border topic-background mit">Year</th>
             <th class="border topic-background mit">Status</th>
             <th class="border topic-background mit">Action</th>
         </tr>
         <tr>
+            <td class="border mit-v td_border">
+                <?php if ($update_indicator == 1) { ?>
+                    <select name="up_year" id="up_year" class="form-select">
+                        <?php
+                        $current_year = date('Y');
+                        for ($y = $current_year - 5; $y < $current_year + 5; $y++) { ?>
+                            <option class="mit" value="<?php echo $y; ?>" <?php if ($y == $item_option_data_ids->year) echo "selected"; ?>><?php echo $y; ?></option>
+                        <?php } ?>
+                    </select>
+                <?php } else { ?>
+                    <select name="year" id="year" class="form-select">
+                        <?php
+                        $current_year = date('Y');
+                        for ($y = $current_year - 5; $y < $current_year + 5; $y++) { ?>
+                            <option class="mit" value="<?php echo $y; ?>" <?php if ($y == $current_year) echo "selected"; ?>><?php echo $y; ?></option>
+                        <?php } ?>
+                    </select>
+                <?php } ?>
+            </td>
             <td class="border mit-v td_border">
                 <?php if ($update_indicator == 1) { ?>
                     <input type="hidden" name="up_id" id="up_id" value="<?php echo $item_option_data_ids->id; ?>">
@@ -110,25 +129,6 @@ if (isset($_GET['s_status'])) {
                         </label>
                     </div>
                     <div id="alert_item_option" class="mt-1 font-eigth red" style="display: none;">Please fill in Item Option !</div>
-                <?php } ?>
-            </td>
-            <td class="border mit-v td_border">
-                <?php if ($update_indicator == 1) { ?>
-                    <select name="up_year" id="up_year" class="form-select">
-                        <?php
-                        $current_year = date('Y');
-                        for ($y = $current_year - 5; $y < $current_year + 5; $y++) { ?>
-                            <option value="<?php echo $y; ?>" <?php if ($y == $item_option_data_ids->year) echo "selected"; ?>><?php echo $y; ?></option>
-                        <?php } ?>
-                    </select>
-                <?php } else { ?>
-                    <select name="year" id="year" class="form-select">
-                        <?php
-                        $current_year = date('Y');
-                        for ($y = $current_year - 5; $y < $current_year + 5; $y++) { ?>
-                            <option value="<?php echo $y; ?>" <?php if ($y == $current_year) echo "selected"; ?>><?php echo $y; ?></option>
-                        <?php } ?>
-                    </select>
                 <?php } ?>
             </td>
             <td class="border mit-v td_border">
