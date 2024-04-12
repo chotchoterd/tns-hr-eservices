@@ -584,4 +584,60 @@ class Manage_Self_Evaluation extends CI_Controller
         $this->read_json($json);
     }
 
+    function Schedule()
+    {
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+        } else {
+            $id = "";
+        }
+        $Period_Time['Period_Time'] = $this->hr->model_Period_Time();
+        $Period_Time_id['Period_Time_id'] = $this->hr->model_Period_Time_id($id);
+        $title['title'] = 'Schedule';
+        $this->load->view('include/header', $title);
+        $this->load->view('include/menu');
+        $this->load->view('Schedule', $Period_Time + $Period_Time_id);
+        // $this->load->view('include/footer');
+    }
+
+    function Copy_All_Master_Data_ajax()
+    {
+        $year_from = $this->input->post('year_from');
+        $year_to = $this->input->post('year_to');
+
+        // เรียกใช้งานฟังก์ชันแต่ละตัวและเก็บผลลัพธ์ไว้ในตัวแปร $rs แยกกัน
+        $rs_main_topic = $this->hr->model_copy_Main_Topic($year_from, $year_to);
+        $rs_item_option = $this->hr->model_copy_Item_Option($year_from, $year_to);
+        $rs_item_option_subtopic = $this->hr->model_copy_Item_Option_is_Subtopic($year_from, $year_to);
+        $rs_sub_topic_oneself = $this->hr->model_Copy_Sub_topicOneSelf($year_from, $year_to);
+        $rs_sub_in_sub = $this->hr->model_Copy_sub_in_sub($year_from, $year_to);
+        $rs_division = $this->hr->model_Copy_division($year_from, $year_to);
+
+        // ตรวจสอบว่าทุกอย่างประสบความสำเร็จหรือไม่
+        if ($rs_main_topic && $rs_item_option && $rs_item_option_subtopic && $rs_sub_topic_oneself && $rs_sub_in_sub && $rs_division) {
+            $json = '{"ok": true}';
+        } else {
+            $json = '{"ok": false}';
+        }
+
+        // ส่งผลลัพธ์กลับไป
+        $this->read_json($json);
+    }
+
+    function update_data_Period_Time_ajax()
+    {
+        $up_id = $this->input->post('up_id');
+        $date_from = $this->input->post('date_from');
+        $date_to = $this->input->post('date_to');
+        $status = $this->input->post('status');
+        $year = $this->input->post('year');
+
+        $rs = $this->hr->model_update_data_Period_Time_ajax($up_id, $date_from, $date_to, $status, $year);
+        if ($rs) {
+            $json = '{"ok": true}';
+        } else {
+            $json = '{"ok": false}';
+        }
+        $this->read_json($json);
+    }
 }

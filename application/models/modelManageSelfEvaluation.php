@@ -500,4 +500,34 @@ class ModelManageSelfEvaluation extends CI_Model
                 AND status = 1';
         $this->db_hr->query($sql, array($year_to, $current_year, $year_from));
     }
+
+    function model_Period_Time()
+    {
+        $sql = "SELECT * FROM tb_period_time";
+        $rs = $this->db_hr
+            ->query($sql)
+            ->result();
+        return $rs;
+    }
+
+    function model_Period_Time_id($id)
+    {
+        $sql = "SELECT * FROM tb_period_time WHERE id = '" . $id . "'";
+        $rs = $this->db_hr
+            ->query($sql)
+            ->result();
+        return $rs;
+    }
+
+    function model_update_data_Period_Time_ajax($up_id, $date_from, $date_to, $status, $year)
+    {
+        $rs = $this->db_hr
+            ->set("date_from", $date_from)
+            ->set("date_to", $date_to)
+            ->set("year", $year)
+            ->set("status", $status)
+            ->where("id", $up_id)
+            ->update("tb_period_time");
+        return $rs;
+    }
 }
