@@ -45,6 +45,13 @@ include "checkAdmin.php";
                 </td>
                 <td class="mit">Topic & Sub-Item</td>
             </tr>
+            <tr>
+                <td class="mit">5</td>
+                <td class="mit-v">
+                    <a href="<?php echo base_url('index.php/manage_Self_Evaluation/Schedule') ?>" class="record_border">Schedule</a>
+                </td>
+                <td class="mit">Manage</td>
+            </tr>
         </tbody>
         </thead>
     </table>

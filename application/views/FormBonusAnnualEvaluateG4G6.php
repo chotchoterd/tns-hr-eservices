@@ -207,11 +207,11 @@ $current_year = date('Y');
         </tr>
         <tr>
             <th class="mit border topic-background">Performance Evaluation / หัวข้อการประเมินผลการปฏิบัติงาน</th>
-            <th class="mit border topic-background">Excellent<br>ดีเลิศ</th>
-            <th class="mit border topic-background">Good<br>ดี</th>
-            <th class="mit border topic-background">Fair<br>พอใช้</th>
-            <th class="mit border topic-background">Need Improvemen<br>ต้องปรับปรุง </th>
-            <th class="mit border topic-background">Un Satisfactory<br>ไม่เป็นที่พอใจ </th>
+            <th class="mit border topic-background" style="width: 8%;">Excellent<br>ดีเลิศ<br>(8)</th>
+            <th class="mit border topic-background" style="width: 8%;">Good<br>ดี<br>(6)</th>
+            <th class="mit border topic-background" style="width: 8%;">Fair<br>พอใช้<br>(4)</th>
+            <th class="mit border topic-background" style="width: 8%;">Need Improvemen<br>ต้องปรับปรุง<br>(2)</th>
+            <th class="mit border topic-background" style="width: 8%;">Un Satisfactory<br>ไม่เป็นที่พอใจ<br>(1)</th>
         </tr>
         <tr>
             <th class="border td_border">
@@ -455,23 +455,25 @@ $current_year = date('Y');
         </tr>
         <tr>
             <th class="border td_border">Evaluate Score คะแนนการประเมิน</th>
-            <td class="border td_border mit"></td>
-            <td class="border td_border mit"></td>
-            <td class="border td_border mit"></td>
-            <td class="border td_border mit"></td>
-            <td class="border td_border mit"></td>
+            <td class="border td_border mit">0</td>
+            <td class="border td_border mit">0</td>
+            <td class="border td_border mit">0</td>
+            <td class="border td_border mit">0</td>
+            <td class="border td_border mit">0</td>
+        </tr>
+    </table>
+    <table class="table table-form" style="border: solid #000 2px !important;">
+        <tr>
+            <th style="width: 50%;" class="border td_border">Section Assessment score คะแนนประเมินโดยแผนก</th>
+            <td style="width: 50%;" colspan="5" class="border td_border mit"></td>
         </tr>
         <tr>
-            <th class="border td_border">Section Assessment score คะแนนประเมินโดยแผนก</th>
-            <td colspan="5" class="border td_border mit"></td>
+            <th style="width: 50%;" class="border td_border">Leave record score คะแนนจากสถิติการลา</th>
+            <td style="width: 50%;" colspan="5" class="border td_border mit"></td>
         </tr>
         <tr>
-            <th class="border td_border">Leave record score คะแนนจากสถิติการลา</th>
-            <td colspan="5" class="border td_border mit"></td>
-        </tr>
-        <tr>
-            <th style="border: solid #000 2px !important;" class="border td_border">Total Score คะแนนรวม</th>
-            <td style="border: solid #000 2px !important;" colspan="5" class="border td_border mit"></td>
+            <th style="width: 50%;" class="border td_border">Total Score คะแนนรวม</th>
+            <td style="width: 50%;" colspan="5" class="border td_border mit"></td>
         </tr>
     </table>
 </div>

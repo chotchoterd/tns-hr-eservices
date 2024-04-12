@@ -12,7 +12,8 @@ class ModelLogin extends CI_Model
     function get_data_user($username, $ldaprdn)
     {
         $sql = "SELECT * FROM tb_emp_hr_import
-        WHERE emp_email = '" . $ldaprdn . "'";
+        WHERE emp_email = '" . $ldaprdn . "'
+        AND status = 1";
         $rs = $this->db_hr
             ->query($sql)
             ->result();

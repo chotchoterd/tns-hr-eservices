@@ -23,7 +23,7 @@ class Logincontrol extends CI_Controller
         $this->load->view('include/header', $title);
         $username = $this->input->post('username');
         $password = $this->input->post('password');
-
+        $count_rows = 0;
         if ($username != '' && $password != '') {
             $ldaprdn = $username; // ldap rdn or dn
             $ldappass = $password; // associated password
@@ -45,67 +45,86 @@ class Logincontrol extends CI_Controller
                         $superior_name = $get_emp_ids->superior_name1;
                         $superior_grade = $get_emp_ids->superior_grade1;
                         $superior_email = $get_emp_ids->superior_email1;
+                        $count_rows += 1;
                     }
-                    if (session_id() == '') {
-                        session_start();
-                    }
-                    // $_SESSION["username"] = str_replace("  ", " ", $user_fullname);
-                    $_SESSION["username"] = $user_fullname;
-                    $_SESSION["emp_id"] = $emp_id;
-                    $_SESSION["emp_grade"] = $emp_grade;
-                    $_SESSION["emp_division"] = $emp_division;
-                    $_SESSION["emp_section"] = $emp_section;
-                    $_SESSION["emp_hired_date"] = $emp_hired_date;
-                    $_SESSION["emp_email"] = $emp_email;
-                    $_SESSION["superior_name"] = $superior_name;
-                    $_SESSION["superior_grade"] = $superior_grade;
-                    $_SESSION["superior_email"] = $superior_email;
-                    $_SESSION['last_activity'] = time();
+                    if ($count_rows > 0) {
+                        if (session_id() == '') {
+                            session_start();
+                        }
+                        // $_SESSION["username"] = str_replace("  ", " ", $user_fullname);
+                        $_SESSION["username"] = $user_fullname;
+                        $_SESSION["emp_id"] = $emp_id;
+                        $_SESSION["emp_grade"] = $emp_grade;
+                        $_SESSION["emp_division"] = $emp_division;
+                        $_SESSION["emp_section"] = $emp_section;
+                        $_SESSION["emp_hired_date"] = $emp_hired_date;
+                        $_SESSION["emp_email"] = $emp_email;
+                        $_SESSION["superior_name"] = $superior_name;
+                        $_SESSION["superior_grade"] = $superior_grade;
+                        $_SESSION["superior_email"] = $superior_email;
+                        $_SESSION['last_activity'] = time();
+                        $get_emp_admin = $this->login->get_data_emp_admin($emp_id);
+                        foreach ($get_emp_admin as $get_emp_admins) {
+                            $admin_code = $get_emp_admins->admin_code;
+                        }
 
-                    $get_emp_admin = $this->login->get_data_emp_admin($emp_id);
-                    foreach ($get_emp_admin as $get_emp_admins) {
-                        $admin_code = $get_emp_admins->admin_code;
-                    }
-                    if (isset($admin_code)) {
-                        $_SESSION["group"] = $admin_code;
+                        if (isset($admin_code)) {
+                            $_SESSION["group"] = $admin_code;
+                        } else {
+                            $_SESSION["group"] = "";
+                        }
+
+                        if ($_SESSION["group"] != ""  &&  $_SESSION["username"] != "") {
+                            echo "<script type=\"text/javascript\">
+                        document.addEventListener('DOMContentLoaded', function() {
+                                Swal.fire({
+                                    title: 'Login!',
+                                    text: 'Successfully',
+                                    icon: 'success',
+                                    timer: 1500,
+                                    showConfirmButton: false,
+                                    allowOutsideClick: false
+                                }).then(() => {
+                                    window.location.href = '" . base_url() . "index.php/hr_controller/RecordFormAll';
+                                });
+                            });
+                        </script>";
+                        }
+                        if ($_SESSION["group"] == "" &&  $_SESSION["username"] != "") {
+                            echo "<script type=\"text/javascript\">
+                        document.addEventListener('DOMContentLoaded', function() {
+                            Swal.fire({
+                                title: 'Login!',
+                                text: 'Successfully',
+                                icon: 'success',
+                                timer: 1500,
+                                showConfirmButton: false,
+                                allowOutsideClick: false
+                            }).then(() => {
+                                window.location.href = '" . base_url() . "index.php/hr_controller/RecordFormAll';
+                            });
+                        });
+                        </script>";
+                        }
                     } else {
-                        $_SESSION["group"] = "";
-                    }
-                    if ($_SESSION["group"] != "") {
                         echo "<script type=\"text/javascript\">
                         document.addEventListener('DOMContentLoaded', function() {
-                            Swal.fire({
-                                title: 'Login!',
-                                text: 'Successfully',
-                                icon: 'success',
-                                timer: 1500,
-                                showConfirmButton: false,
-                                allowOutsideClick: false
-                            }).then(() => {
-                                window.location.href = '" . base_url() . "index.php/hr_controller/RecordFormAll';
-                            });
+                        Swal.fire({
+                            title: 'Invalid!',
+                            text: 'Username or Password.',
+                            icon: 'error',
+                            timer: 1500,
+                            showConfirmButton: false,
+                            allowOutsideClick: false
+                        }).then(() => {
+                            window.location.href = '" . base_url() . "index.php/Logincontrol/login';
                         });
-                    </script>";
-                    }
-                    if ($_SESSION["group"] == "") {
-                        echo "<script type=\"text/javascript\">
-                        document.addEventListener('DOMContentLoaded', function() {
-                            Swal.fire({
-                                title: 'Login!',
-                                text: 'Successfully',
-                                icon: 'success',
-                                timer: 1500,
-                                showConfirmButton: false,
-                                allowOutsideClick: false
-                            }).then(() => {
-                                window.location.href = '" . base_url() . "index.php/hr_controller/RecordFormAll';
-                            });
-                        });
+                    });
                     </script>";
                     }
                 } else {
                     echo "<script type=\"text/javascript\">
-                        document.addEventListener('DOMContentLoaded', function() {
+                    document.addEventListener('DOMContentLoaded', function() {
                         Swal.fire({
                             title: 'Invalid!',
                             text: 'Username or Password.',
@@ -133,7 +152,7 @@ class Logincontrol extends CI_Controller
                             window.location.href = '" . base_url() . "index.php/Logincontrol/login';
                         });
                     });
-                    </script>";
+                </script>";
             }
         } else {
             echo "<script type=\"text/javascript\">
@@ -149,7 +168,7 @@ class Logincontrol extends CI_Controller
                             window.location.href = '" . base_url() . "index.php/Logincontrol/login';
                         });
                     });
-                    </script>";
+                </script>";
         }
     }
 }
