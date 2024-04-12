@@ -53,39 +53,64 @@
         });
 
         $('#update_data').click(function() {
+            let check_error = 0;
             let up_id = document.getElementById("up_id").value;
             let date_from = document.getElementById("date_from").value;
             let date_to = document.getElementById("date_to").value;
             let status = document.getElementById("status").value;
             let year = document.getElementById("year").value;
 
-            $.ajax({
-                url: "<?php echo base_url('index.php/manage_Self_Evaluation/update_data_Period_Time_ajax') ?>",
-                type: "POST",
-                dataType: "json",
-                data: {
-                    up_id: up_id,
-                    date_from: date_from,
-                    date_to: date_to,
-                    status: status,
-                    year: year
-                },
-                success: function(data) {
-                    Swal.fire({
-                        title: "Update successfully",
-                        text: "",
-                        icon: "success",
-                        timer: 1500,
-                        showConfirmButton: false,
-                        allowOutsideClick: false,
-                        customClass: {
-                            title: 'custom-title-class'
-                        }
-                    }).then(function() {
-                        window.location = '<?php echo base_url('index.php/manage_Self_Evaluation/Schedule'); ?>';
-                    });
-                }
-            });
+            if (date_from.length <= 0) {
+                let alert_date_from = document.getElementById("alert_date_from");
+                alert_date_from.style.display = "block";
+                document.getElementById("date_from").focus();
+                check_error = 1;
+            }
+            if (date_to.length <= 0) {
+                let alert_date_to = document.getElementById("alert_date_to");
+                alert_date_to.style.display = "block";
+                document.getElementById("date_to").focus();
+                check_error = 1;
+            }
+            if (check_error == 0) {
+                $.ajax({
+                    url: "<?php echo base_url('index.php/manage_Self_Evaluation/update_data_Period_Time_ajax') ?>",
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        up_id: up_id,
+                        date_from: date_from,
+                        date_to: date_to,
+                        status: status,
+                        year: year
+                    },
+                    success: function(data) {
+                        Swal.fire({
+                            title: "Update successfully",
+                            text: "",
+                            icon: "success",
+                            timer: 1500,
+                            showConfirmButton: false,
+                            allowOutsideClick: false,
+                            customClass: {
+                                title: 'custom-title-class'
+                            }
+                        }).then(function() {
+                            window.location = '<?php echo base_url('index.php/manage_Self_Evaluation/Schedule'); ?>';
+                        });
+                    }
+                });
+            }
+        });
+
+        $('#date_from').on('change', function() {
+            let alert_date_from = document.getElementById("alert_date_from");
+            alert_date_from.style.display = "none";
+        });
+
+        $('#date_to').on('change', function() {
+            let alert_date_to = document.getElementById("alert_date_to");
+            alert_date_to.style.display = "none";
         });
     });
 </script>
