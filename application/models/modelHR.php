@@ -258,10 +258,12 @@ class ModelHR extends CI_Model
         $sql = "(SELECT * FROM tb_submit_self_evaluation WHERE self_evaluation_status NOT IN ('Draft')
         AND emp_email != '" . $emp_email . "'
         AND year_submit = YEAR(CURRENT_DATE)
+        AND status = 1
         ORDER BY id ASC)
         UNION
         (SELECT * FROM tb_submit_self_evaluation WHERE emp_email = '" . $emp_email . "'
         AND year_submit = YEAR(CURRENT_DATE)
+        AND status = 1
         ORDER BY id ASC)";
         $rs = $this->db_hr
             ->query($sql)
@@ -382,5 +384,12 @@ class ModelHR extends CI_Model
             ->query($sql)
             ->result();
         return $rs;
+    }
+
+    function model_Delete_Self_Evaluation_confirm($del)
+    {
+        $this->db_hr->set("status", 0);
+        $this->db_hr->where("id", $del);
+        $this->db_hr->update("tb_submit_self_evaluation");
     }
 }

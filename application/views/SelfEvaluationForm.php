@@ -33,7 +33,7 @@ foreach ($period_time as $period_times) {
     <?php
     $evaluation_submitted = false;
     foreach ($self_evaluation as $self_evaluations) {
-        if ($self_evaluations->emp_email == $emp_email && $self_evaluations->year_submit == $current_year && $update_indicator == 0) {
+        if ($self_evaluations->emp_email == $emp_email && $self_evaluations->year_submit == $current_year && $update_indicator == 0 && $self_evaluations->status == 1) {
             $evaluation_submitted = true;
             break;
         }

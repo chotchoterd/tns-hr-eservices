@@ -85,6 +85,7 @@ $check_count = 0;
                 <th class="border topic-background mit">Hired Date</th>
                 <th class="border topic-background mit">Status</th>
                 <th class="border topic-background mit">PDF</th>
+                <th class="border topic-background mit">Delete</th>
             </tr>
             <?php foreach ($self_evaluation_hr as $self_evaluation_hrs) { ?>
                 <tr>
@@ -107,6 +108,9 @@ $check_count = 0;
                         } else { ?>
                             <a href="<?php echo base_url('index.php/hr_controller/PrintPDFSelfEvaluation/') ?><?php echo $self_evaluation_hrs->id ?>">Download</a>
                         <?php } ?>
+                    </td>
+                    <td class="border mit td_border">
+                    <a href="<?php echo base_url('index.php/delete_controller/Delete_Self_Evaluation/') ?><?php echo $self_evaluation_hrs->id ?>"><img src="<?php echo base_url('/img/delete.png') ?>" alt="" width="30px"></a>
                     </td>
                 </tr>
             <?php } ?>
