@@ -8,6 +8,14 @@
             format: 'dd/mm/yyyy',
             autoclose: true
         });
+        $('#date_froms').datepicker({
+            format: 'dd/mm/yyyy',
+            autoclose: true
+        });
+        $('#date_tos').datepicker({
+            format: 'dd/mm/yyyy',
+            autoclose: true
+        });
         $('#btn_copy').click(function() {
             let year_from = document.getElementById("year_from").value;
             let year_to = document.getElementById("year_to").value;
@@ -109,6 +117,67 @@
         });
 
         $('#date_to').on('change', function() {
+            let alert_date_to = document.getElementById("alert_date_to");
+            alert_date_to.style.display = "none";
+        });
+
+        $('#update_datas').click(function() {
+            let check_errors = 0;
+            let up_ids = document.getElementById("up_ids").value;
+            let date_froms = document.getElementById("date_froms").value;
+            let date_tos = document.getElementById("date_tos").value;
+            let statuss = document.getElementById("statuss").value;
+            let years = document.getElementById("years").value;
+
+            if (date_froms.length <= 0) {
+                let alert_date_from = document.getElementById("alert_date_from");
+                alert_date_from.style.display = "block";
+                document.getElementById("date_froms").focus();
+                check_error = 1;
+            }
+            if (date_tos.length <= 0) {
+                let alert_date_to = document.getElementById("alert_date_to");
+                alert_date_to.style.display = "block";
+                document.getElementById("date_tos").focus();
+                check_error = 1;
+            }
+            if (check_errors == 0) {
+                $.ajax({
+                    url: "<?php echo base_url('index.php/manage_Self_Evaluation/update_data_Period_Time_bonus_ajax') ?>",
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        up_ids: up_ids,
+                        date_froms: date_froms,
+                        date_tos: date_tos,
+                        statuss: statuss,
+                        years: years
+                    },
+                    success: function(data) {
+                        Swal.fire({
+                            title: "Update successfully",
+                            text: "",
+                            icon: "success",
+                            timer: 1500,
+                            showConfirmButton: false,
+                            allowOutsideClick: false,
+                            customClass: {
+                                title: 'custom-title-class'
+                            }
+                        }).then(function() {
+                            window.location = '<?php echo base_url('index.php/manage_Self_Evaluation/Schedule'); ?>';
+                        });
+                    }
+                });
+            }
+        });
+
+        $('#date_froms').on('change', function() {
+            let alert_date_from = document.getElementById("alert_date_from");
+            alert_date_from.style.display = "none";
+        });
+
+        $('#date_tos').on('change', function() {
             let alert_date_to = document.getElementById("alert_date_to");
             alert_date_to.style.display = "none";
         });

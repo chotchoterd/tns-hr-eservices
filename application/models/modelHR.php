@@ -373,4 +373,14 @@ class ModelHR extends CI_Model
         }
         return $rs;
     }
+
+    function model_period_time()
+    {
+        $sql = "SELECT * FROM tb_period_time WHERE status = 1
+        AND category = 'Self-Evaluation'";
+        $rs = $this->db_hr
+            ->query($sql)
+            ->result();
+        return $rs;
+    }
 }

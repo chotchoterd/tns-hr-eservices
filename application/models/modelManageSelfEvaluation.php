@@ -503,7 +503,16 @@ class ModelManageSelfEvaluation extends CI_Model
 
     function model_Period_Time()
     {
-        $sql = "SELECT * FROM tb_period_time";
+        $sql = "SELECT * FROM tb_period_time WHERE category = 'Self-Evaluation'";
+        $rs = $this->db_hr
+            ->query($sql)
+            ->result();
+        return $rs;
+    }
+
+    function model_Period_Time_bonus()
+    {
+        $sql = "SELECT * FROM tb_period_time WHERE category = 'BONUS & ANNUAL Assessment'";
         $rs = $this->db_hr
             ->query($sql)
             ->result();
@@ -519,6 +528,15 @@ class ModelManageSelfEvaluation extends CI_Model
         return $rs;
     }
 
+    function model_Period_Time_bonus_id($ids)
+    {
+        $sql = "SELECT * FROM tb_period_time WHERE id = '" . $ids . "'";
+        $rs = $this->db_hr
+            ->query($sql)
+            ->result();
+        return $rs;
+    }
+
     function model_update_data_Period_Time_ajax($up_id, $date_from, $date_to, $status, $year)
     {
         $rs = $this->db_hr
@@ -527,6 +545,18 @@ class ModelManageSelfEvaluation extends CI_Model
             ->set("year", $year)
             ->set("status", $status)
             ->where("id", $up_id)
+            ->update("tb_period_time");
+        return $rs;
+    }
+
+    function model_update_data_Period_Time_bonus_ajax($up_ids, $date_froms, $date_tos, $statuss, $years)
+    {
+        $rs = $this->db_hr
+            ->set("date_from", $date_froms)
+            ->set("date_to", $date_tos)
+            ->set("year", $years)
+            ->set("status", $statuss)
+            ->where("id", $up_ids)
             ->update("tb_period_time");
         return $rs;
     }

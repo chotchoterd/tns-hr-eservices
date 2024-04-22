@@ -591,13 +591,21 @@ class Manage_Self_Evaluation extends CI_Controller
         } else {
             $id = "";
         }
+        if (isset($_GET['ids'])) {
+            $ids = $_GET['ids'];
+        } else {
+            $ids = "";
+        }
         $Period_Time['Period_Time'] = $this->hr->model_Period_Time();
         $Period_Time_id['Period_Time_id'] = $this->hr->model_Period_Time_id($id);
+        $Period_Time_bonus['Period_Time_bonus'] = $this->hr->model_Period_Time_bonus();
+        $Period_Time_bonus_id['Period_Time_bonus_id'] = $this->hr->model_Period_Time_bonus_id($ids);
+
         $title['title'] = 'Schedule';
         $this->load->view('include/header', $title);
         $this->load->view('include/menu');
-        $this->load->view('Schedule', $Period_Time + $Period_Time_id);
-        // $this->load->view('include/footer');
+        $this->load->view('Schedule', $Period_Time + $Period_Time_id + $Period_Time_bonus + $Period_Time_bonus_id);
+        $this->load->view('include/footer');
     }
 
     function Copy_All_Master_Data_ajax()
@@ -633,6 +641,23 @@ class Manage_Self_Evaluation extends CI_Controller
         $year = $this->input->post('year');
 
         $rs = $this->hr->model_update_data_Period_Time_ajax($up_id, $date_from, $date_to, $status, $year);
+        if ($rs) {
+            $json = '{"ok": true}';
+        } else {
+            $json = '{"ok": false}';
+        }
+        $this->read_json($json);
+    }
+
+    function update_data_Period_Time_bonus_ajax()
+    {
+        $up_ids = $this->input->post('up_ids');
+        $date_froms = $this->input->post('date_froms');
+        $date_tos = $this->input->post('date_tos');
+        $statuss = $this->input->post('statuss');
+        $years = $this->input->post('years');
+
+        $rs = $this->hr->model_update_data_Period_Time_bonus_ajax($up_ids, $date_froms, $date_tos, $statuss, $years);
         if ($rs) {
             $json = '{"ok": true}';
         } else {

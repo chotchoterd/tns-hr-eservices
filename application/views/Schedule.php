@@ -1,6 +1,7 @@
 <?php
 include "scriptSchedule.php";
 $update_indicator = 0;
+$update_indicator_bonus = 0;
 ?>
 <div class="container mt-5">
     <table class="table table-form">
@@ -42,7 +43,7 @@ $update_indicator = 0;
     } ?>
     <table class="table table-form">
         <tr>
-            <th colspan="5" class="topic-background mit border h1">Manage Period Time for Submit</th>
+            <th colspan="5" class="topic-background mit border h1">Manage Period Time for Self-Evaluation</th>
         </tr>
         <tr>
             <th class="border topic-background mit">Date From</th>
@@ -114,17 +115,86 @@ $update_indicator = 0;
         <?php } ?>
     </table>
 </div>
-<section class="">
-    <footer class="text-center text-white fixed-bottom" style="background-color: #203764;">
-        <div class="container p-2 pb-0">
-            <section class="">
-                <p class="d-flex justify-content-center align-items-center">
-                    <span class="me-3">HR E-Services Developed by PMIS & ERP Programmer Team.</span>
-                </p>
-            </section>
-        </div>
-        <div class="text-center p-3 bg-nav-background">
-            Copyright © 2024 THAI NIPPON STEEL ENGINEERING & CONSTRUCTION CORPORATION LTD.
-        </div>
-    </footer>
-</section>
+<div class="container mt-5 mb-5">
+    <?php foreach ($Period_Time_bonus_id as $Period_Time_bonus_ids) {
+        if (count($Period_Time_bonus_id) != 0) {
+            $update_indicator_bonus = 1;
+        } else {
+            $update_indicator_bonus = 0;
+        }
+    } ?>
+    <table class="table table-form">
+        <tr>
+            <th colspan="5" class="topic-background mit border h1">Manage Period Time for BONUS & ANNUAL Assessment</th>
+        </tr>
+        <tr>
+            <th class="border topic-background mit">Date From</th>
+            <th class="border topic-background mit">Date To</th>
+            <th class="border topic-background mit">Status</th>
+            <th class="border topic-background mit">Year</th>
+            <th class="border topic-background mit">Action</th>
+        </tr>
+        <?php foreach ($Period_Time_bonus as $Period_Time_bonuss) { ?>
+            <tr>
+                <td class="border mit td_border">
+                    <?php if ($update_indicator_bonus == 1) { ?>
+                        <input type="hidden" name="up_ids" id="up_ids" value="<?php echo $Period_Time_bonus_ids->id; ?>">
+                        <input type="text" class="form-control" id="date_froms" placeholder="DD/MM/YYYY" value="<?php echo $Period_Time_bonus_ids->date_from ?>">
+                        <div class="mt-1 font-eigth red" id="alert_date_from" style="display: none;">Please fill in !</div>
+                    <?php } else { ?>
+                        <?php
+                        $date_format = DateTime::createFromFormat('d/m/Y', $Period_Time_bonuss->date_from)->format('d-M-Y');
+                        echo $date_format;
+                        ?>
+                    <?php } ?>
+                </td>
+                <td class="border mit td_border">
+                    <?php if ($update_indicator_bonus == 1) { ?>
+                        <input type="text" class="form-control" id="date_tos" placeholder="DD/MM/YYYY" value="<?php echo $Period_Time_bonus_ids->date_to ?>">
+                        <div class="mt-1 font-eigth red" id="alert_date_to" style="display: none;">Please fill in !</div>
+                    <?php } else { ?>
+                        <?php
+                        $date_format = DateTime::createFromFormat('d/m/Y', $Period_Time_bonuss->date_to)->format('d-M-Y');
+                        echo $date_format;
+                        ?>
+                    <?php } ?>
+                </td>
+                <td class="border mit td_border">
+                    <?php if ($update_indicator_bonus == 1) { ?>
+                        <select name="statuss" id="statuss" class="form-select">
+                            <option value="1" <?php if ($Period_Time_bonus_ids->status == "1") echo "selected"; ?>>Active</option>
+                            <option value="0" <?php if ($Period_Time_bonus_ids->status == "0") echo "selected"; ?>>Inactive</option>
+                        </select>
+                    <?php } else { ?>
+                        <?php
+                        if ($Period_Time_bonuss->status == "1") {
+                            echo "Active";
+                        } else {
+                            echo "Inactive";
+                        } ?>
+                    <?php } ?>
+                </td>
+                <td class="border mit td_border">
+                    <?php if ($update_indicator_bonus == 1) {
+                        $current_year = date('Y');
+                    ?>
+                        <select name="years" id="years" class="form-select">
+                            <?php for ($i = $current_year - 5; $i < $current_year + 5; $i++) { ?>
+                                <option value="<?php echo $i ?>" <?php if ($i == $Period_Time_bonus_ids->year) echo "selected"; ?>><?php echo $i ?></option>
+                            <?php } ?>
+                        </select>
+                    <?php } else { ?>
+                        <?php echo $Period_Time_bonuss->year; ?>
+                    <?php } ?>
+                </td>
+                <td class="border mit td_border">
+                    <?php if ($update_indicator_bonus == 1) { ?>
+                        <button class="btn btn-primary btn_color_df" id="update_datas">Update</button>
+                    <?php } else { ?>
+                        <a href="<?php echo base_url('index.php/manage_Self_Evaluation/Schedule/?ids=') ?><?php echo $Period_Time_bonuss->id ?>" class="btn btn-primary btn_color_df">Edit</a>
+                    <?php } ?>
+                </td>
+            </tr>
+        <?php } ?>
+    </table>
+</div>

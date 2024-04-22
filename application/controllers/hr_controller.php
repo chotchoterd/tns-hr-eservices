@@ -17,6 +17,7 @@ class Hr_controller extends CI_Controller
         } else {
             $id = "";
         }
+        $period_time['period_time'] = $this->hr->model_period_time();
         $self_evaluation['self_evaluation'] = $this->hr->model_self_evaluation();
         $self_evaluation_id['self_evaluation_id'] = $this->hr->model_self_evaluation_id($id);
         $item_option_is_subtopic_in_subtopic['item_option_is_subtopic_in_subtopic'] = $this->hr->model_item_option_is_subtopic_in_subtopic();
@@ -25,10 +26,10 @@ class Hr_controller extends CI_Controller
         $item_option_selfevaluation['item_option_selfevaluation'] = $this->hr->model_item_option_selfevaluation();
         $sub_topic_selfevaluation['sub_topic_selfevaluation'] = $this->hr->model_sub_topic_selfevaluation();
         $topic_selfevaluation['topic_selfevaluation'] = $this->hr->model_topic_selfevaluation();
-        $title['title'] = 'Self-Evaluation Permanent Employee Grade 2 -Grade 6';
+        $title['title'] = 'Self-Evaluation Permanent Employee Grade 2 - Grade 6';
         $this->load->view('include/header', $title);
         $this->load->view('include/menu');
-        $this->load->view('SelfEvaluationForm', $self_evaluation + $self_evaluation_id + $topic_selfevaluation + $sub_topic_selfevaluation + $item_option_selfevaluation + $subtopic_in_subtopic + $item_option_is_subtopic_in_subtopic + $item_option_is_subtopic_in_subtopic_division);
+        $this->load->view('SelfEvaluationForm', $self_evaluation + $self_evaluation_id + $topic_selfevaluation + $sub_topic_selfevaluation + $item_option_selfevaluation + $subtopic_in_subtopic + $item_option_is_subtopic_in_subtopic + $item_option_is_subtopic_in_subtopic_division + $period_time);
         $this->load->view('include/footer');
     }
 
@@ -205,6 +206,7 @@ class Hr_controller extends CI_Controller
 
     function FormStaticSelfEvaluation($id)
     {
+        $period_time['period_time'] = $this->hr->model_period_time();
         $item_option_is_subtopic_in_subtopic['item_option_is_subtopic_in_subtopic'] = $this->hr->model_item_option_is_subtopic_in_subtopic();
         $item_option_is_subtopic_in_subtopic_division['item_option_is_subtopic_in_subtopic_division'] = $this->hr->model_item_option_is_subtopic_in_subtopic_division();
         $subtopic_in_subtopic['subtopic_in_subtopic'] = $this->hr->model_subtopic_in_subtopic();
@@ -215,7 +217,7 @@ class Hr_controller extends CI_Controller
         $title['title'] = 'Table Record Self-Evaluation';
         $this->load->view('include/header', $title);
         $this->load->view('include/menu');
-        $this->load->view('FormStaticSelfEvaluation', $self_evaluation_id + $topic_selfevaluation + $sub_topic_selfevaluation + $item_option_selfevaluation + $subtopic_in_subtopic + $item_option_is_subtopic_in_subtopic + $item_option_is_subtopic_in_subtopic_division);
+        $this->load->view('FormStaticSelfEvaluation', $self_evaluation_id + $topic_selfevaluation + $sub_topic_selfevaluation + $item_option_selfevaluation + $subtopic_in_subtopic + $item_option_is_subtopic_in_subtopic + $item_option_is_subtopic_in_subtopic_division + $period_time);
         $this->load->view('include/footer');
     }
 

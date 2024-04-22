@@ -2,6 +2,13 @@
 include('scriptFormStaticSelfEvaluation.php');
 include "checkAdminUser.php";
 $current_year = date('Y');
+$check_date = date('d/m/Y');
+?>
+<?php
+foreach ($period_time as $period_times) {
+    $format_date_from = DateTime::createFromFormat('d/m/Y', $period_times->date_from)->format('d-M-Y');
+    $format_date_to = DateTime::createFromFormat('d/m/Y', $period_times->date_to)->format('d-M-Y');
+}
 ?>
 <div class="container-fluid mt-3">
     <table class="table table-form border-0">
@@ -591,7 +598,11 @@ $current_year = date('Y');
                         <a href="<?php echo base_url('index.php/hr_controller/PrintPDFSelfEvaluation/') ?><?php echo $self_evaluation_ids->id ?>" class="btn btn-primary btn_color_df" id="">Click to PDF</a>
                         <!-- <button style="display: none;" onclick="window.print();" class="btn btn-primary btn_color_df">Click to PDF</button> -->
                         <?php if ($self_evaluation_ids->year_submit == $current_year) { ?>
-                            <button type="button" class="btn btn-primary btn_color_df" id="bt_Submit">Re-Submit</button>
+                            <?php if ($check_date < $period_times->date_from || $check_date > $period_times->date_to) { ?>
+                                <br><u class="red">"Period time for submit From <?php echo $format_date_from ?> To <?php echo $format_date_to ?>"</u><?php echo br(5) ?>
+                            <?php } else { ?>
+                                <button type="button" class="btn btn-primary btn_color_df" id="bt_Submit">Re-Submit</button>
+                            <?php } ?>
                         <?php } ?>
                     <?php } else { ?>
                         <a href="<?php echo base_url('index.php/hr_controller/PrintPDFSelfEvaluation/') ?><?php echo $self_evaluation_ids->id ?>" class="btn btn-primary btn_color_df" id="">Click to PDF</a>
