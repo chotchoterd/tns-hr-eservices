@@ -50,7 +50,7 @@ class Delete_controller extends CI_Controller
         echo "<script type='text/javascript'>
         document.addEventListener('DOMContentLoaded', function() {
             Swal.fire({
-                title: 'Cancel Successfully',
+                title: 'Delete Successfully',
                 text: '',
                 icon: 'success',
                 allowOutsideClick: false,
