@@ -32,19 +32,24 @@ class Import_file_controller extends CI_Controller
                             $emp_name = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
                             $emp_t_name = $worksheet->getCellByColumnAndRow(2, $row)->getValue();
                             $emp_grade = $worksheet->getCellByColumnAndRow(3, $row)->getValue();
-                            $emp_division = $worksheet->getCellByColumnAndRow(4, $row)->getValue();
-                            $emp_section = $worksheet->getCellByColumnAndRow(5, $row)->getValue();
-                            $emp_hired_date = date('d/m/Y', PHPExcel_Shared_Date::ExcelToPHP($worksheet->getCellByColumnAndRow(6, $row)->getValue()));
-                            $emp_email = $worksheet->getCellByColumnAndRow(7, $row)->getValue();
-                            $superior_emp_id1 = $worksheet->getCellByColumnAndRow(8, $row)->getValue();
-                            $superior_name1 = $worksheet->getCellByColumnAndRow(9, $row)->getValue();
-                            $superior_grade1 = $worksheet->getCellByColumnAndRow(10, $row)->getValue();
-                            $superior_email1 = $worksheet->getCellByColumnAndRow(11, $row)->getValue();
-                            $superior_emp_id2 = $worksheet->getCellByColumnAndRow(12, $row)->getValue();
-                            $superior_name2 = $worksheet->getCellByColumnAndRow(13, $row)->getValue();
-                            $superior_grade2 = $worksheet->getCellByColumnAndRow(14, $row)->getValue();
-                            $superior_email2 = $worksheet->getCellByColumnAndRow(15, $row)->getValue();
-                            $status_excel = $worksheet->getCellByColumnAndRow(16, $row)->getValue();
+                            $emp_position = $worksheet->getCellByColumnAndRow(4, $row)->getValue();
+                            $emp_division = $worksheet->getCellByColumnAndRow(5, $row)->getValue();
+                            $emp_section = $worksheet->getCellByColumnAndRow(6, $row)->getValue();
+                            $emp_hired_date = date('d/m/Y', PHPExcel_Shared_Date::ExcelToPHP($worksheet->getCellByColumnAndRow(7, $row)->getValue()));
+                            $emp_email = $worksheet->getCellByColumnAndRow(8, $row)->getValue();
+                            $superior_emp_id1 = $worksheet->getCellByColumnAndRow(9, $row)->getValue();
+                            $superior_name1 = $worksheet->getCellByColumnAndRow(10, $row)->getValue();
+                            $superior_grade1 = $worksheet->getCellByColumnAndRow(11, $row)->getValue();
+                            $superior_email1 = $worksheet->getCellByColumnAndRow(12, $row)->getValue();
+                            $superior_emp_id2 = $worksheet->getCellByColumnAndRow(13, $row)->getValue();
+                            $superior_name2 = $worksheet->getCellByColumnAndRow(14, $row)->getValue();
+                            $superior_grade2 = $worksheet->getCellByColumnAndRow(15, $row)->getValue();
+                            $superior_email2 = $worksheet->getCellByColumnAndRow(16, $row)->getValue();
+                            $foreman = $worksheet->getCellByColumnAndRow(17, $row)->getValue();
+                            $foreman_email = $worksheet->getCellByColumnAndRow(18, $row)->getValue();
+                            $factory_Manager_GM = $worksheet->getCellByColumnAndRow(19, $row)->getValue();
+                            $factory_Manager_GM_email = $worksheet->getCellByColumnAndRow(20, $row)->getValue();
+                            $status_excel = $worksheet->getCellByColumnAndRow(21, $row)->getValue();
 
                             if ($status_excel == "Active") {
                                 $status = '1';
@@ -58,6 +63,7 @@ class Import_file_controller extends CI_Controller
                                 'emp_name' => trim($emp_name),
                                 't_name_emp' => trim($emp_t_name),
                                 'emp_grade' => trim($emp_grade),
+                                'emp_position' => trim($emp_position),
                                 'emp_division' => trim($emp_division),
                                 'emp_section' => trim($emp_section),
                                 'emp_hired_date' => trim($emp_hired_date),
@@ -70,6 +76,10 @@ class Import_file_controller extends CI_Controller
                                 'superior_name2' => trim($superior_name2),
                                 'superior_grade2' => trim($superior_grade2),
                                 'superior_email2' => trim($superior_email2),
+                                'foreman' => trim($foreman),
+                                'foreman_email' => trim($foreman_email),
+                                'factory_Manager_GM' => trim($factory_Manager_GM),
+                                'factory_Manager_GM_email' => trim($factory_Manager_GM_email),
                                 'status' => $status,
                                 'updated_date' => date('Y-m-d H:i:s')
                             );
