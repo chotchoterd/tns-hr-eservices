@@ -274,7 +274,7 @@
                 }
                 $check_error = 1;
             }
-            if (item_option_selfevaluation3_2.length <= 0 && item_option_selfevaluations3_1 != 'Fully achieved.') {
+            if (item_option_selfevaluation3_2.length <= 0) {
                 let alert_3_2item_option = document.getElementById("alert_3_2item_option");
                 alert_3_2item_option.style.display = "block";
                 let item_option_3_2 = document.getElementsByName("3_2item_option_selfevaluation[]");
@@ -547,26 +547,6 @@
             alert_your_feedback.style.display = "none";
         });
         ///////////
-        let item_option_selfevaluations3_1_show = document.getElementsByName("3_1item_option_selfevaluations[]");
-        let tr_3_2 = document.querySelectorAll(".tr_3_2");
-        let item_option_selfevaluation_3_2 = document.getElementsByName("3_2item_option_selfevaluation[]");
-        for (let c = 0; c < item_option_selfevaluations3_1_show.length; c++) {
-            item_option_selfevaluations3_1_show[c].addEventListener("change", function() {
-                if (!item_option_selfevaluations3_1_show[0].checked) {
-                    tr_3_2.forEach(function(trs) {
-                        trs.style.display = "table-row";
-                    });
-                } else {
-                    tr_3_2.forEach(function(trs) {
-                        trs.style.display = "none";
-                        for (let m = 0; m < item_option_selfevaluation_3_2.length; m++) {
-                            item_option_selfevaluation_3_2[m].checked = false;
-                        }
-                    });
-                }
-            });
-        }
-
         let item_option_selfevaluation3_2 = document.getElementsByName("3_2item_option_selfevaluation[]");
         let div_capability = document.getElementById("div_capability");
         let others_capability = document.getElementById("others_capability");

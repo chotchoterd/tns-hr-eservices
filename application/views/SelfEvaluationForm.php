@@ -413,127 +413,244 @@ foreach ($period_time as $period_times) {
                                     if ($item_option_selfevaluations->main_topic == 3 && $item_option_selfevaluations->sub_topic == 3.1) {
                                         $input_id = 'item_option_selfevaluation_' . $key;
                                         echo "<div class=\"mx-5\">
-                            <input type=\"radio\" name=\"3_1item_option_selfevaluations[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\"> <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label>
+                                        <input type=\"radio\" name=\"3_1item_option_selfevaluations[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\"> <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label>
+                                        </div>";
+                                    }
+                                } ?>
+                            </td>
+                        <?php } ?>
+                    </tr>
+                    <?php if ($update_indicator == 1) { ?>
+                        <tr <?php if ($self_evaluation_ids->item_option_selfevaluations3_1 == "Fully achieved.") echo "style=\"display: none;\""; ?> class="tr_3_2">
+                            <td colspan="6" class="border-0">
+                                <?php foreach ($sub_topic_selfevaluation as $sub_topic_selfevaluations) {
+                                    if ($sub_topic_selfevaluations->main_topic == 3 && $sub_topic_selfevaluations->sub_topic == 3.2) {
+                                        echo "<b>" . $sub_topic_selfevaluations->sub_topic . " " . $sub_topic_selfevaluations->sub_topic_text . "</b>";
+                                    }
+                                } ?>
+                                <div class="mt-1 font-eigth red" id="alert_3_2item_option" style="display: none;">Please tick in check box all that apply !</div>
+                            </td>
+                        </tr>
+                        <tr <?php if ($self_evaluation_ids->item_option_selfevaluations3_1 == "Fully achieved.") echo "style=\"display: none;\""; ?> class="tr_3_2">
+                            <?php if ($update_indicator == 1) { ?>
+                                <td colspan="3" class="border-0">
+                                    <?php
+                                    $check_item_option_selfevaluation3_2['item_option_selfevaluation3_2'] = array();
+                                    $check_item_option_selfevaluation3_2['item_option_selfevaluation3_2'] = $self_evaluation_ids->item_option_selfevaluation3_2;
+                                    $newArray_item_option_selfevaluation3_2 = explode(",", $check_item_option_selfevaluation3_2['item_option_selfevaluation3_2']);
+                                    ?>
+                                    <?php
+                                    $count = 0; // ตัวนับจำนวนข้อมูล
+                                    $half = ceil(count($item_option_selfevaluation) / 2); // หารจำนวนข้อมูลให้แบ่งเป็นครึ่ง
+                                    foreach ($item_option_selfevaluation as $key => $item_option_selfevaluations) {
+                                        $check3_2 = in_array($item_option_selfevaluations->item_option, $newArray_item_option_selfevaluation3_2) ? "checked" : "";
+                                        if ($item_option_selfevaluations->main_topic == 3 && $item_option_selfevaluations->sub_topic == 3.2) {
+                                            // สร้าง input_id
+                                            $input_id = 'up_3_2item_option_selfevaluation_' . $key;
+                                            if ($count < $half) {
+                                                echo "<div class=\"mx-5\">
+                            <input type=\"checkbox\" name=\"up_3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\" $check3_2>
+                            <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
                             </div>";
-                                    }
-                                } ?>
-                            </td>
-                        <?php } ?>
-                    </tr>
-                    <tr>
-                        <td colspan="6" class="border-0">
-                            <?php foreach ($sub_topic_selfevaluation as $sub_topic_selfevaluations) {
-                                if ($sub_topic_selfevaluations->main_topic == 3 && $sub_topic_selfevaluations->sub_topic == 3.2) {
-                                    echo "<b>" . $sub_topic_selfevaluations->sub_topic . " " . $sub_topic_selfevaluations->sub_topic_text . "</b>";
-                                }
-                            } ?>
-                            <div class="mt-1 font-eigth red" id="alert_3_2item_option" style="display: none;">Please tick in check box all that apply !</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <?php if ($update_indicator == 1) { ?>
-                            <td colspan="3" class="border-0">
-                                <?php
-                                $check_item_option_selfevaluation3_2['item_option_selfevaluation3_2'] = array();
-                                $check_item_option_selfevaluation3_2['item_option_selfevaluation3_2'] = $self_evaluation_ids->item_option_selfevaluation3_2;
-                                $newArray_item_option_selfevaluation3_2 = explode(",", $check_item_option_selfevaluation3_2['item_option_selfevaluation3_2']);
-                                ?>
-                                <?php
-                                $count = 0; // ตัวนับจำนวนข้อมูล
-                                $half = ceil(count($item_option_selfevaluation) / 2); // หารจำนวนข้อมูลให้แบ่งเป็นครึ่ง
-                                foreach ($item_option_selfevaluation as $key => $item_option_selfevaluations) {
-                                    $check3_2 = in_array($item_option_selfevaluations->item_option, $newArray_item_option_selfevaluation3_2) ? "checked" : "";
-                                    if ($item_option_selfevaluations->main_topic == 3 && $item_option_selfevaluations->sub_topic == 3.2) {
-                                        // สร้าง input_id
-                                        $input_id = 'up_3_2item_option_selfevaluation_' . $key;
-                                        if ($count < $half) {
-                                            echo "<div class=\"mx-5\">
-                                <input type=\"checkbox\" name=\"up_3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\" $check3_2>
-                                <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
-                                </div>";
+                                            }
                                         }
-                                    }
-                                    $count++; // เพิ่มค่าตัวนับ
-                                } ?>
-                            </td>
-                        <?php } else { ?>
-                            <td colspan="3" class="border-0">
-                                <?php
-                                $count = 0; // ตัวนับจำนวนข้อมูล
-                                $half = ceil(count($item_option_selfevaluation) / 2); // หารจำนวนข้อมูลให้แบ่งเป็นครึ่ง
-                                foreach ($item_option_selfevaluation as $key => $item_option_selfevaluations) {
-                                    if ($item_option_selfevaluations->main_topic == 3 && $item_option_selfevaluations->sub_topic == 3.2) {
-                                        // สร้าง input_id
-                                        $input_id = '3_2item_option_selfevaluation_' . $key;
-                                        if ($count < $half) {
-                                            echo "<div class=\"mx-5\">
-                                <input type=\"checkbox\" name=\"3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\">
-                                <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
-                                </div>";
+                                        $count++; // เพิ่มค่าตัวนับ
+                                    } ?>
+                                </td>
+                            <?php } else { ?>
+                                <td colspan="3" class="border-0">
+                                    <?php
+                                    $count = 0; // ตัวนับจำนวนข้อมูล
+                                    $half = ceil(count($item_option_selfevaluation) / 2); // หารจำนวนข้อมูลให้แบ่งเป็นครึ่ง
+                                    foreach ($item_option_selfevaluation as $key => $item_option_selfevaluations) {
+                                        if ($item_option_selfevaluations->main_topic == 3 && $item_option_selfevaluations->sub_topic == 3.2) {
+                                            // สร้าง input_id
+                                            $input_id = '3_2item_option_selfevaluation_' . $key;
+                                            if ($count < $half) {
+                                                echo "<div class=\"mx-5\">
+                            <input type=\"checkbox\" name=\"3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\">
+                            <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
+                            </div>";
+                                            }
                                         }
-                                    }
-                                    $count++; // เพิ่มค่าตัวนับ
-                                } ?>
-                            </td>
-                        <?php } ?>
-                        <?php if ($update_indicator == 1) { ?>
-                            <td colspan="3" class="border-0">
-                                <?php
-                                $check_item_option_selfevaluation3_2['item_option_selfevaluation3_2'] = array();
-                                $check_item_option_selfevaluation3_2['item_option_selfevaluation3_2'] = $self_evaluation_ids->item_option_selfevaluation3_2;
-                                $newArray_item_option_selfevaluation3_2 = explode(",", $check_item_option_selfevaluation3_2['item_option_selfevaluation3_2']);
-                                ?>
-                                <?php
-                                $count = 0; // ตัวนับจำนวนข้อมูล
-                                foreach ($item_option_selfevaluation as $key => $item_option_selfevaluations) {
-                                    $check3_2 = in_array($item_option_selfevaluations->item_option, $newArray_item_option_selfevaluation3_2) ? "checked" : "";
-                                    if ($item_option_selfevaluations->main_topic == 3 && $item_option_selfevaluations->sub_topic == 3.2) {
-                                        // สร้าง input_id
-                                        $input_id = 'up_3_2item_option_selfevaluation_' . $key;
-                                        if ($count >= $half && $count < $half * 2) {
-                                            echo "<div class=\"mx-5\">
-                                <input type=\"checkbox\" name=\"up_3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\" $check3_2>
-                                <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
-                                </div>";
+                                        $count++; // เพิ่มค่าตัวนับ
+                                    } ?>
+                                </td>
+                            <?php } ?>
+                            <?php if ($update_indicator == 1) { ?>
+                                <td colspan="3" class="border-0">
+                                    <?php
+                                    $check_item_option_selfevaluation3_2['item_option_selfevaluation3_2'] = array();
+                                    $check_item_option_selfevaluation3_2['item_option_selfevaluation3_2'] = $self_evaluation_ids->item_option_selfevaluation3_2;
+                                    $newArray_item_option_selfevaluation3_2 = explode(",", $check_item_option_selfevaluation3_2['item_option_selfevaluation3_2']);
+                                    ?>
+                                    <?php
+                                    $count = 0; // ตัวนับจำนวนข้อมูล
+                                    foreach ($item_option_selfevaluation as $key => $item_option_selfevaluations) {
+                                        $check3_2 = in_array($item_option_selfevaluations->item_option, $newArray_item_option_selfevaluation3_2) ? "checked" : "";
+                                        if ($item_option_selfevaluations->main_topic == 3 && $item_option_selfevaluations->sub_topic == 3.2) {
+                                            // สร้าง input_id
+                                            $input_id = 'up_3_2item_option_selfevaluation_' . $key;
+                                            if ($count >= $half && $count < $half * 2) {
+                                                echo "<div class=\"mx-5\">
+                            <input type=\"checkbox\" name=\"up_3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\" $check3_2>
+                            <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
+                            </div>";
+                                            }
                                         }
-                                    }
-                                    $count++; // เพิ่มค่าตัวนับ
-                                } ?>
-                                <div id="div_capability" <?php if ($self_evaluation_ids->others_capability == "") echo "style=\"display: none;\""; ?> class="mx-5">
-                                    <div class="form-floating">
-                                        <textarea name="up_others_capability" id="up_others_capability" class="form-control h-textarea"><?php echo $self_evaluation_ids->others_capability ?></textarea>
-                                        <label for="up_others_capability" class="font-twelve">Please fill in Others.<span class="red font-twelve">*</span></label>
+                                        $count++; // เพิ่มค่าตัวนับ
+                                    } ?>
+                                    <div id="div_capability" <?php if ($self_evaluation_ids->others_capability == "") echo "style=\"display: none;\""; ?> class="mx-5">
+                                        <div class="form-floating">
+                                            <textarea name="up_others_capability" id="up_others_capability" class="form-control h-textarea"><?php echo $self_evaluation_ids->others_capability ?></textarea>
+                                            <label for="up_others_capability" class="font-twelve">Please fill in Others.<span class="red font-twelve">*</span></label>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="mt-1 font-eigth red mx-5" id="alert_3_2others" style="display: none;">Please fill in Others. !</div>
-                            </td>
-                        <?php } else { ?>
-                            <td colspan="3" class="border-0">
-                                <?php
-                                $count = 0; // ตัวนับจำนวนข้อมูล
-                                foreach ($item_option_selfevaluation as $key => $item_option_selfevaluations) {
-                                    if ($item_option_selfevaluations->main_topic == 3 && $item_option_selfevaluations->sub_topic == 3.2) {
-                                        // สร้าง input_id
-                                        $input_id = '3_2item_option_selfevaluation_' . $key;
-                                        if ($count >= $half && $count < $half * 2) {
-                                            echo "<div class=\"mx-5\">
-                                <input type=\"checkbox\" name=\"3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\">
-                                <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
-                                </div>";
+                                    <div class="mt-1 font-eigth red mx-5" id="alert_3_2others" style="display: none;">Please fill in Others. !</div>
+                                </td>
+                            <?php } else { ?>
+                                <td colspan="3" class="border-0">
+                                    <?php
+                                    $count = 0; // ตัวนับจำนวนข้อมูล
+                                    foreach ($item_option_selfevaluation as $key => $item_option_selfevaluations) {
+                                        if ($item_option_selfevaluations->main_topic == 3 && $item_option_selfevaluations->sub_topic == 3.2) {
+                                            // สร้าง input_id
+                                            $input_id = '3_2item_option_selfevaluation_' . $key;
+                                            if ($count >= $half && $count < $half * 2) {
+                                                echo "<div class=\"mx-5\">
+                                        <input type=\"checkbox\" name=\"3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\">
+                                        <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
+                                        </div>";
+                                            }
                                         }
-                                    }
-                                    $count++; // เพิ่มค่าตัวนับ
-                                } ?>
-                                <div id="div_capability" style="display: none;" class="mx-5">
-                                    <div class="form-floating">
-                                        <textarea name="others_capability" id="others_capability" class="form-control h-textarea"></textarea>
-                                        <label for="others_capability" class="font-twelve">Please fill in Others.<span class="red font-twelve">*</span></label>
+                                        $count++; // เพิ่มค่าตัวนับ
+                                    } ?>
+                                    <div id="div_capability" style="display: none;" class="mx-5">
+                                        <div class="form-floating">
+                                            <textarea name="others_capability" id="others_capability" class="form-control h-textarea"></textarea>
+                                            <label for="others_capability" class="font-twelve">Please fill in Others.<span class="red font-twelve">*</span></label>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="mt-1 font-eigth red mx-5" id="alert_3_2others" style="display: none;">Please fill in Others. !</div>
+                                    <div class="mt-1 font-eigth red mx-5" id="alert_3_2others" style="display: none;">Please fill in Others. !</div>
+                                </td>
+                            <?php } ?>
+                        </tr>
+                    <?php  } else { ?>
+                        <tr style="display: none;" class="tr_3_2">
+                            <td colspan="6" class="border-0">
+                                <?php foreach ($sub_topic_selfevaluation as $sub_topic_selfevaluations) {
+                                    if ($sub_topic_selfevaluations->main_topic == 3 && $sub_topic_selfevaluations->sub_topic == 3.2) {
+                                        echo "<b>" . $sub_topic_selfevaluations->sub_topic . " " . $sub_topic_selfevaluations->sub_topic_text . "</b>";
+                                    }
+                                } ?>
+                                <div class="mt-1 font-eigth red" id="alert_3_2item_option" style="display: none;">Please tick in check box all that apply !</div>
                             </td>
-                        <?php } ?>
-                    </tr>
+                        </tr>
+                        <tr style="display: none;" class="tr_3_2">
+                            <?php if ($update_indicator == 1) { ?>
+                                <td colspan="3" class="border-0">
+                                    <?php
+                                    $check_item_option_selfevaluation3_2['item_option_selfevaluation3_2'] = array();
+                                    $check_item_option_selfevaluation3_2['item_option_selfevaluation3_2'] = $self_evaluation_ids->item_option_selfevaluation3_2;
+                                    $newArray_item_option_selfevaluation3_2 = explode(",", $check_item_option_selfevaluation3_2['item_option_selfevaluation3_2']);
+                                    ?>
+                                    <?php
+                                    $count = 0; // ตัวนับจำนวนข้อมูล
+                                    $half = ceil(count($item_option_selfevaluation) / 2); // หารจำนวนข้อมูลให้แบ่งเป็นครึ่ง
+                                    foreach ($item_option_selfevaluation as $key => $item_option_selfevaluations) {
+                                        $check3_2 = in_array($item_option_selfevaluations->item_option, $newArray_item_option_selfevaluation3_2) ? "checked" : "";
+                                        if ($item_option_selfevaluations->main_topic == 3 && $item_option_selfevaluations->sub_topic == 3.2) {
+                                            // สร้าง input_id
+                                            $input_id = 'up_3_2item_option_selfevaluation_' . $key;
+                                            if ($count < $half) {
+                                                echo "<div class=\"mx-5\">
+                            <input type=\"checkbox\" name=\"up_3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\" $check3_2>
+                            <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
+                            </div>";
+                                            }
+                                        }
+                                        $count++; // เพิ่มค่าตัวนับ
+                                    } ?>
+                                </td>
+                            <?php } else { ?>
+                                <td colspan="3" class="border-0">
+                                    <?php
+                                    $count = 0; // ตัวนับจำนวนข้อมูล
+                                    $half = ceil(count($item_option_selfevaluation) / 2); // หารจำนวนข้อมูลให้แบ่งเป็นครึ่ง
+                                    foreach ($item_option_selfevaluation as $key => $item_option_selfevaluations) {
+                                        if ($item_option_selfevaluations->main_topic == 3 && $item_option_selfevaluations->sub_topic == 3.2) {
+                                            // สร้าง input_id
+                                            $input_id = '3_2item_option_selfevaluation_' . $key;
+                                            if ($count < $half) {
+                                                echo "<div class=\"mx-5\">
+                            <input type=\"checkbox\" name=\"3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\">
+                            <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
+                            </div>";
+                                            }
+                                        }
+                                        $count++; // เพิ่มค่าตัวนับ
+                                    } ?>
+                                </td>
+                            <?php } ?>
+                            <?php if ($update_indicator == 1) { ?>
+                                <td colspan="3" class="border-0">
+                                    <?php
+                                    $check_item_option_selfevaluation3_2['item_option_selfevaluation3_2'] = array();
+                                    $check_item_option_selfevaluation3_2['item_option_selfevaluation3_2'] = $self_evaluation_ids->item_option_selfevaluation3_2;
+                                    $newArray_item_option_selfevaluation3_2 = explode(",", $check_item_option_selfevaluation3_2['item_option_selfevaluation3_2']);
+                                    ?>
+                                    <?php
+                                    $count = 0; // ตัวนับจำนวนข้อมูล
+                                    foreach ($item_option_selfevaluation as $key => $item_option_selfevaluations) {
+                                        $check3_2 = in_array($item_option_selfevaluations->item_option, $newArray_item_option_selfevaluation3_2) ? "checked" : "";
+                                        if ($item_option_selfevaluations->main_topic == 3 && $item_option_selfevaluations->sub_topic == 3.2) {
+                                            // สร้าง input_id
+                                            $input_id = 'up_3_2item_option_selfevaluation_' . $key;
+                                            if ($count >= $half && $count < $half * 2) {
+                                                echo "<div class=\"mx-5\">
+                            <input type=\"checkbox\" name=\"up_3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\" $check3_2>
+                            <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
+                            </div>";
+                                            }
+                                        }
+                                        $count++; // เพิ่มค่าตัวนับ
+                                    } ?>
+                                    <div id="div_capability" <?php if ($self_evaluation_ids->others_capability == "") echo "style=\"display: none;\""; ?> class="mx-5">
+                                        <div class="form-floating">
+                                            <textarea name="up_others_capability" id="up_others_capability" class="form-control h-textarea"><?php echo $self_evaluation_ids->others_capability ?></textarea>
+                                            <label for="up_others_capability" class="font-twelve">Please fill in Others.<span class="red font-twelve">*</span></label>
+                                        </div>
+                                    </div>
+                                    <div class="mt-1 font-eigth red mx-5" id="alert_3_2others" style="display: none;">Please fill in Others. !</div>
+                                </td>
+                            <?php } else { ?>
+                                <td colspan="3" class="border-0">
+                                    <?php
+                                    $count = 0; // ตัวนับจำนวนข้อมูล
+                                    foreach ($item_option_selfevaluation as $key => $item_option_selfevaluations) {
+                                        if ($item_option_selfevaluations->main_topic == 3 && $item_option_selfevaluations->sub_topic == 3.2) {
+                                            // สร้าง input_id
+                                            $input_id = '3_2item_option_selfevaluation_' . $key;
+                                            if ($count >= $half && $count < $half * 2) {
+                                                echo "<div class=\"mx-5\">
+                                        <input type=\"checkbox\" name=\"3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\">
+                                        <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
+                                        </div>";
+                                            }
+                                        }
+                                        $count++; // เพิ่มค่าตัวนับ
+                                    } ?>
+                                    <div id="div_capability" style="display: none;" class="mx-5">
+                                        <div class="form-floating">
+                                            <textarea name="others_capability" id="others_capability" class="form-control h-textarea"></textarea>
+                                            <label for="others_capability" class="font-twelve">Please fill in Others.<span class="red font-twelve">*</span></label>
+                                        </div>
+                                    </div>
+                                    <div class="mt-1 font-eigth red mx-5" id="alert_3_2others" style="display: none;">Please fill in Others. !</div>
+                                </td>
+                            <?php } ?>
+                        </tr>
+                    <?php } ?>
                     <tr>
                         <td colspan="6" class="border-0">
                             <?php foreach ($sub_topic_selfevaluation as $sub_topic_selfevaluations) {

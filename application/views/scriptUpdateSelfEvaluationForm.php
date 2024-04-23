@@ -274,7 +274,7 @@
                 }
                 up_$check_error = 1;
             }
-            if (up_item_option_selfevaluation3_2.length <= 0) {
+            if (up_item_option_selfevaluation3_2.length <= 0 && up_item_option_selfevaluations3_1 != 'Fully achieved.') {
                 var up_alert_3_2item_option = document.getElementById("alert_3_2item_option");
                 up_alert_3_2item_option.style.display = "block";
                 var up_item_option_3_2 = document.getElementsByName("up_3_2item_option_selfevaluation[]");
@@ -547,6 +547,26 @@
             alert_your_feedback.style.display = "none";
         });
         ///////////
+        let up_item_option_selfevaluations3_1_show = document.getElementsByName("up_3_1item_option_selfevaluations[]");
+        let up_tr_3_2 = document.querySelectorAll(".tr_3_2");
+        let up_item_option_selfevaluation_3_2 = document.getElementsByName("up_3_2item_option_selfevaluation[]");
+        for (let c = 0; c < up_item_option_selfevaluations3_1_show.length; c++) {
+            up_item_option_selfevaluations3_1_show[c].addEventListener("change", function() {
+                if (!up_item_option_selfevaluations3_1_show[0].checked) {
+                    up_tr_3_2.forEach(function(up_trs) {
+                        up_trs.style.display = "table-row";
+                    });
+                } else {
+                    up_tr_3_2.forEach(function(up_trs) {
+                        up_trs.style.display = "none";
+                        for (let m = 0; m < up_item_option_selfevaluation_3_2.length; m++) {
+                            up_item_option_selfevaluation_3_2[m].checked = false;
+                        }
+                    });
+                }
+            });
+        }
+
         var item_option_selfevaluation3_2 = document.getElementsByName("up_3_2item_option_selfevaluation[]");
         var div_capability = document.getElementById("div_capability");
         var others_capability = document.getElementById("up_others_capability");

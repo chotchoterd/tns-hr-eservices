@@ -236,7 +236,7 @@ foreach ($period_time as $period_times) {
                     } ?>
                 </td>
             </tr>
-            <tr>
+            <tr class="tr_3_2" <?php if ($self_evaluation_ids->item_option_selfevaluations3_1 == "Fully achieved.") echo "style=\"display: none;\""; ?>>
                 <td colspan="6" class="border-0">
                     <?php foreach ($sub_topic_selfevaluation as $sub_topic_selfevaluations) {
                         if ($sub_topic_selfevaluations->main_topic == 3 && $sub_topic_selfevaluations->sub_topic == 3.2) {
@@ -246,7 +246,7 @@ foreach ($period_time as $period_times) {
                     <div class="mt-1 font-eigth red" id="alert_3_2item_option" style="display: none;">Please tick in check box all that apply !</div>
                 </td>
             </tr>
-            <tr>
+            <tr class="tr_3_2" <?php if ($self_evaluation_ids->item_option_selfevaluations3_1 == "Fully achieved.") echo "style=\"display: none;\""; ?>>
                 <td colspan="3" class="border-0">
                     <?php
                     $check_item_option_selfevaluation3_2['item_option_selfevaluation3_2'] = array();

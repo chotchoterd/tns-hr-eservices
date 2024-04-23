@@ -9,6 +9,23 @@ class ModelManageSelfEvaluation extends CI_Model
         $this->db_hr = $this->load->database('db_hr', TRUE);
     }
 
+    function model_edit_data_check($s_year)
+    {
+        $current_year = date('Y');
+        $sql = "SELECT * FROM tb_submit_self_evaluation WHERE status = 1
+        AND self_evaluation_status != 'Draft'";
+        if ($s_year == "") {
+            $sql .= " AND year_submit = '" . $current_year . "'";
+        } else {
+            $sql .= " AND year_submit LIKE '%" . $s_year . "%'";
+        }
+        $rs = $this->db_hr
+            ->query($sql)
+            ->result();
+        // print_r($sql);
+        return $rs;
+    }
+
     function model_main_topic_data($s_main_topic, $s_topic, $s_year, $s_status)
     {
         $current_year = date('Y');

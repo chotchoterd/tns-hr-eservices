@@ -1,6 +1,7 @@
 <?php
 $n = 0;
 $update_indicator = 0;
+$check_indicator = 0;
 include "scriptManageItemOptionIsSubtopic.php";
 if (isset($_GET['s_main_topic'])) {
     $s_main_topic = $_GET['s_main_topic'];
@@ -83,6 +84,13 @@ if (isset($_GET['s_status'])) {
             $update_indicator = 1;
         } else {
             $update_indicator = 0;
+        }
+    } ?>
+    <?php foreach ($edit_data_check as $edit_data_checks) {
+        if (count($edit_data_check) != 0) {
+            $check_indicator = 1;
+        } else {
+            $check_indicator = 0;
         }
     } ?>
     <table class="table table-form border">
@@ -372,7 +380,11 @@ if (isset($_GET['s_status'])) {
                     } ?>
                 </td>
                 <td class="border mit">
-                    <a href="<?php echo base_url('index.php/manage_Self_Evaluation/ManageItemOptionIsSubtopic?id=') ?><?php echo $item_is_sub_in_subs->id ?>" class="btn btn-primary btn_color_df btn-sm">Edit</a>
+                    <?php if ($check_indicator == 1) {
+                        echo "Not Allow";
+                    } else { ?>
+                        <a href="<?php echo base_url('index.php/manage_Self_Evaluation/ManageItemOptionIsSubtopic?id=') ?><?php echo $item_is_sub_in_subs->id ?>" class="btn btn-primary btn_color_df btn-sm">Edit</a>
+                    <?php } ?>
                 </td>
             </tr>
         <?php } ?>

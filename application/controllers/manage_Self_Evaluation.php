@@ -55,10 +55,11 @@ class Manage_Self_Evaluation extends CI_Controller
         }
         $main_topic_data_id['main_topic_data_id'] = $this->hr->model_main_topic_data_id($id);
         $main_topic_data['main_topic_data'] = $this->hr->model_main_topic_data($s_main_topic, $s_topic, $s_year, $s_status);
+        $edit_data_check['edit_data_check'] = $this->hr->model_edit_data_check($s_year);
         $title['title'] = 'Manage Main Topic Self-Evaluation';
         $this->load->view('include/header', $title);
         $this->load->view('include/menu');
-        $this->load->view('ManageMainTopicSelf', $main_topic_data + $main_topic_data_id);
+        $this->load->view('ManageMainTopicSelf', $main_topic_data + $main_topic_data_id + $edit_data_check);
         $this->load->view('include/footer');
     }
 
@@ -130,10 +131,11 @@ class Manage_Self_Evaluation extends CI_Controller
         $main_topic_status_1['main_topic_status_1'] = $this->hr->model_main_topic_status_1();
         $sub_topic_self_id['sub_topic_self_id'] = $this->hr->model_sub_topic_self_id($id);
         $sub_topic_self_data['sub_topic_self_data'] = $this->hr->model_sub_topic_self_data($s_main_topic, $s_sub_topic, $s_sub_topic_details, $s_year, $s_status);
+        $edit_data_check['edit_data_check'] = $this->hr->model_edit_data_check($s_year);
         $title['title'] = 'Manage Subtopics of the Main Topic Self-Evaluation';
         $this->load->view('include/header', $title);
         $this->load->view('include/menu');
-        $this->load->view('ManageSubtopicOneSelf', $sub_topic_self_data + $sub_topic_self_id + $main_topic_status_1);
+        $this->load->view('ManageSubtopicOneSelf', $sub_topic_self_data + $sub_topic_self_id + $main_topic_status_1 + $edit_data_check);
         $this->load->view('include/footer');
     }
 
@@ -213,10 +215,11 @@ class Manage_Self_Evaluation extends CI_Controller
         $subtopic_in_subtopic_self['subtopic_in_subtopic_self'] = $this->hr->model_subtopic_in_subtopic_self($s_main_topic, $s_sub_topic, $s_sub_in_sub, $s_sub_in_sub_details, $s_status, $s_year);
         $sub_topic_self_status_1['sub_topic_self_status_1'] = $this->hr->model_sub_topic_self_status_1();
         $main_topic_status_1['main_topic_status_1'] = $this->hr->model_main_topic_status_1();
+        $edit_data_check['edit_data_check'] = $this->hr->model_edit_data_check($s_year);
         $title['title'] = 'Manage Main Topic Self-Evaluation';
         $this->load->view('include/header', $title);
         $this->load->view('include/menu');
-        $this->load->view('ManageSubtopicTwoSelf', $main_topic_status_1 + $sub_topic_self_status_1 + $subtopic_in_subtopic_self + $subtopic_in_subtopic_self_id);
+        $this->load->view('ManageSubtopicTwoSelf', $main_topic_status_1 + $sub_topic_self_status_1 + $subtopic_in_subtopic_self + $subtopic_in_subtopic_self_id + $edit_data_check);
         $this->load->view('include/footer');
     }
 
@@ -295,10 +298,11 @@ class Manage_Self_Evaluation extends CI_Controller
         $item_option_data['item_option_data'] = $this->hr->model_item_option_data($s_main_topic, $s_sub_topic, $s_item_option, $s_year, $s_status);
         $main_topic_status_1['main_topic_status_1'] = $this->hr->model_main_topic_status_1();
         $sub_topic_self_status_1['sub_topic_self_status_1'] = $this->hr->model_sub_topic_self_status_1();
+        $edit_data_check['edit_data_check'] = $this->hr->model_edit_data_check($s_year);
         $title['title'] = 'Manage Item Option Self-Evaluation';
         $this->load->view('include/header', $title);
         $this->load->view('include/menu');
-        $this->load->view('ManageItemOption', $main_topic_status_1 + $sub_topic_self_status_1 + $item_option_data + $item_option_data_id);
+        $this->load->view('ManageItemOption', $main_topic_status_1 + $sub_topic_self_status_1 + $item_option_data + $item_option_data_id + $edit_data_check);
         $this->load->view('include/footer');
     }
 
@@ -390,10 +394,11 @@ class Manage_Self_Evaluation extends CI_Controller
         $division_status_1['division_status_1'] = $this->hr->model_division_status_1();
         $item_is_sub_in_sub['item_is_sub_in_sub'] = $this->hr->model_item_is_sub_in_sub($s_main_topic, $s_sub_topic, $s_sub_in_sub, $s_sub_in_sub_details, $s_division, $s_sub_division, $s_year, $s_status);
         $item_is_sub_in_sub_id['item_is_sub_in_sub_id'] = $this->hr->model_item_is_sub_in_sub_id($id);
+        $edit_data_check['edit_data_check'] = $this->hr->model_edit_data_check($s_year);
         $title['title'] = 'Manage Item Option is Subtopic Self-Evaluation';
         $this->load->view('include/header', $title);
         $this->load->view('include/menu');
-        $this->load->view('ManageItemOptionIsSubtopic', $main_topic_status_1 + $sub_topic_self_status_1 + $sub_in_sub_status_1 + $division_status_1 + $item_is_sub_in_sub + $item_is_sub_in_sub_id);
+        $this->load->view('ManageItemOptionIsSubtopic', $main_topic_status_1 + $sub_topic_self_status_1 + $sub_in_sub_status_1 + $division_status_1 + $item_is_sub_in_sub + $item_is_sub_in_sub_id + $edit_data_check);
         $this->load->view('include/footer');
     }
 
@@ -462,10 +467,11 @@ class Manage_Self_Evaluation extends CI_Controller
         }
         $division_data['division_data'] = $this->hr->model_division_data($s_division, $s_year, $s_status);
         $division_data_id['division_data_id'] = $this->hr->model_division_data_id($id);
+        $edit_data_check['edit_data_check'] = $this->hr->model_edit_data_check($s_year);
         $title['title'] = 'Manage Division';
         $this->load->view('include/header', $title);
         $this->load->view('include/menu');
-        $this->load->view('ManageDivision', $division_data + $division_data_id);
+        $this->load->view('ManageDivision', $division_data + $division_data_id + $edit_data_check);
         $this->load->view('include/footer');
     }
 
