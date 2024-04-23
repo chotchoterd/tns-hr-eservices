@@ -110,23 +110,29 @@ class Import_file_controller extends CI_Controller
                 foreach ($object->getWorksheetIterator() as $worksheet) {
                     $highestRow = $worksheet->getHighestRow();
                     // เริ่มต้นลูปที่แถวที่ 2 เพื่อข้ามหัวข้อหรือชื่อคอลัมน์
-                    for ($row = 2; $row <= $highestRow; $row++) {
+                    for ($row = 3; $row <= $highestRow; $row++) {
                         // ตรวจสอบว่าเซลล์มีข้อมูลอยู่จริงก่อนอ่านค่า
                         if (!empty($worksheet->getCellByColumnAndRow(0, $row)->getValue())) {
                             $emp_id = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
-                            $year = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
-                            $business_leave = $worksheet->getCellByColumnAndRow(2, $row)->getValue();
-                            $sick_leave = $worksheet->getCellByColumnAndRow(3, $row)->getValue();
-                            $absenteeism = $worksheet->getCellByColumnAndRow(4, $row)->getValue();
-                            $late = $worksheet->getCellByColumnAndRow(5, $row)->getValue();
+                            $business_leave1 = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
+                            $sick_leave1 = $worksheet->getCellByColumnAndRow(2, $row)->getValue();
+                            $absenteeism1 = $worksheet->getCellByColumnAndRow(3, $row)->getValue();
+                            $late1 = $worksheet->getCellByColumnAndRow(4, $row)->getValue();
+                            $business_leave2 = $worksheet->getCellByColumnAndRow(5, $row)->getValue();
+                            $sick_leave2 = $worksheet->getCellByColumnAndRow(6, $row)->getValue();
+                            $absenteeism2 = $worksheet->getCellByColumnAndRow(7, $row)->getValue();
+                            $late2 = $worksheet->getCellByColumnAndRow(8, $row)->getValue();
 
                             $data[] = array(
                                 'emp_id' => trim($emp_id),
-                                'year' => trim($year),
-                                'business_leave' => trim($business_leave),
-                                'sick_leave' => trim($sick_leave),
-                                'absenteeism' => trim($absenteeism),
-                                'late' => trim($late),
+                                'business_leave1' => trim($business_leave1),
+                                'sick_leave1' => trim($sick_leave1),
+                                'absenteeism1' => trim($absenteeism1),
+                                'late1' => trim($late1),
+                                'business_leave2' => trim($business_leave2),
+                                'sick_leave2' => trim($sick_leave2),
+                                'absenteeism2' => trim($absenteeism2),
+                                'late2' => trim($late2),
                                 'updated_date' => date('Y-m-d H:i:s')
                             );
                         }

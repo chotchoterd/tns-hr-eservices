@@ -49,13 +49,13 @@
 
     function Search_Leave_Record() {
         let s_emp_id = document.getElementById("s_emp_id").value;
-        let s_year = document.getElementById("s_year").value;
+        // let s_year = document.getElementById("s_year").value;
         let s_business_leave = document.getElementById("s_business_leave").value;
         let s_sick_leave = document.getElementById("s_sick_leave").value;
         let s_absenteeism = document.getElementById("s_absenteeism").value;
         let s_late = document.getElementById("s_late").value;
 
-        window.location = '?s_emp_id=' + encodeURIComponent(s_emp_id) + '&s_year=' + encodeURIComponent(s_year) + '&s_business_leave=' + encodeURIComponent(s_business_leave) +
+        window.location = '?s_emp_id=' + encodeURIComponent(s_emp_id) + '&s_business_leave=' + encodeURIComponent(s_business_leave) +
             '&s_sick_leave=' + encodeURIComponent(s_sick_leave) + '&s_absenteeism=' + encodeURIComponent(s_absenteeism) + '&s_late=' + encodeURIComponent(s_late);
     }
 

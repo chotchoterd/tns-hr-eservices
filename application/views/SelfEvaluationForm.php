@@ -176,26 +176,26 @@ foreach ($period_time as $period_times) {
                         </td>
                     </tr>
                     <tr>
-                        <td class="border topic-background mit-v text-end">Superior name</td>
+                        <td class="border topic-background mit-v text-end">Supervisor name</td>
                         <td class="border mit-v td_border">
                             <?php if ($update_indicator == 1) { ?>
                                 <input type="text" id="up_sup_name" name="up_sup_name" class="form-control" value="<?php echo $self_evaluation_ids->sup_name ?>">
                                 <!-- <input type="text" id="up_sup_name" name="up_sup_name" class="form-control" value="Test"> -->
-                                <div class="mt-1 font-eigth red" id="alert_Superior_name" style="display: none;">Please fill in Superior name !</div>
+                                <div class="mt-1 font-eigth red" id="alert_Superior_name" style="display: none;">Please fill in Supervisor name !</div>
                             <?php } else { ?>
                                 <input type="text" id="sup_name" name="sup_name" class="form-control" value="<?php echo $_SESSION["superior_name"]; ?>">
-                                <div class="mt-1 font-eigth red" id="alert_Superior_name" style="display: none;">Please fill in Superior name !</div>
+                                <div class="mt-1 font-eigth red" id="alert_Superior_name" style="display: none;">Please fill in Supervisor name !</div>
                             <?php } ?>
                         </td>
-                        <td class="border topic-background mit-v text-end">Superior Grade</td>
+                        <td class="border topic-background mit-v text-end">Supervisor Grade</td>
                         <td class="border mit-v td_border">
                             <?php if ($update_indicator == 1) { ?>
                                 <input type="text" id="up_sup_grade" name="up_sup_grade" class="form-control" value="<?php echo $self_evaluation_ids->sup_grade ?>">
                                 <!-- <input type="text" id="up_sup_grade" name="up_sup_grade" class="form-control" value="Test"> -->
-                                <div class="mt-1 font-eigth red" id="alert_Superior_Grade" style="display: none;">Please fill in Superior Grade !</div>
+                                <div class="mt-1 font-eigth red" id="alert_Superior_Grade" style="display: none;">Please fill in Supervisor Grade !</div>
                             <?php } else { ?>
                                 <input type="text" id="sup_grade" name="sup_grade" class="form-control" value="<?php echo $_SESSION["superior_grade"]; ?>">
-                                <div class="mt-1 font-eigth red" id="alert_Superior_Grade" style="display: none;">Please fill in Superior Grade !</div>
+                                <div class="mt-1 font-eigth red" id="alert_Superior_Grade" style="display: none;">Please fill in Supervisor Grade !</div>
                             <?php } ?>
                         </td>
                         <td class="border topic-background mit-v text-end">Employee Years of service</td>

@@ -1,17 +1,18 @@
 <?php
 include "scriptImportFileExcelLeaveRecord.php";
 include "checkAdmin.php";
+$current_year = date('Y');
 $a = 0;
 if (isset($_GET['s_emp_id'])) {
     $s_emp_id = $_GET['s_emp_id'];
 } else {
     $s_emp_id = "";
 }
-if (isset($_GET['s_year'])) {
-    $s_year = $_GET['s_year'];
-} else {
-    $s_year = date("Y");
-}
+// if (isset($_GET['s_year'])) {
+//     $s_year = $_GET['s_year'];
+// } else {
+//     $s_year = date("Y");
+// }
 if (isset($_GET['s_business_leave'])) {
     $s_business_leave = $_GET['s_business_leave'];
 } else {
@@ -64,16 +65,6 @@ if (isset($_GET['s_late'])) {
                     <input type="text" class="form-control" id="s_emp_id" name="s_emp_id" value="<?php echo $s_emp_id; ?>">
                 </th>
                 <th class="border-0">
-                    Year :
-                    <select name="s_year" id="s_year" class="form-select" aria-label="Default select example">
-                        <?php
-                        $current_year = date("Y");
-                        for ($i = $current_year - 5; $i <= $current_year + 5; $i++) { ?>
-                            <option class="mit" value="<?php echo $i; ?>" <?php if ($i == $s_year) echo "selected"; ?>><?php echo $i; ?></option>
-                        <?php } ?>
-                    </select>
-                </th>
-                <th class="border-0">
                     Sick leave :
                     <input type="text" class="form-control" id="s_sick_leave" name="s_sick_leave" value="<?php echo $s_sick_leave; ?>">
                 </th>
@@ -81,16 +72,18 @@ if (isset($_GET['s_late'])) {
                     Business leave :
                     <input type="text" class="form-control" id="s_business_leave" name="s_business_leave" value="<?php echo $s_business_leave; ?>">
                 </th>
-
-            </tr>
-            <tr>
                 <th class="border-0">
                     Absenteeism :
                     <input type="text" class="form-control" id="s_absenteeism" name="s_absenteeism" value="<?php echo $s_absenteeism; ?>">
                 </th>
+            </tr>
+            <tr>
                 <th class="border-0">
                     Late :
                     <input type="text" class="form-control" id="s_late" name="s_late" value="<?php echo $s_late; ?>">
+                </th>
+                <th class="border-0">
+
                 </th>
                 <th class="border-0"></th>
                 <td class="border-0 text-center align-bottom">
@@ -104,9 +97,16 @@ if (isset($_GET['s_late'])) {
 <div class="container-fluid mt-3">
     <table class="table table-form">
         <tr>
-            <th class="topic-background mit border">#</th>
-            <th class="topic-background mit border">Employee ID</th>
-            <th class="topic-background mit border">Year</th>
+            <th class="topic-background mit border" rowspan="2">#</th>
+            <th class="topic-background mit border" rowspan="2">Employee ID</th>
+            <th class="topic-background mit border" colspan="4">From 1 Sep [<?php echo $current_year - 1 ?>] to 31 Dec [<?php echo $current_year - 1 ?>]</th>
+            <th class="topic-background mit border" colspan="4">From 1 Jan [<?php echo $current_year ?>] to 31 Aug [<?php echo $current_year ?>]</th>
+        </tr>
+        <tr>
+            <th class="topic-background mit border">Business leave</th>
+            <th class="topic-background mit border">Sick leave</th>
+            <th class="topic-background mit border">Absenteeism</th>
+            <th class="topic-background mit border">Late</th>
             <th class="topic-background mit border">Business leave</th>
             <th class="topic-background mit border">Sick leave</th>
             <th class="topic-background mit border">Absenteeism</th>
@@ -117,11 +117,14 @@ if (isset($_GET['s_late'])) {
             <tr>
                 <td class="border mit"><?php echo $a; ?></td>
                 <td class="border mit"><?php echo $emp_hr_import_leaves->emp_id ?></td>
-                <td class="border mit"><?php echo $emp_hr_import_leaves->year ?></td>
-                <td class="border mit"><?php echo $emp_hr_import_leaves->business_leave ?></td>
-                <td class="border mit"><?php echo $emp_hr_import_leaves->sick_leave ?></td>
-                <td class="border mit"><?php echo $emp_hr_import_leaves->absenteeism ?></td>
-                <td class="border mit"><?php echo $emp_hr_import_leaves->late ?></td>
+                <td class="border mit"><?php echo $emp_hr_import_leaves->business_leave1 ?></td>
+                <td class="border mit"><?php echo $emp_hr_import_leaves->sick_leave1 ?></td>
+                <td class="border mit"><?php echo $emp_hr_import_leaves->absenteeism1 ?></td>
+                <td class="border mit"><?php echo $emp_hr_import_leaves->late1 ?></td>
+                <td class="border mit"><?php echo $emp_hr_import_leaves->business_leave2 ?></td>
+                <td class="border mit"><?php echo $emp_hr_import_leaves->sick_leave2 ?></td>
+                <td class="border mit"><?php echo $emp_hr_import_leaves->absenteeism2 ?></td>
+                <td class="border mit"><?php echo $emp_hr_import_leaves->late2 ?></td>
             </tr>
         <?php } ?>
     </table>

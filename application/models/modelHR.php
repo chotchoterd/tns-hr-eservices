@@ -105,15 +105,14 @@ class ModelHR extends CI_Model
         return $rs;
     }
 
-    function model_emp_hr_import_leave($s_emp_id, $s_year, $s_business_leave, $s_sick_leave, $s_absenteeism, $s_late)
+    function model_emp_hr_import_leave($s_emp_id, $s_business_leave, $s_sick_leave, $s_absenteeism, $s_late)
     {
         $sql = "SELECT * FROM tb_emp_hr_import_leave
         WHERE emp_id LIKE '%" . $s_emp_id . "%'
-        AND year LIKE '%" . $s_year . "%'
-        AND business_leave LIKE '%" . $s_business_leave . "%'
-        AND sick_leave LIKE '%" . $s_sick_leave . "%'
-        AND absenteeism LIKE '%" . $s_absenteeism . "%'
-        AND late LIKE '%" . $s_late . "%'";
+        AND business_leave1 LIKE '%" . $s_business_leave . "%'
+        AND sick_leave1 LIKE '%" . $s_sick_leave . "%'
+        AND absenteeism1 LIKE '%" . $s_absenteeism . "%'
+        AND late1 LIKE '%" . $s_late . "%'";
         $rs = $this->db_hr
             ->query($sql)
             ->result();

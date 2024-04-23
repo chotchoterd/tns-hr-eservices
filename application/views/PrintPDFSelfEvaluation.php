@@ -57,7 +57,7 @@ $html .= '</tr>';
 $html .= '</table>';
 $html .= '<table>';
 foreach ($self_evaluation_id as $self_evaluation_ids)
-        $html .= '<tr>';
+    $html .= '<tr>';
 $html .= '<td></td>';
 $html .= '<td></td>';
 $html .= '<td></td>';
@@ -96,11 +96,11 @@ $html .= '' . $self_evaluation_ids->hired_date . '';
 $html .= '</td>';
 $html .= '</tr>';
 $html .= '<tr>';
-$html .= '<th align="left" style="border: 1px solid #000000;">Superior name</th>';
+$html .= '<th align="left" style="border: 1px solid #000000;">Supervisor name</th>';
 $html .= '<td style="border: 1px solid #000000;">';
 $html .= '' . $self_evaluation_ids->sup_name . '';
 $html .= '</td>';
-$html .= '<th align="left" style="border: 1px solid #000000;">Superior Grade</th>';
+$html .= '<th align="left" style="border: 1px solid #000000;">Supervisor Grade</th>';
 $html .= '<td style="border: 1px solid #000000;">';
 $html .= '' . $self_evaluation_ids->sup_grade . '';
 $html .= '</td>';
@@ -199,6 +199,7 @@ foreach ($item_option_selfevaluation as $key => $item_option_selfevaluations) {
 }
 $html .= '</td>';
 $html .= '</tr>';
+$html .= '<div style="' . ($self_evaluation_ids->item_option_selfevaluations3_1 === "Fully achieved."  ? "display: none;" : "") . '">';
 $html .= '<tr>';
 $html .= '<td colspan="6">';
 foreach ($sub_topic_selfevaluation as $sub_topic_selfevaluations) {
@@ -248,6 +249,7 @@ $html .= '<label>' . $self_evaluation_ids->others_capability . '</label>';
 $html .= '</div>';
 $html .= '</td>';
 $html .= '</tr>';
+$html .= '</div>';
 $html .= '<tr>';
 $html .= '<td colspan="6">';
 foreach ($sub_topic_selfevaluation as $sub_topic_selfevaluations) {

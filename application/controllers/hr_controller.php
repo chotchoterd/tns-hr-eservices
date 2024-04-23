@@ -299,11 +299,11 @@ class Hr_controller extends CI_Controller
         } else {
             $s_emp_id = "";
         }
-        if (isset($_GET['s_year'])) {
-            $s_year = $_GET['s_year'];
-        } else {
-            $s_year = date("Y");
-        }
+        // if (isset($_GET['s_year'])) {
+        //     $s_year = $_GET['s_year'];
+        // } else {
+        //     $s_year = date("Y");
+        // }
         if (isset($_GET['s_business_leave'])) {
             $s_business_leave = $_GET['s_business_leave'];
         } else {
@@ -324,7 +324,7 @@ class Hr_controller extends CI_Controller
         } else {
             $s_late = "";
         }
-        $emp_hr_import_leave['emp_hr_import_leave'] = $this->hr->model_emp_hr_import_leave($s_emp_id, $s_year, $s_business_leave, $s_sick_leave, $s_absenteeism, $s_late);
+        $emp_hr_import_leave['emp_hr_import_leave'] = $this->hr->model_emp_hr_import_leave($s_emp_id, $s_business_leave, $s_sick_leave, $s_absenteeism, $s_late);
         $title['title'] = 'HR Import File Excel Leave Record';
         $this->load->view('include/header', $title);
         $this->load->view('include/menu');

@@ -91,15 +91,15 @@ foreach ($period_time as $period_times) {
                 </td>
             </tr>
             <tr>
-                <td class="border topic-background mit-v text-end">Superior name</td>
+                <td class="border topic-background mit-v text-end">Supervisor name</td>
                 <td class="border mit-v td_border">
                     <input type="text" id="sup_name" name="sup_name" class="form-control" value="<?php echo $self_evaluation_ids->sup_name ?>" disabled>
-                    <div class="mt-1 font-eigth red" id="alert_Superior_name" style="display: none;">Please fill in Superior name !</div>
+                    <div class="mt-1 font-eigth red" id="alert_Superior_name" style="display: none;">Please fill in Supervisor name !</div>
                 </td>
-                <td class="border topic-background mit-v text-end">Superior Grade</td>
+                <td class="border topic-background mit-v text-end">Supervisor Grade</td>
                 <td class="border mit-v td_border">
                     <input type="text" id="sup_grade" name="sup_grade" class="form-control" value="<?php echo $self_evaluation_ids->sup_grade ?>" disabled>
-                    <div class="mt-1 font-eigth red" id="alert_Superior_Grade" style="display: none;">Please fill in Superior Grade !</div>
+                    <div class="mt-1 font-eigth red" id="alert_Superior_Grade" style="display: none;">Please fill in Supervisor Grade !</div>
                 </td>
                 <td class="border topic-background mit-v text-end">Employee Years of service</td>
                 <td class="border mit td_border">
