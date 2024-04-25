@@ -14,8 +14,7 @@ $check_date = date('d/m/Y');
         $update_indicator = 0;
     }
 } ?>
-<?php
-foreach ($period_time as $period_times) {
+<?php foreach ($period_time as $period_times) {
     $format_date_from = DateTime::createFromFormat('d/m/Y', $period_times->date_from)->format('d-M-Y');
     $format_date_to = DateTime::createFromFormat('d/m/Y', $period_times->date_to)->format('d-M-Y');
 }
@@ -119,22 +118,22 @@ foreach ($period_time as $period_times) {
                         <td class="border topic-background mit-v text-end">Employee ID</td>
                         <td class="border mit-v td_border">
                             <?php if ($update_indicator == 1) { ?>
-                                <input type="text" id="up_emp_id" name="up_emp_id" class="form-control" value="<?php echo $self_evaluation_ids->emp_id ?>">
+                                <input type="text" id="up_emp_id" name="up_emp_id" class="form-control" value="<?php echo $self_evaluation_ids->emp_id ?>" disabled>
                                 <!-- <input type="text" id="up_emp_id" name="up_emp_id" class="form-control" value="Test"> -->
                                 <div class="mt-1 font-eigth red" id="alert_Employee_ID" style="display: none;">Please fill in Employee ID !</div>
                             <?php } else { ?>
-                                <input type="text" id="emp_id" name="emp_id" class="form-control" value="<?php echo $_SESSION["emp_id"]; ?>">
+                                <input type="text" id="emp_id" name="emp_id" class="form-control" value="<?php echo $_SESSION["emp_id"]; ?>" disabled>
                                 <div class="mt-1 font-eigth red" id="alert_Employee_ID" style="display: none;">Please fill in Employee ID !</div>
                             <?php } ?>
                         </td>
                         <td class="border topic-background mit-v text-end">Employee Grade</td>
                         <td class="border mit-v td_border" colspan="2">
                             <?php if ($update_indicator == 1) { ?>
-                                <input type="text" id="up_emp_grade" name="up_emp_grade" class="form-control" value="<?php echo $self_evaluation_ids->emp_grade ?>">
+                                <input type="text" id="up_emp_grade" name="up_emp_grade" class="form-control" value="<?php echo $self_evaluation_ids->emp_grade ?>" disabled>
                                 <!-- <input type="text" id="up_emp_grade" name="up_emp_grade" class="form-control" value="Test"> -->
                                 <div class="mt-1 font-eigth red" id="alert_Employee_Grade" style="display: none;">Please fill in Employee Grade !</div>
                             <?php } else { ?>
-                                <input type="text" id="emp_grade" name="emp_grade" class="form-control" value="<?php echo $_SESSION["emp_grade"]; ?>">
+                                <input type="text" id="emp_grade" name="emp_grade" class="form-control" value="<?php echo $_SESSION["emp_grade"]; ?>" disabled>
                                 <div class="mt-1 font-eigth red" id="alert_Employee_Grade" style="display: none;">Please fill in Employee Grade !</div>
                             <?php } ?>
                         </td>
@@ -143,22 +142,22 @@ foreach ($period_time as $period_times) {
                         <td class="border topic-background mit-v text-end">Position</td>
                         <td class="border mit-v td_border" colspan="2">
                             <?php if ($update_indicator == 1) { ?>
-                                <input type="text" id="up_position" name="up_position" class="form-control" value="<?php echo $self_evaluation_ids->section ?>">
+                                <input type="text" id="up_position" name="up_position" class="form-control" value="<?php echo $self_evaluation_ids->position ?>" disabled>
                                 <!-- <input type="text" id="up_section" name="up_section" class="form-control" value="Test"> -->
                                 <div class="mt-1 font-eigth red" id="alert_Section" style="display: none;">Please fill in Section !</div>
                             <?php } else { ?>
-                                <input type="text" id="position" name="position" class="form-control" value="<?php echo $_SESSION["emp_position"]; ?>">
+                                <input type="text" id="position" name="position" class="form-control" value="<?php echo $_SESSION["emp_position"]; ?>" disabled>
                                 <div class="mt-1 font-eigth red" id="alert_Section" style="display: none;">Please fill in Section !</div>
                             <?php } ?>
                         </td>
                         <td class="border topic-background mit-v text-end">Section</td>
                         <td class="border mit-v td_border">
                             <?php if ($update_indicator == 1) { ?>
-                                <input type="text" id="up_section" name="up_section" class="form-control" value="<?php echo $self_evaluation_ids->section ?>">
+                                <input type="text" id="up_section" name="up_section" class="form-control" value="<?php echo $self_evaluation_ids->section ?>" disabled>
                                 <!-- <input type="text" id="up_section" name="up_section" class="form-control" value="Test"> -->
                                 <div class="mt-1 font-eigth red" id="alert_Section" style="display: none;">Please fill in Section !</div>
                             <?php } else { ?>
-                                <input type="text" id="section" name="section" class="form-control" value="<?php echo $_SESSION["emp_section"]; ?>">
+                                <input type="text" id="section" name="section" class="form-control" value="<?php echo $_SESSION["emp_section"]; ?>" disabled>
                                 <div class="mt-1 font-eigth red" id="alert_Section" style="display: none;">Please fill in Section !</div>
                             <?php } ?>
                         </td>
@@ -181,11 +180,11 @@ foreach ($period_time as $period_times) {
                         <td class="border topic-background mit-v text-end">Division</td>
                         <td class="border mit-v td_border" colspan="3">
                             <?php if ($update_indicator == 1) { ?>
-                                <input type="text" class="form-control" id="up_division" name="up_division" value="<?php echo $self_evaluation_ids->division ?>">
+                                <input type="text" class="form-control" id="up_division" name="up_division" value="<?php echo $self_evaluation_ids->division ?>" disabled>
                                 <!-- <input style="font-size: 10px;" type="text" class="form-control" id="up_division" name="up_division" value="Test"> -->
                                 <div class="mt-1 font-eigth red" id="alert_Division" style="display: none;">Please select Division !</div>
                             <?php } else { ?>
-                                <input type="text" class="form-control" id="division" name="division" value="<?php echo $_SESSION["emp_division"]; ?>">
+                                <input type="text" class="form-control" id="division" name="division" value="<?php echo $_SESSION["emp_division"]; ?>" disabled>
                                 <div class="mt-1 font-eigth red" id="alert_Division" style="display: none;">Please select Division !</div>
                             <?php } ?>
                         </td>
@@ -231,74 +230,74 @@ foreach ($period_time as $period_times) {
                             <!-- <div class="mt-1 font-eigth red" id="alert_Employee_Years_of_service" style="display: none;">Please fill in Employee Years of service !</div> -->
                         </td>
                     </tr>
-                    <tr>
+                    <tr <?php if ($_SESSION["superior_name"] == "") echo "style=\"display: none;\""; ?>>
                         <td class="border topic-background mit-v text-end" colspan="2">Supervisor name 1</td>
                         <td class="border mit-v td_border" colspan="2">
                             <?php if ($update_indicator == 1) { ?>
-                                <input type="text" id="up_sup_name" name="up_sup_name" class="form-control" value="<?php echo $self_evaluation_ids->sup_name ?>">
+                                <input type="text" id="up_sup_name" name="up_sup_name" class="form-control" value="<?php echo $self_evaluation_ids->sup_name ?>" disabled>
                                 <!-- <input type="text" id="up_sup_name" name="up_sup_name" class="form-control" value="Test"> -->
                                 <div class="mt-1 font-eigth red" id="alert_Superior_name" style="display: none;">Please fill in Supervisor name !</div>
                             <?php } else { ?>
-                                <input type="text" id="sup_name" name="sup_name" class="form-control" value="<?php echo $_SESSION["superior_name"]; ?>">
+                                <input type="text" id="sup_name" name="sup_name" class="form-control" value="<?php echo $_SESSION["superior_name"]; ?>" disabled>
                                 <div class="mt-1 font-eigth red" id="alert_Superior_name" style="display: none;">Please fill in Supervisor name !</div>
                             <?php } ?>
                         </td>
                         <td class="border topic-background mit-v text-end" colspan="2">Supervisor Grade 1</td>
                         <td class="border mit-v td_border" colspan="2">
                             <?php if ($update_indicator == 1) { ?>
-                                <input type="text" id="up_sup_grade" name="up_sup_grade" class="form-control" value="<?php echo $self_evaluation_ids->sup_grade ?>">
+                                <input type="text" id="up_sup_grade" name="up_sup_grade" class="form-control" value="<?php echo $self_evaluation_ids->sup_grade ?>" disabled>
                                 <!-- <input type="text" id="up_sup_grade" name="up_sup_grade" class="form-control" value="Test"> -->
                                 <div class="mt-1 font-eigth red" id="alert_Superior_Grade" style="display: none;">Please fill in Supervisor Grade !</div>
                             <?php } else { ?>
-                                <input type="text" id="sup_grade" name="sup_grade" class="form-control" value="<?php echo $_SESSION["superior_grade"]; ?>">
+                                <input type="text" id="sup_grade" name="sup_grade" class="form-control" value="<?php echo $_SESSION["superior_grade"]; ?>" disabled>
                                 <div class="mt-1 font-eigth red" id="alert_Superior_Grade" style="display: none;">Please fill in Supervisor Grade !</div>
                             <?php } ?>
                         </td>
                     </tr>
-                    <tr>
+                    <tr <?php if($_SESSION["superior_name2"] == "") echo "style=\"display: none;\""; ?>>
                         <td class="border topic-background mit-v text-end" colspan="2">Supervisor name 2</td>
                         <td class="border mit-v td_border" colspan="2">
                             <?php if ($update_indicator == 1) { ?>
-                                <input type="text" id="up_sup_name" name="up_sup_name" class="form-control" value="<?php echo $self_evaluation_ids->sup_name ?>">
+                                <input type="text" id="up_sup_name2" name="up_sup_name2" class="form-control" value="<?php echo $self_evaluation_ids->sup_name2 ?>" disabled>
                                 <!-- <input type="text" id="up_sup_name" name="up_sup_name" class="form-control" value="Test"> -->
                                 <div class="mt-1 font-eigth red" id="alert_Superior_name" style="display: none;">Please fill in Supervisor name !</div>
                             <?php } else { ?>
-                                <input type="text" id="sup_name" name="sup_name" class="form-control" value="<?php echo $_SESSION["superior_name2"]; ?>">
+                                <input type="text" id="sup_name2" name="sup_name2" class="form-control" value="<?php echo $_SESSION["superior_name2"]; ?>" disabled>
                                 <div class="mt-1 font-eigth red" id="alert_Superior_name" style="display: none;">Please fill in Supervisor name !</div>
                             <?php } ?>
                         </td>
                         <td class="border topic-background mit-v text-end" colspan="2">Supervisor Grade 2</td>
                         <td class="border mit-v td_border" colspan="2">
                             <?php if ($update_indicator == 1) { ?>
-                                <input type="text" id="up_sup_grade" name="up_sup_grade" class="form-control" value="<?php echo $self_evaluation_ids->sup_grade ?>">
+                                <input type="text" id="up_sup_grade2" name="up_sup_grade2" class="form-control" value="<?php echo $self_evaluation_ids->sup_grade2 ?>" disabled>
                                 <!-- <input type="text" id="up_sup_grade" name="up_sup_grade" class="form-control" value="Test"> -->
                                 <div class="mt-1 font-eigth red" id="alert_Superior_Grade" style="display: none;">Please fill in Supervisor Grade !</div>
                             <?php } else { ?>
-                                <input type="text" id="sup_grade" name="sup_grade" class="form-control" value="<?php echo $_SESSION["superior_grade2"]; ?>">
+                                <input type="text" id="sup_grade2" name="sup_grade2" class="form-control" value="<?php echo $_SESSION["superior_grade2"]; ?>" disabled>
                                 <div class="mt-1 font-eigth red" id="alert_Superior_Grade" style="display: none;">Please fill in Supervisor Grade !</div>
                             <?php } ?>
                         </td>
                     </tr>
-                    <tr <?php if ($_SESSION["foreman"] == "") echo "style=\"display: none;\"" ?>>
-                        <td class="border topic-background mit-v text-end" colspan="2">Foreman</td>
-                        <td class="border mit-v td_border" colspan="2">
+                    <tr>
+                        <td class="border topic-background mit-v text-end" colspan="2" <?php if ($_SESSION["foreman"] == "") echo "style=\"display: none;\"" ?>>Foreman</td>
+                        <td class="border mit-v td_border" colspan="2" <?php if ($_SESSION["foreman"] == "") echo "style=\"display: none;\"" ?>>
                             <?php if ($update_indicator == 1) { ?>
-                                <input type="text" id="up_sup_name" name="up_sup_name" class="form-control" value="<?php echo $self_evaluation_ids->sup_name ?>">
+                                <input type="text" id="up_foreman" name="up_foreman" class="form-control" value="<?php echo $self_evaluation_ids->foreman ?>" disabled>
                                 <!-- <input type="text" id="up_sup_name" name="up_sup_name" class="form-control" value="Test"> -->
                                 <div class="mt-1 font-eigth red" id="alert_Superior_name" style="display: none;">Please fill in Supervisor name !</div>
                             <?php } else { ?>
-                                <input type="text" id="sup_name" name="sup_name" class="form-control" value="<?php echo $_SESSION["foreman"]; ?>">
+                                <input type="text" id="foreman" name="foreman" class="form-control" value="<?php echo $_SESSION["foreman"]; ?>" disabled>
                                 <div class="mt-1 font-eigth red" id="alert_Superior_name" style="display: none;">Please fill in Supervisor name !</div>
                             <?php } ?>
                         </td>
-                        <td class="border topic-background mit-v text-end" colspan="2">Factory Manager / GM</td>
-                        <td class="border mit-v td_border" colspan="2">
+                        <td class="border topic-background mit-v text-end" colspan="2" <?php if($_SESSION['factory_Manager_GM'] == "") echo "style=\"display: none;\""; ?>>Factory Manager / GM</td>
+                        <td class="border mit-v td_border" colspan="2" <?php if($_SESSION['factory_Manager_GM'] == "") echo "style=\"display: none;\""; ?>>
                             <?php if ($update_indicator == 1) { ?>
-                                <input type="text" id="up_sup_grade" name="up_sup_grade" class="form-control" value="<?php echo $self_evaluation_ids->sup_grade ?>">
+                                <input type="text" id="up_factory_Manager_GM" name="up_factory_Manager_GM" class="form-control" value="<?php echo $self_evaluation_ids->factory_Manager_GM ?>" disabled>
                                 <!-- <input type="text" id="up_sup_grade" name="up_sup_grade" class="form-control" value="Test"> -->
                                 <div class="mt-1 font-eigth red" id="alert_Superior_Grade" style="display: none;">Please fill in Supervisor Grade !</div>
                             <?php } else { ?>
-                                <input type="text" id="sup_grade" name="sup_grade" class="form-control" value="<?php echo $_SESSION['factory_Manager_GM']; ?>">
+                                <input type="text" id="factory_Manager_GM" name="factory_Manager_GM" class="form-control" value="<?php echo $_SESSION['factory_Manager_GM']; ?>" disabled>
                                 <div class="mt-1 font-eigth red" id="alert_Superior_Grade" style="display: none;">Please fill in Supervisor Grade !</div>
                             <?php } ?>
                         </td>
@@ -345,7 +344,7 @@ foreach ($period_time as $period_times) {
                                 <td colspan="2" class="border td_border">
                                     <div class="form-floating">
                                         <textarea name="up_actual_achievement[]" id="up_actual_achievement" class="form-control h-textarea"><?php echo $newArray_actual_achievement[$b] ?></textarea>
-                                        <label for="up_actual_achievement" class="font-twelve">Please fill in Actual achievement<span class="red font-twelve">*</span></label>
+                                        <label for="up_actual_achievement" class="font-twelve">Please fill in.<span class="red font-twelve">*</span></label>
                                     </div>
                                 </td>
                                 <td class="border mit td_border">

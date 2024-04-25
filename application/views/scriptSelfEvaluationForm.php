@@ -713,11 +713,16 @@
         let emp_name = document.getElementById("emp_name").value;
         let emp_id = document.getElementById("emp_id").value;
         let emp_grade = document.getElementById("emp_grade").value;
+        let position = document.getElementById("position").value;
         let section = document.getElementById("section").value;
         let division = document.getElementById("division").value;
         let hired_date = document.getElementById("hired_date").value;
         let sup_name = document.getElementById("sup_name").value;
         let sup_grade = document.getElementById("sup_grade").value;
+        let sup_name2 = document.getElementById("sup_name2").value;
+        let sup_grade2 = document.getElementById("sup_grade2").value;
+        let foreman = document.getElementById("foreman").value;
+        let factory_Manager_GM = document.getElementById("factory_Manager_GM").value;
         let emp_year_of_service = document.getElementById("emp_year_of_service").value;
         let job_target_1 = [];
         let job_target_1_list = [];
@@ -793,11 +798,16 @@
                 emp_name: emp_name,
                 emp_id: emp_id,
                 emp_grade: emp_grade,
+                position: position,
                 section: section,
                 division: division,
                 hired_date: hired_date,
                 sup_name: sup_name,
                 sup_grade: sup_grade,
+                sup_name2: sup_name2,
+                sup_grade2: sup_grade2,
+                foreman: foreman,
+                factory_Manager_GM: factory_Manager_GM,
                 emp_year_of_service: emp_year_of_service,
                 job_target_1: job_target_1,
                 actual_achievement: actual_achievement,
@@ -846,11 +856,16 @@
         let emp_name = document.getElementById("emp_name").value;
         let emp_id = document.getElementById("emp_id").value;
         let emp_grade = document.getElementById("emp_grade").value;
+        let position = document.getElementById("position").value;
         let section = document.getElementById("section").value;
         let division = document.getElementById("division").value;
         let hired_date = document.getElementById("hired_date").value;
         let sup_name = document.getElementById("sup_name").value;
         let sup_grade = document.getElementById("sup_grade").value;
+        let sup_name2 = document.getElementById("sup_name2").value;
+        let sup_grade2 = document.getElementById("sup_grade2").value;
+        let foreman = document.getElementById("foreman").value;
+        let factory_Manager_GM = document.getElementById("factory_Manager_GM").value;
         let job_target_1 = [];
         let job_target_1_list = [];
         $.each($("textarea[name='job_target_1[]']"), function() {
@@ -925,11 +940,16 @@
                 emp_name: emp_name,
                 emp_id: emp_id,
                 emp_grade: emp_grade,
+                position: position,
                 section: section,
                 division: division,
                 hired_date: hired_date,
                 sup_name: sup_name,
                 sup_grade: sup_grade,
+                sup_name2: sup_name2,
+                sup_grade2: sup_grade2,
+                foreman: foreman,
+                factory_Manager_GM: factory_Manager_GM,
                 job_target_1: job_target_1,
                 actual_achievement: actual_achievement,
                 job_target_2: job_target_2,

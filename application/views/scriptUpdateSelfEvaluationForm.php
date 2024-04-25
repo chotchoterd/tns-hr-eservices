@@ -714,11 +714,16 @@
         var up_emp_name = $("#up_emp_name").val();
         var up_emp_id = $("#up_emp_id").val();
         var up_emp_grade = $("#up_emp_grade").val();
+        var up_position = $("#up_position").val();
         var up_section = $("#up_section").val();
         var up_division = $("#up_division").val();
         var up_hired_date = $("#up_hired_date").val();
         var up_sup_name = $("#up_sup_name").val();
         var up_sup_grade = $("#up_sup_grade").val();
+        var up_sup_name2 = $('#up_sup_name2').val();
+        var up_sup_grade2 = $('#up_sup_grade2').val();
+        var up_foreman = $('#up_foreman').val();
+        var up_factory_Manager_GM = $('#up_factory_Manager_GM').val();
         var up_emp_year_of_service = $('#up_emp_year_of_service').val();
         var up_job_target_1 = [];
         var up_job_target_1_list = [];
@@ -807,12 +812,17 @@
                 up_emp_name: up_emp_name,
                 up_emp_id: up_emp_id,
                 up_emp_grade: up_emp_grade,
+                up_position: up_position,
                 up_section: up_section,
                 up_division: up_division,
                 up_hired_date: up_hired_date,
                 up_emp_email: up_emp_email,
                 up_sup_name: up_sup_name,
                 up_sup_grade: up_sup_grade,
+                up_sup_name2: up_sup_name2,
+                up_sup_grade2: up_sup_grade2,
+                up_foreman: up_foreman,
+                up_factory_Manager_GM: up_factory_Manager_GM,
                 up_emp_year_of_service: up_emp_year_of_service,
                 up_job_target_1: up_job_target_1,
                 up_actual_achievement: up_actual_achievement,
@@ -857,11 +867,16 @@
         var up_emp_name = $("#up_emp_name").val();
         var up_emp_id = $("#up_emp_id").val();
         var up_emp_grade = $("#up_emp_grade").val();
+        var up_position = $('#up_position').val();
         var up_section = $("#up_section").val();
         var up_division = $("#up_division").val();
         var up_hired_date = $("#up_hired_date").val();
         var up_sup_name = $("#up_sup_name").val();
         var up_sup_grade = $("#up_sup_grade").val();
+        var up_sup_name2 = $('#up_sup_name2').val();
+        var up_sup_grade2 = $('#up_sup_grade2').val();
+        var up_foreman = $('#up_foreman').val();
+        var up_factory_Manager_GM = $('#up_factory_Manager_GM').val();
         var up_emp_year_of_service = $('#up_emp_year_of_service').val();
         var up_job_target_1 = [];
         var up_job_target_1_list = [];
@@ -950,12 +965,17 @@
                 up_emp_name: up_emp_name,
                 up_emp_id: up_emp_id,
                 up_emp_grade: up_emp_grade,
+                up_position: up_position,
                 up_section: up_section,
                 up_division: up_division,
                 up_hired_date: up_hired_date,
                 up_emp_email: up_emp_email,
                 up_sup_name: up_sup_name,
                 up_sup_grade: up_sup_grade,
+                up_sup_name2: up_sup_name2,
+                up_sup_grade2: up_sup_grade2,
+                up_foreman: up_foreman,
+                up_factory_Manager_GM: up_factory_Manager_GM,
                 up_emp_year_of_service: up_emp_year_of_service,
                 up_job_target_1: up_job_target_1,
                 up_actual_achievement: up_actual_achievement,

@@ -120,7 +120,7 @@ class ModelHR extends CI_Model
         return $rs;
     }
 
-    function model_submit_self_evaluation($year_submit, $date_submit, $emp_name, $emp_id, $emp_grade, $section, $division, $hired_date, $sup_name, $sup_grade, $emp_year_of_service, $job_target_1, $actual_achievement, $job_target_2, $item_option_selfevaluations3_1, $item_option_selfevaluation3_2, $others_capability, $improve_yourself, $weaknesses, $strengths, $target_in_next_year, $item_option_selfevaluation3_6, $item_option_is_subtopic_in_subtopics3_6_1, $others_3_6_1, $item_option_is_subtopic_in_subtopics3_6_2, $others_3_6_2, $your_feedback, $emp_email, $self_evaluation_status)
+    function model_submit_self_evaluation($year_submit, $date_submit, $emp_name, $emp_id, $emp_grade, $position, $section, $division, $hired_date, $sup_name, $sup_grade, $sup_name2, $sup_grade2, $foreman, $factory_Manager_GM, $emp_year_of_service, $job_target_1, $actual_achievement, $job_target_2, $item_option_selfevaluations3_1, $item_option_selfevaluation3_2, $others_capability, $improve_yourself, $weaknesses, $strengths, $target_in_next_year, $item_option_selfevaluation3_6, $item_option_is_subtopic_in_subtopics3_6_1, $others_3_6_1, $item_option_is_subtopic_in_subtopics3_6_2, $others_3_6_2, $your_feedback, $emp_email, $self_evaluation_status)
     {
         $rs = $this->db_hr
             ->set('year_submit', $year_submit)
@@ -128,12 +128,17 @@ class ModelHR extends CI_Model
             ->set('emp_name', $emp_name)
             ->set('emp_id', $emp_id)
             ->set('emp_grade', $emp_grade)
+            ->set('position', $position)
             ->set('section', $section)
             ->set('division', $division)
             ->set('hired_date', $hired_date)
             ->set('emp_email', $emp_email)
             ->set('sup_name', $sup_name)
             ->set('sup_grade', $sup_grade)
+            ->set('sup_name2', $sup_name2)
+            ->set('sup_grade2', $sup_grade2)
+            ->set('foreman', $foreman)
+            ->set('factory_Manager_GM', $factory_Manager_GM)
             ->set('emp_year_of_service', $emp_year_of_service)
             ->set('job_target_1', $job_target_1)
             ->set('actual_achievement', $actual_achievement)
@@ -157,7 +162,7 @@ class ModelHR extends CI_Model
         return $rs;
     }
 
-    function model_up_submit_self_evaluation($up_id, $up_year_submit, $up_date_submit, $up_emp_name, $up_emp_id, $up_emp_grade, $up_section, $up_division, $up_hired_date, $up_emp_email, $up_sup_name, $up_sup_grade, $up_emp_year_of_service, $up_job_target_1, $up_actual_achievement, $up_job_target_2, $up_item_option_selfevaluations3_1, $up_item_option_selfevaluation3_2, $up_others_capability, $up_improve_yourself, $up_weaknesses, $up_strengths, $up_target_in_next_year, $up_item_option_selfevaluation3_6, $up_item_option_is_subtopic_in_subtopics3_6_1, $up_others_3_6_1, $up_item_option_is_subtopic_in_subtopics3_6_2, $up_others_3_6_2, $up_your_feedback, $up_self_evaluation_status)
+    function model_up_submit_self_evaluation($up_id, $up_year_submit, $up_date_submit, $up_emp_name, $up_emp_id, $up_emp_grade, $up_position, $up_section, $up_division, $up_hired_date, $up_emp_email, $up_sup_name, $up_sup_grade, $up_sup_name2, $up_sup_grade2, $up_foreman, $up_factory_Manager_GM, $up_emp_year_of_service, $up_job_target_1, $up_actual_achievement, $up_job_target_2, $up_item_option_selfevaluations3_1, $up_item_option_selfevaluation3_2, $up_others_capability, $up_improve_yourself, $up_weaknesses, $up_strengths, $up_target_in_next_year, $up_item_option_selfevaluation3_6, $up_item_option_is_subtopic_in_subtopics3_6_1, $up_others_3_6_1, $up_item_option_is_subtopic_in_subtopics3_6_2, $up_others_3_6_2, $up_your_feedback, $up_self_evaluation_status)
     {
         $rs = $this->db_hr
             ->set('year_submit', $up_year_submit)
@@ -166,11 +171,16 @@ class ModelHR extends CI_Model
             ->set('emp_id', $up_emp_id)
             ->set('emp_grade', $up_emp_grade)
             ->set('section', $up_section)
+            ->set('position', $up_position)
             ->set('division', $up_division)
             ->set('hired_date', $up_hired_date)
             ->set('emp_email', $up_emp_email)
             ->set('sup_name', $up_sup_name)
             ->set('sup_grade', $up_sup_grade)
+            ->set('sup_name2', $up_sup_name2)
+            ->set('sup_grade2', $up_sup_grade2)
+            ->set('foreman', $up_foreman)
+            ->set('factory_Manager_GM', $up_factory_Manager_GM)
             ->set('emp_year_of_service', $up_emp_year_of_service)
             ->set('job_target_1', $up_job_target_1)
             ->set('actual_achievement', $up_actual_achievement)
