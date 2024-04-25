@@ -99,8 +99,9 @@ if (isset($_GET['s_late'])) {
         <tr>
             <th class="topic-background mit border" rowspan="2">#</th>
             <th class="topic-background mit border" rowspan="2">Employee ID</th>
-            <th class="topic-background mit border" colspan="4">From 1 Sep [<?php echo $current_year - 1 ?>] to 31 Dec [<?php echo $current_year - 1 ?>]</th>
-            <th class="topic-background mit border" colspan="4">From 1 Jan [<?php echo $current_year ?>] to 31 Aug [<?php echo $current_year ?>]</th>
+            <th class="topic-background mit border" rowspan="2">Created Date</th>
+            <th class="topic-background mit border" colspan="4">From 1 Sep [YYYY] to 31 Dec [YYYY]</th>
+            <th class="topic-background mit border" colspan="4">From 1 Jan [YYYY] to 31 Aug [YYYY]</th>
         </tr>
         <tr>
             <th class="topic-background mit border">Business leave</th>
@@ -117,6 +118,9 @@ if (isset($_GET['s_late'])) {
             <tr>
                 <td class="border mit"><?php echo $a; ?></td>
                 <td class="border mit"><?php echo $emp_hr_import_leaves->emp_id ?></td>
+                <td class="border mit">
+                    <?php echo $emp_hr_import_leaves->created_date ?>
+                </td>
                 <td class="border mit"><?php echo $emp_hr_import_leaves->business_leave1 ?></td>
                 <td class="border mit"><?php echo $emp_hr_import_leaves->sick_leave1 ?></td>
                 <td class="border mit"><?php echo $emp_hr_import_leaves->absenteeism1 ?></td>

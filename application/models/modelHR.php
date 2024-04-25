@@ -112,7 +112,8 @@ class ModelHR extends CI_Model
         AND business_leave1 LIKE '%" . $s_business_leave . "%'
         AND sick_leave1 LIKE '%" . $s_sick_leave . "%'
         AND absenteeism1 LIKE '%" . $s_absenteeism . "%'
-        AND late1 LIKE '%" . $s_late . "%'";
+        AND late1 LIKE '%" . $s_late . "%'
+        ORDER BY emp_id, created_date";
         $rs = $this->db_hr
             ->query($sql)
             ->result();
@@ -306,9 +307,10 @@ class ModelHR extends CI_Model
 
     function model_hr_insert_leave($data)
     {
+        $current_year = date('Y');
         foreach ($data as $row) {
             $emp_id = $row['emp_id'];
-            $existing_record = $this->db_hr->get_where('tb_emp_hr_import_leave', array('emp_id' => $emp_id))->row();
+            $existing_record = $this->db_hr->get_where('tb_emp_hr_import_leave', array('emp_id' => $emp_id, 'YEAR(created_date)' => $current_year))->row();
             if ($existing_record) {
                 $this->db_hr->where('emp_id', $emp_id);
                 $this->db_hr->update('tb_emp_hr_import_leave', $row);

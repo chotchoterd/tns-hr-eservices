@@ -91,8 +91,10 @@ foreach ($period_time as $period_times) {
                         <td class="border-0"></td>
                         <td class="border-0"></td>
                         <td class="border-0"></td>
-                        <td style="width: 15em;" class="border text-end mit-v topic-background">Date</td>
-                        <td style="width: 20em;" class="border mit-v td_border">
+                        <td class="border-0"></td>
+                        <td class="border-0"></td>
+                        <td class="border text-end mit-v topic-background">Date</td>
+                        <td class="border mit-v td_border">
                             <?php if ($update_indicator == 1) { ?>
                                 <input type="text" class="form-control" id="up_date_submit" name="up_date_submit" placeholder="DD/MM/YYYY" value="<?php echo date('d-M-Y') ?>" disabled>
                                 <div class="mt-1 font-eigth red" id="alert_Date_submit" style="display: none;">Please fill in Date !</div>
@@ -104,13 +106,13 @@ foreach ($period_time as $period_times) {
                     </tr>
                     <tr>
                         <td class="border topic-background mit-v text-end">Employee name</td>
-                        <td class="border mit-v td_border">
+                        <td class="border mit-v td_border" colspan="2">
                             <?php if ($update_indicator == 1) { ?>
-                                <input type="text" id="up_emp_name" name="up_emp_name" class="form-control" value="<?php echo $self_evaluation_ids->emp_name ?>">
+                                <input type="text" id="up_emp_name" name="up_emp_name" class="form-control" value="<?php echo $self_evaluation_ids->emp_name ?>" disabled>
                                 <!-- <input type="text" id="up_emp_name" name="up_emp_name" class="form-control" value="Test"> -->
                                 <div class="mt-1 font-eigth red" id="alert_Employee_name" style="display: none;">Please fill in Employee name !</div>
                             <?php } else { ?>
-                                <input type="text" id="emp_name" name="emp_name" class="form-control" value="<?php echo $_SESSION["username"]; ?>">
+                                <input type="text" id="emp_name" name="emp_name" class="form-control" value="<?php echo $_SESSION["username"]; ?>" disabled>
                                 <div class="mt-1 font-eigth red" id="alert_Employee_name" style="display: none;">Please fill in Employee name !</div>
                             <?php } ?>
                         </td>
@@ -126,7 +128,7 @@ foreach ($period_time as $period_times) {
                             <?php } ?>
                         </td>
                         <td class="border topic-background mit-v text-end">Employee Grade</td>
-                        <td class="border mit-v td_border">
+                        <td class="border mit-v td_border" colspan="2">
                             <?php if ($update_indicator == 1) { ?>
                                 <input type="text" id="up_emp_grade" name="up_emp_grade" class="form-control" value="<?php echo $self_evaluation_ids->emp_grade ?>">
                                 <!-- <input type="text" id="up_emp_grade" name="up_emp_grade" class="form-control" value="Test"> -->
@@ -138,6 +140,17 @@ foreach ($period_time as $period_times) {
                         </td>
                     </tr>
                     <tr>
+                        <td class="border topic-background mit-v text-end">Position</td>
+                        <td class="border mit-v td_border" colspan="2">
+                            <?php if ($update_indicator == 1) { ?>
+                                <input type="text" id="up_position" name="up_position" class="form-control" value="<?php echo $self_evaluation_ids->section ?>">
+                                <!-- <input type="text" id="up_section" name="up_section" class="form-control" value="Test"> -->
+                                <div class="mt-1 font-eigth red" id="alert_Section" style="display: none;">Please fill in Section !</div>
+                            <?php } else { ?>
+                                <input type="text" id="position" name="position" class="form-control" value="<?php echo $_SESSION["emp_position"]; ?>">
+                                <div class="mt-1 font-eigth red" id="alert_Section" style="display: none;">Please fill in Section !</div>
+                            <?php } ?>
+                        </td>
                         <td class="border topic-background mit-v text-end">Section</td>
                         <td class="border mit-v td_border">
                             <?php if ($update_indicator == 1) { ?>
@@ -149,19 +162,8 @@ foreach ($period_time as $period_times) {
                                 <div class="mt-1 font-eigth red" id="alert_Section" style="display: none;">Please fill in Section !</div>
                             <?php } ?>
                         </td>
-                        <td class="border topic-background mit-v text-end">Division</td>
-                        <td class="border mit-v td_border">
-                            <?php if ($update_indicator == 1) { ?>
-                                <input style="font-size: 10px;" type="text" class="form-control" id="up_division" name="up_division" value="<?php echo $self_evaluation_ids->division ?>">
-                                <!-- <input style="font-size: 10px;" type="text" class="form-control" id="up_division" name="up_division" value="Test"> -->
-                                <div class="mt-1 font-eigth red" id="alert_Division" style="display: none;">Please select Division !</div>
-                            <?php } else { ?>
-                                <input style="font-size: 10px;" type="text" class="form-control" id="division" name="division" value="<?php echo $_SESSION["emp_division"]; ?>">
-                                <div class="mt-1 font-eigth red" id="alert_Division" style="display: none;">Please select Division !</div>
-                            <?php } ?>
-                        </td>
                         <td class="border topic-background mit-v text-end">Hired date</td>
-                        <td class="border mit-v td_border">
+                        <td class="border mit-v td_border" colspan="2">
                             <?php if ($update_indicator == 1) { ?>
                                 <input type="text" class="form-control" id="up_hired_date" name="up_hired_date" placeholder="DD/MM/YYYY" value="<?php echo $self_evaluation_ids->hired_date ?>" disabled>
                                 <!-- <input type="text" class="form-control" id="up_hired_date" name="up_hired_date" placeholder="DD/MM/YYYY" value="Test" disabled> -->
@@ -176,30 +178,19 @@ foreach ($period_time as $period_times) {
                         </td>
                     </tr>
                     <tr>
-                        <td class="border topic-background mit-v text-end">Supervisor name</td>
-                        <td class="border mit-v td_border">
+                        <td class="border topic-background mit-v text-end">Division</td>
+                        <td class="border mit-v td_border" colspan="3">
                             <?php if ($update_indicator == 1) { ?>
-                                <input type="text" id="up_sup_name" name="up_sup_name" class="form-control" value="<?php echo $self_evaluation_ids->sup_name ?>">
-                                <!-- <input type="text" id="up_sup_name" name="up_sup_name" class="form-control" value="Test"> -->
-                                <div class="mt-1 font-eigth red" id="alert_Superior_name" style="display: none;">Please fill in Supervisor name !</div>
+                                <input type="text" class="form-control" id="up_division" name="up_division" value="<?php echo $self_evaluation_ids->division ?>">
+                                <!-- <input style="font-size: 10px;" type="text" class="form-control" id="up_division" name="up_division" value="Test"> -->
+                                <div class="mt-1 font-eigth red" id="alert_Division" style="display: none;">Please select Division !</div>
                             <?php } else { ?>
-                                <input type="text" id="sup_name" name="sup_name" class="form-control" value="<?php echo $_SESSION["superior_name"]; ?>">
-                                <div class="mt-1 font-eigth red" id="alert_Superior_name" style="display: none;">Please fill in Supervisor name !</div>
+                                <input type="text" class="form-control" id="division" name="division" value="<?php echo $_SESSION["emp_division"]; ?>">
+                                <div class="mt-1 font-eigth red" id="alert_Division" style="display: none;">Please select Division !</div>
                             <?php } ?>
                         </td>
-                        <td class="border topic-background mit-v text-end">Supervisor Grade</td>
-                        <td class="border mit-v td_border">
-                            <?php if ($update_indicator == 1) { ?>
-                                <input type="text" id="up_sup_grade" name="up_sup_grade" class="form-control" value="<?php echo $self_evaluation_ids->sup_grade ?>">
-                                <!-- <input type="text" id="up_sup_grade" name="up_sup_grade" class="form-control" value="Test"> -->
-                                <div class="mt-1 font-eigth red" id="alert_Superior_Grade" style="display: none;">Please fill in Supervisor Grade !</div>
-                            <?php } else { ?>
-                                <input type="text" id="sup_grade" name="sup_grade" class="form-control" value="<?php echo $_SESSION["superior_grade"]; ?>">
-                                <div class="mt-1 font-eigth red" id="alert_Superior_Grade" style="display: none;">Please fill in Supervisor Grade !</div>
-                            <?php } ?>
-                        </td>
-                        <td class="border topic-background mit-v text-end">Employee Years of service</td>
-                        <td class="border mit td_border">
+                        <td class="border topic-background mit-v text-end" colspan="2">Employee Years of service</td>
+                        <td class="border mit td_border" colspan="2">
                             <!-- <input type="text" id="emp_year_of_service" name="emp_year_of_service" class="form-control" value=""> -->
                             <?php if ($update_indicator == 1) { ?>
                                 <?php
@@ -240,6 +231,80 @@ foreach ($period_time as $period_times) {
                             <!-- <div class="mt-1 font-eigth red" id="alert_Employee_Years_of_service" style="display: none;">Please fill in Employee Years of service !</div> -->
                         </td>
                     </tr>
+                    <tr>
+                        <td class="border topic-background mit-v text-end" colspan="2">Supervisor name 1</td>
+                        <td class="border mit-v td_border" colspan="2">
+                            <?php if ($update_indicator == 1) { ?>
+                                <input type="text" id="up_sup_name" name="up_sup_name" class="form-control" value="<?php echo $self_evaluation_ids->sup_name ?>">
+                                <!-- <input type="text" id="up_sup_name" name="up_sup_name" class="form-control" value="Test"> -->
+                                <div class="mt-1 font-eigth red" id="alert_Superior_name" style="display: none;">Please fill in Supervisor name !</div>
+                            <?php } else { ?>
+                                <input type="text" id="sup_name" name="sup_name" class="form-control" value="<?php echo $_SESSION["superior_name"]; ?>">
+                                <div class="mt-1 font-eigth red" id="alert_Superior_name" style="display: none;">Please fill in Supervisor name !</div>
+                            <?php } ?>
+                        </td>
+                        <td class="border topic-background mit-v text-end" colspan="2">Supervisor Grade 1</td>
+                        <td class="border mit-v td_border" colspan="2">
+                            <?php if ($update_indicator == 1) { ?>
+                                <input type="text" id="up_sup_grade" name="up_sup_grade" class="form-control" value="<?php echo $self_evaluation_ids->sup_grade ?>">
+                                <!-- <input type="text" id="up_sup_grade" name="up_sup_grade" class="form-control" value="Test"> -->
+                                <div class="mt-1 font-eigth red" id="alert_Superior_Grade" style="display: none;">Please fill in Supervisor Grade !</div>
+                            <?php } else { ?>
+                                <input type="text" id="sup_grade" name="sup_grade" class="form-control" value="<?php echo $_SESSION["superior_grade"]; ?>">
+                                <div class="mt-1 font-eigth red" id="alert_Superior_Grade" style="display: none;">Please fill in Supervisor Grade !</div>
+                            <?php } ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border topic-background mit-v text-end" colspan="2">Supervisor name 2</td>
+                        <td class="border mit-v td_border" colspan="2">
+                            <?php if ($update_indicator == 1) { ?>
+                                <input type="text" id="up_sup_name" name="up_sup_name" class="form-control" value="<?php echo $self_evaluation_ids->sup_name ?>">
+                                <!-- <input type="text" id="up_sup_name" name="up_sup_name" class="form-control" value="Test"> -->
+                                <div class="mt-1 font-eigth red" id="alert_Superior_name" style="display: none;">Please fill in Supervisor name !</div>
+                            <?php } else { ?>
+                                <input type="text" id="sup_name" name="sup_name" class="form-control" value="<?php echo $_SESSION["superior_name2"]; ?>">
+                                <div class="mt-1 font-eigth red" id="alert_Superior_name" style="display: none;">Please fill in Supervisor name !</div>
+                            <?php } ?>
+                        </td>
+                        <td class="border topic-background mit-v text-end" colspan="2">Supervisor Grade 2</td>
+                        <td class="border mit-v td_border" colspan="2">
+                            <?php if ($update_indicator == 1) { ?>
+                                <input type="text" id="up_sup_grade" name="up_sup_grade" class="form-control" value="<?php echo $self_evaluation_ids->sup_grade ?>">
+                                <!-- <input type="text" id="up_sup_grade" name="up_sup_grade" class="form-control" value="Test"> -->
+                                <div class="mt-1 font-eigth red" id="alert_Superior_Grade" style="display: none;">Please fill in Supervisor Grade !</div>
+                            <?php } else { ?>
+                                <input type="text" id="sup_grade" name="sup_grade" class="form-control" value="<?php echo $_SESSION["superior_grade2"]; ?>">
+                                <div class="mt-1 font-eigth red" id="alert_Superior_Grade" style="display: none;">Please fill in Supervisor Grade !</div>
+                            <?php } ?>
+                        </td>
+                    </tr>
+                    <tr <?php if ($_SESSION["foreman"] == "") echo "style=\"display: none;\"" ?>>
+                        <td class="border topic-background mit-v text-end" colspan="2">Foreman</td>
+                        <td class="border mit-v td_border" colspan="2">
+                            <?php if ($update_indicator == 1) { ?>
+                                <input type="text" id="up_sup_name" name="up_sup_name" class="form-control" value="<?php echo $self_evaluation_ids->sup_name ?>">
+                                <!-- <input type="text" id="up_sup_name" name="up_sup_name" class="form-control" value="Test"> -->
+                                <div class="mt-1 font-eigth red" id="alert_Superior_name" style="display: none;">Please fill in Supervisor name !</div>
+                            <?php } else { ?>
+                                <input type="text" id="sup_name" name="sup_name" class="form-control" value="<?php echo $_SESSION["foreman"]; ?>">
+                                <div class="mt-1 font-eigth red" id="alert_Superior_name" style="display: none;">Please fill in Supervisor name !</div>
+                            <?php } ?>
+                        </td>
+                        <td class="border topic-background mit-v text-end" colspan="2">Factory Manager / GM</td>
+                        <td class="border mit-v td_border" colspan="2">
+                            <?php if ($update_indicator == 1) { ?>
+                                <input type="text" id="up_sup_grade" name="up_sup_grade" class="form-control" value="<?php echo $self_evaluation_ids->sup_grade ?>">
+                                <!-- <input type="text" id="up_sup_grade" name="up_sup_grade" class="form-control" value="Test"> -->
+                                <div class="mt-1 font-eigth red" id="alert_Superior_Grade" style="display: none;">Please fill in Supervisor Grade !</div>
+                            <?php } else { ?>
+                                <input type="text" id="sup_grade" name="sup_grade" class="form-control" value="<?php echo $_SESSION['factory_Manager_GM']; ?>">
+                                <div class="mt-1 font-eigth red" id="alert_Superior_Grade" style="display: none;">Please fill in Supervisor Grade !</div>
+                            <?php } ?>
+                        </td>
+                    </tr>
+                </table>
+                <table class="table table-form">
                     <tr>
                         <th colspan="6" class="border-0">
                             <?php foreach ($topic_selfevaluation as $topic_selfevaluations) {
@@ -402,8 +467,8 @@ foreach ($period_time as $period_times) {
                                     if ($item_option_selfevaluations->main_topic == 3 && $item_option_selfevaluations->sub_topic == 3.1) {
                                         $input_id = 'up_item_option_selfevaluation_' . $key;
                                         echo "<div class=\"mx-5\">
-                            <input type=\"radio\" name=\"up_3_1item_option_selfevaluations[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\" $check3_1> <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label>
-                            </div>";
+                                        <input type=\"radio\" name=\"up_3_1item_option_selfevaluations[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\" $check3_1> <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label>
+                                        </div>";
                                     }
                                 } ?>
                             </td>
@@ -449,9 +514,9 @@ foreach ($period_time as $period_times) {
                                             $input_id = 'up_3_2item_option_selfevaluation_' . $key;
                                             if ($count < $half) {
                                                 echo "<div class=\"mx-5\">
-                            <input type=\"checkbox\" name=\"up_3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\" $check3_2>
-                            <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
-                            </div>";
+                                                <input type=\"checkbox\" name=\"up_3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\" $check3_2>
+                                                <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
+                                                </div>";
                                             }
                                         }
                                         $count++; // เพิ่มค่าตัวนับ
@@ -468,9 +533,9 @@ foreach ($period_time as $period_times) {
                                             $input_id = '3_2item_option_selfevaluation_' . $key;
                                             if ($count < $half) {
                                                 echo "<div class=\"mx-5\">
-                            <input type=\"checkbox\" name=\"3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\">
-                            <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
-                            </div>";
+                                                <input type=\"checkbox\" name=\"3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\">
+                                                <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
+                                                </div>";
                                             }
                                         }
                                         $count++; // เพิ่มค่าตัวนับ
@@ -493,9 +558,9 @@ foreach ($period_time as $period_times) {
                                             $input_id = 'up_3_2item_option_selfevaluation_' . $key;
                                             if ($count >= $half && $count < $half * 2) {
                                                 echo "<div class=\"mx-5\">
-                            <input type=\"checkbox\" name=\"up_3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\" $check3_2>
-                            <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
-                            </div>";
+                                                <input type=\"checkbox\" name=\"up_3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\" $check3_2>
+                                                <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
+                                                </div>";
                                             }
                                         }
                                         $count++; // เพิ่มค่าตัวนับ
@@ -518,9 +583,9 @@ foreach ($period_time as $period_times) {
                                             $input_id = '3_2item_option_selfevaluation_' . $key;
                                             if ($count >= $half && $count < $half * 2) {
                                                 echo "<div class=\"mx-5\">
-                                        <input type=\"checkbox\" name=\"3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\">
-                                        <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
-                                        </div>";
+                                                <input type=\"checkbox\" name=\"3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\">
+                                                <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
+                                                </div>";
                                             }
                                         }
                                         $count++; // เพิ่มค่าตัวนับ
@@ -564,9 +629,9 @@ foreach ($period_time as $period_times) {
                                             $input_id = 'up_3_2item_option_selfevaluation_' . $key;
                                             if ($count < $half) {
                                                 echo "<div class=\"mx-5\">
-                            <input type=\"checkbox\" name=\"up_3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\" $check3_2>
-                            <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
-                            </div>";
+                                                <input type=\"checkbox\" name=\"up_3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\" $check3_2>
+                                                <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
+                                                </div>";
                                             }
                                         }
                                         $count++; // เพิ่มค่าตัวนับ
@@ -583,9 +648,9 @@ foreach ($period_time as $period_times) {
                                             $input_id = '3_2item_option_selfevaluation_' . $key;
                                             if ($count < $half) {
                                                 echo "<div class=\"mx-5\">
-                            <input type=\"checkbox\" name=\"3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\">
-                            <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
-                            </div>";
+                                                <input type=\"checkbox\" name=\"3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\">
+                                                <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
+                                                </div>";
                                             }
                                         }
                                         $count++; // เพิ่มค่าตัวนับ
@@ -608,9 +673,9 @@ foreach ($period_time as $period_times) {
                                             $input_id = 'up_3_2item_option_selfevaluation_' . $key;
                                             if ($count >= $half && $count < $half * 2) {
                                                 echo "<div class=\"mx-5\">
-                            <input type=\"checkbox\" name=\"up_3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\" $check3_2>
-                            <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
-                            </div>";
+                                                <input type=\"checkbox\" name=\"up_3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\" $check3_2>
+                                                <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
+                                                </div>";
                                             }
                                         }
                                         $count++; // เพิ่มค่าตัวนับ
@@ -633,9 +698,9 @@ foreach ($period_time as $period_times) {
                                             $input_id = '3_2item_option_selfevaluation_' . $key;
                                             if ($count >= $half && $count < $half * 2) {
                                                 echo "<div class=\"mx-5\">
-                                        <input type=\"checkbox\" name=\"3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\">
-                                        <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
-                                        </div>";
+                                                <input type=\"checkbox\" name=\"3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\">
+                                                <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
+                                                </div>";
                                             }
                                         }
                                         $count++; // เพิ่มค่าตัวนับ
@@ -796,8 +861,8 @@ foreach ($period_time as $period_times) {
                                     $input_id = 'up_3_6item_option_selfevaluation_' . $key;
                                     if ($item_option_selfevaluations->main_topic == 3 && $item_option_selfevaluations->sub_topic == 3.6) {
                                         echo "<div class=\"mx-5\">
-                            <input type=\"radio\" name=\"up_3_6item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\" $check3_6> <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label>
-                            </div>";
+                                        <input type=\"radio\" name=\"up_3_6item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\" $check3_6> <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label>
+                                        </div>";
                                     }
                                 } ?>
                             </td>
@@ -807,8 +872,8 @@ foreach ($period_time as $period_times) {
                                     $input_id = '3_6item_option_selfevaluation_' . $key;
                                     if ($item_option_selfevaluations->main_topic == 3 && $item_option_selfevaluations->sub_topic == 3.6) {
                                         echo "<div class=\"mx-5\">
-                            <input type=\"radio\" name=\"3_6item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\"> <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label>
-                            </div>";
+                                        <input type=\"radio\" name=\"3_6item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\"> <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label>
+                                        </div>";
                                     }
                                 } ?>
                             </td>
@@ -820,8 +885,8 @@ foreach ($period_time as $period_times) {
                                 <?php foreach ($subtopic_in_subtopic as $subtopic_in_subtopics) {
                                     if ($subtopic_in_subtopics->main_topic == 3 && $subtopic_in_subtopics->sub_topic == 3.6 && $subtopic_in_subtopics->subtopic_in_subtopic == "3.6.1") {
                                         echo "<div class=\"mx-3 fw-bold\">$subtopic_in_subtopics->subtopic_in_subtopic " . " " . "$subtopic_in_subtopics->subtopic_in_subtopic_text</div>
-                            <div class=\"mx-5\">$subtopic_in_subtopics->remark</div>
-                            <div class=\"mx-5 font-eigth red\" id=\"alert_most_suitable\" style=\"display: none;\">Please select 3.6.1 What kind of job shall be most suitable to you !</div>";
+                                        <div class=\"mx-5\">$subtopic_in_subtopics->remark</div>
+                                        <div class=\"mx-5 font-eigth red\" id=\"alert_most_suitable\" style=\"display: none;\">Please select 3.6.1 What kind of job shall be most suitable to you !</div>";
                                     }
                                 } ?>
                             </td>
@@ -919,7 +984,7 @@ foreach ($period_time as $period_times) {
                                 <?php foreach ($subtopic_in_subtopic as $subtopic_in_subtopics) {
                                     if ($subtopic_in_subtopics->main_topic == 3 && $subtopic_in_subtopics->sub_topic == 3.6 && $subtopic_in_subtopics->subtopic_in_subtopic == "3.6.2") {
                                         echo "<div class=\"mx-3 fw-bold\">$subtopic_in_subtopics->subtopic_in_subtopic " . " " . "$subtopic_in_subtopics->subtopic_in_subtopic_text</div>
-                            <div class=\"mx-3 mt-1 font-eigth red\" id=\"alert_assignment_as_stated\" style=\"display: none;\">Please select 3.6.2 Please check box for a reason why you propose to change job assignment as stated in 3.6.1 !</div>";
+                                        <div class=\"mx-3 mt-1 font-eigth red\" id=\"alert_assignment_as_stated\" style=\"display: none;\">Please select 3.6.2 Please check box for a reason why you propose to change job assignment as stated in 3.6.1 !</div>";
                                     }
                                 } ?>
                             </td>
@@ -936,8 +1001,8 @@ foreach ($period_time as $period_times) {
                                     if ($item_option_is_subtopic_in_subtopics->subtopic_in_subtopic == "3.6.2") {
                                         $id_input = 'up_3_6_2item_option_is_subtopic_in_subtopic' . $key;
                                         echo "<div class=\"mx-5\">
-                            <input type=\"checkbox\" name=\"up_3_6_2item_option_is_subtopic_in_subtopic[]\" id=\"$id_input\" value=\"$item_option_is_subtopic_in_subtopics->subtopic_in_subtopic_text\" $check_3_6_2> <label for=\"$id_input\">$item_option_is_subtopic_in_subtopics->subtopic_in_subtopic_text</label> <br>
-                            </div>";
+                                        <input type=\"checkbox\" name=\"up_3_6_2item_option_is_subtopic_in_subtopic[]\" id=\"$id_input\" value=\"$item_option_is_subtopic_in_subtopics->subtopic_in_subtopic_text\" $check_3_6_2> <label for=\"$id_input\">$item_option_is_subtopic_in_subtopics->subtopic_in_subtopic_text</label> <br>
+                                        </div>";
                                     }
                                 } ?>
                                 <div id="div_others_3_6_2" <?php if ($self_evaluation_ids->others_3_6_2 == "") echo "style=\"display: none;\""; ?> class="mx-5">
@@ -955,8 +1020,8 @@ foreach ($period_time as $period_times) {
                                 <?php foreach ($subtopic_in_subtopic as $subtopic_in_subtopics) {
                                     if ($subtopic_in_subtopics->main_topic == 3 && $subtopic_in_subtopics->sub_topic == 3.6 && $subtopic_in_subtopics->subtopic_in_subtopic == "3.6.1") {
                                         echo "<div class=\"mx-3 fw-bold\">$subtopic_in_subtopics->subtopic_in_subtopic " . " " . "$subtopic_in_subtopics->subtopic_in_subtopic_text</div>
-                            <div class=\"mx-5\">$subtopic_in_subtopics->remark</div>
-                            <div class=\"mx-5 font-eigth red\" id=\"alert_most_suitable\" style=\"display: none;\">Please select 3.6.1 What kind of job shall be most suitable to you !</div>";
+                                        <div class=\"mx-5\">$subtopic_in_subtopics->remark</div>
+                                        <div class=\"mx-5 font-eigth red\" id=\"alert_most_suitable\" style=\"display: none;\">Please select 3.6.1 What kind of job shall be most suitable to you !</div>";
                                     }
                                 } ?>
                             </td>
@@ -1036,7 +1101,7 @@ foreach ($period_time as $period_times) {
                                 <?php foreach ($subtopic_in_subtopic as $subtopic_in_subtopics) {
                                     if ($subtopic_in_subtopics->main_topic == 3 && $subtopic_in_subtopics->sub_topic == 3.6 && $subtopic_in_subtopics->subtopic_in_subtopic == "3.6.2") {
                                         echo "<div class=\"mx-3 fw-bold\">$subtopic_in_subtopics->subtopic_in_subtopic " . " " . "$subtopic_in_subtopics->subtopic_in_subtopic_text</div>
-                        <div class=\"mx-3 mt-1 font-eigth red\" id=\"alert_assignment_as_stated\" style=\"display: none;\">Please select 3.6.2 Please check box for a reason why you propose to change job assignment as stated in 3.6.1 !</div>";
+                                        <div class=\"mx-3 mt-1 font-eigth red\" id=\"alert_assignment_as_stated\" style=\"display: none;\">Please select 3.6.2 Please check box for a reason why you propose to change job assignment as stated in 3.6.1 !</div>";
                                     }
                                 } ?>
                             </td>
@@ -1047,8 +1112,8 @@ foreach ($period_time as $period_times) {
                                     if ($item_option_is_subtopic_in_subtopics->subtopic_in_subtopic == "3.6.2") {
                                         $id_input = '3_6_2item_option_is_subtopic_in_subtopic' . $key;
                                         echo "<div class=\"mx-5\">
-                        <input type=\"checkbox\" name=\"3_6_2item_option_is_subtopic_in_subtopic[]\" id=\"$id_input\" value=\"$item_option_is_subtopic_in_subtopics->subtopic_in_subtopic_text\"> <label for=\"$id_input\">$item_option_is_subtopic_in_subtopics->subtopic_in_subtopic_text</label> <br>
-                        </div>";
+                                        <input type=\"checkbox\" name=\"3_6_2item_option_is_subtopic_in_subtopic[]\" id=\"$id_input\" value=\"$item_option_is_subtopic_in_subtopics->subtopic_in_subtopic_text\"> <label for=\"$id_input\">$item_option_is_subtopic_in_subtopics->subtopic_in_subtopic_text</label> <br>
+                                        </div>";
                                     }
                                 } ?>
                                 <div id="div_others_3_6_2" style="display: none;" class="mx-5">

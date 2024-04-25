@@ -38,6 +38,7 @@ class Logincontrol extends CI_Controller
                         $user_fullname = $get_emp_ids->emp_name;
                         $emp_id = $get_emp_ids->emp_id;
                         $emp_grade = $get_emp_ids->emp_grade;
+                        $emp_position = $get_emp_ids->emp_position;
                         $emp_division = $get_emp_ids->emp_division;
                         $emp_section = $get_emp_ids->emp_section;
                         $emp_hired_date = $get_emp_ids->emp_hired_date;
@@ -45,6 +46,11 @@ class Logincontrol extends CI_Controller
                         $superior_name = $get_emp_ids->superior_name1;
                         $superior_grade = $get_emp_ids->superior_grade1;
                         $superior_email = $get_emp_ids->superior_email1;
+                        $superior_name2 = $get_emp_ids->superior_name2;
+                        $superior_grade2 = $get_emp_ids->superior_grade2;
+                        $superior_email2 = $get_emp_ids->superior_email2;
+                        $foreman = $get_emp_ids->foreman;
+                        $factory_Manager_GM = $get_emp_ids->factory_Manager_GM;
                         $count_rows += 1;
                     }
                     if ($count_rows > 0) {
@@ -55,6 +61,7 @@ class Logincontrol extends CI_Controller
                         $_SESSION["username"] = $user_fullname;
                         $_SESSION["emp_id"] = $emp_id;
                         $_SESSION["emp_grade"] = $emp_grade;
+                        $_SESSION["emp_position"] = $emp_position;
                         $_SESSION["emp_division"] = $emp_division;
                         $_SESSION["emp_section"] = $emp_section;
                         $_SESSION["emp_hired_date"] = $emp_hired_date;
@@ -62,6 +69,11 @@ class Logincontrol extends CI_Controller
                         $_SESSION["superior_name"] = $superior_name;
                         $_SESSION["superior_grade"] = $superior_grade;
                         $_SESSION["superior_email"] = $superior_email;
+                        $_SESSION["superior_name2"] = $superior_name2;
+                        $_SESSION["superior_grade2"] = $superior_grade2;
+                        $_SESSION["superior_email2"] = $superior_email2;
+                        $_SESSION["foreman"] = $foreman;
+                        $_SESSION['factory_Manager_GM'] = $factory_Manager_GM;
                         $_SESSION['last_activity'] = time();
                         $get_emp_admin = $this->login->get_data_emp_admin($emp_id);
                         foreach ($get_emp_admin as $get_emp_admins) {
