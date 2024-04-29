@@ -50,15 +50,17 @@ foreach ($period_time as $period_times) {
                 <td class="border-0"></td>
                 <td class="border-0"></td>
                 <td class="border-0"></td>
-                <td style="width: 15em;" class="border text-end mit-v topic-background">Date</td>
-                <td style="width: 20em;" class="border mit-v td_border">
+                <td class="border-0"></td>
+                <td class="border-0"></td>
+                <td class="border text-end mit-v topic-background">Date</td>
+                <td class="border mit-v td_border">
                     <input type="text" class="form-control" id="date_submit" name="date_submit" placeholder="DD/MM/YYYY" value="<?php echo $self_evaluation_ids->date_submit ?>" disabled>
                     <div class="mt-1 font-eigth red" id="alert_Date_submit" style="display: none;">Please fill in Date !</div>
                 </td>
             </tr>
             <tr>
                 <td class="border topic-background mit-v text-end">Employee name</td>
-                <td class="border mit-v td_border">
+                <td class="border mit-v td_border" colspan="2">
                     <input type="text" id="emp_name" name="emp_name" class="form-control" value="<?php echo $self_evaluation_ids->emp_name ?>" disabled>
                     <div class="mt-1 font-eigth red" id="alert_Employee_name" style="display: none;">Please fill in Employee name !</div>
                 </td>
@@ -68,45 +70,78 @@ foreach ($period_time as $period_times) {
                     <div class="mt-1 font-eigth red" id="alert_Employee_ID" style="display: none;">Please fill in Employee ID !</div>
                 </td>
                 <td class="border topic-background mit-v text-end">Employee Grade</td>
-                <td class="border mit-v td_border">
+                <td class="border mit-v td_border" colspan="2">
                     <input type="text" id="emp_grade" name="emp_grade" class="form-control" value="<?php echo $self_evaluation_ids->emp_grade ?>" disabled>
                     <div class="mt-1 font-eigth red" id="alert_Employee_Grade" style="display: none;">Please fill in Employee Grade !</div>
                 </td>
             </tr>
             <tr>
+                <td class="border topic-background mit-v text-end">Position</td>
+                <td class="border mit-v td_border" colspan="2">
+                    <input type="text" id="position" name="position" class="form-control" value="<?php echo $self_evaluation_ids->position ?>" disabled>
+                    <div class="mt-1 font-eigth red" id="alert_Section" style="display: none;">Please fill in Section !</div>
+                </td>
                 <td class="border topic-background mit-v text-end">Section</td>
                 <td class="border mit-v td_border">
                     <input type="text" id="section" name="section" class="form-control" value="<?php echo $self_evaluation_ids->section ?>" disabled>
                     <div class="mt-1 font-eigth red" id="alert_Section" style="display: none;">Please fill in Section !</div>
                 </td>
-                <td class="border topic-background mit-v text-end">Division</td>
-                <td class="border mit-v td_border">
-                    <input style="font-size: 10px;" type="text" class="form-control" id="division" name="division" value="<?php echo $self_evaluation_ids->division ?>" disabled>
-                    <div class="mt-1 font-eigth red" id="alert_Division" style="display: none;">Please select Division !</div>
-                </td>
                 <td class="border topic-background mit-v text-end">Hired date</td>
-                <td class="border mit-v td_border">
+                <td class="border mit-v td_border" colspan="2">
                     <input type="text" class="form-control" id="hired_date" name="hired_date" placeholder="DD/MM/YYYY" value="<?php echo $self_evaluation_ids->hired_date ?>" disabled>
                     <div class="mt-1 font-eigth red" id="alert_Hired_date" style="display: none;">Please fill in Hired date !</div>
                 </td>
             </tr>
             <tr>
-                <td class="border topic-background mit-v text-end">Supervisor name</td>
-                <td class="border mit-v td_border">
-                    <input type="text" id="sup_name" name="sup_name" class="form-control" value="<?php echo $self_evaluation_ids->sup_name ?>" disabled>
-                    <div class="mt-1 font-eigth red" id="alert_Superior_name" style="display: none;">Please fill in Supervisor name !</div>
+                <td class="border topic-background mit-v text-end">Division</td>
+                <td class="border mit-v td_border" colspan="3">
+                    <input style="font-size: 10px;" type="text" class="form-control" id="division" name="division" value="<?php echo $self_evaluation_ids->division ?>" disabled>
+                    <div class="mt-1 font-eigth red" id="alert_Division" style="display: none;">Please select Division !</div>
                 </td>
-                <td class="border topic-background mit-v text-end">Supervisor Grade</td>
-                <td class="border mit-v td_border">
-                    <input type="text" id="sup_grade" name="sup_grade" class="form-control" value="<?php echo $self_evaluation_ids->sup_grade ?>" disabled>
-                    <div class="mt-1 font-eigth red" id="alert_Superior_Grade" style="display: none;">Please fill in Supervisor Grade !</div>
-                </td>
-                <td class="border topic-background mit-v text-end">Employee Years of service</td>
-                <td class="border mit td_border">
+                <td class="border topic-background mit-v text-end" colspan="2">Employee Years of service</td>
+                <td class="border mit td_border" colspan="2">
                     <input type="text" id="emp_year_of_service" name="emp_year_of_service" class="form-control" value="<?php echo $self_evaluation_ids->emp_year_of_service ?>" disabled>
                     <!-- <div class="mt-1 font-eigth red" id="alert_Employee_Years_of_service" style="display: none;">Please fill in Employee Years of service !</div> -->
                 </td>
             </tr>
+            <tr <?php if ($self_evaluation_ids->sup_name == "") echo "style=\"display: none;\""; ?>>
+                <td class="border topic-background mit-v text-end" colspan="2">Supervisor name 1</td>
+                <td class="border mit-v td_border" colspan="2">
+                    <input type="text" id="sup_name" name="sup_name" class="form-control" value="<?php echo $self_evaluation_ids->sup_name ?>" disabled>
+                    <div class="mt-1 font-eigth red" id="alert_Superior_name" style="display: none;">Please fill in Supervisor name !</div>
+                </td>
+                <td class="border topic-background mit-v text-end" colspan="2">Supervisor Grade 1</td>
+                <td class="border mit-v td_border" colspan="2">
+                    <input type="text" id="sup_grade" name="sup_grade" class="form-control" value="<?php echo $self_evaluation_ids->sup_grade ?>" disabled>
+                    <div class="mt-1 font-eigth red" id="alert_Superior_Grade" style="display: none;">Please fill in Supervisor Grade !</div>
+                </td>
+            </tr>
+            <tr <?php if ($self_evaluation_ids->sup_name2 == "") echo "style=\"display: none;\""; ?>>
+                <td class="border topic-background mit-v text-end" colspan="2">Supervisor name 2</td>
+                <td class="border mit-v td_border" colspan="2">
+                    <input type="text" id="sup_name" name="sup_name" class="form-control" value="<?php echo $self_evaluation_ids->sup_name2 ?>" disabled>
+                    <div class="mt-1 font-eigth red" id="alert_Superior_name" style="display: none;">Please fill in Supervisor name !</div>
+                </td>
+                <td class="border topic-background mit-v text-end" colspan="2">Supervisor Grade 2</td>
+                <td class="border mit-v td_border" colspan="2">
+                    <input type="text" id="sup_grade" name="sup_grade" class="form-control" value="<?php echo $self_evaluation_ids->sup_grade2 ?>" disabled>
+                    <div class="mt-1 font-eigth red" id="alert_Superior_Grade" style="display: none;">Please fill in Supervisor Grade !</div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="border topic-background mit-v text-end" <?php if ($self_evaluation_ids->foreman == "") echo "style=\"display: none;\""; ?>>Foreman</td>
+                <td colspan="2" class="border mit-v td_border" <?php if ($self_evaluation_ids->foreman == "") echo "style=\"display: none;\""; ?>>
+                    <input type="text" id="foreman" name="foreman" class="form-control" value="<?php echo $self_evaluation_ids->foreman; ?>" disabled>
+                    <div class="mt-1 font-eigth red" id="alert_Superior_name" style="display: none;">Please fill in Supervisor name !</div>
+                </td>
+                <td colspan="2" class="border topic-background mit-v text-end" <?php if ($self_evaluation_ids->factory_Manager_GM == "") echo "style=\"display: none;\""; ?>>Factory Manager / GM</td>
+                <td colspan="2" class="border mit-v td_border" <?php if ($self_evaluation_ids->factory_Manager_GM == "") echo "style=\"display: none;\""; ?>>
+                    <input type="text" id="factory_Manager_GM" name="factory_Manager_GM" class="form-control" value="<?php echo $self_evaluation_ids->factory_Manager_GM; ?>" disabled>
+                    <div class="mt-1 font-eigth red" id="alert_Superior_Grade" style="display: none;">Please fill in Supervisor Grade !</div>
+                </td>
+            </tr>
+        </table>
+        <table class="table table-form border-0">
             <tr>
                 <th colspan="6" class="border-0">
                     <?php foreach ($topic_selfevaluation as $topic_selfevaluations) {
@@ -117,15 +152,15 @@ foreach ($period_time as $period_times) {
                 </th>
             </tr>
             <tr>
-                <td colspan="3" class="mit border topic-background">
+                <td colspan="2" class="mit border topic-background">
                     <l>Job Target</l>
                     <div class="mt-1 font-eigth red" id="alert_Job_Target_1" style="display: none;">Please fill in Job Target !</div>
                 </td>
                 <td colspan="2" class="mit border topic-background">
                     <l>Actual achievement</l>
-                    <div class="mt-1 font-eigth red" id="alert_Actual_achievement" style="display: none;">Please fill in Actual achievement !</div>
+                    <div class="mt-1 font-eigth red" id="alert_Actual_achievement" style="display: none;">Please fill in</div>
                 </td>
-                <td class="mit border topic-background">Manage</td>
+                <td colspan="2" class="mit border topic-background">Manage</td>
             </tr>
             <?php
             $check_job_target_1['job_target_1'] = array();
@@ -137,7 +172,7 @@ foreach ($period_time as $period_times) {
             $newArray_actual_achievement = explode(",", $check_actual_achievement['actual_achievement']);
             for ($b = 0; $b < count($newArray_job_target_1); $b++) { ?>
                 <tr>
-                    <td colspan="3" class="border td_border">
+                    <td colspan="2" class="border td_border">
                         <div class="form-floating">
                             <textarea name="job_target_1[]" id="job_target_1" class="form-control h-textarea"><?php echo $newArray_job_target_1[$b] ?></textarea>
                             <label for="job_target_1" class="font-twelve">Please fill in Job Target<span class="red font-twelve">*</span></label>
@@ -146,10 +181,10 @@ foreach ($period_time as $period_times) {
                     <td colspan="2" class="border td_border">
                         <div class="form-floating">
                             <textarea name="actual_achievement[]" id="actual_achievement" class="form-control h-textarea"><?php echo $newArray_actual_achievement[$b] ?></textarea>
-                            <label for="actual_achievement" class="font-twelve">Please fill in Actual achievement<span class="red font-twelve">*</span></label>
+                            <label for="actual_achievement" class="font-twelve">Please fill in.<span class="red font-twelve">*</span></label>
                         </div>
                     </td>
-                    <td class="border mit td_border">
+                    <td colspan="2" class="border mit td_border">
                         <?php if ($b == 0) { ?>
                             <button onclick="addInputJob_Target();" class="btn btn-primary btn_color_df" type="button">Add Item</button>
                         <?php  } else { ?>
