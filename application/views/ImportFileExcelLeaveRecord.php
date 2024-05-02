@@ -38,7 +38,7 @@ if (isset($_GET['s_late'])) {
     <form id="import_form_leave_record" method="POST" enctype="multipart/form-data">
         <table class="table table-form border">
             <tr>
-                <th colspan="2" class="topic-background mit border h1">Import File Excel Leave Record</th>
+                <th colspan="2" class="topic-background mit border h1">Import File Excel Import Leave & Punishment Record</th>
             </tr>
             <tr>
                 <td class="td_border border">
@@ -102,6 +102,8 @@ if (isset($_GET['s_late'])) {
             <th class="topic-background mit border" rowspan="2">Created Date</th>
             <th class="topic-background mit border" colspan="4">From 1 Sep [YYYY] to 31 Dec [YYYY]</th>
             <th class="topic-background mit border" colspan="4">From 1 Jan [YYYY] to 31 Aug [YYYY]</th>
+            <th class="topic-background mit border" rowspan="2">Verbal Warning</th>
+            <th class="topic-background mit border" rowspan="2">Letter warning</th>
         </tr>
         <tr>
             <th class="topic-background mit border">Business leave</th>
@@ -129,6 +131,8 @@ if (isset($_GET['s_late'])) {
                 <td class="border mit"><?php echo $emp_hr_import_leaves->sick_leave2 ?></td>
                 <td class="border mit"><?php echo $emp_hr_import_leaves->absenteeism2 ?></td>
                 <td class="border mit"><?php echo $emp_hr_import_leaves->late2 ?></td>
+                <td class="border mit"><?php echo $emp_hr_import_leaves->verbal_warning ?></td>
+                <td class="border mit"><?php echo $emp_hr_import_leaves->letter_warning ?></td>
             </tr>
         <?php } ?>
     </table>

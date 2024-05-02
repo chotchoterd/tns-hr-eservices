@@ -122,6 +122,8 @@ class Import_file_controller extends CI_Controller
                             $sick_leave2 = $worksheet->getCellByColumnAndRow(6, $row)->getValue();
                             $absenteeism2 = $worksheet->getCellByColumnAndRow(7, $row)->getValue();
                             $late2 = $worksheet->getCellByColumnAndRow(8, $row)->getValue();
+                            $verbal_warning = $worksheet->getCellByColumnAndRow(9, $row)->getValue();
+                            $letter_warning = $worksheet->getCellByColumnAndRow(10, $row)->getValue();
 
                             $data[] = array(
                                 'emp_id' => trim($emp_id),
@@ -133,6 +135,8 @@ class Import_file_controller extends CI_Controller
                                 'sick_leave2' => trim($sick_leave2),
                                 'absenteeism2' => trim($absenteeism2),
                                 'late2' => trim($late2),
+                                'verbal_warning' => trim($verbal_warning),
+                                'letter_warning' => trim($letter_warning),
                                 'updated_date' => date('Y-m-d H:i:s')
                             );
                         }

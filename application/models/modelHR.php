@@ -107,7 +107,7 @@ class ModelHR extends CI_Model
 
     function model_emp_hr_import_leave($s_emp_id, $s_business_leave, $s_sick_leave, $s_absenteeism, $s_late)
     {
-        $sql = "SELECT * FROM tb_emp_hr_import_leave
+        $sql = "SELECT * FROM tb_emp_hr_import_leave_and_punishment
         WHERE emp_id LIKE '%" . $s_emp_id . "%'
         AND business_leave1 LIKE '%" . $s_business_leave . "%'
         AND sick_leave1 LIKE '%" . $s_sick_leave . "%'
@@ -320,12 +320,12 @@ class ModelHR extends CI_Model
         $current_year = date('Y');
         foreach ($data as $row) {
             $emp_id = $row['emp_id'];
-            $existing_record = $this->db_hr->get_where('tb_emp_hr_import_leave', array('emp_id' => $emp_id, 'YEAR(created_date)' => $current_year))->row();
+            $existing_record = $this->db_hr->get_where('tb_emp_hr_import_leave_and_punishment', array('emp_id' => $emp_id, 'YEAR(created_date)' => $current_year))->row();
             if ($existing_record) {
                 $this->db_hr->where('emp_id', $emp_id);
-                $this->db_hr->update('tb_emp_hr_import_leave', $row);
+                $this->db_hr->update('tb_emp_hr_import_leave_and_punishment', $row);
             } else {
-                $this->db_hr->insert('tb_emp_hr_import_leave', $row);
+                $this->db_hr->insert('tb_emp_hr_import_leave_and_punishment', $row);
             }
         }
     }
