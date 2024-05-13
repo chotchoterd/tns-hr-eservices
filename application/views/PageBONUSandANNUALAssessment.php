@@ -1,10 +1,7 @@
-<?php
-include "checkAdmin.php";
-?>
 <div class="container mt-3">
     <table class="table table-form">
         <tr>
-            <th class="display-3 text-center border-0">Management All for HR</th>
+            <th class="display-3 text-center border-0">Manage BONUS & ANNUAL Assessment</th>
         </tr>
     </table>
 </div>
@@ -13,47 +10,33 @@ include "checkAdmin.php";
         <thead>
             <tr>
                 <th class="mit">#</th>
-                <th class="mit">Topic Management</th>
+                <th class="mit">BONUS & ANNUAL Assessment</th>
                 <th class="mit">Status</th>
             </tr>
+        </thead>
         <tbody class="table-group-divider">
             <tr>
                 <td class="mit">1</td>
                 <td class="mit-v">
-                    <a href="<?php echo base_url('index.php/hr_controller/ManageAdmin'); ?>" class="record_border">Admin</a>
+                    <a href="<?php echo base_url('index.php/manage_Self_Evaluation/ManageForemanAndBelow'); ?>" class="record_border">AA001-Bonus&Annual Evaluate Foreman & Below- PMIS</a>
                 </td>
                 <td class="mit">Manage</td>
             </tr>
             <tr>
                 <td class="mit">2</td>
                 <td class="mit-v">
-                    <a href="<?php echo base_url('index.php/manage_Self_Evaluation/PageSelfEvaluationManage'); ?>" class="record_border">Self-Evaluation</a>
+                    <a href="<?php echo base_url('index.php/manage_Self_Evaluation/#'); ?>" class="record_border">AA002-Bonus&Annual Evaluate G4-G6 - PMIS</a>
                 </td>
-                <td class="mit">Topic & Sub-Item</td>
+                <td class="mit">Manage</td>
             </tr>
             <tr>
                 <td class="mit">3</td>
                 <td class="mit-v">
-                    <a href="<?php echo base_url('index.php/manage_Self_Evaluation/PageBONUSandANNUALAssessment') ?>" class="record_border">BONUS & ANNUAL Assessment</a>
-                </td>
-                <td class="mit">Topic & Sub-Item</td>
-            </tr>
-            <tr>
-                <td class="mit">4</td>
-                <td class="mit-v">
-                    <a href="" class="record_border">Exit Interview</a>
-                </td>
-                <td class="mit">Topic & Sub-Item</td>
-            </tr>
-            <tr>
-                <td class="mit">5</td>
-                <td class="mit-v">
-                    <a href="<?php echo base_url('index.php/manage_Self_Evaluation/Schedule') ?>" class="record_border">Schedule</a>
+                    <a href="<?php echo base_url('index.php/manage_Self_Evaluation/#'); ?>" class="record_border">AA003-Bonus-Annual Evaluate G2-G3 - PMIS</a>
                 </td>
                 <td class="mit">Manage</td>
             </tr>
         </tbody>
-        </thead>
     </table>
 </div>
 <section class="">

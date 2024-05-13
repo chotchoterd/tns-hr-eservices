@@ -590,6 +590,20 @@ class Manage_Self_Evaluation extends CI_Controller
         $this->read_json($json);
     }
 
+    function Copy_evaluation_Item()
+    {
+        $year_from = $this->input->post('year_from');
+        $year_to = $this->input->post('year_to');
+
+        $rs = $this->hr->model_evaluation_Item($year_from, $year_to);
+        if ($rs) {
+            $json = '{"ok": true}';
+        } else {
+            $json = '{"ok": false}';
+        }
+        $this->read_json($json);
+    }
+
     function Schedule()
     {
         if (isset($_GET['id'])) {
@@ -664,6 +678,85 @@ class Manage_Self_Evaluation extends CI_Controller
         $years = $this->input->post('years');
 
         $rs = $this->hr->model_update_data_Period_Time_bonus_ajax($up_ids, $date_froms, $date_tos, $statuss, $years);
+        if ($rs) {
+            $json = '{"ok": true}';
+        } else {
+            $json = '{"ok": false}';
+        }
+        $this->read_json($json);
+    }
+
+    function PageBONUSandANNUALAssessment()
+    {
+        $title['title'] = 'BONUS & ANNUAL Assessment';
+        $this->load->view('include/header', $title);
+        $this->load->view('include/menu');
+        $this->load->view('PageBONUSandANNUALAssessment');
+        // $this->load->view('include/footer');
+    }
+
+    function ManageForemanAndBelow()
+    {
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+        } else {
+            $id = "";
+        }
+        if (isset($_GET['s_Evaluation_Item_EN'])) {
+            $s_Evaluation_Item_EN = $_GET['s_Evaluation_Item_EN'];
+        } else {
+            $s_Evaluation_Item_EN = '';
+        }
+        if (isset($_GET['s_Evaluation_Item_TH'])) {
+            $s_Evaluation_Item_TH = $_GET['s_Evaluation_Item_TH'];
+        } else {
+            $s_Evaluation_Item_TH = '';
+        }
+        if (isset($_GET['s_year'])) {
+            $s_year = $_GET['s_year'];
+        } else {
+            $s_year = '';
+        }
+        if (isset($_GET['s_status'])) {
+            $s_status = $_GET['s_status'];
+        } else {
+            $s_status = '';
+        }
+
+        $bonus_evaluate_foreman_id['bonus_evaluate_foreman_id'] = $this->hr->model_bonus_evaluate_foreman_id($id);
+        $bonus_evaluate_foreman['bonus_evaluate_foreman'] = $this->hr->model_bonus_evaluate_foreman($s_Evaluation_Item_EN, $s_Evaluation_Item_TH, $s_year, $s_status);
+        $title['title'] = 'AA001-Bonus & Annual Evaluate Foreman & Below - PMIS';
+        $this->load->view('include/header', $title);
+        $this->load->view('include/menu');
+        $this->load->view('ManageForemanAndBelow', $bonus_evaluate_foreman + $bonus_evaluate_foreman_id);
+        $this->load->view('include/footer');
+    }
+
+    function submit_evaluation_Item_ajax()
+    {
+        $year = $this->input->post('year');
+        $evaluation_Item_en = $this->input->post('evaluation_Item_en');
+        $evaluation_Item_th = $this->input->post('evaluation_Item_th');
+        $status = $this->input->post('status');
+
+        $rs = $this->hr->model_submit_evaluation_Item($year, $evaluation_Item_en, $evaluation_Item_th, $status);
+        if ($rs) {
+            $json = '{"ok": true}';
+        } else {
+            $json = '{"ok": false}';
+        }
+        $this->read_json($json);
+    }
+
+    function update_evaluation_Item_ajax()
+    {
+        $up_id = $this->input->post('up_id');
+        $up_year = $this->input->post('up_year');
+        $up_evaluation_Item_en = $this->input->post('up_evaluation_Item_en');
+        $up_evaluation_Item_th = $this->input->post('up_evaluation_Item_th');
+        $up_status = $this->input->post('up_status');
+
+        $rs = $this->hr->model_update_evaluation_Item($up_id, $up_year, $up_evaluation_Item_en, $up_evaluation_Item_th, $up_status);
         if ($rs) {
             $json = '{"ok": true}';
         } else {
