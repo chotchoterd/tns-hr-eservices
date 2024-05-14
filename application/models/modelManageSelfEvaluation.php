@@ -530,6 +530,18 @@ class ModelManageSelfEvaluation extends CI_Model
         $this->db_hr->query($sql, array($year_to, $current_year, $year_from));
     }
 
+    function model_evaluation_ItemG4G6($year_from, $year_to)
+    {
+        $current_year = date('Y-m-d H:i:s');
+        $sql = 'INSERT INTO tb_bonus_evaluate_g4_g6
+                (evaluation_Item_en, evaluation_Item_th, status, year, modified_date)
+                SELECT evaluation_Item_en, evaluation_Item_th, status, ?, ?
+                FROM tb_bonus_evaluate_g4_g6
+                WHERE year = ?
+                AND status = 1';
+        $this->db_hr->query($sql, array($year_to, $current_year, $year_from));
+    }
+
     function model_Period_Time()
     {
         $sql = "SELECT * FROM tb_period_time WHERE category = 'Self-Evaluation'";
@@ -636,6 +648,55 @@ class ModelManageSelfEvaluation extends CI_Model
             ->set('status', $up_status)
             ->where('id', $up_id)
             ->update('tb_bonus_evaluate_foreman_and_below');
+        return $rs;
+    }
+
+    function model_bonus_evaluate_g4_g6($s_Evaluation_Item_EN, $s_Evaluation_Item_TH, $s_year, $s_status)
+    {
+        $current_year = date('Y');
+        $sql = "SELECT * FROM tb_bonus_evaluate_g4_g6 WHERE evaluation_Item_en LIKE '%" . $s_Evaluation_Item_EN . "%'
+        AND evaluation_Item_th LIKE '%" . $s_Evaluation_Item_TH . "%'";
+        if ($s_year == "") {
+            $sql .= " AND year LIKE '%" . $current_year . "%'";
+        } else {
+            $sql .= " AND year LIKE '%" . $s_year . "%'";
+        }
+        $sql .= " AND status LIKE '%" . $s_status . "%'";
+        $rs = $this->db_hr
+            ->query($sql)
+            ->result();
+        return $rs;
+    }
+
+    function model_bonus_evaluate_g4_g6_id($id)
+    {
+        $sql = "SELECT * FROM tb_bonus_evaluate_g4_g6 WHERE id = '" . $id . "'";
+        $rs = $this->db_hr
+            ->query($sql)
+            ->result();
+        return $rs;
+    }
+
+    function model_submit_evaluation_ItemG4G6($year, $evaluation_Item_en, $evaluation_Item_th, $status)
+    {
+        $rs = $this->db_hr
+            ->set('evaluation_Item_en', $evaluation_Item_en)
+            ->set('evaluation_Item_th', $evaluation_Item_th)
+            ->set('year', $year)
+            ->set('status', $status)
+            ->insert('tb_bonus_evaluate_g4_g6');
+        return $rs;
+    }
+
+    function model_update_evaluation_ItemG4G6($up_id, $up_year, $up_evaluation_Item_en, $up_evaluation_Item_th, $up_status)
+    {
+        $rs = $this->db_hr
+            ->set('evaluation_Item_en', $up_evaluation_Item_en)
+            ->set('evaluation_Item_th', $up_evaluation_Item_th)
+            ->set('year', $up_year)
+            ->set('status', $up_status)
+            ->where('id', $up_id)
+            ->update('tb_bonus_evaluate_g4_g6');
         return $rs;
     }
 }

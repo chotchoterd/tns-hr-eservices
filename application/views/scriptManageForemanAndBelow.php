@@ -18,7 +18,12 @@
                 check_error = 1;
                 document.getElementById("evaluation_Item_th").focus();
             }
-
+            if (status.length <= 0) {
+                let alert_status = document.getElementById("alert_status");
+                alert_status.style.display = "block";
+                document.getElementById("status").focus();
+                check_error = 1;
+            }
             if (check_error == 0) {
                 submit_evaluation_Item();
             }
@@ -63,6 +68,10 @@
         $('#up_evaluation_Item_th').on('input', function() {
             let alert_evaluation_Item_th = document.getElementById("alert_evaluation_Item_th");
             alert_evaluation_Item_th.style.display = "none";
+        });
+        $('#status').change(function() {
+            let alert_status = document.getElementById("alert_status");
+            alert_status.style.display = "none";
         });
 
         $('#btn_copy').click(function() {
