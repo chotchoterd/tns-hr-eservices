@@ -32,7 +32,7 @@
             <tr>
                 <td class="mit">3</td>
                 <td class="mit-v">
-                    <a href="<?php echo base_url('index.php/manage_Self_Evaluation/#'); ?>" class="record_border">AA003-Bonus-Annual Evaluate G2-G3 - PMIS</a>
+                    <a href="<?php echo base_url('index.php/manage_Self_Evaluation/ManageEvaluateG2G3'); ?>" class="record_border">AA003-Bonus-Annual Evaluate G2-G3 - PMIS</a>
                 </td>
                 <td class="mit">Manage</td>
             </tr>
