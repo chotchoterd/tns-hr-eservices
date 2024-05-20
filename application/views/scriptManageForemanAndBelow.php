@@ -2,16 +2,23 @@
     $(document).ready(function() {
         $('#submit').click(function() {
             let check_error = 0;
+            let topic = document.getElementById("topic").value;
             let evaluation_Item_en = document.getElementById("evaluation_Item_en").value;
             let evaluation_Item_th = document.getElementById("evaluation_Item_th").value;
+            let status = document.getElementById("status").value;
 
+            if (topic.length <= 0) {
+                let alert_topic = document.getElementById("alert_topic");
+                alert_topic.style.display = "block";
+                check_error = 1;
+                document.getElementById("topic").focus();
+            }
             if (evaluation_Item_en.length <= 0) {
                 let alert_evaluation_Item_en = document.getElementById("alert_evaluation_Item_en");
                 alert_evaluation_Item_en.style.display = "block";
                 check_error = 1;
                 document.getElementById("evaluation_Item_en").focus();
             }
-
             if (evaluation_Item_th.length <= 0) {
                 let alert_evaluation_Item_th = document.getElementById("alert_evaluation_Item_th");
                 alert_evaluation_Item_th.style.display = "block";
@@ -31,28 +38,41 @@
 
         $('#update').click(function() {
             let up_check_error = 0;
+            let up_topic = document.getElementById("up_topic").value;
             let up_evaluation_Item_en = document.getElementById("up_evaluation_Item_en").value;
             let up_evaluation_Item_th = document.getElementById("up_evaluation_Item_th").value;
 
+            if (up_topic.length <= 0) {
+                let alert_topic = document.getElementById("alert_topic");
+                alert_topic.style.display = "block";
+                up_check_error = 1;
+                document.getElementById("up_topic").focus();
+            }
             if (up_evaluation_Item_en.length <= 0) {
                 let alert_evaluation_Item_en = document.getElementById("alert_evaluation_Item_en");
                 alert_evaluation_Item_en.style.display = "block";
                 up_check_error = 1;
                 document.getElementById("up_evaluation_Item_en").focus();
             }
-
             if (up_evaluation_Item_th.length <= 0) {
                 let alert_evaluation_Item_th = document.getElementById("alert_evaluation_Item_th");
                 alert_evaluation_Item_th.style.display = "block";
                 up_check_error = 1;
                 document.getElementById("up_evaluation_Item_th").focus();
             }
-
             if (up_check_error == 0) {
                 update_evaluation_Item();
             }
         });
 
+        $('#topic').on('input', function() {
+            let alert_topic = document.getElementById("alert_topic");
+            alert_topic.style.display = "none";
+        });
+        $('#up_topic').on('input', function() {
+            let alert_topic = document.getElementById("alert_topic");
+            alert_topic.style.display = "none";
+        });
         $('#evaluation_Item_en').on('input', function() {
             let alert_evaluation_Item_en = document.getElementById("alert_evaluation_Item_en");
             alert_evaluation_Item_en.style.display = "none";
@@ -72,6 +92,14 @@
         $('#status').change(function() {
             let alert_status = document.getElementById("alert_status");
             alert_status.style.display = "none";
+        });
+        $('#topic').on('input', function() {
+            let alert_due_topic = document.getElementById("alert_due_topic");
+            alert_due_topic.style.display = "none";
+        });
+        $('#up_topic').on('input', function() {
+            let alert_due_topic = document.getElementById("alert_due_topic");
+            alert_due_topic.style.display = "none";
         });
 
         $('#btn_copy').click(function() {
@@ -120,6 +148,7 @@
 
     function submit_evaluation_Item() {
         let year = document.getElementById("year").value;
+        let topic = document.getElementById("topic").value;
         let evaluation_Item_en = document.getElementById("evaluation_Item_en").value;
         let evaluation_Item_th = document.getElementById("evaluation_Item_th").value;
         let status = document.getElementById("status").value;
@@ -130,6 +159,7 @@
             dataType: "json",
             data: {
                 year: year,
+                topic: topic,
                 evaluation_Item_en: evaluation_Item_en,
                 evaluation_Item_th: evaluation_Item_th,
                 status: status
@@ -148,6 +178,11 @@
                 }).then(function() {
                     window.location = '<?php echo base_url('index.php/manage_Self_Evaluation/ManageForemanAndBelow'); ?>';
                 });
+            },
+            error: function(data) {
+                let alert_due_topic = document.getElementById("alert_due_topic");
+                alert_due_topic.style.display = "block";
+                document.getElementById("topic").focus();
             }
         });
     }
@@ -155,6 +190,7 @@
     function update_evaluation_Item() {
         let up_id = document.getElementById("up_id").value;
         let up_year = document.getElementById("up_year").value;
+        let up_topic = document.getElementById("up_topic").value;
         let up_evaluation_Item_en = document.getElementById("up_evaluation_Item_en").value;
         let up_evaluation_Item_th = document.getElementById("up_evaluation_Item_th").value;
         let up_status = document.getElementById("up_status").value;
@@ -166,6 +202,7 @@
             data: {
                 up_id: up_id,
                 up_year: up_year,
+                up_topic: up_topic,
                 up_evaluation_Item_en: up_evaluation_Item_en,
                 up_evaluation_Item_th: up_evaluation_Item_th,
                 up_status: up_status
@@ -184,6 +221,11 @@
                 }).then(function() {
                     window.location = '<?php echo base_url('index.php/manage_Self_Evaluation/ManageForemanAndBelow'); ?>';
                 });
+            },
+            error: function(data) {
+                let alert_due_topic = document.getElementById("alert_due_topic");
+                alert_due_topic.style.display = "block";
+                document.getElementById("up_topic").focus();
             }
         });
     }

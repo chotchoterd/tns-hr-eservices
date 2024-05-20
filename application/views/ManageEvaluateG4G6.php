@@ -66,10 +66,11 @@ if (isset($_GET['s_status'])) {
     } ?>
     <table class="table table-form border">
         <tr>
-            <th colspan="5" class="topic-background mit border h1">Manage AA002-Bonus&Annual Evaluate G4-G6 - PMIS</th>
+            <th colspan="6" class="topic-background mit border h1">Manage AA002-Bonus&Annual Evaluate G4-G6 - PMIS</th>
         </tr>
         <tr>
             <th class="border topic-background mit">Year</th>
+            <th class="border topic-background mit">Topic</th>
             <th class="border topic-background mit">Evaluation Item EN </th>
             <th class="border topic-background mit">Evaluation Item TH</th>
             <th class="border topic-background mit">Status</th>
@@ -94,6 +95,17 @@ if (isset($_GET['s_status'])) {
                             <option value="<?php echo $y ?>" <?php if ($y == $current_year) echo "selected"; ?>><?php echo $y ?></option>
                         <?php } ?>
                     </select>
+                <?php } ?>
+            </td>
+            <td class="border mit-v td_border">
+                <?php if ($update_indicator == 1) { ?>
+                    <input type="number" class="form-control" id="up_topic" name="up_topic" min="0" value="<?php echo $bonus_evaluate_g4_g6_ids->topic; ?>">
+                    <div id="alert_topic" class="mt-1 font-eigth red" style="display: none;">Please fill in !</div>
+                    <div id="alert_due_topic" class="mt-1 font-eigth red" style="display: none;">Due to Main Topic existing already !</div>
+                <?php } else { ?>
+                    <input type="number" class="form-control" id="topic" name="topic" min="0">
+                    <div id="alert_topic" class="mt-1 font-eigth red" style="display: none;">Please fill in !</div>
+                    <div id="alert_due_topic" class="mt-1 font-eigth red" style="display: none;">Due to Main Topic existing already !</div>
                 <?php } ?>
             </td>
             <td class="border mit-v td_border">
@@ -212,6 +224,7 @@ if (isset($_GET['s_status'])) {
     <table class="table table-form">
         <tr>
             <th class="topic-background mit border">#</th>
+            <th class="topic-background mit border">Topic</th>
             <th class="topic-background mit border">Evaluation Item EN</th>
             <th class="topic-background mit border">Evaluation Item TH</th>
             <th class="topic-background mit border">Year</th>
@@ -222,6 +235,7 @@ if (isset($_GET['s_status'])) {
             $n++; ?>
             <tr>
                 <td class="border mit"><?php echo $n; ?>.</td>
+                <td class="border mit"><?php echo $bonus_evaluate_g4_g6s->topic; ?></td>
                 <td class="border"><?php echo $bonus_evaluate_g4_g6s->evaluation_Item_en ?></td>
                 <td class="border"><?php echo $bonus_evaluate_g4_g6s->evaluation_Item_th ?></td>
                 <td class="border mit"><?php echo $bonus_evaluate_g4_g6s->year ?></td>

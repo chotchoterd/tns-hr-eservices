@@ -130,7 +130,7 @@ class ModelManageSelfEvaluation extends CI_Model
 
     function model_Submit_ManageSub_topicOneSelf($main_topic, $sub_topic, $sub_item_details, $year, $status)
     {
-        $this->db_hr->where("sub_topic", $sub_topic);
+        $this->db_hr->where("sub_topic", $sub_topic)->where('status != 0');
         $check_tb_sub_topic_self = $this->db_hr->get("tb_sub_topic_self_evaluation");
         if ($check_tb_sub_topic_self->num_rows() == 0) {
             $rs = $this->db_hr
@@ -522,8 +522,8 @@ class ModelManageSelfEvaluation extends CI_Model
     {
         $current_year = date('Y-m-d H:i:s');
         $sql = 'INSERT INTO tb_bonus_evaluate_foreman_and_below
-                (evaluation_Item_en, evaluation_Item_th, status, year, modified_date)
-                SELECT evaluation_Item_en, evaluation_Item_th, status, ?, ?
+                (topic, evaluation_Item_en, evaluation_Item_th, status, year, modified_date)
+                SELECT topic, evaluation_Item_en, evaluation_Item_th, status, ?, ?
                 FROM tb_bonus_evaluate_foreman_and_below
                 WHERE year = ?
                 AND status = 1';
@@ -534,8 +534,8 @@ class ModelManageSelfEvaluation extends CI_Model
     {
         $current_year = date('Y-m-d H:i:s');
         $sql = 'INSERT INTO tb_bonus_evaluate_g4_g6
-                (evaluation_Item_en, evaluation_Item_th, status, year, modified_date)
-                SELECT evaluation_Item_en, evaluation_Item_th, status, ?, ?
+                (topic, evaluation_Item_en, evaluation_Item_th, status, year, modified_date)
+                SELECT topic, evaluation_Item_en, evaluation_Item_th, status, ?, ?
                 FROM tb_bonus_evaluate_g4_g6
                 WHERE year = ?
                 AND status = 1';
@@ -546,8 +546,8 @@ class ModelManageSelfEvaluation extends CI_Model
     {
         $current_year = date('Y-m-d H:i:s');
         $sql = 'INSERT INTO tb_bonus_evaluate_g2_g3
-                (evaluation_Item_en, evaluation_Item_th, status, year, modified_date)
-                SELECT evaluation_Item_en, evaluation_Item_th, status, ?, ?
+                (topic, evaluation_Item_en, evaluation_Item_th, status, year, modified_date)
+                SELECT topic, evaluation_Item_en, evaluation_Item_th, status, ?, ?
                 FROM tb_bonus_evaluate_g2_g3
                 WHERE year = ?
                 AND status = 1';
@@ -624,7 +624,8 @@ class ModelManageSelfEvaluation extends CI_Model
         } else {
             $sql .= " AND year LIKE '%" . $s_year . "%'";
         }
-        $sql .= " AND status LIKE '%" . $s_status . "%'";
+        $sql .= " AND status LIKE '%" . $s_status . "%'
+        ORDER BY ABS('topic') ASC";
         $rs = $this->db_hr
             ->query($sql)
             ->result();
@@ -640,26 +641,38 @@ class ModelManageSelfEvaluation extends CI_Model
         return $rs;
     }
 
-    function model_submit_evaluation_Item($year, $evaluation_Item_en, $evaluation_Item_th, $status)
+    function model_submit_evaluation_Item($year, $topic, $evaluation_Item_en, $evaluation_Item_th, $status)
     {
-        $rs = $this->db_hr
-            ->set('evaluation_Item_en', $evaluation_Item_en)
-            ->set('evaluation_Item_th', $evaluation_Item_th)
-            ->set('year', $year)
-            ->set('status', $status)
-            ->insert('tb_bonus_evaluate_foreman_and_below');
+        $this->db_hr->where('topic', $topic)->where('year', $year)->where('status != 0');
+        $check_topic = $this->db_hr->get('tb_bonus_evaluate_foreman_and_below');
+        if ($check_topic->num_rows() == 0) {
+            $rs = $this->db_hr
+                ->set('topic', $topic)
+                ->set('evaluation_Item_en', $evaluation_Item_en)
+                ->set('evaluation_Item_th', $evaluation_Item_th)
+                ->set('year', $year)
+                ->set('status', $status)
+                ->set("modified_date", date('Y-m-d H:i:s'))
+                ->insert('tb_bonus_evaluate_foreman_and_below');
+        }
         return $rs;
     }
 
-    function model_update_evaluation_Item($up_id, $up_year, $up_evaluation_Item_en, $up_evaluation_Item_th, $up_status)
+    function model_update_evaluation_Item($up_id, $up_year, $up_topic, $up_evaluation_Item_en, $up_evaluation_Item_th, $up_status)
     {
-        $rs = $this->db_hr
-            ->set('evaluation_Item_en', $up_evaluation_Item_en)
-            ->set('evaluation_Item_th', $up_evaluation_Item_th)
-            ->set('year', $up_year)
-            ->set('status', $up_status)
-            ->where('id', $up_id)
-            ->update('tb_bonus_evaluate_foreman_and_below');
+        $this->db_hr->where('topic', $up_topic)->where('year', $up_year)->where("id !=", $up_id)->where("status != 0");
+        $check_topic = $this->db_hr->get('tb_bonus_evaluate_foreman_and_below');
+        if ($check_topic->num_rows() == 0) {
+            $rs = $this->db_hr
+                ->set('topic', $up_topic)
+                ->set('evaluation_Item_en', $up_evaluation_Item_en)
+                ->set('evaluation_Item_th', $up_evaluation_Item_th)
+                ->set('year', $up_year)
+                ->set('status', $up_status)
+                ->set("modified_date", date('Y-m-d H:i:s'))
+                ->where('id', $up_id)
+                ->update('tb_bonus_evaluate_foreman_and_below');
+        }
         return $rs;
     }
 
@@ -673,7 +686,8 @@ class ModelManageSelfEvaluation extends CI_Model
         } else {
             $sql .= " AND year LIKE '%" . $s_year . "%'";
         }
-        $sql .= " AND status LIKE '%" . $s_status . "%'";
+        $sql .= " AND status LIKE '%" . $s_status . "%'
+        ORDER BY ABS('topic') ASC";
         $rs = $this->db_hr
             ->query($sql)
             ->result();
@@ -689,26 +703,38 @@ class ModelManageSelfEvaluation extends CI_Model
         return $rs;
     }
 
-    function model_submit_evaluation_ItemG4G6($year, $evaluation_Item_en, $evaluation_Item_th, $status)
+    function model_submit_evaluation_ItemG4G6($year, $topic, $evaluation_Item_en, $evaluation_Item_th, $status)
     {
-        $rs = $this->db_hr
-            ->set('evaluation_Item_en', $evaluation_Item_en)
-            ->set('evaluation_Item_th', $evaluation_Item_th)
-            ->set('year', $year)
-            ->set('status', $status)
-            ->insert('tb_bonus_evaluate_g4_g6');
+        $this->db_hr->where('topic', $topic)->where('year', $year)->where('status != 0');
+        $check_topic = $this->db_hr->get('tb_bonus_evaluate_g4_g6');
+        if ($check_topic->num_rows() == 0) {
+            $rs = $this->db_hr
+                ->set('topic', $topic)
+                ->set('evaluation_Item_en', $evaluation_Item_en)
+                ->set('evaluation_Item_th', $evaluation_Item_th)
+                ->set('year', $year)
+                ->set('status', $status)
+                ->set("modified_date", date('Y-m-d H:i:s'))
+                ->insert('tb_bonus_evaluate_g4_g6');
+        }
         return $rs;
     }
 
-    function model_update_evaluation_ItemG4G6($up_id, $up_year, $up_evaluation_Item_en, $up_evaluation_Item_th, $up_status)
+    function model_update_evaluation_ItemG4G6($up_id, $up_year, $up_topic, $up_evaluation_Item_en, $up_evaluation_Item_th, $up_status)
     {
-        $rs = $this->db_hr
-            ->set('evaluation_Item_en', $up_evaluation_Item_en)
-            ->set('evaluation_Item_th', $up_evaluation_Item_th)
-            ->set('year', $up_year)
-            ->set('status', $up_status)
-            ->where('id', $up_id)
-            ->update('tb_bonus_evaluate_g4_g6');
+        $this->db_hr->where('topic', $up_topic)->where('year', $up_year)->where("id !=", $up_id)->where('status != 0');
+        $check_topic = $this->db_hr->get('tb_bonus_evaluate_g4_g6');
+        if ($check_topic->num_rows() == 0) {
+            $rs = $this->db_hr
+                ->set('topic', $up_topic)
+                ->set('evaluation_Item_en', $up_evaluation_Item_en)
+                ->set('evaluation_Item_th', $up_evaluation_Item_th)
+                ->set('year', $up_year)
+                ->set('status', $up_status)
+                ->set("modified_date", date('Y-m-d H:i:s'))
+                ->where('id', $up_id)
+                ->update('tb_bonus_evaluate_g4_g6');
+        }
         return $rs;
     }
 
@@ -722,7 +748,8 @@ class ModelManageSelfEvaluation extends CI_Model
         } else {
             $sql .= " AND year LIKE '%" . $s_year . "%'";
         }
-        $sql .= " AND status LIKE '%" . $s_status . "%'";
+        $sql .= " AND status LIKE '%" . $s_status . "%'
+        ORDER BY ABS('topic') ASC";
         $rs = $this->db_hr
             ->query($sql)
             ->result();
@@ -738,26 +765,38 @@ class ModelManageSelfEvaluation extends CI_Model
         return $rs;
     }
 
-    function model_submit_evaluation_ItemG2G3($year, $evaluation_Item_en, $evaluation_Item_th, $status)
+    function model_submit_evaluation_ItemG2G3($year, $topic, $evaluation_Item_en, $evaluation_Item_th, $status)
     {
-        $rs = $this->db_hr
-            ->set('evaluation_Item_en', $evaluation_Item_en)
-            ->set('evaluation_Item_th', $evaluation_Item_th)
-            ->set('year', $year)
-            ->set('status', $status)
-            ->insert('tb_bonus_evaluate_g2_g3');
+        $this->db_hr->where('topic', $topic)->where('year', $year)->where('status != 0');
+        $check_topic = $this->db_hr->get('tb_bonus_evaluate_g2_g3');
+        if ($check_topic->num_rows() == 0) {
+            $rs = $this->db_hr
+                ->set('topic', $topic)
+                ->set('evaluation_Item_en', $evaluation_Item_en)
+                ->set('evaluation_Item_th', $evaluation_Item_th)
+                ->set('year', $year)
+                ->set('status', $status)
+                ->set("modified_date", date('Y-m-d H:i:s'))
+                ->insert('tb_bonus_evaluate_g2_g3');
+        }
         return $rs;
     }
 
-    function model_update_evaluation_ItemG2G3($up_id, $up_year, $up_evaluation_Item_en, $up_evaluation_Item_th, $up_status)
+    function model_update_evaluation_ItemG2G3($up_id, $up_year, $up_topic, $up_evaluation_Item_en, $up_evaluation_Item_th, $up_status)
     {
-        $rs = $this->db_hr
-            ->set('evaluation_Item_en', $up_evaluation_Item_en)
-            ->set('evaluation_Item_th', $up_evaluation_Item_th)
-            ->set('year', $up_year)
-            ->set('status', $up_status)
-            ->where('id', $up_id)
-            ->update('tb_bonus_evaluate_g2_g3');
+        $this->db_hr->where('topic', $up_topic)->where('id !=', $up_id)->where('year', $up_year)->where('status != 0');
+        $check_topic = $this->db_hr->get('tb_bonus_evaluate_g2_g3');
+        if ($check_topic->num_rows() == 0) {
+            $rs = $this->db_hr
+                ->set('topic', $up_topic)
+                ->set('evaluation_Item_en', $up_evaluation_Item_en)
+                ->set('evaluation_Item_th', $up_evaluation_Item_th)
+                ->set('year', $up_year)
+                ->set('status', $up_status)
+                ->set("modified_date", date('Y-m-d H:i:s'))
+                ->where('id', $up_id)
+                ->update('tb_bonus_evaluate_g2_g3');
+        }
         return $rs;
     }
 }

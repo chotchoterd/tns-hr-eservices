@@ -762,11 +762,12 @@ class Manage_Self_Evaluation extends CI_Controller
     function submit_evaluation_Item_ajax()
     {
         $year = $this->input->post('year');
+        $topic = $this->input->post('topic');
         $evaluation_Item_en = $this->input->post('evaluation_Item_en');
         $evaluation_Item_th = $this->input->post('evaluation_Item_th');
         $status = $this->input->post('status');
 
-        $rs = $this->hr->model_submit_evaluation_Item($year, $evaluation_Item_en, $evaluation_Item_th, $status);
+        $rs = $this->hr->model_submit_evaluation_Item($year, $topic, $evaluation_Item_en, $evaluation_Item_th, $status);
         if ($rs) {
             $json = '{"ok": true}';
         } else {
@@ -779,11 +780,12 @@ class Manage_Self_Evaluation extends CI_Controller
     {
         $up_id = $this->input->post('up_id');
         $up_year = $this->input->post('up_year');
+        $up_topic = $this->input->post('up_topic');
         $up_evaluation_Item_en = $this->input->post('up_evaluation_Item_en');
         $up_evaluation_Item_th = $this->input->post('up_evaluation_Item_th');
         $up_status = $this->input->post('up_status');
 
-        $rs = $this->hr->model_update_evaluation_Item($up_id, $up_year, $up_evaluation_Item_en, $up_evaluation_Item_th, $up_status);
+        $rs = $this->hr->model_update_evaluation_Item($up_id, $up_year, $up_topic, $up_evaluation_Item_en, $up_evaluation_Item_th, $up_status);
         if ($rs) {
             $json = '{"ok": true}';
         } else {
@@ -831,11 +833,12 @@ class Manage_Self_Evaluation extends CI_Controller
     function submit_evaluation_ItemG4G6_ajax()
     {
         $year = $this->input->post('year');
+        $topic = $this->input->post('topic');
         $evaluation_Item_en = $this->input->post('evaluation_Item_en');
         $evaluation_Item_th = $this->input->post('evaluation_Item_th');
         $status = $this->input->post('status');
 
-        $rs = $this->hr->model_submit_evaluation_ItemG4G6($year, $evaluation_Item_en, $evaluation_Item_th, $status);
+        $rs = $this->hr->model_submit_evaluation_ItemG4G6($year, $topic, $evaluation_Item_en, $evaluation_Item_th, $status);
         if ($rs) {
             $json = '{"ok": true}';
         } else {
@@ -848,11 +851,12 @@ class Manage_Self_Evaluation extends CI_Controller
     {
         $up_id = $this->input->post('up_id');
         $up_year = $this->input->post('up_year');
+        $up_topic = $this->input->post('up_topic');
         $up_evaluation_Item_en = $this->input->post('up_evaluation_Item_en');
         $up_evaluation_Item_th = $this->input->post('up_evaluation_Item_th');
         $up_status = $this->input->post('up_status');
 
-        $rs = $this->hr->model_update_evaluation_ItemG4G6($up_id, $up_year, $up_evaluation_Item_en, $up_evaluation_Item_th, $up_status);
+        $rs = $this->hr->model_update_evaluation_ItemG4G6($up_id, $up_year, $up_topic, $up_evaluation_Item_en, $up_evaluation_Item_th, $up_status);
         if ($rs) {
             $json = '{"ok": true}';
         } else {
@@ -900,11 +904,12 @@ class Manage_Self_Evaluation extends CI_Controller
     function submit_evaluation_ItemG2G3_ajax()
     {
         $year = $this->input->post('year');
+        $topic = $this->input->post('topic');
         $evaluation_Item_en = $this->input->post('evaluation_Item_en');
         $evaluation_Item_th = $this->input->post('evaluation_Item_th');
         $status = $this->input->post('status');
 
-        $rs = $this->hr->model_submit_evaluation_ItemG2G3($year, $evaluation_Item_en, $evaluation_Item_th, $status);
+        $rs = $this->hr->model_submit_evaluation_ItemG2G3($year, $topic, $evaluation_Item_en, $evaluation_Item_th, $status);
         if ($rs) {
             $json = '{"ok": true}';
         } else {
@@ -917,11 +922,12 @@ class Manage_Self_Evaluation extends CI_Controller
     {
         $up_id = $this->input->post('up_id');
         $up_year = $this->input->post('up_year');
+        $up_topic = $this->input->post('up_topic');
         $up_evaluation_Item_en = $this->input->post('up_evaluation_Item_en');
         $up_evaluation_Item_th = $this->input->post('up_evaluation_Item_th');
         $up_status = $this->input->post('up_status');
 
-        $rs = $this->hr->model_update_evaluation_ItemG2G3($up_id, $up_year, $up_evaluation_Item_en, $up_evaluation_Item_th, $up_status);
+        $rs = $this->hr->model_update_evaluation_ItemG2G3($up_id, $up_year, $up_topic, $up_evaluation_Item_en, $up_evaluation_Item_th, $up_status);
         if ($rs) {
             $json = '{"ok": true}';
         } else {
