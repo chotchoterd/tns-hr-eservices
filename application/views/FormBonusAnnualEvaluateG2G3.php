@@ -580,7 +580,7 @@ include "scriptFormBonusAnnualEvaluateG2G3.php";
 <div class="container mt-3">
     <table class="table table-form">
         <tr>
-            <th colspan="" class="border-0">3. Assessment by Sr. Manager / Factory Manager / General Manager</th>
+            <th colspan="3" class="border-0">3. Assessment by Sr. Manager / Factory Manager / General Manager</th>
         </tr>
         <tr>
             <th class="mit border topic-background" style="width: 350px;">Position /ตำแหน่ง</th>
