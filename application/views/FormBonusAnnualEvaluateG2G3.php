@@ -1,6 +1,5 @@
 <?php
-include "scriptFormBonusAnnualEvaluateG4G6.php";
-$current_year = date('Y');
+include "scriptFormBonusAnnualEvaluateG2G3.php";
 ?>
 <div class="container-fluid mt-3">
     <table class="table table-form border-0">
@@ -11,15 +10,15 @@ $current_year = date('Y');
         </tr>
         <tr>
             <th class="border-0">
-                <u>[YYYY] BONUS & ANNUAL Assessment for Grade 4 – Grade 6</u>
+                <u>[YYYY] BONUS & ANNUAL Assessment for Grade 2 – Grade 3</u>
             </th>
         </tr>
     </table>
 </div>
 <div class="container-fluid mt-3">
-    <?php foreach ($emp_data as $emp_datas) ?>
-    <?php foreach ($emp_leave_data as $emp_leave_datas) ?>
     <table class="table table-form border-0">
+        <?php foreach ($emp_data as $emp_datas) ?>
+        <?php foreach ($emp_leave_data as $emp_leave_datas) ?>
         <tr>
             <td class="border-0"></td>
             <td class="border-0"></td>
@@ -33,33 +32,28 @@ $current_year = date('Y');
         <tr>
             <td class="border-0 mit-v text-end">Employee name</td>
             <td class="border-0">
-                <input type="text" id="emp_name" name="emp_name" class="form-control" value="<?php echo $emp_datas->emp_name; ?>" disabled>
-                <div class="mt-1 font-eigth red" id="alert_Employee_name" style="display: none;">Please fill in Employee name !</div>
+                <input type="text" class="form-control" id="emp_name" name="emp_name" value="<?php echo $emp_datas->emp_name; ?>" disabled>
             </td>
             <td class="border-0 mit-v text-end">Employee ID</td>
             <td class="border-0">
                 <input type="text" id="emp_id" name="emp_id" class="form-control" value="<?php echo $emp_datas->emp_id; ?>" disabled>
-                <div class="mt-1 font-eigth red" id="alert_Employee_ID" style="display: none;">Please fill in Employee ID !</div>
             </td>
             <td class="border-0 mit-v text-end">Position</td>
             <td class="border-0">
-                <input type="text" class="form-control" id="position" name="position" value="<?php echo $emp_datas->emp_position; ?>" disabled>
-                <div class="mt-1 font-eigth red" id="alert_" style="display: none;">Please !</div>
+                <input type="text" name="position" id="position" class="form-control" value="<?php echo $emp_datas->emp_position; ?>" disabled>
             </td>
         </tr>
         <tr>
             <td class="border-0 mit-v text-end">Section</td>
             <td class="border-0">
                 <input type="text" id="section" name="section" class="form-control" value="<?php echo $emp_datas->emp_section; ?>" disabled>
-                <div class="mt-1 font-eigth red" id="alert_Section" style="display: none;">Please fill in Section !</div>
             </td>
             <td class="border-0 mit-v text-end">Employment date</td>
             <td class="border-0">
-                <input type="text" class="form-control" id="hired_date" name="hired_date" placeholder="DD/MM/YYYY" value="<?php
-                                                                                                                            $date_hired_format = DateTime::createFromFormat('d/m/Y', $emp_datas->emp_hired_date)->format('d-M-Y');
-                                                                                                                            echo $date_hired_format
-                                                                                                                            ?>" disabled>
-                <div class="mt-1 font-eigth red" id="alert_Hired_date" style="display: none;">Please fill in Hired date !</div>
+                <input type="text" name="hired_date" id="hired_date" class="form-control" value="<?php
+                                                                                                    $date_hired_format = DateTime::createFromFormat('d/m/Y', $emp_datas->emp_hired_date)->format('d-M-Y');
+                                                                                                    echo $date_hired_format
+                                                                                                    ?>" disabled>
             </td>
             <td class="border-0 mit-v text-end">Years of service</td>
             <td class="border-0">
@@ -81,27 +75,10 @@ $current_year = date('Y');
             </td>
         </tr>
         <tr>
-            <?php if ($emp_datas->superior_name1 != "") { ?>
-                <td class="border-0 mit-v text-end">Supervisor Name 1</td>
-                <td class="border-0">
-                    <input type="text" id="sup_name" name="sup_name" class="form-control" value="<?php echo $emp_datas->superior_name1; ?>" disabled>
-                    <div class="mt-1 font-eigth red" id="alert_Superior_name" style="display: none;">Please fill in !</div>
-                </td>
-            <?php } ?>
-            <?php if ($emp_datas->superior_name2 != "") { ?>
-                <td class="border-0 mit-v text-end">Supervisor Name 2</td>
-                <td class="border-0">
-                    <input type="text" id="" name="" class="form-control" value="<?php echo $emp_datas->superior_name2; ?>" disabled>
-                    <div class="mt-1 font-eigth red" id="alert_" style="display: none;">Please fill in !</div>
-                </td>
-            <?php } ?>
-            <?php if ($emp_datas->factory_Manager_GM != "") { ?>
-                <td class="border-0 mit-v text-end">Factory Manager / GM</td>
-                <td class="border-0">
-                    <input type="text" id="" name="" class="form-control" value="<?php echo $emp_datas->factory_Manager_GM; ?>" disabled>
-                    <div class="mt-1 font-eigth red" id="alert_" style="display: none;">Please fill in !</div>
-                </td>
-            <?php } ?>
+            <td class="border-0 mit-v text-end">Supervisor Name 1</td>
+            <td class="border-0">
+                <input type="text" name="" id="" class="form-control" value="<?php echo $emp_datas->superior_name1; ?>" disabled>
+            </td>
         </tr>
     </table>
 </div>
@@ -120,10 +97,10 @@ $current_year = date('Y');
         </tr>
         <tr>
             <td class="border td_border mit">20 points - 20 คะแนน</td>
-            <td class="border td_border mit">20</td>
-            <td class="border td_border mit">17</td>
-            <td class="border td_border mit">14</td>
-            <td class="border td_border mit">11</td>
+            <td class="border td_border mit">16</td>
+            <td class="border td_border mit">13</td>
+            <td class="border td_border mit">10</td>
+            <td class="border td_border mit">7</td>
             <td class="border td_border mit">0</td>
         </tr>
     </table>
@@ -175,7 +152,7 @@ $current_year = date('Y');
         </tr>
         <tr>
             <th class="border td_border mit">Grand Total ผลรวม</th>
-            <td class="border td_border mit" colspan="2">
+            <td colspan="2" class="border td_border mit">
                 <?php $total = $emp_leave_datas->business_leave1 + $emp_leave_datas->business_leave2 + $emp_leave_datas->sick_leave1 + $emp_leave_datas->sick_leave2 + $emp_leave_datas->absenteeism1 + $emp_leave_datas->absenteeism2;
                 echo $total; ?>
             </td>
@@ -201,18 +178,18 @@ $current_year = date('Y');
                             <?php
                             $leave_score = 0;
                             if ($total >= 0 && $total <= 6) {
-                                echo $leave_score = 20;
+                                echo $leave_score = 16;
                             } else if ($total >= 7 && $total <= 13) {
-                                echo $leave_score = 17;
+                                echo $leave_score = 13;
                             } else if ($total >= 14 && $total <= 20) {
-                                echo $leave_score = 14;
+                                echo $leave_score = 10;
                             } else if ($total >= 21 && $total <= 27) {
-                                echo $leave_score = 11;
+                                echo $leave_score = 7;
                             } else {
                                 echo $leave_score;
                             } ?>
                         </label>
-                        <input type="hidden" name="leave_score_h" id="leave_score_h" value="<?php echo $leave_score ?>">
+                        <input type="hidden" name="leave_score_h" id="leave_score_h" value="<?php echo $leave_score; ?>">
                     </th>
                 </tr>
             </table>
@@ -228,7 +205,7 @@ $current_year = date('Y');
                     <th class="border td_border mit">หมายเหตุ / Noted</th>
                 </tr>
                 <tr>
-                    <td class="border td_border">ตักเตือนด้วยวาจา/ Verbal Warning</td>
+                    <td class="border td_border">ตักเตือนด้วยวาจา/Verbal Warning</td>
                     <td class="border td_border mit">
                         <?php if ($emp_leave_datas->verbal_warning == "0") {
                             echo "-";
@@ -251,12 +228,6 @@ $current_year = date('Y');
                     <td class="border td_border mit">ครั้ง</td>
                     <td class="border td_border">นำไปใช้ร่วมการประเมิน</td>
                 </tr>
-                <!-- <tr>
-                    <td class="border td_border">ตักเตือนด้วยหนังสือ/Letter warning</td>
-                    <td class="border td_border mit">0</td>
-                    <td class="border td_border mit">ครั้ง</td>
-                    <td class="border td_border">นำไปใช้ร่วมการประเมิน</td>
-                </tr> -->
             </table>
         </div>
     </div>
@@ -267,26 +238,26 @@ $current_year = date('Y');
             <th colspan="6" class="border-0">2. Assessment by Manager / Superior การประเมินผลการปฏิบัติงานโดย ผู้จัดการ / ผู้บังคับบัญชา</th>
         </tr>
         <tr>
-            <th class="mit border topic-background">Performance Evaluation / หัวข้อการประเมินผลการปฏิบัติงาน</th>
-            <th class="mit border topic-background" style="width: 8%;">Excellent<br>ดีเลิศ<br>(8)</th>
-            <th class="mit border topic-background" style="width: 8%;">Good<br>ดี<br>(6)</th>
+            <th class="mit border topic-background">Evaluation Item / หัวข้อการประเมิน</th>
+            <th class="mit border topic-background" style="width: 8%;">Excellent<br>ดีเลิศ<br>(7)</th>
+            <th class="mit border topic-background" style="width: 8%;">Good<br>ดี<br>(5)</th>
             <th class="mit border topic-background" style="width: 8%;">Fair<br>พอใช้<br>(4)</th>
             <th class="mit border topic-background" style="width: 8%;">Need Improvemen<br>ต้องปรับปรุง<br>(2)</th>
             <th class="mit border topic-background" style="width: 8%;">Un Satisfactory<br>ไม่เป็นที่พอใจ<br>(1)</th>
         </tr>
         <tr>
             <th class="border td_border">
-                <?php foreach ($bonus_evaluate_g4_g6 as $bonus_evaluate_g4_g6s) {
-                    if ($bonus_evaluate_g4_g6s->topic == 1) {
-                        echo $bonus_evaluate_g4_g6s->topic . " . " . $bonus_evaluate_g4_g6s->evaluation_Item_en . "<br>" . $bonus_evaluate_g4_g6s->evaluation_Item_th;
+                <?php foreach ($bonus_evaluate_g2_g3 as $bonus_evaluate_g2_g3s) {
+                    if ($bonus_evaluate_g2_g3s->topic == 1) {
+                        echo $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th;
                     }
                 } ?>
             </th>
             <td class="border td_border mit">
-                <input type="radio" name="quality_of_work[]" id="quality_of_work" value="8">
+                <input type="radio" name="quality_of_work[]" id="quality_of_work" value="7">
             </td>
             <td class="border td_border mit">
-                <input type="radio" name="quality_of_work[]" id="quality_of_work" value="6">
+                <input type="radio" name="quality_of_work[]" id="quality_of_work" value="5">
             </td>
             <td class="border td_border mit">
                 <input type="radio" name="quality_of_work[]" id="quality_of_work" value="4">
@@ -300,17 +271,17 @@ $current_year = date('Y');
         </tr>
         <tr>
             <th class="border td_border">
-                <?php foreach ($bonus_evaluate_g4_g6 as $bonus_evaluate_g4_g6s) {
-                    if ($bonus_evaluate_g4_g6s->topic == 2) {
-                        echo $bonus_evaluate_g4_g6s->topic . " . " . $bonus_evaluate_g4_g6s->evaluation_Item_en . "<br>" . $bonus_evaluate_g4_g6s->evaluation_Item_th;
+                <?php foreach ($bonus_evaluate_g2_g3 as $bonus_evaluate_g2_g3s) {
+                    if ($bonus_evaluate_g2_g3s->topic == 2) {
+                        echo $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th;
                     }
                 } ?>
             </th>
             <td class="border td_border mit">
-                <input type="radio" name="job_responsibility[]" id="job_responsibility" value="8">
+                <input type="radio" name="job_responsibility[]" id="job_responsibility" value="7">
             </td>
             <td class="border td_border mit">
-                <input type="radio" name="job_responsibility[]" id="job_responsibility" value="6">
+                <input type="radio" name="job_responsibility[]" id="job_responsibility" value="5">
             </td>
             <td class="border td_border mit">
                 <input type="radio" name="job_responsibility[]" id="job_responsibility" value="4">
@@ -324,17 +295,17 @@ $current_year = date('Y');
         </tr>
         <tr>
             <th class="border td_border">
-                <?php foreach ($bonus_evaluate_g4_g6 as $bonus_evaluate_g4_g6s) {
-                    if ($bonus_evaluate_g4_g6s->topic == 3) {
-                        echo $bonus_evaluate_g4_g6s->topic . " . " . $bonus_evaluate_g4_g6s->evaluation_Item_en . "<br>" . $bonus_evaluate_g4_g6s->evaluation_Item_th;
+                <?php foreach ($bonus_evaluate_g2_g3 as $bonus_evaluate_g2_g3s) {
+                    if ($bonus_evaluate_g2_g3s->topic == 3) {
+                        echo $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th;
                     }
                 } ?>
             </th>
             <td class="border td_border mit">
-                <input type="radio" name="cooperation[]" id="cooperation" value="8">
+                <input type="radio" name="cooperation[]" id="cooperation" value="7">
             </td>
             <td class="border td_border mit">
-                <input type="radio" name="cooperation[]" id="cooperation" value="6">
+                <input type="radio" name="cooperation[]" id="cooperation" value="5">
             </td>
             <td class="border td_border mit">
                 <input type="radio" name="cooperation[]" id="cooperation" value="4">
@@ -348,17 +319,17 @@ $current_year = date('Y');
         </tr>
         <tr>
             <th class="border td_border">
-                <?php foreach ($bonus_evaluate_g4_g6 as $bonus_evaluate_g4_g6s) {
-                    if ($bonus_evaluate_g4_g6s->topic == 4) {
-                        echo $bonus_evaluate_g4_g6s->topic . " . " . $bonus_evaluate_g4_g6s->evaluation_Item_en . "<br>" . $bonus_evaluate_g4_g6s->evaluation_Item_th;
+                <?php foreach ($bonus_evaluate_g2_g3 as $bonus_evaluate_g2_g3s) {
+                    if ($bonus_evaluate_g2_g3s->topic == 4) {
+                        echo $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th;
                     }
                 } ?>
             </th>
             <td class="border td_border mit">
-                <input type="radio" name="communication[]" id="communication" value="8">
+                <input type="radio" name="communication[]" id="communication" value="7">
             </td>
             <td class="border td_border mit">
-                <input type="radio" name="communication[]" id="communication" value="6">
+                <input type="radio" name="communication[]" id="communication" value="5">
             </td>
             <td class="border td_border mit">
                 <input type="radio" name="communication[]" id="communication" value="4">
@@ -372,17 +343,17 @@ $current_year = date('Y');
         </tr>
         <tr>
             <th class="border td_border">
-                <?php foreach ($bonus_evaluate_g4_g6 as $bonus_evaluate_g4_g6s) {
-                    if ($bonus_evaluate_g4_g6s->topic == 5) {
-                        echo $bonus_evaluate_g4_g6s->topic . " . " . $bonus_evaluate_g4_g6s->evaluation_Item_en . "<br>" . $bonus_evaluate_g4_g6s->evaluation_Item_th;
+                <?php foreach ($bonus_evaluate_g2_g3 as $bonus_evaluate_g2_g3s) {
+                    if ($bonus_evaluate_g2_g3s->topic == 5) {
+                        echo $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th;
                     }
                 } ?>
             </th>
             <td class="border td_border mit">
-                <input type="radio" name="teamwork[]" id="Teamwork" value="8">
+                <input type="radio" name="teamwork[]" id="Teamwork" value="7">
             </td>
             <td class="border td_border mit">
-                <input type="radio" name="teamwork[]" id="Teamwork" value="6">
+                <input type="radio" name="teamwork[]" id="Teamwork" value="5">
             </td>
             <td class="border td_border mit">
                 <input type="radio" name="teamwork[]" id="Teamwork" value="4">
@@ -396,41 +367,17 @@ $current_year = date('Y');
         </tr>
         <tr>
             <th class="border td_border">
-                <?php foreach ($bonus_evaluate_g4_g6 as $bonus_evaluate_g4_g6s) {
-                    if ($bonus_evaluate_g4_g6s->topic == 6) {
-                        echo $bonus_evaluate_g4_g6s->topic . " . " . $bonus_evaluate_g4_g6s->evaluation_Item_en . "<br>" . $bonus_evaluate_g4_g6s->evaluation_Item_th;
+                <?php foreach ($bonus_evaluate_g2_g3 as $bonus_evaluate_g2_g3s) {
+                    if ($bonus_evaluate_g2_g3s->topic == 6) {
+                        echo $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th;
                     }
                 } ?>
             </th>
             <td class="border td_border mit">
-                <input type="radio" name="technical_capability[]" id="technical_capability" value="8">
+                <input type="radio" name="potential[]" id="potential" value="7">
             </td>
             <td class="border td_border mit">
-                <input type="radio" name="technical_capability[]" id="technical_capability" value="6">
-            </td>
-            <td class="border td_border mit">
-                <input type="radio" name="technical_capability[]" id="technical_capability" value="4">
-            </td>
-            <td class="border td_border mit">
-                <input type="radio" name="technical_capability[]" id="technical_capability" value="2">
-            </td>
-            <td class="border td_border mit">
-                <input type="radio" name="technical_capability[]" id="technical_capability" value="1">
-            </td>
-        </tr>
-        <tr>
-            <th class="border td_border">
-                <?php foreach ($bonus_evaluate_g4_g6 as $bonus_evaluate_g4_g6s) {
-                    if ($bonus_evaluate_g4_g6s->topic == 7) {
-                        echo $bonus_evaluate_g4_g6s->topic . " . " . $bonus_evaluate_g4_g6s->evaluation_Item_en . "<br>" . $bonus_evaluate_g4_g6s->evaluation_Item_th;
-                    }
-                } ?>
-            </th>
-            <td class="border td_border mit">
-                <input type="radio" name="potential[]" id="potential" value="8">
-            </td>
-            <td class="border td_border mit">
-                <input type="radio" name="potential[]" id="potential" value="6">
+                <input type="radio" name="potential[]" id="potential" value="5">
             </td>
             <td class="border td_border mit">
                 <input type="radio" name="potential[]" id="potential" value="4">
@@ -444,17 +391,17 @@ $current_year = date('Y');
         </tr>
         <tr>
             <th class="border td_border">
-                <?php foreach ($bonus_evaluate_g4_g6 as $bonus_evaluate_g4_g6s) {
-                    if ($bonus_evaluate_g4_g6s->topic == 8) {
-                        echo $bonus_evaluate_g4_g6s->topic . " . " . $bonus_evaluate_g4_g6s->evaluation_Item_en . "<br>" . $bonus_evaluate_g4_g6s->evaluation_Item_th;
+                <?php foreach ($bonus_evaluate_g2_g3 as $bonus_evaluate_g2_g3s) {
+                    if ($bonus_evaluate_g2_g3s->topic == 7) {
+                        echo $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th;
                     }
                 } ?>
             </th>
             <td class="border td_border mit">
-                <input type="radio" name="effectiveness[]" id="effectiveness" value="8">
+                <input type="radio" name="effectiveness[]" id="effectiveness" value="7">
             </td>
             <td class="border td_border mit">
-                <input type="radio" name="effectiveness[]" id="effectiveness" value="6">
+                <input type="radio" name="effectiveness[]" id="effectiveness" value="5">
             </td>
             <td class="border td_border mit">
                 <input type="radio" name="effectiveness[]" id="effectiveness" value="4">
@@ -468,41 +415,65 @@ $current_year = date('Y');
         </tr>
         <tr>
             <th class="border td_border">
-                <?php foreach ($bonus_evaluate_g4_g6 as $bonus_evaluate_g4_g6s) {
-                    if ($bonus_evaluate_g4_g6s->topic == 9) {
-                        echo $bonus_evaluate_g4_g6s->topic . " . " . $bonus_evaluate_g4_g6s->evaluation_Item_en . "<br>" . $bonus_evaluate_g4_g6s->evaluation_Item_th;
+                <?php foreach ($bonus_evaluate_g2_g3 as $bonus_evaluate_g2_g3s) {
+                    if ($bonus_evaluate_g2_g3s->topic == 8) {
+                        echo $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th;
                     }
                 } ?>
             </th>
             <td class="border td_border mit">
-                <input type="radio" name="adaptability[]" id="adaptability" value="8">
+                <input type="radio" name="planning[]" id="planning" value="7">
             </td>
             <td class="border td_border mit">
-                <input type="radio" name="adaptability[]" id="adaptability" value="6">
+                <input type="radio" name="planning[]" id="planning" value="5">
             </td>
             <td class="border td_border mit">
-                <input type="radio" name="adaptability[]" id="adaptability" value="4">
+                <input type="radio" name="planning[]" id="planning" value="4">
             </td>
             <td class="border td_border mit">
-                <input type="radio" name="adaptability[]" id="adaptability" value="2">
+                <input type="radio" name="planning[]" id="planning" value="2">
             </td>
             <td class="border td_border mit">
-                <input type="radio" name="adaptability[]" id="adaptability" value="1">
+                <input type="radio" name="planning[]" id="planning" value="1">
             </td>
         </tr>
         <tr>
             <th class="border td_border">
-                <?php foreach ($bonus_evaluate_g4_g6 as $bonus_evaluate_g4_g6s) {
-                    if ($bonus_evaluate_g4_g6s->topic == 10) {
-                        echo $bonus_evaluate_g4_g6s->topic . " . " . $bonus_evaluate_g4_g6s->evaluation_Item_en . "<br>" . $bonus_evaluate_g4_g6s->evaluation_Item_th;
+                <?php foreach ($bonus_evaluate_g2_g3 as $bonus_evaluate_g2_g3s) {
+                    if ($bonus_evaluate_g2_g3s->topic == 9) {
+                        echo $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th;
                     }
                 } ?>
             </th>
             <td class="border td_border mit">
-                <input type="radio" name="creative[]" id="creative" value="8">
+                <input type="radio" name="preventive[]" id="preventive" value="7">
             </td>
             <td class="border td_border mit">
-                <input type="radio" name="creative[]" id="creative" value="6">
+                <input type="radio" name="preventive[]" id="preventive" value="5">
+            </td>
+            <td class="border td_border mit">
+                <input type="radio" name="preventive[]" id="preventive" value="4">
+            </td>
+            <td class="border td_border mit">
+                <input type="radio" name="preventive[]" id="preventive" value="2">
+            </td>
+            <td class="border td_border mit">
+                <input type="radio" name="preventive[]" id="preventive" value="1">
+            </td>
+        </tr>
+        <tr>
+            <th class="border td_border">
+                <?php foreach ($bonus_evaluate_g2_g3 as $bonus_evaluate_g2_g3s) {
+                    if ($bonus_evaluate_g2_g3s->topic == 10) {
+                        echo $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th;
+                    }
+                } ?>
+            </th>
+            <td class="border td_border mit">
+                <input type="radio" name="creative[]" id="creative" value="7">
+            </td>
+            <td class="border td_border mit">
+                <input type="radio" name="creative[]" id="creative" value="5">
             </td>
             <td class="border td_border mit">
                 <input type="radio" name="creative[]" id="creative" value="4">
@@ -514,14 +485,54 @@ $current_year = date('Y');
                 <input type="radio" name="creative[]" id="creative" value="1">
             </td>
         </tr>
-        <!-- <tr>
-            <th class="border td_border">Evaluate Score คะแนนการประเมิน</th>
-            <td class="border td_border mit">0</td>
-            <td class="border td_border mit">0</td>
-            <td class="border td_border mit">0</td>
-            <td class="border td_border mit">0</td>
-            <td class="border td_border mit">0</td>
-        </tr> -->
+        <tr>
+            <th class="border td_border">
+                <?php foreach ($bonus_evaluate_g2_g3 as $bonus_evaluate_g2_g3s) {
+                    if ($bonus_evaluate_g2_g3s->topic == 11) {
+                        echo $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th;
+                    }
+                } ?>
+            </th>
+            <td class="border td_border mit">
+                <input type="radio" name="management_mind[]" id="management_mind" value="7">
+            </td>
+            <td class="border td_border mit">
+                <input type="radio" name="management_mind[]" id="management_mind" value="5">
+            </td>
+            <td class="border td_border mit">
+                <input type="radio" name="management_mind[]" id="management_mind" value="4">
+            </td>
+            <td class="border td_border mit">
+                <input type="radio" name="management_mind[]" id="management_mind" value="2">
+            </td>
+            <td class="border td_border mit">
+                <input type="radio" name="management_mind[]" id="management_mind" value="1">
+            </td>
+        </tr>
+        <tr>
+            <th class="border td_border">
+                <?php foreach ($bonus_evaluate_g2_g3 as $bonus_evaluate_g2_g3s) {
+                    if ($bonus_evaluate_g2_g3s->topic == 12) {
+                        echo $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th;
+                    }
+                } ?>
+            </th>
+            <td class="border td_border mit">
+                <input type="radio" name="problem_solving[]" id="problem_solving" value="7">
+            </td>
+            <td class="border td_border mit">
+                <input type="radio" name="problem_solving[]" id="problem_solving" value="5">
+            </td>
+            <td class="border td_border mit">
+                <input type="radio" name="problem_solving[]" id="problem_solving" value="4">
+            </td>
+            <td class="border td_border mit">
+                <input type="radio" name="problem_solving[]" id="problem_solving" value="2">
+            </td>
+            <td class="border td_border mit">
+                <input type="radio" name="problem_solving[]" id="problem_solving" value="1">
+            </td>
+        </tr>
     </table>
     <table class="table table-form" style="border: solid #000 2px !important;">
         <tr>
@@ -569,36 +580,47 @@ $current_year = date('Y');
 <div class="container mt-3">
     <table class="table table-form">
         <tr>
-            <th colspan="4" class="border-0">3. Assessment by Management </th>
+            <th colspan="" class="border-0">3. Assessment by Sr. Manager / Factory Manager / General Manager</th>
         </tr>
         <tr>
-            <th class="mit border topic-background">Position /ตำแหน่ง</th>
+            <th class="mit border topic-background" style="width: 350px;">Position /ตำแหน่ง</th>
             <th class="mit border topic-background">Final Rating</th>
             <th class="mit border topic-background">Comment in writing <br> ความคิดเห็นเป็นลายลักษณ์อักษร</th>
-            <th class="mit border topic-background">signed name. <br> ลงนาม</th>
-        </tr>
-        <tr>
-            <td style="height: 100px;" class="border mit-v">Manager <br> ผู้จัดการ</td>
-            <td style="height: 100px;" rowspan="4" class="border mit">
-                <div id="final_rating"></div>
-            </td>
-            <td style="height: 100px;" class="border mit-v"></td>
-            <td style="height: 100px;" class="border mit-v"></td>
         </tr>
         <tr>
             <td style="height: 100px;" class="border mit-v">Senior Manager <br> ผู้จัดการอาวุโส</td>
-            <td style="height: 100px;" class="border mit-v"></td>
-            <td style="height: 100px;" class="border mit-v"></td>
-        </tr>
-        <tr>
-            <td style="height: 100px;" class="border mit-v">General Manager <br> ผู้จัดการทั่วไป</td>
-            <td style="height: 100px;" class="border mit-v"></td>
+            <td style="height: 100px;" rowspan="2" class="border mit">
+                <div id="final_rating"></div>
+            </td>
             <td style="height: 100px;" class="border mit-v"></td>
         </tr>
         <tr>
-            <td style="height: 100px;" class="border mit-v">Senior Executive Officer <br> เจ้าหน้าที่บริหารอาวุโส</td>
-            <td style="height: 100px;" class="border mit-v"></td>
-            <td style="height: 100px;" class="border mit-v"></td>
+            <td style="height: 100px;" class="border mit-v">Fact Mgr / GM <br> ผู้จัดการโรงงาน / ผู้จัดการทั่วไป</td>
+            <td style="height: 100px;" class="border mit"></td>
+        </tr>
+    </table>
+</div>
+<div class="container mt-5 pt-3">
+    <table class="table table-form border-0">
+        <tr class="mit">
+            <th class="border-0" style="vertical-align: bottom;">
+                <div class="mb-3" style="border: 0.5px solid #000000; width: 250px; margin-left: 54px"></div>
+                <label for="">(<?php echo nbs(56) ?>)</label><br>
+                <label for="" class="mit">Sr. Mgr / Factory Mgr / GM</label><br>
+                <label for="">ผู้จัดการอาวุโส / ผู้จัดการโรงงาน / ผู้จัดการทั่วไป</label>
+            </th>
+            <th class="border-0" style="vertical-align: bottom;">
+                <div class="mb-3" style="border: 0.5px solid #000000; width: 250px; margin-left: 54px"></div>
+                <label for="">(<?php echo nbs(56) ?>)</label><br>
+                <label for="" class="mit">Senior Executive Officer</label><br>
+                <label for="">เจ้าหน้าที่บริหารอาวุโส</label>
+            </th>
+            <th class="border-0" style="vertical-align: bottom;">
+                <div class="mb-3" style="border: 0.5px solid #000000; width: 250px; margin-left: 54px"></div>
+                <label for="">(<?php echo nbs(56) ?>)</label><br>
+                <label for="" class="mit">Chief Operation Officer</label><br>
+                <label for="">ประธานเจ้าหน้าที่ฝ่ายปฏิบัติการ</label>
+            </th>
         </tr>
     </table>
 </div>

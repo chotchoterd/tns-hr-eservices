@@ -68,9 +68,9 @@ include "scriptTableAssessmentRecord.php";
                     <?php if ($subordinate_emps->emp_grade == "G4" || $subordinate_emps->emp_grade == "G5" || $subordinate_emps->emp_grade == "G6") { ?>
                         <a href="<?php echo base_url('index.php/bonus_controller/FormBonusAnnualEvaluateG4G6/?emp_id=') ?><?php echo $subordinate_emps->emp_id ?>"><?php echo $subordinate_emps->emp_name; ?></a>
                     <?php } else if ($subordinate_emps->emp_grade == "G1" || $subordinate_emps->emp_grade == "G2" || $subordinate_emps->emp_grade == "G3") { ?>
-                        <a href="<?php echo base_url('index.php/bonus_controller/#/?emp_id=') ?><?php echo $subordinate_emps->emp_id ?>"><?php echo $subordinate_emps->emp_name; ?></a>
+                        <a href="<?php echo base_url('index.php/bonus_controller/FormBonusAnnualEvaluateG2G3/?emp_id=') ?><?php echo $subordinate_emps->emp_id ?>"><?php echo $subordinate_emps->emp_name; ?></a>
                     <?php } else { ?>
-                        <a href="<?php echo base_url('index.php/bonus_controller/Na/?emp_id=') ?><?php echo $subordinate_emps->emp_id ?>"><?php echo $subordinate_emps->emp_name; ?></a>
+                        <a href="<?php echo base_url('index.php/bonus_controller/FormBonusAnnualEvaluateForemanAndbelow/?emp_id=') ?><?php echo $subordinate_emps->emp_id ?>"><?php echo $subordinate_emps->emp_name; ?></a>
                     <?php } ?>
                 </td>
                 <td class="border mit td_border">
