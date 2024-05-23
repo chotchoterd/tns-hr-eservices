@@ -51,6 +51,7 @@ class Logincontrol extends CI_Controller
                         $superior_email2 = $get_emp_ids->superior_email2;
                         $foreman = $get_emp_ids->foreman;
                         $factory_Manager_GM = $get_emp_ids->factory_Manager_GM;
+                        $factory_Manager_GM_email = $get_emp_ids->factory_Manager_GM_email;
                         $count_rows += 1;
                     }
                     if ($count_rows > 0) {
@@ -74,6 +75,7 @@ class Logincontrol extends CI_Controller
                         $_SESSION["superior_email2"] = $superior_email2;
                         $_SESSION["foreman"] = $foreman;
                         $_SESSION['factory_Manager_GM'] = $factory_Manager_GM;
+                        $_SESSION['factory_Manager_GM_email'] = $factory_Manager_GM_email;
                         $_SESSION['last_activity'] = time();
                         $get_emp_admin = $this->login->get_data_emp_admin($emp_id);
                         foreach ($get_emp_admin as $get_emp_admins) {

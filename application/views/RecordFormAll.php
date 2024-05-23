@@ -32,7 +32,8 @@ include "checkAdminUser.php";
             <tr>
                 <td class="mit">2</td>
                 <td class="mit-v">
-                    <a href="<?php echo base_url('index.php/bonus_controller/FormBonusAnnualEvaluateG4G6') ?>" class="record_border">BONUS & ANNUAL Assessment</a>
+                    <!-- <a href="<?php echo base_url('index.php/bonus_controller/FormBonusAnnualEvaluateG4G6') ?>" class="record_border">BONUS & ANNUAL Assessment</a> -->
+                    <a href="<?php echo base_url('index.php/bonus_controller/TableAssessmentRecord') ?>" class="record_border">BONUS & ANNUAL Assessment</a>
                 </td>
                 <td class="mit">Record</td>
             </tr>

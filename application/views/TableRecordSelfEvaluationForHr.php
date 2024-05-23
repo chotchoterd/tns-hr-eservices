@@ -2,6 +2,36 @@
 include "scriptTableRecordSelfEvaluationForHr.php";
 include "checkAdmin.php";
 $check_count = 0;
+if (isset($_GET['s_date'])) {
+    $s_date = $_GET['s_date'];
+} else {
+    $s_date = '';
+}
+if (isset($_GET['s_year'])) {
+    $s_year = $_GET['s_year'];
+} else {
+    $s_year = date('Y');
+}
+if (isset($_GET['s_emp_id'])) {
+    $s_emp_id = $_GET['s_emp_id'];
+} else {
+    $s_emp_id = '';
+}
+if (isset($_GET['s_emp_name'])) {
+    $s_emp_name = $_GET['s_emp_name'];
+} else {
+    $s_emp_name = '';
+}
+if (isset($_GET['s_hired_date'])) {
+    $s_hired_date = $_GET['s_hired_date'];
+} else {
+    $s_hired_date = '';
+}
+if (isset($_GET['s_status'])) {
+    $s_status = $_GET['s_status'];
+} else {
+    $s_status = '';
+}
 ?>
 <div class="container mt-3">
     <table class="table table-form">
@@ -17,7 +47,7 @@ $check_count = 0;
             <tr>
                 <th class="border-0">
                     Date :
-                    <input type="text" id="s_date" name="s_date" class="form-control" value="">
+                    <input type="text" id="s_date" name="s_date" class="form-control" value="<?php echo $s_date; ?>">
                 </th>
                 <th class="border-0">
                     Year Submit :
@@ -25,30 +55,30 @@ $check_count = 0;
                         <?php
                         $current_year = date('Y');
                         for ($i = $current_year - 5; $i < $current_year + 5; $i++) { ?>
-                            <option value="<?php echo $i ?>" <?php if ($i == $current_year) echo "selected"; ?> class="mit"><?php echo $i ?></option>
+                            <option value="<?php echo $i ?>" <?php if ($i == $s_year) echo "selected"; ?> class="mit"><?php echo $i ?></option>
                         <?php } ?>
                     </select>
                 </th>
                 <th class="border-0">
                     Employee ID :
-                    <input type="text" id="s_emp_id" name="s_emp_id" class="form-control" value="">
+                    <input type="text" id="s_emp_id" name="s_emp_id" class="form-control" value="<?php echo $s_emp_id; ?>">
                 </th>
             </tr>
             <tr>
                 <th class="border-0">
                     Employee Name :
-                    <input type="text" id="s_emp_name" name="s_emp_name" class="form-control" value="">
+                    <input type="text" id="s_emp_name" name="s_emp_name" class="form-control" value="<?php echo $s_emp_name; ?>">
                 </th>
                 <th class="border-0">
                     Hired Date :
-                    <input type="text" id="s_hired_date" name="s_hired_date" class="form-control" value="">
+                    <input type="text" id="s_hired_date" name="s_hired_date" class="form-control" value="<?php echo $s_hired_date; ?>">
                 </th>
                 <th class="border-0">
                     Status :
                     <select name="s_status" id="s_status" class="form-select" aria-label="Default select example">
                         <option value="" class="mit">- Select -</option>
-                        <option value="Submit">Submit</option>
-                        <option value="Draft">Draft</option>
+                        <option value="Submit" <?php if ($s_status == "Submit") echo "selected"; ?>>Submit</option>
+                        <option value="Draft" <?php if ($s_status == "Draft") echo "selected"; ?>>Draft</option>
                     </select>
                 </th>
             </tr>
@@ -56,8 +86,8 @@ $check_count = 0;
                 <td class="border-0"></td>
                 <td class="border-0"></td>
                 <td class="border-0 text-end">
-                    <button class="btn btn-primary btn_color_df" style="width: 100px;">Search</button>
-                    <button class="btn btn-primary btn_color_df" style="width: 100px;">Clear</button>
+                    <button class="btn btn-primary btn_color_df" style="width: 100px;" onclick="Search_Self_Evaluation_Record();">Search</button>
+                    <button class="btn btn-primary btn_color_df" style="width: 100px;" onclick="Clear_Search_Self_Evaluation_Record();">Clear</button>
                 </td>
             </tr>
         </table>
@@ -110,7 +140,7 @@ $check_count = 0;
                         <?php } ?>
                     </td>
                     <td class="border mit td_border">
-                    <a href="<?php echo base_url('index.php/delete_controller/Delete_Self_Evaluation/') ?><?php echo $self_evaluation_hrs->id ?>"><img src="<?php echo base_url('/img/delete.png') ?>" alt="" width="30px"></a>
+                        <a href="<?php echo base_url('index.php/delete_controller/Delete_Self_Evaluation/') ?><?php echo $self_evaluation_hrs->id ?>"><img src="<?php echo base_url('/img/delete.png') ?>" alt="" width="30px"></a>
                     </td>
                 </tr>
             <?php } ?>

@@ -17,6 +17,41 @@ class ModelBonus extends CI_Model
         $rs = $this->db_hr
             ->query($sql)
             ->result();
+        // print_r($sql);
+        return $rs;
+    }
+
+    function model_subordinate_emp()
+    {
+        $sql = "SELECT * FROM `tb_emp_hr_import` WHERE superior_email1 = '" . $_SESSION["emp_email"] . "'
+        UNION
+        SELECT * FROM `tb_emp_hr_import` WHERE superior_email2 = '" . $_SESSION["emp_email"] . "'
+        UNION
+        SELECT * FROM `tb_emp_hr_import` WHERE factory_Manager_GM_email = '" . $_SESSION["emp_email"] . "'";
+        $rs = $this->db_hr
+            ->query($sql)
+            ->result();
+        // print_r($sql);
+        return $rs;
+    }
+
+    function model_emp_data($emp_id)
+    {
+        $sql = "SELECT * FROM tb_emp_hr_import WHERE emp_id = '" . $emp_id . "'";
+        $rs = $this->db_hr
+            ->query($sql)
+            ->result();
+        // print_r($sql);
+        return $rs;
+    }
+
+    function model_emp_leave_data($emp_id)
+    {
+        $sql = "SELECT * FROM tb_emp_hr_import_leave_and_punishment WHERE emp_id = '" . $emp_id . "'";
+        $rs = $this->db_hr
+            ->query($sql)
+            ->result();
+        // print_r($sql);
         return $rs;
     }
 }

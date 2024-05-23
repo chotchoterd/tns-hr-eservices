@@ -12,11 +12,37 @@ class Bonus_controller extends CI_Controller
 
     function FormBonusAnnualEvaluateG4G6()
     {
+        if (isset($_GET['emp_id'])) {
+            $emp_id = $_GET['emp_id'];
+        } else {
+            $emp_id = "";
+        }
+        $emp_data['emp_data'] = $this->hr->model_emp_data($emp_id);
+        $emp_leave_data['emp_leave_data'] = $this->hr->model_emp_leave_data($emp_id);
         $bonus_evaluate_g4_g6['bonus_evaluate_g4_g6'] = $this->hr->model_bonus_evaluate_g4_g6();
         $title['title'] = 'AA002-Bonus&Annual Evaluate G4-G6';
         $this->load->view('include/header', $title);
         $this->load->view('include/menu');
-        $this->load->view('FormBonusAnnualEvaluateG4G6', $bonus_evaluate_g4_g6);
+        $this->load->view('FormBonusAnnualEvaluateG4G6', $bonus_evaluate_g4_g6 + $emp_data + $emp_leave_data);
+        $this->load->view('include/footer');
+    }
+
+    function TableAssessmentRecord()
+    {
+        $subordinate_emp['subordinate_emp'] = $this->hr->model_subordinate_emp();
+        $title['title'] = 'Assessment Record';
+        $this->load->view('include/header', $title);
+        $this->load->view('include/menu');
+        $this->load->view('TableAssessmentRecord', $subordinate_emp);
+        $this->load->view('include/footer');
+    }
+
+    function FormBonusAnnualEvaluateG1G3()
+    {
+        $title['title'] = 'AA003-Bonus&Annual Evaluate G1-G3';
+        $this->load->view('include/header', $title);
+        $this->load->view('include/menu');
+        $this->load->view('FormBonusAnnualEvaluateG1G3');
         $this->load->view('include/footer');
     }
 }

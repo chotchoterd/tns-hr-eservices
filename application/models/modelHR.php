@@ -255,7 +255,8 @@ class ModelHR extends CI_Model
 
     function model_self_evaluation_one_user($emp_email)
     {
-        $sql = "SELECT * FROM tb_submit_self_evaluation WHERE emp_email = '" . $emp_email . "'";
+        $sql = "SELECT * FROM tb_submit_self_evaluation WHERE emp_email = '" . $emp_email . "'
+        AND status = 1";
         $rs = $this->db_hr
             ->query($sql)
             ->result();
@@ -263,16 +264,34 @@ class ModelHR extends CI_Model
         return $rs;
     }
 
-    function model_self_evaluation_hr($emp_email)
+    function model_self_evaluation_hr($emp_email, $s_date, $s_year, $s_emp_id, $s_emp_name, $s_hired_date, $s_status)
     {
         $sql = "(SELECT * FROM tb_submit_self_evaluation WHERE self_evaluation_status NOT IN ('Draft')
         AND emp_email != '" . $emp_email . "'
-        AND year_submit = YEAR(CURRENT_DATE)
+        AND date_submit LIKE '%" . $s_date . "%'";
+        if ($s_year == '') {
+            $sql .= " AND year_submit = YEAR(CURRENT_DATE)";
+        } else {
+            $sql .= " AND year_submit LIKE '%" . $s_year . "%'";
+        }
+        $sql .= " AND emp_id LIKE '%" . $s_emp_id . "%'
+        AND emp_name LIKE '%" . $s_emp_name . "%'
+        AND hired_date LIKE '%" . $s_hired_date . "%'
+        AND self_evaluation_status LIKE '%" . $s_status . "%'
         AND status = 1
         ORDER BY id ASC)
         UNION
         (SELECT * FROM tb_submit_self_evaluation WHERE emp_email = '" . $emp_email . "'
-        AND year_submit = YEAR(CURRENT_DATE)
+        AND date_submit LIKE '%" . $s_date . "%'";
+        if ($s_year == '') {
+            $sql .= " AND year_submit = YEAR(CURRENT_DATE)";
+        } else {
+            $sql .= " AND year_submit LIKE '%" . $s_year . "%'";
+        }
+        $sql .= " AND emp_id LIKE '%" . $s_emp_id . "%'
+        AND emp_name LIKE '%" . $s_emp_name . "%'
+        AND hired_date LIKE '%" . $s_hired_date . "%'
+        AND self_evaluation_status LIKE '%" . $s_status . "%'
         AND status = 1
         ORDER BY id ASC)";
         $rs = $this->db_hr

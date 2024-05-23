@@ -206,7 +206,37 @@ class Hr_controller extends CI_Controller
         } else {
             $emp_email = "";
         }
-        $self_evaluation_hr['self_evaluation_hr'] = $this->hr->model_self_evaluation_hr($emp_email);
+        if (isset($_GET['s_date'])) {
+            $s_date = $_GET['s_date'];
+        } else {
+            $s_date = '';
+        }
+        if (isset($_GET['s_year'])) {
+            $s_year = $_GET['s_year'];
+        } else {
+            $s_year = '';
+        }
+        if (isset($_GET['s_emp_id'])) {
+            $s_emp_id = $_GET['s_emp_id'];
+        } else {
+            $s_emp_id = '';
+        }
+        if (isset($_GET['s_emp_name'])) {
+            $s_emp_name = $_GET['s_emp_name'];
+        } else {
+            $s_emp_name = '';
+        }
+        if (isset($_GET['s_hired_date'])) {
+            $s_hired_date = $_GET['s_hired_date'];
+        } else {
+            $s_hired_date = '';
+        }
+        if (isset($_GET['s_status'])) {
+            $s_status = $_GET['s_status'];
+        } else {
+            $s_status = '';
+        }
+        $self_evaluation_hr['self_evaluation_hr'] = $this->hr->model_self_evaluation_hr($emp_email, $s_date, $s_year, $s_emp_id, $s_emp_name, $s_hired_date, $s_status);
         $title['title'] = 'Table Record Self-Evaluation';
         $this->load->view('include/header', $title);
         $this->load->view('include/menu');
