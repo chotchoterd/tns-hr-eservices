@@ -54,4 +54,28 @@ class ModelBonus extends CI_Model
         // print_r($sql);
         return $rs;
     }
+
+    function model_bonus_evaluate_g2_g3()
+    {
+        $current_year = date('Y');
+        $sql = "SELECT * FROM tb_bonus_evaluate_g2_g3 WHERE status = 1
+        AND year = " . $current_year . "";
+        $rs = $this->db_hr
+            ->query($sql)
+            ->result();
+        // print_r($sql);
+        return $rs;
+    }
+
+    function model_bonus_evaluate_Foreman_below()
+    {
+        $current_year = date('Y');
+        $sql = "SELECT * FROM tb_bonus_evaluate_foreman_and_below WHERE status = 1
+        AND year = " . $current_year . "";
+        $rs = $this->db_hr
+            ->query($sql)
+            ->result();
+        // print_r($sql);
+        return $rs;
+    }
 }

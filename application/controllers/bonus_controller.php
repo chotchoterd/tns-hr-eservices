@@ -37,12 +37,37 @@ class Bonus_controller extends CI_Controller
         $this->load->view('include/footer');
     }
 
-    function FormBonusAnnualEvaluateG1G3()
+    function FormBonusAnnualEvaluateG2G3()
     {
-        $title['title'] = 'AA003-Bonus&Annual Evaluate G1-G3';
+        if (isset($_GET['emp_id'])) {
+            $emp_id = $_GET['emp_id'];
+        } else {
+            $emp_id = "";
+        }
+        $emp_data['emp_data'] = $this->hr->model_emp_data($emp_id);
+        $emp_leave_data['emp_leave_data'] = $this->hr->model_emp_leave_data($emp_id);
+        $bonus_evaluate_g2_g3['bonus_evaluate_g2_g3'] = $this->hr->model_bonus_evaluate_g2_g3();
+        $title['title'] = 'AA003-Bonus&Annual Evaluate G2-G3';
         $this->load->view('include/header', $title);
         $this->load->view('include/menu');
-        $this->load->view('FormBonusAnnualEvaluateG1G3');
+        $this->load->view('FormBonusAnnualEvaluateG2G3', $bonus_evaluate_g2_g3 + $emp_data + $emp_leave_data);
+        $this->load->view('include/footer');
+    }
+
+    function FormBonusAnnualEvaluateForemanAndbelow()
+    {
+        if (isset($_GET['emp_id'])) {
+            $emp_id = $_GET['emp_id'];
+        } else {
+            $emp_id = "";
+        }
+        $emp_data['emp_data'] = $this->hr->model_emp_data($emp_id);
+        $emp_leave_data['emp_leave_data'] = $this->hr->model_emp_leave_data($emp_id);
+        $bonus_evaluate_Foreman_below['bonus_evaluate_Foreman_below'] = $this->hr->model_bonus_evaluate_Foreman_below();
+        $title['title'] = 'AA001-Bonus&Annual Evaluate Foreman & below';
+        $this->load->view('include/header', $title);
+        $this->load->view('include/menu');
+        $this->load->view('FormBonusAnnualEvaluateForemanAndbelow', $bonus_evaluate_Foreman_below + $emp_data + $emp_leave_data);
         $this->load->view('include/footer');
     }
 }
