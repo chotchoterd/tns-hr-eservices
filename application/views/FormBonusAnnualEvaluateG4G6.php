@@ -281,6 +281,7 @@ $current_year = date('Y');
                         echo $bonus_evaluate_g4_g6s->topic . " . " . $bonus_evaluate_g4_g6s->evaluation_Item_en . "<br>" . $bonus_evaluate_g4_g6s->evaluation_Item_th;
                     }
                 } ?>
+                <div class="mt-1 font-eigth red" id="alert_Quality_of_work" style="display: none;">Please Select Score !</div>
             </th>
             <td class="border td_border mit">
                 <input type="radio" name="quality_of_work[]" id="quality_of_work" value="8">
@@ -305,6 +306,7 @@ $current_year = date('Y');
                         echo $bonus_evaluate_g4_g6s->topic . " . " . $bonus_evaluate_g4_g6s->evaluation_Item_en . "<br>" . $bonus_evaluate_g4_g6s->evaluation_Item_th;
                     }
                 } ?>
+                <div class="mt-1 font-eigth red" id="alert_Job_Responsibility" style="display: none;">Please Select Score !</div>
             </th>
             <td class="border td_border mit">
                 <input type="radio" name="job_responsibility[]" id="job_responsibility" value="8">
@@ -329,6 +331,7 @@ $current_year = date('Y');
                         echo $bonus_evaluate_g4_g6s->topic . " . " . $bonus_evaluate_g4_g6s->evaluation_Item_en . "<br>" . $bonus_evaluate_g4_g6s->evaluation_Item_th;
                     }
                 } ?>
+                <div class="mt-1 font-eigth red" id="alert_Cooperation" style="display: none;">Please Select Score !</div>
             </th>
             <td class="border td_border mit">
                 <input type="radio" name="cooperation[]" id="cooperation" value="8">
@@ -353,6 +356,7 @@ $current_year = date('Y');
                         echo $bonus_evaluate_g4_g6s->topic . " . " . $bonus_evaluate_g4_g6s->evaluation_Item_en . "<br>" . $bonus_evaluate_g4_g6s->evaluation_Item_th;
                     }
                 } ?>
+                <div class="mt-1 font-eigth red" id="alert_Communication" style="display: none;">Please Select Score !</div>
             </th>
             <td class="border td_border mit">
                 <input type="radio" name="communication[]" id="communication" value="8">
@@ -377,6 +381,7 @@ $current_year = date('Y');
                         echo $bonus_evaluate_g4_g6s->topic . " . " . $bonus_evaluate_g4_g6s->evaluation_Item_en . "<br>" . $bonus_evaluate_g4_g6s->evaluation_Item_th;
                     }
                 } ?>
+                <div class="mt-1 font-eigth red" id="alert_Teamwork" style="display: none;">Please Select Score !</div>
             </th>
             <td class="border td_border mit">
                 <input type="radio" name="teamwork[]" id="Teamwork" value="8">
@@ -401,6 +406,7 @@ $current_year = date('Y');
                         echo $bonus_evaluate_g4_g6s->topic . " . " . $bonus_evaluate_g4_g6s->evaluation_Item_en . "<br>" . $bonus_evaluate_g4_g6s->evaluation_Item_th;
                     }
                 } ?>
+                <div class="mt-1 font-eigth red" id="alert_technical_capability" style="display: none;">Please Select Score !</div>
             </th>
             <td class="border td_border mit">
                 <input type="radio" name="technical_capability[]" id="technical_capability" value="8">
@@ -425,6 +431,7 @@ $current_year = date('Y');
                         echo $bonus_evaluate_g4_g6s->topic . " . " . $bonus_evaluate_g4_g6s->evaluation_Item_en . "<br>" . $bonus_evaluate_g4_g6s->evaluation_Item_th;
                     }
                 } ?>
+                <div class="mt-1 font-eigth red" id="alert_potential" style="display: none;">Please Select Score !</div>
             </th>
             <td class="border td_border mit">
                 <input type="radio" name="potential[]" id="potential" value="8">
@@ -449,6 +456,7 @@ $current_year = date('Y');
                         echo $bonus_evaluate_g4_g6s->topic . " . " . $bonus_evaluate_g4_g6s->evaluation_Item_en . "<br>" . $bonus_evaluate_g4_g6s->evaluation_Item_th;
                     }
                 } ?>
+                <div class="mt-1 font-eigth red" id="alert_effectiveness" style="display: none;">Please Select Score !</div>
             </th>
             <td class="border td_border mit">
                 <input type="radio" name="effectiveness[]" id="effectiveness" value="8">
@@ -473,6 +481,7 @@ $current_year = date('Y');
                         echo $bonus_evaluate_g4_g6s->topic . " . " . $bonus_evaluate_g4_g6s->evaluation_Item_en . "<br>" . $bonus_evaluate_g4_g6s->evaluation_Item_th;
                     }
                 } ?>
+                <div class="mt-1 font-eigth red" id="alert_adaptability" style="display: none;">Please Select Score !</div>
             </th>
             <td class="border td_border mit">
                 <input type="radio" name="adaptability[]" id="adaptability" value="8">
@@ -497,6 +506,7 @@ $current_year = date('Y');
                         echo $bonus_evaluate_g4_g6s->topic . " . " . $bonus_evaluate_g4_g6s->evaluation_Item_en . "<br>" . $bonus_evaluate_g4_g6s->evaluation_Item_th;
                     }
                 } ?>
+                <div class="mt-1 font-eigth red" id="alert_creative" style="display: none;">Please Select Score !</div>
             </th>
             <td class="border td_border mit">
                 <input type="radio" name="creative[]" id="creative" value="8">
@@ -514,14 +524,6 @@ $current_year = date('Y');
                 <input type="radio" name="creative[]" id="creative" value="1">
             </td>
         </tr>
-        <!-- <tr>
-            <th class="border td_border">Evaluate Score คะแนนการประเมิน</th>
-            <td class="border td_border mit">0</td>
-            <td class="border td_border mit">0</td>
-            <td class="border td_border mit">0</td>
-            <td class="border td_border mit">0</td>
-            <td class="border td_border mit">0</td>
-        </tr> -->
     </table>
     <table class="table table-form" style="border: solid #000 2px !important;">
         <tr>
@@ -599,6 +601,16 @@ $current_year = date('Y');
             <td style="height: 100px;" class="border mit-v">Senior Executive Officer <br> เจ้าหน้าที่บริหารอาวุโส</td>
             <td style="height: 100px;" class="border mit-v"></td>
             <td style="height: 100px;" class="border mit-v"></td>
+        </tr>
+    </table>
+</div>
+<div class="container mt-3">
+    <table class="table table-form border-9">
+        <tr>
+            <td class="mit border-0">
+                <button type="button" class="btn btn-primary btn_color_df" id="bt_Save_draft">Save Draft</button>
+                <button type="button" class="btn btn-primary btn_color_df" id="bt_Submit">Submit</button>
+            </td>
         </tr>
     </table>
 </div>

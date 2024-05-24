@@ -57,6 +57,7 @@ include "scriptTableAssessmentRecord.php";
     <table class="table table-form">
         <tr>
             <th class="border topic-background mit">Employee Name</th>
+            <th class="border topic-background mit">Grade</th>
             <th class="border topic-background mit">Employee ID</th>
             <th class="border topic-background mit">Date</th>
             <th class="border topic-background mit">Year Assessment</th>
@@ -72,6 +73,9 @@ include "scriptTableAssessmentRecord.php";
                     <?php } else { ?>
                         <a href="<?php echo base_url('index.php/bonus_controller/FormBonusAnnualEvaluateForemanAndbelow/?emp_id=') ?><?php echo $subordinate_emps->emp_id ?>"><?php echo $subordinate_emps->emp_name; ?></a>
                     <?php } ?>
+                </td>
+                <td class="border mit td_border">
+                    <?php echo $subordinate_emps->emp_grade; ?>
                 </td>
                 <td class="border mit td_border">
                     <?php echo $subordinate_emps->emp_id; ?>

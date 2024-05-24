@@ -274,6 +274,7 @@ include "scriptFormBonusAnnualEvaluateForemanAndbelow.php";
                         echo $bonus_evaluate_Foreman_belows->topic . " . " . $bonus_evaluate_Foreman_belows->evaluation_Item_en . "<br>" . $bonus_evaluate_Foreman_belows->evaluation_Item_th;
                     }
                 } ?>
+                <div id="alert_quality_of_work" class="mt-1 font-eigth red" style="display: none;">Please select Score !</div>
             </th>
             <td class="border td_border mit">
                 <input type="radio" name="quality_of_work[]" id="quality_of_work" value="10">
@@ -298,6 +299,7 @@ include "scriptFormBonusAnnualEvaluateForemanAndbelow.php";
                         echo $bonus_evaluate_Foreman_belows->topic . " . " . $bonus_evaluate_Foreman_belows->evaluation_Item_en . "<br>" . $bonus_evaluate_Foreman_belows->evaluation_Item_th;
                     }
                 } ?>
+                <div id="alert_job_responsibility" class="mt-1 font-eigth red" style="display: none;">Please select Score !</div>
             </th>
             <td class="border td_border mit">
                 <input type="radio" name="job_responsibility[]" id="job_responsibility" value="10">
@@ -322,6 +324,7 @@ include "scriptFormBonusAnnualEvaluateForemanAndbelow.php";
                         echo $bonus_evaluate_Foreman_belows->topic . " . " . $bonus_evaluate_Foreman_belows->evaluation_Item_en . "<br>" . $bonus_evaluate_Foreman_belows->evaluation_Item_th;
                     }
                 } ?>
+                <div id="alert_cooperation" class="mt-1 font-eigth red" style="display: none;">Please select Score !</div>
             </th>
             <td class="border td_border mit">
                 <input type="radio" name="cooperation[]" id="cooperation" value="10">
@@ -346,6 +349,7 @@ include "scriptFormBonusAnnualEvaluateForemanAndbelow.php";
                         echo $bonus_evaluate_Foreman_belows->topic . " . " . $bonus_evaluate_Foreman_belows->evaluation_Item_en . "<br>" . $bonus_evaluate_Foreman_belows->evaluation_Item_th;
                     }
                 } ?>
+                <div id="alert_teamwork" class="mt-1 font-eigth red" style="display: none;">Please select Score !</div>
             </th>
             <td class="border td_border mit">
                 <input type="radio" name="teamwork[]" id="teamwork" value="10">
@@ -370,6 +374,7 @@ include "scriptFormBonusAnnualEvaluateForemanAndbelow.php";
                         echo $bonus_evaluate_Foreman_belows->topic . " . " . $bonus_evaluate_Foreman_belows->evaluation_Item_en . "<br>" . $bonus_evaluate_Foreman_belows->evaluation_Item_th;
                     }
                 } ?>
+                <div id="alert_job_knowledge" class="mt-1 font-eigth red" style="display: none;">Please select Score !</div>
             </th>
             <td class="border td_border mit">
                 <input type="radio" name="job_knowledge[]" id="job_knowledge" value="10">
@@ -394,6 +399,7 @@ include "scriptFormBonusAnnualEvaluateForemanAndbelow.php";
                         echo $bonus_evaluate_Foreman_belows->topic . " . " . $bonus_evaluate_Foreman_belows->evaluation_Item_en . "<br>" . $bonus_evaluate_Foreman_belows->evaluation_Item_th;
                     }
                 } ?>
+                <div id="alert_technical_skill" class="mt-1 font-eigth red" style="display: none;">Please select Score !</div>
             </th>
             <td class="border td_border mit">
                 <input type="radio" name="technical_skill[]" id="technical_skill" value="10">
@@ -503,6 +509,16 @@ include "scriptFormBonusAnnualEvaluateForemanAndbelow.php";
                 <label for="" class="mit">Factory Manager / GM</label><br>
                 <label for="">ผู้จัดการโรงงาน / ผู้จัดการทั่วไป</label>
             </th>
+        </tr>
+    </table>
+</div>
+<div class="container mt-3">
+    <table class="table table-form border-0">
+        <tr>
+            <td colspan="5" class="mit border-0">
+                <button type="button" class="btn btn-primary btn_color_df" id="bt_Save_draft">Save Draft</button>
+                <button type="button" class="btn btn-primary btn_color_df" id="bt_Submit">Submit</button>
+            </td>
         </tr>
     </table>
 </div>

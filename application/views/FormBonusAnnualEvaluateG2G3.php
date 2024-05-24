@@ -96,7 +96,7 @@ include "scriptFormBonusAnnualEvaluateG2G3.php";
             <th class="mit border topic-background">28 days up/ 28วันขึ้นไป</th>
         </tr>
         <tr>
-            <td class="border td_border mit">20 points - 20 คะแนน</td>
+            <td class="border td_border mit">16 points - 16 คะแนน</td>
             <td class="border td_border mit">16</td>
             <td class="border td_border mit">13</td>
             <td class="border td_border mit">10</td>
@@ -252,6 +252,7 @@ include "scriptFormBonusAnnualEvaluateG2G3.php";
                         echo $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th;
                     }
                 } ?>
+                <div id="alert_quality_of_work" class="mt-1 font-eigth red" style="display: none;">Please select Score !</div>
             </th>
             <td class="border td_border mit">
                 <input type="radio" name="quality_of_work[]" id="quality_of_work" value="7">
@@ -276,6 +277,7 @@ include "scriptFormBonusAnnualEvaluateG2G3.php";
                         echo $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th;
                     }
                 } ?>
+                <div id="alert_job_responsibility" class="mt-1 font-eigth red" style="display: none;">Please select Score !</div>
             </th>
             <td class="border td_border mit">
                 <input type="radio" name="job_responsibility[]" id="job_responsibility" value="7">
@@ -300,6 +302,7 @@ include "scriptFormBonusAnnualEvaluateG2G3.php";
                         echo $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th;
                     }
                 } ?>
+                <div id="alert_cooperation" class="mt-1 font-eigth red" style="display: none;">Please select Score !</div>
             </th>
             <td class="border td_border mit">
                 <input type="radio" name="cooperation[]" id="cooperation" value="7">
@@ -324,6 +327,7 @@ include "scriptFormBonusAnnualEvaluateG2G3.php";
                         echo $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th;
                     }
                 } ?>
+                <div id="alert_communication" class="mt-1 font-eigth red" style="display: none;">Please select Score !</div>
             </th>
             <td class="border td_border mit">
                 <input type="radio" name="communication[]" id="communication" value="7">
@@ -348,6 +352,7 @@ include "scriptFormBonusAnnualEvaluateG2G3.php";
                         echo $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th;
                     }
                 } ?>
+                <div id="alert_teamwork" class="mt-1 font-eigth red" style="display: none;">Please select Score !</div>
             </th>
             <td class="border td_border mit">
                 <input type="radio" name="teamwork[]" id="Teamwork" value="7">
@@ -372,6 +377,7 @@ include "scriptFormBonusAnnualEvaluateG2G3.php";
                         echo $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th;
                     }
                 } ?>
+                <div id="alert_potential" class="mt-1 font-eigth red" style="display: none;">Please select Score !</div>
             </th>
             <td class="border td_border mit">
                 <input type="radio" name="potential[]" id="potential" value="7">
@@ -396,6 +402,7 @@ include "scriptFormBonusAnnualEvaluateG2G3.php";
                         echo $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th;
                     }
                 } ?>
+                <div id="alert_effectiveness" class="mt-1 font-eigth red" style="display: none;">Please select Score !</div>
             </th>
             <td class="border td_border mit">
                 <input type="radio" name="effectiveness[]" id="effectiveness" value="7">
@@ -420,6 +427,7 @@ include "scriptFormBonusAnnualEvaluateG2G3.php";
                         echo $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th;
                     }
                 } ?>
+                <div id="alert_planning" class="mt-1 font-eigth red" style="display: none;">Please select Score !</div>
             </th>
             <td class="border td_border mit">
                 <input type="radio" name="planning[]" id="planning" value="7">
@@ -444,6 +452,7 @@ include "scriptFormBonusAnnualEvaluateG2G3.php";
                         echo $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th;
                     }
                 } ?>
+                <div id="alert_preventive" class="mt-1 font-eigth red" style="display: none;">Please select Score !</div>
             </th>
             <td class="border td_border mit">
                 <input type="radio" name="preventive[]" id="preventive" value="7">
@@ -468,6 +477,7 @@ include "scriptFormBonusAnnualEvaluateG2G3.php";
                         echo $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th;
                     }
                 } ?>
+                <div id="alert_creative" class="mt-1 font-eigth red" style="display: none;">Please select Score !</div>
             </th>
             <td class="border td_border mit">
                 <input type="radio" name="creative[]" id="creative" value="7">
@@ -492,6 +502,7 @@ include "scriptFormBonusAnnualEvaluateG2G3.php";
                         echo $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th;
                     }
                 } ?>
+                <div id="alert_management_mind" class="mt-1 font-eigth red" style="display: none;">Please select Score !</div>
             </th>
             <td class="border td_border mit">
                 <input type="radio" name="management_mind[]" id="management_mind" value="7">
@@ -516,6 +527,7 @@ include "scriptFormBonusAnnualEvaluateG2G3.php";
                         echo $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th;
                     }
                 } ?>
+                <div id="alert_problem_solving" class="mt-1 font-eigth red" style="display: none;">Please select Score !</div>
             </th>
             <td class="border td_border mit">
                 <input type="radio" name="problem_solving[]" id="problem_solving" value="7">
@@ -621,6 +633,16 @@ include "scriptFormBonusAnnualEvaluateG2G3.php";
                 <label for="" class="mit">Chief Operation Officer</label><br>
                 <label for="">ประธานเจ้าหน้าที่ฝ่ายปฏิบัติการ</label>
             </th>
+        </tr>
+    </table>
+</div>
+<div class="container mt-3">
+    <table class="table table-form border-0">
+        <tr>
+            <td colspan="5" class="mit border-0">
+                <button type="button" class="btn btn-primary btn_color_df" id="bt_Save_draft">Save Draft</button>
+                <button type="button" class="btn btn-primary btn_color_df" id="bt_Submit">Submit</button>
+            </td>
         </tr>
     </table>
 </div>

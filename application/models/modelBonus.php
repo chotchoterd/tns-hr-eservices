@@ -27,7 +27,8 @@ class ModelBonus extends CI_Model
         UNION
         SELECT * FROM `tb_emp_hr_import` WHERE superior_email2 = '" . $_SESSION["emp_email"] . "'
         UNION
-        SELECT * FROM `tb_emp_hr_import` WHERE factory_Manager_GM_email = '" . $_SESSION["emp_email"] . "'";
+        SELECT * FROM `tb_emp_hr_import` WHERE factory_Manager_GM_email = '" . $_SESSION["emp_email"] . "'
+        ORDER BY emp_name ASC";
         $rs = $this->db_hr
             ->query($sql)
             ->result();
