@@ -70,7 +70,6 @@ $check_date = date('d/m/Y');
                 <tr>
                     <td class="border-0">HR Note: In order to comply with the company's policy to minimize printing/ paperless scheme.<br>
                         We, the HR team, would like to request for your cooperation in submitting the completed evaluation form as a PDF file and using an electronic signature before forwarding it to your superior. Your kind cooperation would be highly appreciated. /Thank you. <br>
-                        <!-- Tips: How to Modify Ms. Word file to PDF, [Tab menu → File → Save as Adobe PDF → Save file] -->
                     </td>
                 </tr>
             </table>
@@ -207,8 +206,7 @@ $check_date = date('d/m/Y');
                                 } else {
                                     $date_emp_year_of_service = $month_text . " " . $day_text;
                                     echo "<input type=\"text\" id=\"up_emp_year_of_service\" name=\"up_emp_year_of_service\" class=\"form-control\" value=\"$date_emp_year_of_service\" disabled>";
-                                }
-                                ?>
+                                } ?>
                             <?php } else { ?>
                                 <?php
                                 $emp_hired_date_format = DateTime::createFromFormat('d/m/Y', $_SESSION["emp_hired_date"])->format('Y-m-d');
@@ -224,8 +222,7 @@ $check_date = date('d/m/Y');
                                 } else {
                                     $date_emp_year_of_service = $month_text . " " . $day_text;
                                     echo "<input type=\"text\" id=\"emp_year_of_service\" name=\"emp_year_of_service\" class=\"form-control\" value=\"$date_emp_year_of_service\" disabled>";
-                                }
-                                ?>
+                                } ?>
                             <?php } ?>
                             <!-- <div class="mt-1 font-eigth red" id="alert_Employee_Years_of_service" style="display: none;">Please fill in Employee Years of service !</div> -->
                         </td>
@@ -254,7 +251,7 @@ $check_date = date('d/m/Y');
                             <?php } ?>
                         </td>
                     </tr>
-                    <tr <?php if($_SESSION["superior_name2"] == "") echo "style=\"display: none;\""; ?>>
+                    <tr <?php if ($_SESSION["superior_name2"] == "") echo "style=\"display: none;\""; ?>>
                         <td class="border topic-background mit-v text-end" colspan="2">Supervisor name 2</td>
                         <td class="border mit-v td_border" colspan="2">
                             <?php if ($update_indicator == 1) { ?>
@@ -290,8 +287,8 @@ $check_date = date('d/m/Y');
                                 <div class="mt-1 font-eigth red" id="alert_Superior_name" style="display: none;">Please fill in Supervisor name !</div>
                             <?php } ?>
                         </td>
-                        <td class="border topic-background mit-v text-end" colspan="2" <?php if($_SESSION['factory_Manager_GM'] == "") echo "style=\"display: none;\""; ?>>Factory Manager / GM</td>
-                        <td class="border mit-v td_border" colspan="2" <?php if($_SESSION['factory_Manager_GM'] == "") echo "style=\"display: none;\""; ?>>
+                        <td class="border topic-background mit-v text-end" colspan="2" <?php if ($_SESSION['factory_Manager_GM'] == "") echo "style=\"display: none;\""; ?>>Factory Manager / GM</td>
+                        <td class="border mit-v td_border" colspan="2" <?php if ($_SESSION['factory_Manager_GM'] == "") echo "style=\"display: none;\""; ?>>
                             <?php if ($update_indicator == 1) { ?>
                                 <input type="text" id="up_factory_Manager_GM" name="up_factory_Manager_GM" class="form-control" value="<?php echo $self_evaluation_ids->factory_Manager_GM ?>" disabled>
                                 <!-- <input type="text" id="up_sup_grade" name="up_sup_grade" class="form-control" value="Test"> -->

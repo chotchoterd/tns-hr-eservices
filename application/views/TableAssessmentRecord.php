@@ -1,5 +1,30 @@
 <?php
 include "scriptTableAssessmentRecord.php";
+if (isset($_GET['s_date'])) {
+    $s_date = $_GET['s_date'];
+} else {
+    $s_date = '';
+}
+if (isset($_GET['s_year'])) {
+    $s_year = $_GET['s_year'];
+} else {
+    $s_year = date('Y');
+}
+if (isset($_GET['s_emp_id'])) {
+    $s_emp_id = $_GET['s_emp_id'];
+} else {
+    $s_emp_id = '';
+}
+if (isset($_GET['s_emp_name'])) {
+    $s_emp_name = $_GET['s_emp_name'];
+} else {
+    $s_emp_name = '';
+}
+if (isset($_GET['s_status'])) {
+    $s_status = $_GET['s_status'];
+} else {
+    $s_status = '';
+}
 ?>
 <div class="container mt-3">
     <table class="table table-form">
@@ -15,7 +40,7 @@ include "scriptTableAssessmentRecord.php";
             <tr>
                 <th class="border-0">
                     Date :
-                    <input type="text" id="s_date" name="s_date" class="form-control" value="">
+                    <input type="text" id="s_date" name="s_date" class="form-control" value="<?php echo $s_date; ?>">
                 </th>
                 <th class="border-0">
                     Year Submit :
@@ -23,31 +48,31 @@ include "scriptTableAssessmentRecord.php";
                         <?php
                         $current_year = date('Y');
                         for ($i = $current_year - 5; $i < $current_year + 5; $i++) { ?>
-                            <option value="<?php echo $i ?>" <?php if ($i == $current_year) echo "selected"; ?> class="mit"><?php echo $i ?></option>
+                            <option value="<?php echo $i ?>" <?php if ($i == $s_year) echo "selected"; ?> class="mit"><?php echo $i ?></option>
                         <?php } ?>
                     </select>
                 </th>
                 <th class="border-0">
                     Employee ID :
-                    <input type="text" id="s_emp_id" name="s_emp_id" class="form-control" value="">
+                    <input type="text" id="s_emp_id" name="s_emp_id" class="form-control" value="<?php echo $s_emp_id ?>">
                 </th>
             </tr>
             <tr>
                 <th class="border-0">
                     Employee Name :
-                    <input type="text" id="s_emp_name" name="s_emp_name" class="form-control" value="">
+                    <input type="text" id="s_emp_name" name="s_emp_name" class="form-control" value="<?php echo $s_emp_name ?>">
                 </th>
                 <th class="border-0">
                     Status :
                     <select name="s_status" id="s_status" class="form-select" aria-label="Default select example">
                         <option value="" class="mit">- Select -</option>
-                        <option value="Submit">Submit</option>
-                        <option value="Draft">Draft</option>
+                        <option value="Submit" <?php if ($s_status == "Submit") echo "selected"; ?>>Submit</option>
+                        <option value="Draft" <?php if ($s_status == "Draft") echo "selected"; ?>>Draft</option>
                     </select>
                 </th>
                 <th class="border-0 text-end align-bottom">
-                    <button class="btn btn-primary btn_color_df" style="width: 100px;">Search</button>
-                    <button class="btn btn-primary btn_color_df" style="width: 100px;">Clear</button>
+                    <button class="btn btn-primary btn_color_df" style="width: 100px;" onclick="Search_AssessmentRecord();">Search</button>
+                    <button class="btn btn-primary btn_color_df" style="width: 100px;" onclick="Clear_Search_AssessmentRecord();">Clear</button>
                 </th>
             </tr>
         </table>

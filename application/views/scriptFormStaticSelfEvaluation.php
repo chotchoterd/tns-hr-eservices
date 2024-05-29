@@ -636,7 +636,7 @@
 
     function addInputJob_Target() {
         var html = "<tr>";
-        html += "<td colspan=\"3\" class=\"border td_border\">";
+        html += "<td colspan=\"2\" class=\"border td_border\">";
         html += "<div class=\"form-floating\">";
         html += "<textarea name=\"job_target_1[]\" id=\"job_target_1\" class=\"form-control h-textarea\"></textarea>";
         html += "<label for=\"job_target_1\" class=\"font-twelve\">Please fill in Job Target<span class=\"red font-twelve\">*</span></label>";
@@ -648,7 +648,7 @@
         html += "<label for=\"actual_achievement\" class=\"font-twelve\">Please fill in Actual achievement<span class=\"red font-twelve\">*</span></label>";
         html += "</div>";
         html += "</td>";
-        html += "<td class=\"border td_border mit\">";
+        html += "<td colspan=\"2\" class=\"border td_border mit\">";
         html += "<button onclick='deleteRowJob_Target(this);' class=\"btn btn-primary btn_color_df\" type=\"button\" style=\"width: 100px;\">Delete</button>";
         html += "</td>";
         html += "</tr>";
