@@ -107,77 +107,66 @@
                 quality_of_work_list.push($(this).val());
             });
             quality_of_work += quality_of_work_list;
-
             let job_responsibility = [];
             let job_responsibility_list = [];
             $.each($('input[name="job_responsibility[]"]:checked'), function() {
                 job_responsibility_list.push($(this).val());
             });
             job_responsibility += job_responsibility_list;
-
             let cooperation = [];
             let cooperation_list = [];
             $.each($('input[name="cooperation[]"]:checked'), function() {
                 cooperation_list.push($(this).val());
             });
             cooperation += cooperation_list;
-
             let communication = [];
             let communication_list = [];
             $.each($('input[name="communication[]"]:checked'), function() {
                 communication_list.push($(this).val());
             });
             communication += communication_list;
-
             let teamwork = [];
             let teamwork_list = [];
             $.each($('input[name="teamwork[]"]:checked'), function() {
                 teamwork_list.push($(this).val());
             });
             teamwork += teamwork_list;
-
             let potential = [];
             let potential_list = [];
             $.each($('input[name="potential[]"]:checked'), function() {
                 potential_list.push($(this).val());
             });
             potential += potential_list;
-
             let effectiveness = [];
             let effectiveness_list = [];
             $.each($('input[name="effectiveness[]"]:checked'), function() {
                 effectiveness_list.push($(this).val());
             });
             effectiveness += effectiveness_list;
-
             let planning = [];
             let planning_list = [];
             $.each($('input[name="planning[]"]:checked'), function() {
                 planning_list.push($(this).val());
             });
             planning += planning_list;
-
             let preventive = [];
             let preventive_list = [];
             $.each($('input[name="preventive[]"]:checked'), function() {
                 preventive_list.push($(this).val());
             });
             preventive += preventive_list;
-
             let creative = [];
             let creative_list = [];
             $.each($('input[name="creative[]"]:checked'), function() {
                 creative_list.push($(this).val());
             });
             creative += creative_list;
-
             let management_mind = [];
             let management_mind_list = [];
             $.each($('input[name="management_mind[]"]:checked'), function() {
                 management_mind_list.push($(this).val());
             });
             management_mind += management_mind_list;
-
             let problem_solving = [];
             let problem_solving_list = [];
             $.each($('input[name="problem_solving[]"]:checked'), function() {

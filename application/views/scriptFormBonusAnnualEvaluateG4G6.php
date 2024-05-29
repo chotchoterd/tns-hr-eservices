@@ -106,63 +106,54 @@
                 quality_of_work_list.push($(this).val());
             });
             quality_of_work += quality_of_work_list;
-
             let job_responsibility = [];
             let job_responsibility_list = [];
             $.each($('input[name="job_responsibility[]"]:checked'), function() {
                 job_responsibility_list.push($(this).val());
             });
             job_responsibility += job_responsibility_list;
-
             let cooperation = [];
             let cooperation_list = [];
             $.each($('input[name="cooperation[]"]:checked'), function() {
                 cooperation_list.push($(this).val());
             });
             cooperation += cooperation_list;
-
             let communication = [];
             let communication_list = [];
             $.each($('input[name="communication[]"]:checked'), function() {
                 communication_list.push($(this).val());
             });
             communication += communication_list;
-
             let teamwork = [];
             let teamwork_list = [];
             $.each($('input[name="teamwork[]"]:checked'), function() {
                 teamwork_list.push($(this).val());
             });
             teamwork += teamwork_list;
-
             let technical_capability = [];
             let technical_capability_list = [];
             $.each($('input[name="technical_capability[]"]:checked'), function() {
                 technical_capability_list.push($(this).val());
             });
             technical_capability += technical_capability_list;
-
             let potential = [];
             let potential_list = [];
             $.each($('input[name="potential[]"]:checked'), function() {
                 potential_list.push($(this).val());
             });
             potential += potential_list;
-
             let effectiveness = [];
             let effectiveness_list = [];
             $.each($('input[name="effectiveness[]"]:checked'), function() {
                 effectiveness_list.push($(this).val());
             });
             effectiveness += effectiveness_list;
-
             let adaptability = [];
             let adaptability_list = [];
             $.each($('input[name="adaptability[]"]:checked'), function() {
                 adaptability_list.push($(this).val());
             });
             adaptability += adaptability_list;
-
             let creative = [];
             let creative_list = [];
             $.each($('input[name="creative[]"]:checked'), function() {

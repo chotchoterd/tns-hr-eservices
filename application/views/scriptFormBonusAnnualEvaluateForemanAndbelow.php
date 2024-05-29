@@ -77,42 +77,37 @@
                 quality_of_work_list.push($(this).val());
             });
             quality_of_work += quality_of_work_list;
-
             let job_responsibility = [];
             let job_responsibility_list = [];
             $.each($('input[name="job_responsibility[]"]:checked'), function() {
                 job_responsibility_list.push($(this).val());
             });
             job_responsibility += job_responsibility_list;
-
             let cooperation = [];
             let cooperation_list = [];
             $.each($('input[name="cooperation[]"]:checked'), function() {
                 cooperation_list.push($(this).val());
             });
             cooperation += cooperation_list;
-
             let teamwork = [];
             let teamwork_list = [];
             $.each($('input[name="teamwork[]"]:checked'), function() {
                 teamwork_list.push($(this).val());
             });
             teamwork += teamwork_list;
-
             let job_knowledge = [];
             let job_knowledge_list = [];
             $.each($('input[name="job_knowledge[]"]:checked'), function() {
                 job_knowledge_list.push($(this).val());
             });
             job_knowledge += job_knowledge_list;
-
             let technical_skill = [];
             let technical_skill_list = [];
             $.each($('input[name="technical_skill[]"]:checked'), function() {
                 technical_skill_list.push($(this).val());
             });
             technical_skill += technical_skill_list;
-
+            
             if (quality_of_work.length <= 0) {
                 let alert_quality_of_work = document.getElementById("alert_quality_of_work");
                 alert_quality_of_work.style.display = "block";
