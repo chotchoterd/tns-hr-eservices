@@ -78,19 +78,19 @@ include "scriptFormBonusAnnualEvaluateForemanAndbelow.php";
             <?php if ($emp_datas->foreman != "") { ?>
                 <td class="border-0 mit-v text-end">Foreman</td>
                 <td class="border-0">
-                    <input type="text" name="" id="" class="form-control" value="<?php echo $emp_datas->foreman; ?>" disabled>
+                    <input type="text" name="foreman" id="foreman" class="form-control" value="<?php echo $emp_datas->foreman; ?>" disabled>
                 </td>
             <?php } ?>
             <?php if ($emp_datas->superior_name1 != "") { ?>
                 <td class="border-0 mit-v text-end">Supervisor Name 1</td>
                 <td class="border-0">
-                    <input type="text" name="" id="" class="form-control" value="<?php echo $emp_datas->superior_name1; ?>" disabled>
+                    <input type="text" name="sup_name1" id="sup_name1" class="form-control" value="<?php echo $emp_datas->superior_name1; ?>" disabled>
                 </td>
             <?php } ?>
             <?php if ($emp_datas->superior_name2 != "") { ?>
                 <td class="border-0 mit-v text-end">Supervisor Name 2</td>
                 <td class="border-0">
-                    <input type="text" name="" id="" class="form-control" value="<?php echo $emp_datas->superior_name2; ?>" disabled>
+                    <input type="text" name="sup_name2" id="sup_name2" class="form-control" value="<?php echo $emp_datas->superior_name2; ?>" disabled>
                 </td>
             <?php } ?>
         </tr>
@@ -98,7 +98,7 @@ include "scriptFormBonusAnnualEvaluateForemanAndbelow.php";
             <?php if ($emp_datas->factory_Manager_GM != "") { ?>
                 <td class="border-0 mit-v text-end">Factory Manager / GM</td>
                 <td class="border-0">
-                    <input type="text" name="" id="" class="form-control" value="<?php echo $emp_datas->factory_Manager_GM; ?>" disabled>
+                    <input type="text" name="Factory_Manager_GM" id="Factory_Manager_GM" class="form-control" value="<?php echo $emp_datas->factory_Manager_GM; ?>" disabled>
                 </td>
             <?php } ?>
         </tr>

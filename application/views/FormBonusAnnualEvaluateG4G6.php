@@ -84,21 +84,21 @@ $current_year = date('Y');
             <?php if ($emp_datas->superior_name1 != "") { ?>
                 <td class="border-0 mit-v text-end">Supervisor Name 1</td>
                 <td class="border-0">
-                    <input type="text" id="sup_name" name="sup_name" class="form-control" value="<?php echo $emp_datas->superior_name1; ?>" disabled>
+                    <input type="text" id="sup_name1" name="sup_name1" class="form-control" value="<?php echo $emp_datas->superior_name1; ?>" disabled>
                     <div class="mt-1 font-eigth red" id="alert_Superior_name" style="display: none;">Please fill in !</div>
                 </td>
             <?php } ?>
             <?php if ($emp_datas->superior_name2 != "") { ?>
                 <td class="border-0 mit-v text-end">Supervisor Name 2</td>
                 <td class="border-0">
-                    <input type="text" id="" name="" class="form-control" value="<?php echo $emp_datas->superior_name2; ?>" disabled>
+                    <input type="text" id="sup_name2" name="sup_name2" class="form-control" value="<?php echo $emp_datas->superior_name2; ?>" disabled>
                     <div class="mt-1 font-eigth red" id="alert_" style="display: none;">Please fill in !</div>
                 </td>
             <?php } ?>
             <?php if ($emp_datas->factory_Manager_GM != "") { ?>
                 <td class="border-0 mit-v text-end">Factory Manager / GM</td>
                 <td class="border-0">
-                    <input type="text" id="" name="" class="form-control" value="<?php echo $emp_datas->factory_Manager_GM; ?>" disabled>
+                    <input type="text" id="Factory_Manager_GM" name="Factory_Manager_GM" class="form-control" value="<?php echo $emp_datas->factory_Manager_GM; ?>" disabled>
                     <div class="mt-1 font-eigth red" id="alert_" style="display: none;">Please fill in !</div>
                 </td>
             <?php } ?>

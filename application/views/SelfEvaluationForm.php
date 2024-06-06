@@ -17,9 +17,11 @@ $check_date = date('d/m/Y');
 <?php foreach ($period_time as $period_times) {
     $format_date_from = DateTime::createFromFormat('d/m/Y', $period_times->date_from)->format('d-M-Y');
     $format_date_to = DateTime::createFromFormat('d/m/Y', $period_times->date_to)->format('d-M-Y');
+    $period_from = DateTime::createFromFormat('d/m/Y', $period_times->date_from)->format('m/d/Y');
+    $period_to = DateTime::createFromFormat('d/m/Y', $period_times->date_to)->format('m/d/Y');
 }
 ?>
-<?php if ($check_date < $period_times->date_from || $check_date > $period_times->date_to) { ?>
+<?php if ($check_date >= $period_from && $check_date <= $period_to) { ?>
     <div class="container mt-5">
         <?php if ($_SESSION["group"] != "") { ?>
             <a href="<?php echo base_url('index.php/hr_controller/TableRecordSelfEvaluationForHr') ?>"><img src="<?php echo base_url('/img/Self-Eval-Banner.jpg') ?>" width="100%" height="300"><br><?php echo br(2) ?></a>

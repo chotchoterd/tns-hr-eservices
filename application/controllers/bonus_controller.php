@@ -10,6 +10,13 @@ class Bonus_controller extends CI_Controller
         $this->load->model('modelBonus', 'hr');
     }
 
+    function read_json($json)
+    {
+        ini_set('display_errors', 0);
+        header('Content-Type: application/json');
+        echo $json;
+    }
+
     function FormBonusAnnualEvaluateG4G6()
     {
         if (isset($_GET['emp_id'])) {
@@ -69,5 +76,72 @@ class Bonus_controller extends CI_Controller
         $this->load->view('include/menu');
         $this->load->view('FormBonusAnnualEvaluateForemanAndbelow', $bonus_evaluate_Foreman_below + $emp_data + $emp_leave_data);
         $this->load->view('include/footer');
+    }
+
+    function Submit_bonus_evaluate_foreman_ajax()
+    {
+        $date_submit = $this->input->post('date_submit');
+        $emp_name = $this->input->post('emp_name');
+        $emp_id = $this->input->post('emp_id');
+        $position = $this->input->post('position');
+        $section = $this->input->post('section');
+        $hired_date = $this->input->post('hired_date');
+        $emp_year_of_service = $this->input->post('emp_year_of_service');
+        $foreman = $this->input->post('foreman');
+        $sub_name1 = $this->input->post('sub_name1');
+        $sub_name2 = $this->input->post('sub_name2');
+        $Factory_Manager_GM = $this->input->post('Factory_Manager_GM');
+
+        $rs = $this->hr->model_Submit_bonus_evaluate_foreman($date_submit, $emp_name, $emp_id, $position, $section, $hired_date, $emp_year_of_service, $foreman, $sub_name1, $sub_name2, $Factory_Manager_GM);
+        if ($rs) {
+            $json = '{"ok": true}';
+        } else {
+            $json = '{"ok": false}';
+        }
+        $this->read_json($json);
+    }
+
+    function Submit_bonus_evaluate_g4_g6_ajax()
+    {
+        $date_submit = $this->input->post('date_submit');
+        $emp_name = $this->input->post('emp_name');
+        $emp_id = $this->input->post('emp_id');
+        $position = $this->input->post('position');
+        $section = $this->input->post('section');
+        $hired_date = $this->input->post('hired_date');
+        $emp_year_of_service = $this->input->post('emp_year_of_service');
+        $sup_name1 = $this->input->post('sup_name1');
+        $sup_name2 = $this->input->post('sup_name2');
+        $Factory_Manager_GM = $this->input->post('Factory_Manager_GM');
+
+        $rs = $this->hr->model_Submit_bonus_evaluate_g4_g6($date_submit, $emp_name, $emp_id, $position, $section, $hired_date, $emp_year_of_service, $sup_name1, $sup_name2, $Factory_Manager_GM);
+        if ($rs) {
+            $json = '{"ok": true}';
+        } else {
+            $json = '{"ok": false}';
+        }
+        $this->read_json($json);
+    }
+
+    function Submit_bonus_evaluate_g2_g3_ajax()
+    {
+        $date_submit = $this->input->post('date_submit');
+        $emp_name = $this->input->post('emp_name');
+        $emp_id = $this->input->post('emp_id');
+        $position = $this->input->post('position');
+        $section = $this->input->post('section');
+        $hired_date = $this->input->post('hired_date');
+        $emp_year_of_service = $this->input->post('emp_year_of_service');
+        $sup_name1 = $this->input->post('sup_name1');
+        $sup_name2 = $this->input->post('sup_name2');
+        $Factory_Manager_GM = $this->input->post('Factory_Manager_GM');
+
+        $rs = $this->hr->model_Submit_bonus_evaluate_g2_g3($date_submit, $emp_name, $emp_id, $position, $section, $hired_date, $emp_year_of_service, $sup_name1, $sup_name2, $Factory_Manager_GM);
+        if ($rs) {
+            $json = '{"ok": true}';
+        } else {
+            $json = '{"ok": false}';
+        }
+        $this->read_json($json);
     }
 }

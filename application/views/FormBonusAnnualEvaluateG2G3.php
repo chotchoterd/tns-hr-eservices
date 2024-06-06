@@ -36,6 +36,7 @@ include "scriptFormBonusAnnualEvaluateG2G3.php";
             </td>
             <td class="border-0 mit-v text-end">Employee ID</td>
             <td class="border-0">
+                <input type="hidden" name="emp_grade" id="emp_grade" value="<?php echo $emp_datas->emp_grade ?>">
                 <input type="text" id="emp_id" name="emp_id" class="form-control" value="<?php echo $emp_datas->emp_id; ?>" disabled>
             </td>
             <td class="border-0 mit-v text-end">Position</td>
@@ -75,10 +76,24 @@ include "scriptFormBonusAnnualEvaluateG2G3.php";
             </td>
         </tr>
         <tr>
-            <td class="border-0 mit-v text-end">Supervisor Name 1</td>
-            <td class="border-0">
-                <input type="text" name="" id="" class="form-control" value="<?php echo $emp_datas->superior_name1; ?>" disabled>
-            </td>
+            <?php if ($emp_datas->superior_name1 != "") { ?>
+                <td class="border-0 mit-v text-end">Supervisor Name 1</td>
+                <td class="border-0">
+                    <input type="text" name="sup_name1" id="sup_name1" class="form-control" value="<?php echo $emp_datas->superior_name1; ?>" disabled>
+                </td>
+            <?php } ?>
+            <?php if ($emp_datas->superior_name2 != "") { ?>
+                <td class="border-0 mit-v text-end">Supervisor Name 2</td>
+                <td class="border-0">
+                    <input type="text" name="sup_name2" id="sup_name2" class="form-control" value="<?php echo $emp_datas->superior_name2; ?>" disabled>
+                </td>
+            <?php } ?>
+            <?php if ($emp_datas->factory_Manager_GM != "") { ?>
+                <td class="border-0 mit-v text-end">Factory Manager / GM</td>
+                <td class="border-0">
+                    <input type="text" name="Factory_Manager_GM" id="Factory_Manager_GM" class="form-control" value="<?php echo $emp_datas->factory_Manager_GM; ?>" disabled>
+                </td>
+            <?php } ?>
         </tr>
     </table>
 </div>

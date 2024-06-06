@@ -107,7 +107,7 @@
                 technical_skill_list.push($(this).val());
             });
             technical_skill += technical_skill_list;
-            
+
             if (quality_of_work.length <= 0) {
                 let alert_quality_of_work = document.getElementById("alert_quality_of_work");
                 alert_quality_of_work.style.display = "block";
@@ -162,6 +162,9 @@
                     technicalSkillElements[0].focus();
                 }
             }
+            if (check_error == 0) {
+                Submit_bonus_evaluate_foreman_and_below();
+            }
         });
 
         $('input[name="quality_of_work[]"]').on('change', function() {
@@ -189,4 +192,52 @@
             alert_technical_skill.style.display = "none";
         });
     });
+
+    function Submit_bonus_evaluate_foreman_and_below() {
+        let date_submit = document.getElementById("date_submit").value;
+        let emp_name = document.getElementById("emp_name").value;
+        let emp_id = document.getElementById("emp_id").value;
+        let position = document.getElementById("position").value;
+        let section = document.getElementById("section").value;
+        let hired_date = document.getElementById("hired_date").value;
+        let emp_year_of_service = document.getElementById("emp_year_of_service").value;
+        let foreman = $('#foreman').val();
+        let sup_name1 = $('#sup_name1').val();
+        let sup_name2 = $('#sup_name2').val();
+        let Factory_Manager_GM = $('#Factory_Manager_GM').val();
+
+        $.ajax({
+            url: "<?php echo base_url('index.php/bonus_controller/Submit_bonus_evaluate_foreman_ajax') ?>",
+            type: "POST",
+            dataType: "json",
+            data: {
+                date_submit: date_submit,
+                emp_name: emp_name,
+                emp_id: emp_id,
+                position: position,
+                section: section,
+                hired_date: hired_date,
+                emp_year_of_service: emp_year_of_service,
+                foreman: foreman,
+                sup_name1: sup_name1,
+                sup_name2: sup_name2,
+                Factory_Manager_GM: Factory_Manager_GM
+            },
+            success: function(data) {
+                Swal.fire({
+                    title: "Submit successfully",
+                    text: "",
+                    icon: "success",
+                    timer: 1500,
+                    showConfirmButton: false,
+                    allowOutsideClick: false,
+                    customClass: {
+                        title: 'custom-title-class'
+                    }
+                }).then(function() {
+                    window.location = '<?php echo base_url('index.php/bonus_controller/TableAssessmentRecord'); ?>';
+                });
+            }
+        });
+    }
 </script>

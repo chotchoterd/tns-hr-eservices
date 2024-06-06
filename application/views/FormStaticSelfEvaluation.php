@@ -2,12 +2,14 @@
 include('scriptFormStaticSelfEvaluation.php');
 include "checkAdminUser.php";
 $current_year = date('Y');
-$check_date = date('d/m/Y');
+$check_date = date('m/d/Y');
 ?>
 <?php
 foreach ($period_time as $period_times) {
     $format_date_from = DateTime::createFromFormat('d/m/Y', $period_times->date_from)->format('d-M-Y');
     $format_date_to = DateTime::createFromFormat('d/m/Y', $period_times->date_to)->format('d-M-Y');
+    $period_from = DateTime::createFromFormat('d/m/Y', $period_times->date_from)->format('m/d/Y');
+    $period_to = DateTime::createFromFormat('d/m/Y', $period_times->date_to)->format('m/d/Y');
 }
 ?>
 <div class="container-fluid mt-3">
@@ -633,10 +635,11 @@ foreach ($period_time as $period_times) {
                         <a href="<?php echo base_url('index.php/hr_controller/PrintPDFSelfEvaluation/') ?><?php echo $self_evaluation_ids->id ?>" class="btn btn-primary btn_color_df" id="">Click to PDF</a>
                         <!-- <button style="display: none;" onclick="window.print();" class="btn btn-primary btn_color_df">Click to PDF</button> -->
                         <?php if ($self_evaluation_ids->year_submit == $current_year) { ?>
-                            <?php if ($check_date < $period_times->date_from || $check_date > $period_times->date_to) { ?>
-                                <br><u class="red">"Period time for submit From <?php echo $format_date_from ?> To <?php echo $format_date_to ?>"</u><?php echo br(5) ?>
-                            <?php } else { ?>
+                            <?php if ($check_date >= $period_from && $check_date <= $period_to) { ?>
                                 <button type="button" class="btn btn-primary btn_color_df" id="bt_Submit">Re-Submit</button>
+                            <?php } else { ?>
+                                <br><u class="red">"Period time for submit From <?php echo $format_date_from ?> To <?php echo $format_date_to ?>"</u><?php echo br(5) ?>
+
                             <?php } ?>
                         <?php } ?>
                     <?php } else { ?>

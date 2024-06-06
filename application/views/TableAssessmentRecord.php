@@ -84,7 +84,7 @@ if (isset($_GET['s_status'])) {
             <th class="border topic-background mit">Employee Name</th>
             <th class="border topic-background mit">Grade</th>
             <th class="border topic-background mit">Employee ID</th>
-            <th class="border topic-background mit">Date</th>
+            <th class="border topic-background mit">Submit Date</th>
             <th class="border topic-background mit">Year Assessment</th>
             <th class="border topic-background mit">Status</th>
         </tr>
