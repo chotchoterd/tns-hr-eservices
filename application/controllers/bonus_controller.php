@@ -238,4 +238,20 @@ class Bonus_controller extends CI_Controller
         $this->load->view('StaticFormBonusAnnualEvaluateForemanAndbelow', $bonus_evaluate_Foreman_below + $data_EvaluateForeman_id);
         $this->load->view('include/footer');
     }
+
+    public function PrintPDFForeman($id)
+    {
+        $data_EvaluateForeman_id['data_EvaluateForeman_id'] = $this->hr->model_data_EvaluateForeman_id($id);
+        $bonus_evaluate_Foreman_below['bonus_evaluate_Foreman_below'] = $this->hr->model_bonus_evaluate_Foreman_below();
+
+        $html = $this->load->view('PrintPDFForeman', $data_EvaluateForeman_id + $bonus_evaluate_Foreman_below, true);
+        $mpdf = new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($html);
+
+        $title['title'] = 'File PDF BONUS & ANNUAL Assessment for Foreman & below';
+        $this->load->view('include/header', $title);
+        $this->load->view('include/menu');
+        $this->load->view('FilePDFForeman');
+        $this->load->view('include/footer');
+    }
 }

@@ -422,7 +422,7 @@ include "scriptStaticFormBonusAnnualEvaluateForemanAndbelow.php";
             <td style="width: 50%;" colspan="5" class="border td_border mit">
                 <input type="hidden" name="up_assessment_score_h" id="up_assessment_score_h" value="<?php echo $data_EvaluateForeman_ids->assessment_score ?>">
                 <b>
-                    <div class="" id="up_assessment_score"><?php echo $data_EvaluateForeman_ids->assessment_score ?></div>
+                    <div id="up_assessment_score"><?php echo $data_EvaluateForeman_ids->assessment_score ?></div>
                 </b>
             </td>
         </tr>
@@ -430,7 +430,7 @@ include "scriptStaticFormBonusAnnualEvaluateForemanAndbelow.php";
             <th style="width: 50%;" class="border td_border">Leave record score คะแนนจากสถิติการลา</th>
             <td style="width: 50%;" colspan="5" class="border td_border mit">
                 <b>
-                    <div class="" id="up_leave_record_score"><?php echo $data_EvaluateForeman_ids->leave_score ?></div>
+                    <div id="up_leave_record_score"><?php echo $data_EvaluateForeman_ids->leave_score ?></div>
                 </b>
             </td>
         </tr>
@@ -439,7 +439,7 @@ include "scriptStaticFormBonusAnnualEvaluateForemanAndbelow.php";
             <td style="width: 50%;" colspan="5" class="border td_border mit">
                 <input type="hidden" name="up_total_score_h" id="up_total_score_h" value="<?php echo $data_EvaluateForeman_ids->total_score ?>">
                 <b>
-                    <div class="" id="up_total_score"><?php echo $data_EvaluateForeman_ids->total_score ?></div>
+                    <div id="up_total_score"><?php echo $data_EvaluateForeman_ids->total_score ?></div>
                 </b>
             </td>
         </tr>
@@ -544,7 +544,8 @@ include "scriptStaticFormBonusAnnualEvaluateForemanAndbelow.php";
     <table class="table table-form border-0">
         <tr>
             <td colspan="5" class="mit border-0">
-                <button type="button" class="btn btn-primary btn_color_df" id="">Click to PDF</button>
+                <a href="<?php echo base_url('index.php/bonus_controller/PrintPDFForeman/') ?><?php echo $data_EvaluateForeman_ids->id ?>" class="btn btn-primary btn_color_df">Click to PDF</a>
+                <!-- <button type="button" class="btn btn-primary btn_color_df" id="">Click to PDF</button> -->
                 <button type="button" class="btn btn-primary btn_color_df" id="bt_re_Submit">Re-Submit</button>
             </td>
         </tr>

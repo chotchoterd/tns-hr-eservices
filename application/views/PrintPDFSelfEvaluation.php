@@ -21,7 +21,7 @@ $mpdf = new \Mpdf\Mpdf(array(
         )
     ),
     'default_font' => 'sarabun',
-    'default_font_size' => 12.5 // กำหนดขนาดฟอนต์ที่นี่
+    'default_font_size' => 14 // กำหนดขนาดฟอนต์ที่นี่
 ));
 
 $html = '<!DOCTYPE html>';
@@ -32,7 +32,7 @@ $html .= '</head>';
 $html .= '<body>';
 $html .= '<table>';
 $html .= '<tr>';
-$html .= '<th align="left">';
+$html .= '<th align="left" style="font-size: 20px;">';
 $html .= '<img src="img/images.png" alt="" width="60px">' . nbs(3) . 'THAI NIPPON STEEL ENGINEERING & CONSTRUCTION CORPORATION LTD.';
 $html .= '</th>';
 $html .= '</tr>';

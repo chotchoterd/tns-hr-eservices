@@ -635,20 +635,16 @@ foreach ($period_time as $period_times) {
             <tr>
                 <td colspan="6" class="mit border-0">
                     <?php if ($_SESSION["emp_email"] == $self_evaluation_ids->emp_email) { ?>
-                        <a href="<?php echo base_url('index.php/hr_controller/PrintPDFSelfEvaluation/') ?><?php echo $self_evaluation_ids->id ?>" class="btn btn-primary btn_color_df" id="">Click to PDF</a>
-                        <!-- <button style="display: none;" onclick="window.print();" class="btn btn-primary btn_color_df">Click to PDF</button> -->
+                        <a href="<?php echo base_url('index.php/hr_controller/PrintPDFSelfEvaluation/') ?><?php echo $self_evaluation_ids->id ?>" class="btn btn-primary btn_color_df">Click to PDF</a>
                         <?php if ($self_evaluation_ids->year_submit == $current_year) { ?>
                             <?php if ($check_date >= $period_from && $check_date <= $period_to) { ?>
                                 <button type="button" class="btn btn-primary btn_color_df" id="bt_Submit">Re-Submit</button>
                             <?php } else { ?>
                                 <br><u class="red">"Period time for submit From <?php echo $format_date_from ?> To <?php echo $format_date_to ?>"</u><?php echo br(5) ?>
-
                             <?php } ?>
                         <?php } ?>
                     <?php } else { ?>
-                        <a href="<?php echo base_url('index.php/hr_controller/PrintPDFSelfEvaluation/') ?><?php echo $self_evaluation_ids->id ?>" class="btn btn-primary btn_color_df" id="">Click to PDF</a>
-                        <!-- <button style="display: none;" onclick="window.print();" class="btn btn-primary btn_color_df">Click to PDF</button> -->
-                        <!-- <button type="button" class="btn btn-primary btn_color_df" id="bt_Submit">Re-Submit</button> -->
+                        <a href="<?php echo base_url('index.php/hr_controller/PrintPDFSelfEvaluation/') ?><?php echo $self_evaluation_ids->id ?>" class="btn btn-primary btn_color_df">Click to PDF</a>
                     <?php } ?>
                 </td>
             </tr>
