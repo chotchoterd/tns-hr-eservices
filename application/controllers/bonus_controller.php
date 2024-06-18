@@ -68,13 +68,19 @@ class Bonus_controller extends CI_Controller
         } else {
             $emp_id = "";
         }
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+        } else {
+            $id = "";
+        }
+        $data_EvaluateForeman_id['data_EvaluateForeman_id'] = $this->hr->model_data_EvaluateForeman_id($id);
         $emp_data['emp_data'] = $this->hr->model_emp_data($emp_id);
         $emp_leave_data['emp_leave_data'] = $this->hr->model_emp_leave_data($emp_id);
         $bonus_evaluate_Foreman_below['bonus_evaluate_Foreman_below'] = $this->hr->model_bonus_evaluate_Foreman_below();
         $title['title'] = 'AA001-Bonus&Annual Evaluate Foreman & below';
         $this->load->view('include/header', $title);
         $this->load->view('include/menu');
-        $this->load->view('FormBonusAnnualEvaluateForemanAndbelow', $bonus_evaluate_Foreman_below + $emp_data + $emp_leave_data);
+        $this->load->view('FormBonusAnnualEvaluateForemanAndbelow', $bonus_evaluate_Foreman_below + $emp_data + $emp_leave_data + $data_EvaluateForeman_id);
         $this->load->view('include/footer');
     }
 
@@ -88,11 +94,83 @@ class Bonus_controller extends CI_Controller
         $hired_date = $this->input->post('hired_date');
         $emp_year_of_service = $this->input->post('emp_year_of_service');
         $foreman = $this->input->post('foreman');
-        $sub_name1 = $this->input->post('sub_name1');
-        $sub_name2 = $this->input->post('sub_name2');
+        $sup_name1 = $this->input->post('sup_name1');
+        $sup_name2 = $this->input->post('sup_name2');
         $Factory_Manager_GM = $this->input->post('Factory_Manager_GM');
+        $quality_of_work = $this->input->post('quality_of_work');
+        $job_responsibility = $this->input->post('job_responsibility');
+        $cooperation = $this->input->post('cooperation');
+        $teamwork = $this->input->post('teamwork');
+        $job_knowledge = $this->input->post('job_knowledge');
+        $technical_skill = $this->input->post('technical_skill');
+        $assessment_score_h = $this->input->post('assessment_score_h');
+        $leave_score_h = $this->input->post('leave_score_h');
+        $total_score_h = $this->input->post('total_score_h');
+        $assessment_status = $this->input->post('assessment_status');
+        $year_submit = $this->input->post('year_submit');
+        $business_leave1 = $this->input->post('business_leave1');
+        $business_leave2 = $this->input->post('business_leave2');
+        $sick_leave1 = $this->input->post('sick_leave1');
+        $sick_leave2 = $this->input->post('sick_leave2');
+        $absenteeism1 = $this->input->post('absenteeism1');
+        $absenteeism2 = $this->input->post('absenteeism2');
+        $total_leave1 = $this->input->post('total_leave1');
+        $total_leave2 = $this->input->post('total_leave2');
+        $grand_total = $this->input->post('grand_total');
+        $late1 = $this->input->post('late1');
+        $late2 = $this->input->post('late2');
+        $verbal_warning = $this->input->post('verbal_warning');
+        $letter_warning = $this->input->post('letter_warning');
 
-        $rs = $this->hr->model_Submit_bonus_evaluate_foreman($date_submit, $emp_name, $emp_id, $position, $section, $hired_date, $emp_year_of_service, $foreman, $sub_name1, $sub_name2, $Factory_Manager_GM);
+        $rs = $this->hr->model_Submit_bonus_evaluate_foreman($date_submit, $emp_name, $emp_id, $position, $section, $hired_date, $emp_year_of_service, $foreman, $sup_name1, $sup_name2, $Factory_Manager_GM, $quality_of_work, $job_responsibility, $cooperation, $teamwork, $job_knowledge, $technical_skill, $assessment_score_h, $leave_score_h, $total_score_h, $assessment_status, $year_submit, $business_leave1, $business_leave2, $sick_leave1, $sick_leave2, $absenteeism1, $absenteeism2, $total_leave1, $total_leave2, $grand_total, $late1, $late2, $verbal_warning, $letter_warning);
+        if ($rs) {
+            $json = '{"ok": true}';
+        } else {
+            $json = '{"ok": false}';
+        }
+        $this->read_json($json);
+    }
+
+    function up_Submit_bonus_evaluate_foreman_ajax()
+    {
+        $up_id = $this->input->post('up_id');
+        $up_date_submit = $this->input->post('up_date_submit');
+        $up_emp_name = $this->input->post('up_emp_name');
+        $up_emp_id = $this->input->post('up_emp_id');
+        $up_position = $this->input->post('up_position');
+        $up_section = $this->input->post('up_section');
+        $up_hired_date = $this->input->post('up_hired_date');
+        $up_emp_year_of_service = $this->input->post('up_emp_year_of_service');
+        $up_foreman = $this->input->post('up_foreman');
+        $up_sup_name1 = $this->input->post('up_sup_name1');
+        $up_sup_name2 = $this->input->post('up_sup_name2');
+        $up_Factory_Manager_GM = $this->input->post('up_Factory_Manager_GM');
+        $up_quality_of_work = $this->input->post('up_quality_of_work');
+        $up_job_responsibility = $this->input->post('up_job_responsibility');
+        $up_cooperation = $this->input->post('up_cooperation');
+        $up_teamwork = $this->input->post('up_teamwork');
+        $up_job_knowledge = $this->input->post('up_job_knowledge');
+        $up_technical_skill = $this->input->post('up_technical_skill');
+        $up_assessment_score_h = $this->input->post('up_assessment_score_h');
+        $up_leave_score_h = $this->input->post('up_leave_score_h');
+        $up_total_score_h = $this->input->post('up_total_score_h');
+        $up_assessment_status = $this->input->post('up_assessment_status');
+        $up_year_submit = $this->input->post('up_year_submit');
+        $up_business_leave1 = $this->input->post('up_business_leave1');
+        $up_business_leave2 = $this->input->post('up_business_leave2');
+        $up_sick_leave1 = $this->input->post('up_sick_leave1');
+        $up_sick_leave2 = $this->input->post('up_sick_leave2');
+        $up_absenteeism1 = $this->input->post('up_absenteeism1');
+        $up_absenteeism2 = $this->input->post('up_absenteeism2');
+        $up_total_leave1 = $this->input->post('up_total_leave1');
+        $up_total_leave2 = $this->input->post('up_total_leave2');
+        $up_grand_total = $this->input->post('up_grand_total');
+        $up_late1 = $this->input->post('up_late1');
+        $up_late2 = $this->input->post('up_late2');
+        $up_verbal_warning = $this->input->post('up_verbal_warning');
+        $up_letter_warning = $this->input->post('up_letter_warning');
+
+        $rs = $this->hr->model_up_Submit_bonus_evaluate_foreman($up_id, $up_date_submit, $up_emp_name, $up_emp_id, $up_position, $up_section, $up_hired_date, $up_emp_year_of_service, $up_foreman, $up_sup_name1, $up_sup_name2, $up_Factory_Manager_GM, $up_quality_of_work, $up_job_responsibility, $up_cooperation, $up_teamwork, $up_job_knowledge, $up_technical_skill, $up_assessment_score_h, $up_leave_score_h, $up_total_score_h, $up_assessment_status, $up_year_submit, $up_business_leave1, $up_business_leave2, $up_sick_leave1, $up_sick_leave2, $up_absenteeism1, $up_absenteeism2, $up_total_leave1, $up_total_leave2, $up_grand_total, $up_late1, $up_late2, $up_verbal_warning, $up_letter_warning);
         if ($rs) {
             $json = '{"ok": true}';
         } else {
@@ -143,5 +221,21 @@ class Bonus_controller extends CI_Controller
             $json = '{"ok": false}';
         }
         $this->read_json($json);
+    }
+
+    function StaticFormBonusAnnualEvaluateForemanAndbelow()
+    {
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+        } else {
+            $id = "";
+        }
+        $data_EvaluateForeman_id['data_EvaluateForeman_id'] = $this->hr->model_data_EvaluateForeman_id($id);
+        $bonus_evaluate_Foreman_below['bonus_evaluate_Foreman_below'] = $this->hr->model_bonus_evaluate_Foreman_below();
+        $title['title'] = 'AA001-Bonus&Annual Evaluate Foreman & below';
+        $this->load->view('include/header', $title);
+        $this->load->view('include/menu');
+        $this->load->view('StaticFormBonusAnnualEvaluateForemanAndbelow', $bonus_evaluate_Foreman_below + $data_EvaluateForeman_id);
+        $this->load->view('include/footer');
     }
 }

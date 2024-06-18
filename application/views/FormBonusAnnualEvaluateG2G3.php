@@ -192,13 +192,13 @@ include "scriptFormBonusAnnualEvaluateG2G3.php";
                         <label for="">
                             <?php
                             $leave_score = 0;
-                            if ($total >= 0 && $total <= 6) {
+                            if ($total >= 0 && $total < 7) {
                                 echo $leave_score = 16;
-                            } else if ($total >= 7 && $total <= 13) {
+                            } else if ($total >= 7 && $total < 14) {
                                 echo $leave_score = 13;
-                            } else if ($total >= 14 && $total <= 20) {
+                            } else if ($total >= 14 && $total < 21) {
                                 echo $leave_score = 10;
-                            } else if ($total >= 21 && $total <= 27) {
+                            } else if ($total >= 21 && $total < 28) {
                                 echo $leave_score = 7;
                             } else {
                                 echo $leave_score;

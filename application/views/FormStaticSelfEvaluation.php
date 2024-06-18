@@ -38,6 +38,9 @@ foreach ($period_time as $period_times) {
                 <!-- Tips: How to Modify Ms. Word file to PDF, [Tab menu → File → Save as Adobe PDF → Save file] -->
             </td>
         </tr>
+        <tr>
+            <td class="border-0"><b>คำแนะนำ:</b> กรุณาประเมินประสิทธิภาพการทำงานของคุณอย่างครบถ้วนเพื่อแสดงให้เห็นถึงผลสำเร็จตามเป้าหมายงานของคุณในปีนี้ <?php echo $current_year ?>. และความมุ่งมั่นอย่างต่อเนื่องของคุณในการปรับปรุงประสิทธิภาพการทำงานของคุณภายในองค์กรและเป้าหมายงานของคุณในปีถัดไป (<?php echo $current_year + 1 ?>). ให้เสร็จสิ้นภายในวันที่ 30 ตุลาคม <?php echo $current_year ?>.</td>
+        </tr>
     </table>
     <form action="" method="post">
         <table class="table table-form">
@@ -61,41 +64,41 @@ foreach ($period_time as $period_times) {
                 </td>
             </tr>
             <tr>
-                <td class="border topic-background mit-v text-end">Employee name</td>
+                <td class="border topic-background mit-v text-end">Employee name <br> ชื่อ-นามสกุล</td>
                 <td class="border mit-v td_border" colspan="2">
                     <input type="text" id="emp_name" name="emp_name" class="form-control" value="<?php echo $self_evaluation_ids->emp_name ?>" disabled>
                     <div class="mt-1 font-eigth red" id="alert_Employee_name" style="display: none;">Please fill in Employee name !</div>
                 </td>
-                <td class="border topic-background mit-v text-end">Employee ID</td>
+                <td class="border topic-background mit-v text-end">Employee ID <br> เลขที่พนักงาน</td>
                 <td class="border mit-v td_border">
                     <input type="text" id="emp_id" name="emp_id" class="form-control" value="<?php echo $self_evaluation_ids->emp_id ?>" disabled>
                     <div class="mt-1 font-eigth red" id="alert_Employee_ID" style="display: none;">Please fill in Employee ID !</div>
                 </td>
-                <td class="border topic-background mit-v text-end">Employee Grade</td>
+                <td class="border topic-background mit-v text-end">Employee Grade <br> เกรดพนักงาน</td>
                 <td class="border mit-v td_border" colspan="2">
                     <input type="text" id="emp_grade" name="emp_grade" class="form-control" value="<?php echo $self_evaluation_ids->emp_grade ?>" disabled>
                     <div class="mt-1 font-eigth red" id="alert_Employee_Grade" style="display: none;">Please fill in Employee Grade !</div>
                 </td>
             </tr>
             <tr>
-                <td class="border topic-background mit-v text-end">Position</td>
+                <td class="border topic-background mit-v text-end">Position <br> ตำแหน่ง</td>
                 <td class="border mit-v td_border" colspan="2">
                     <input type="text" id="position" name="position" class="form-control" value="<?php echo $self_evaluation_ids->position ?>" disabled>
                     <div class="mt-1 font-eigth red" id="alert_Section" style="display: none;">Please fill in Section !</div>
                 </td>
-                <td class="border topic-background mit-v text-end">Section</td>
+                <td class="border topic-background mit-v text-end">Section <br> แผนก</td>
                 <td class="border mit-v td_border">
                     <input type="text" id="section" name="section" class="form-control" value="<?php echo $self_evaluation_ids->section ?>" disabled>
                     <div class="mt-1 font-eigth red" id="alert_Section" style="display: none;">Please fill in Section !</div>
                 </td>
-                <td class="border topic-background mit-v text-end">Hired date</td>
+                <td class="border topic-background mit-v text-end">Hired date <br> วันเริ่มงาน</td>
                 <td class="border mit-v td_border" colspan="2">
                     <input type="text" class="form-control" id="hired_date" name="hired_date" placeholder="DD/MM/YYYY" value="<?php echo $self_evaluation_ids->hired_date ?>" disabled>
                     <div class="mt-1 font-eigth red" id="alert_Hired_date" style="display: none;">Please fill in Hired date !</div>
                 </td>
             </tr>
             <tr>
-                <td class="border topic-background mit-v text-end">Division</td>
+                <td class="border topic-background mit-v text-end">Division <br> ฝ่ายงาน</td>
                 <td class="border mit-v td_border" colspan="3">
                     <input style="font-size: 10px;" type="text" class="form-control" id="division" name="division" value="<?php echo $self_evaluation_ids->division ?>" disabled>
                     <div class="mt-1 font-eigth red" id="alert_Division" style="display: none;">Please select Division !</div>
@@ -107,7 +110,7 @@ foreach ($period_time as $period_times) {
                 </td>
             </tr>
             <tr <?php if ($self_evaluation_ids->sup_name == "") echo "style=\"display: none;\""; ?>>
-                <td class="border topic-background mit-v text-end" colspan="2">Supervisor name 1</td>
+                <td class="border topic-background mit-v text-end" colspan="2">Supervisor name 1 <br> ชื่อผู้บังคับบัญชา 1</td>
                 <td class="border mit-v td_border" colspan="2">
                     <input type="text" id="sup_name" name="sup_name" class="form-control" value="<?php echo $self_evaluation_ids->sup_name ?>" disabled>
                     <div class="mt-1 font-eigth red" id="alert_Superior_name" style="display: none;">Please fill in Supervisor name !</div>
@@ -119,7 +122,7 @@ foreach ($period_time as $period_times) {
                 </td>
             </tr>
             <tr <?php if ($self_evaluation_ids->sup_name2 == "") echo "style=\"display: none;\""; ?>>
-                <td class="border topic-background mit-v text-end" colspan="2">Supervisor name 2</td>
+                <td class="border topic-background mit-v text-end" colspan="2">Supervisor name 2 <br> ชื่อผู้บังคับบัญชา 2</td>
                 <td class="border mit-v td_border" colspan="2">
                     <input type="text" id="sup_name" name="sup_name" class="form-control" value="<?php echo $self_evaluation_ids->sup_name2 ?>" disabled>
                     <div class="mt-1 font-eigth red" id="alert_Superior_name" style="display: none;">Please fill in Supervisor name !</div>
@@ -155,11 +158,11 @@ foreach ($period_time as $period_times) {
             </tr>
             <tr>
                 <td colspan="2" class="mit border topic-background">
-                    <l>Job Target</l>
+                    <l>Job Target <br> เป้าหมายงาน</l>
                     <div class="mt-1 font-eigth red" id="alert_Job_Target_1" style="display: none;">Please fill in Job Target !</div>
                 </td>
                 <td colspan="2" class="mit border topic-background">
-                    <l>Actual achievement</l>
+                    <l>Actual achievement <br> ผลสำเร็จ</l>
                     <div class="mt-1 font-eigth red" id="alert_Actual_achievement" style="display: none;">Please fill in</div>
                 </td>
                 <td colspan="2" class="mit border topic-background">Manage</td>
@@ -208,7 +211,7 @@ foreach ($period_time as $period_times) {
             </tr>
             <tr>
                 <td class="border mit topic-background" colspan="5">
-                    <l>Job Target</l>
+                    <l>Job Target <br> เป้าหมายงาน</l>
                     <div class="mt-1 font-eigth red" id="alert_Job_Target_2" style="display: none;">Please fill in Job Target !</div>
                 </td>
                 <td class="border mit topic-background">Manage</td>
@@ -301,7 +304,7 @@ foreach ($period_time as $period_times) {
                             if ($count < $half) {
                                 echo "<div class=\"mx-5\">
                                 <input type=\"checkbox\" name=\"3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\" $check3_2>
-                                <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
+                                <label for=\"$input_id\" style=\"font-size: 11px;\">" . $item_option_selfevaluations->item_option . "</label> <br>
                                 </div>";
                             }
                         }
@@ -324,7 +327,7 @@ foreach ($period_time as $period_times) {
                             if ($count >= $half && $count < $half * 2) {
                                 echo "<div class=\"mx-5\">
                                 <input type=\"checkbox\" name=\"3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\" $check3_2>
-                                <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
+                                <label for=\"$input_id\" style=\"font-size: 11px;\">" . $item_option_selfevaluations->item_option . "</label> <br>
                                 </div>";
                             }
                         }
@@ -383,11 +386,11 @@ foreach ($period_time as $period_times) {
             </tr>
             <tr>
                 <td colspan="3" class="border mit topic-background" style="width: 50%;">
-                    What are your weaknesses?
+                    What are your weaknesses? <br> จุดอ่อนของคุณคืออะไร?
                     <div class="mt-1 font-eigth red" id="alert_weaknesses" style="display: none;">Please fill in your weaknesses !</div>
                 </td>
                 <td colspan="3" class="border mit topic-background" style="width: 50%;">
-                    What are your strengths?
+                    What are your strengths? <br> จุดแข็งของคุณคืออะไร?
                     <div class="mt-1 font-eigth red" id="alert_strengths" style="display: none;">Please fill in your strengths !</div>
                 </td>
             </tr>

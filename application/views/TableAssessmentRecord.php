@@ -38,10 +38,10 @@ if (isset($_GET['s_status'])) {
         <legend class="mx-2 mt-2 h2">Search BONUS & ANNUAL Assessment</legend>
         <table class="table table-form border-0">
             <tr>
-                <th class="border-0">
+                <!-- <th class="border-0">
                     Date :
                     <input type="text" id="s_date" name="s_date" class="form-control" value="<?php echo $s_date; ?>">
-                </th>
+                </th> -->
                 <th class="border-0">
                     Year Submit :
                     <select name="s_year" id="s_year" class="form-select" aria-label="Default select example">
@@ -70,7 +70,9 @@ if (isset($_GET['s_status'])) {
                         <option value="Draft" <?php if ($s_status == "Draft") echo "selected"; ?>>Draft</option>
                     </select>
                 </th>
-                <th class="border-0 text-end align-bottom">
+            </tr>
+            <tr>
+                <th colspan="2" class="border-0 text-end align-bottom">
                     <button class="btn btn-primary btn_color_df" style="width: 100px;" onclick="Search_AssessmentRecord();">Search</button>
                     <button class="btn btn-primary btn_color_df" style="width: 100px;" onclick="Clear_Search_AssessmentRecord();">Clear</button>
                 </th>
@@ -91,12 +93,16 @@ if (isset($_GET['s_status'])) {
         <?php foreach ($subordinate_emp as $subordinate_emps) { ?>
             <tr>
                 <td class="border mit-v td_border">
-                    <?php if ($subordinate_emps->emp_grade == "G4" || $subordinate_emps->emp_grade == "G5" || $subordinate_emps->emp_grade == "G6") { ?>
-                        <a href="<?php echo base_url('index.php/bonus_controller/FormBonusAnnualEvaluateG4G6/?emp_id=') ?><?php echo $subordinate_emps->emp_id ?>"><?php echo $subordinate_emps->emp_name; ?></a>
-                    <?php } else if ($subordinate_emps->emp_grade == "G1" || $subordinate_emps->emp_grade == "G2" || $subordinate_emps->emp_grade == "G3") { ?>
-                        <a href="<?php echo base_url('index.php/bonus_controller/FormBonusAnnualEvaluateG2G3/?emp_id=') ?><?php echo $subordinate_emps->emp_id ?>"><?php echo $subordinate_emps->emp_name; ?></a>
-                    <?php } else { ?>
-                        <a href="<?php echo base_url('index.php/bonus_controller/FormBonusAnnualEvaluateForemanAndbelow/?emp_id=') ?><?php echo $subordinate_emps->emp_id ?>"><?php echo $subordinate_emps->emp_name; ?></a>
+                    <?php if (($subordinate_emps->emp_grade == "G4" || $subordinate_emps->emp_grade == "G5" || $subordinate_emps->emp_grade == "G6" || $subordinate_emps->emp_grade == "J") && $subordinate_emps->assessment_status != "Submit") { ?>
+                        <a href="<?php echo base_url('index.php/bonus_controller/FormBonusAnnualEvaluateG4G6/?emp_id=') . $subordinate_emps->emp_id ?>"><?php echo $subordinate_emps->emp_name; ?></a>
+                    <?php } elseif (($subordinate_emps->emp_grade == "G1" || $subordinate_emps->emp_grade == "G2" || $subordinate_emps->emp_grade == "G3" || $subordinate_emps->emp_grade == "P") && $subordinate_emps->assessment_status != "Submit") { ?>
+                        <a href="<?php echo base_url('index.php/bonus_controller/FormBonusAnnualEvaluateG2G3/?emp_id=') . $subordinate_emps->emp_id ?>"><?php echo $subordinate_emps->emp_name; ?></a>
+                    <?php } elseif (($subordinate_emps->emp_grade == "K" || $subordinate_emps->emp_grade == "NA") && $subordinate_emps->assessment_status != "Submit" && $subordinate_emps->assessment_status == "Draft") { ?>
+                        <a href="<?php echo base_url('index.php/bonus_controller/FormBonusAnnualEvaluateForemanAndbelow/?emp_id=') . $subordinate_emps->emp_id . '&id=' . $subordinate_emps->id_as; ?>"><?php echo $subordinate_emps->emp_name; ?></a>
+                    <?php } elseif (($subordinate_emps->emp_grade == "K" || $subordinate_emps->emp_grade == "NA") && $subordinate_emps->assessment_status != "Submit") { ?>
+                        <a href="<?php echo base_url('index.php/bonus_controller/FormBonusAnnualEvaluateForemanAndbelow/?emp_id=') . $subordinate_emps->emp_id ?>"><?php echo $subordinate_emps->emp_name; ?></a>
+                    <?php } elseif (($subordinate_emps->emp_grade == "K" || $subordinate_emps->emp_grade == "NA") && $subordinate_emps->assessment_status == "Submit") { ?>
+                        <a href="<?php echo base_url('index.php/bonus_controller/StaticFormBonusAnnualEvaluateForemanAndbelow/?id=') . $subordinate_emps->id_as; ?>"><?php echo $subordinate_emps->emp_name; ?></a>
                     <?php } ?>
                 </td>
                 <td class="border mit td_border">
@@ -106,13 +112,17 @@ if (isset($_GET['s_status'])) {
                     <?php echo $subordinate_emps->emp_id; ?>
                 </td>
                 <td class="border mit td_border">
-                    N/A
+                    <?php echo $subordinate_emps->date_submit; ?>
                 </td>
                 <td class="border mit td_border">
-                    <?php echo date('Y'); ?>
+                    <?php echo $subordinate_emps->year_submit; ?>
                 </td>
                 <td class="border mit td_border">
-                    Draft/Completed/N/A
+                    <?php if ($subordinate_emps->assessment_status == "") {
+                        echo "N/A";
+                    } else {
+                        echo $subordinate_emps->assessment_status;
+                    } ?>
                 </td>
             </tr>
         <?php } ?>

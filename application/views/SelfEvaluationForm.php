@@ -5,7 +5,7 @@ include "checkAdminUser.php";
 $current_year = date('Y');
 $emp_email = $_SESSION["emp_email"];
 $update_indicator = 0;
-$check_date = date('d/m/Y');
+$check_date = date('m/d/Y');
 ?>
 <?php foreach ($self_evaluation_id as $self_evaluation_ids) {
     if (count($self_evaluation_id) != 0) {
@@ -22,15 +22,6 @@ $check_date = date('d/m/Y');
 }
 ?>
 <?php if ($check_date >= $period_from && $check_date <= $period_to) { ?>
-    <div class="container mt-5">
-        <?php if ($_SESSION["group"] != "") { ?>
-            <a href="<?php echo base_url('index.php/hr_controller/TableRecordSelfEvaluationForHr') ?>"><img src="<?php echo base_url('/img/Self-Eval-Banner.jpg') ?>" width="100%" height="300"><br><?php echo br(2) ?></a>
-        <?php } else { ?>
-            <a href="<?php echo base_url('index.php/hr_controller/TableRecordSelfEvaluation') ?>"><img src="<?php echo base_url('/img/Self-Eval-Banner.jpg') ?>" width="100%" height="300"><br><?php echo br(2) ?></a>
-        <?php } ?>
-        <u class="red h4">"Form not available now, Period time for submit From <?php echo $format_date_from ?> To <?php echo $format_date_to ?>"</u><?php echo br(5) ?>
-    </div>
-<?php } else { ?>
     <?php
     $evaluation_submitted = false;
     foreach ($self_evaluation as $self_evaluations) {
@@ -74,6 +65,9 @@ $check_date = date('d/m/Y');
                         We, the HR team, would like to request for your cooperation in submitting the completed evaluation form as a PDF file and using an electronic signature before forwarding it to your superior. Your kind cooperation would be highly appreciated. /Thank you. <br>
                     </td>
                 </tr>
+                <tr>
+                    <td class="border-0"><b>คำแนะนำ:</b> กรุณาประเมินประสิทธิภาพการทำงานของคุณอย่างครบถ้วนเพื่อแสดงให้เห็นถึงผลสำเร็จตามเป้าหมายงานของคุณในปีนี้ <?php echo $current_year ?>. และความมุ่งมั่นอย่างต่อเนื่องของคุณในการปรับปรุงประสิทธิภาพการทำงานของคุณภายในองค์กรและเป้าหมายงานของคุณในปีถัดไป (<?php echo $current_year + 1 ?>). ให้เสร็จสิ้นภายในวันที่ 30 ตุลาคม <?php echo $current_year ?>.</td>
+                </tr>
             </table>
             <form action="" method="post">
                 <table class="table table-form">
@@ -105,7 +99,7 @@ $check_date = date('d/m/Y');
                         </td>
                     </tr>
                     <tr>
-                        <td class="border topic-background mit-v text-end">Employee name</td>
+                        <td class="border topic-background mit-v text-end">Employee name <br> ชื่อ-นามสกุล </td>
                         <td class="border mit-v td_border" colspan="2">
                             <?php if ($update_indicator == 1) { ?>
                                 <input type="text" id="up_emp_name" name="up_emp_name" class="form-control" value="<?php echo $self_evaluation_ids->emp_name ?>" disabled>
@@ -116,7 +110,7 @@ $check_date = date('d/m/Y');
                                 <div class="mt-1 font-eigth red" id="alert_Employee_name" style="display: none;">Please fill in Employee name !</div>
                             <?php } ?>
                         </td>
-                        <td class="border topic-background mit-v text-end">Employee ID</td>
+                        <td class="border topic-background mit-v text-end">Employee ID <br> เลขที่พนักงาน</td>
                         <td class="border mit-v td_border">
                             <?php if ($update_indicator == 1) { ?>
                                 <input type="text" id="up_emp_id" name="up_emp_id" class="form-control" value="<?php echo $self_evaluation_ids->emp_id ?>" disabled>
@@ -127,7 +121,7 @@ $check_date = date('d/m/Y');
                                 <div class="mt-1 font-eigth red" id="alert_Employee_ID" style="display: none;">Please fill in Employee ID !</div>
                             <?php } ?>
                         </td>
-                        <td class="border topic-background mit-v text-end">Employee Grade</td>
+                        <td class="border topic-background mit-v text-end">Employee Grade <br> เกรดพนักงาน</td>
                         <td class="border mit-v td_border" colspan="2">
                             <?php if ($update_indicator == 1) { ?>
                                 <input type="text" id="up_emp_grade" name="up_emp_grade" class="form-control" value="<?php echo $self_evaluation_ids->emp_grade ?>" disabled>
@@ -140,7 +134,7 @@ $check_date = date('d/m/Y');
                         </td>
                     </tr>
                     <tr>
-                        <td class="border topic-background mit-v text-end">Position</td>
+                        <td class="border topic-background mit-v text-end">Position <br> ตำแหน่ง</td>
                         <td class="border mit-v td_border" colspan="2">
                             <?php if ($update_indicator == 1) { ?>
                                 <input type="text" id="up_position" name="up_position" class="form-control" value="<?php echo $self_evaluation_ids->position ?>" disabled>
@@ -151,7 +145,7 @@ $check_date = date('d/m/Y');
                                 <div class="mt-1 font-eigth red" id="alert_Section" style="display: none;">Please fill in Section !</div>
                             <?php } ?>
                         </td>
-                        <td class="border topic-background mit-v text-end">Section</td>
+                        <td class="border topic-background mit-v text-end">Section <br> แผนก</td>
                         <td class="border mit-v td_border">
                             <?php if ($update_indicator == 1) { ?>
                                 <input type="text" id="up_section" name="up_section" class="form-control" value="<?php echo $self_evaluation_ids->section ?>" disabled>
@@ -162,7 +156,7 @@ $check_date = date('d/m/Y');
                                 <div class="mt-1 font-eigth red" id="alert_Section" style="display: none;">Please fill in Section !</div>
                             <?php } ?>
                         </td>
-                        <td class="border topic-background mit-v text-end">Hired date</td>
+                        <td class="border topic-background mit-v text-end">Hired date <br> วันเริ่มงาน</td>
                         <td class="border mit-v td_border" colspan="2">
                             <?php if ($update_indicator == 1) { ?>
                                 <input type="text" class="form-control" id="up_hired_date" name="up_hired_date" placeholder="DD/MM/YYYY" value="<?php echo $self_evaluation_ids->hired_date ?>" disabled>
@@ -178,7 +172,7 @@ $check_date = date('d/m/Y');
                         </td>
                     </tr>
                     <tr>
-                        <td class="border topic-background mit-v text-end">Division</td>
+                        <td class="border topic-background mit-v text-end">Division <br> ฝ่ายงาน</td>
                         <td class="border mit-v td_border" colspan="3">
                             <?php if ($update_indicator == 1) { ?>
                                 <input type="text" class="form-control" id="up_division" name="up_division" value="<?php echo $self_evaluation_ids->division ?>" disabled>
@@ -230,7 +224,7 @@ $check_date = date('d/m/Y');
                         </td>
                     </tr>
                     <tr <?php if ($_SESSION["superior_name"] == "") echo "style=\"display: none;\""; ?>>
-                        <td class="border topic-background mit-v text-end" colspan="2">Supervisor name 1</td>
+                        <td class="border topic-background mit-v text-end" colspan="2">Supervisor name 1 <br> ชื่อผู้บังคับบัญชา 1</td>
                         <td class="border mit-v td_border" colspan="2">
                             <?php if ($update_indicator == 1) { ?>
                                 <input type="text" id="up_sup_name" name="up_sup_name" class="form-control" value="<?php echo $self_evaluation_ids->sup_name ?>" disabled>
@@ -254,7 +248,7 @@ $check_date = date('d/m/Y');
                         </td>
                     </tr>
                     <tr <?php if ($_SESSION["superior_name2"] == "") echo "style=\"display: none;\""; ?>>
-                        <td class="border topic-background mit-v text-end" colspan="2">Supervisor name 2</td>
+                        <td class="border topic-background mit-v text-end" colspan="2">Supervisor name 2 <br> ชื่อผู้บังคับบัญชา 2</td>
                         <td class="border mit-v td_border" colspan="2">
                             <?php if ($update_indicator == 1) { ?>
                                 <input type="text" id="up_sup_name2" name="up_sup_name2" class="form-control" value="<?php echo $self_evaluation_ids->sup_name2 ?>" disabled>
@@ -314,11 +308,11 @@ $check_date = date('d/m/Y');
                     </tr>
                     <tr>
                         <td colspan="3" class="mit border topic-background">
-                            <l>Job Target</;>
+                            <l>Job Target <br> เป้าหมายงาน</l>
                                 <div class="mt-1 font-eigth red" id="alert_Job_Target_1" style="display: none;">Please fill in Job Target !</div>
                         </td>
                         <td colspan="2" class="mit border topic-background">
-                            <l>Actual achievement</l>
+                            <l>Actual achievement <br> ผลสำเร็จ</l>
                             <div class="mt-1 font-eigth red" id="alert_Actual_achievement" style="display: none;">Please fill in Actual achievement !</div>
                         </td>
                         <td class="mit border topic-background">Manage</td>
@@ -389,7 +383,7 @@ $check_date = date('d/m/Y');
                     </tr>
                     <tr>
                         <td class="border mit topic-background" colspan="5">
-                            <l>Job Target</l>
+                            <l>Job Target <br> เป้าหมายงาน</l>
                             <div class="mt-1 font-eigth red" id="alert_Job_Target_2" style="display: none;">Please fill in Job Target !</div>
                         </td>
                         <td class="border mit topic-background">Manage</td>
@@ -513,7 +507,7 @@ $check_date = date('d/m/Y');
                                             if ($count < $half) {
                                                 echo "<div class=\"mx-5\">
                                                 <input type=\"checkbox\" name=\"up_3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\" $check3_2>
-                                                <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
+                                                <label for=\"$input_id\" style=\"font-size: 11px;\">" . $item_option_selfevaluations->item_option . "</label> <br>
                                                 </div>";
                                             }
                                         }
@@ -532,7 +526,7 @@ $check_date = date('d/m/Y');
                                             if ($count < $half) {
                                                 echo "<div class=\"mx-5\">
                                                 <input type=\"checkbox\" name=\"3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\">
-                                                <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
+                                                <label for=\"$input_id\" style=\"font-size: 11px;\">" . $item_option_selfevaluations->item_option . "</label> <br>
                                                 </div>";
                                             }
                                         }
@@ -557,7 +551,7 @@ $check_date = date('d/m/Y');
                                             if ($count >= $half && $count < $half * 2) {
                                                 echo "<div class=\"mx-5\">
                                                 <input type=\"checkbox\" name=\"up_3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\" $check3_2>
-                                                <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
+                                                <label for=\"$input_id\" style=\"font-size: 11px;\">" . $item_option_selfevaluations->item_option . "</label> <br>
                                                 </div>";
                                             }
                                         }
@@ -582,7 +576,7 @@ $check_date = date('d/m/Y');
                                             if ($count >= $half && $count < $half * 2) {
                                                 echo "<div class=\"mx-5\">
                                                 <input type=\"checkbox\" name=\"3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\">
-                                                <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
+                                                <label for=\"$input_id\" style=\"font-size: 11px;\">" . $item_option_selfevaluations->item_option . "</label> <br>
                                                 </div>";
                                             }
                                         }
@@ -628,7 +622,7 @@ $check_date = date('d/m/Y');
                                             if ($count < $half) {
                                                 echo "<div class=\"mx-5\">
                                                 <input type=\"checkbox\" name=\"up_3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\" $check3_2>
-                                                <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
+                                                <label for=\"$input_id\" style=\"font-size: 11px;\">" . $item_option_selfevaluations->item_option . "</label> <br>
                                                 </div>";
                                             }
                                         }
@@ -647,7 +641,7 @@ $check_date = date('d/m/Y');
                                             if ($count < $half) {
                                                 echo "<div class=\"mx-5\">
                                                 <input type=\"checkbox\" name=\"3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\">
-                                                <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
+                                                <label for=\"$input_id\" style=\"font-size: 11px;\">" . $item_option_selfevaluations->item_option . "</label> <br>
                                                 </div>";
                                             }
                                         }
@@ -672,7 +666,7 @@ $check_date = date('d/m/Y');
                                             if ($count >= $half && $count < $half * 2) {
                                                 echo "<div class=\"mx-5\">
                                                 <input type=\"checkbox\" name=\"up_3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\" $check3_2>
-                                                <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
+                                                <label for=\"$input_id\" style=\"font-size: 11px;\">" . $item_option_selfevaluations->item_option . "</label> <br>
                                                 </div>";
                                             }
                                         }
@@ -697,7 +691,7 @@ $check_date = date('d/m/Y');
                                             if ($count >= $half && $count < $half * 2) {
                                                 echo "<div class=\"mx-5\">
                                                 <input type=\"checkbox\" name=\"3_2item_option_selfevaluation[]\" id=\"$input_id\" value=\"$item_option_selfevaluations->item_option\">
-                                                <label for=\"$input_id\">" . $item_option_selfevaluations->item_option . "</label> <br>
+                                                <label for=\"$input_id\" style=\"font-size: 11px;\">" . $item_option_selfevaluations->item_option . "</label> <br>
                                                 </div>";
                                             }
                                         }
@@ -775,11 +769,11 @@ $check_date = date('d/m/Y');
                     </tr>
                     <tr>
                         <td colspan="3" class="border mit topic-background" style="width: 50%;">
-                            What are your weaknesses?
+                            What are your weaknesses? <br> จุดอ่อนของคุณคืออะไร?
                             <div class="mt-1 font-eigth red" id="alert_weaknesses" style="display: none;">Please fill in your weaknesses !</div>
                         </td>
                         <td colspan="3" class="border mit topic-background" style="width: 50%;">
-                            What are your strengths?
+                            What are your strengths? <br> จุดแข็งของคุณคืออะไร?
                             <div class="mt-1 font-eigth red" id="alert_strengths" style="display: none;">Please fill in your strengths !</div>
                         </td>
                     </tr>
@@ -1225,4 +1219,13 @@ $check_date = date('d/m/Y');
             </form>
         </div>
     <?php } ?>
+<?php } else { ?>
+    <div class="container mt-5">
+        <?php if ($_SESSION["group"] != "") { ?>
+            <a href="<?php echo base_url('index.php/hr_controller/TableRecordSelfEvaluationForHr') ?>"><img src="<?php echo base_url('/img/Self-Eval-Banner.jpg') ?>" width="100%" height="300"><br><?php echo br(2) ?></a>
+        <?php } else { ?>
+            <a href="<?php echo base_url('index.php/hr_controller/TableRecordSelfEvaluation') ?>"><img src="<?php echo base_url('/img/Self-Eval-Banner.jpg') ?>" width="100%" height="300"><br><?php echo br(2) ?></a>
+        <?php } ?>
+        <u class="red h4">"Form not available now, Period time for submit From <?php echo $format_date_from ?> To <?php echo $format_date_to ?>"</u><?php echo br(5) ?>
+    </div>
 <?php } ?>

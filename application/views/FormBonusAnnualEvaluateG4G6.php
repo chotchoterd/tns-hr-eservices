@@ -200,13 +200,13 @@ $current_year = date('Y');
                         <label for="">
                             <?php
                             $leave_score = 0;
-                            if ($total >= 0 && $total <= 6) {
+                            if ($total >= 0 && $total < 7) {
                                 echo $leave_score = 20;
-                            } else if ($total >= 7 && $total <= 13) {
+                            } else if ($total >= 7 && $total < 14) {
                                 echo $leave_score = 17;
-                            } else if ($total >= 14 && $total <= 20) {
+                            } else if ($total >= 14 && $total < 21) {
                                 echo $leave_score = 14;
-                            } else if ($total >= 21 && $total <= 27) {
+                            } else if ($total >= 21 && $total < 28) {
                                 echo $leave_score = 11;
                             } else {
                                 echo $leave_score;
