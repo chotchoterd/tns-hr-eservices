@@ -346,53 +346,6 @@ $update_indicator = 0;
 <div class="container mt-3">
     <div class="row">
         <div class="col">
-            <br>
-            <table class="table table-form">
-                <tr>
-                    <th class="border td_border mit">Leave Score</th>
-                </tr>
-                <tr>
-                    <th class="border td_border mit" style="background-color: #006494; color: #fff;">
-                        <?php if ($update_indicator == 1) { ?>
-                            <label for="">
-                                <?php
-                                $leave_score = 0;
-                                if ($total >= 0 && $total < 7) {
-                                    echo $leave_score = 40;
-                                } else if ($total >= 7 && $total < 14) {
-                                    echo $leave_score = 35;
-                                } else if ($total >= 14 && $total < 21) {
-                                    echo $leave_score = 30;
-                                } else if ($total >= 21 && $total < 28) {
-                                    echo $leave_score = 25;
-                                } else {
-                                    echo $leave_score;
-                                } ?>
-                            </label>
-                            <input type="hidden" name="up_leave_score_h" id="up_leave_score_h" value="<?php echo $leave_score; ?>">
-                        <?php } else { ?>
-                            <label for="">
-                                <?php
-                                $leave_score = 0;
-                                if ($total >= 0 && $total < 7) {
-                                    echo $leave_score = 40;
-                                } else if ($total >= 7 && $total < 14) {
-                                    echo $leave_score = 35;
-                                } else if ($total >= 14 && $total < 21) {
-                                    echo $leave_score = 30;
-                                } else if ($total >= 21 && $total < 28) {
-                                    echo $leave_score = 25;
-                                } else {
-                                    echo $leave_score;
-                                } ?>
-                            </label>
-                            <input type="hidden" name="leave_score_h" id="leave_score_h" value="<?php echo $leave_score; ?>">
-                        <?php } ?>
-                    </th>
-                </tr>
-            </table>
-        </div>
-        <div class="col">
             <div class="text-center">*** For reference****</div>
             <table class="table table-form">
                 <tr>
@@ -445,6 +398,53 @@ $update_indicator = 0;
                     </td>
                     <td class="border td_border mit">ครั้ง</td>
                     <td class="border td_border">นำไปใช้ร่วมการประเมิน</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col">
+            <br>
+            <table class="table table-form">
+                <tr>
+                    <th class="border td_border mit">Leave Score</th>
+                </tr>
+                <tr>
+                    <th class="border td_border mit" style="background-color: #006494; color: #fff;">
+                        <?php if ($update_indicator == 1) { ?>
+                            <label for="">
+                                <?php
+                                $leave_score = 0;
+                                if ($total >= 0 && $total < 7) {
+                                    echo $leave_score = 40;
+                                } else if ($total >= 7 && $total < 14) {
+                                    echo $leave_score = 35;
+                                } else if ($total >= 14 && $total < 21) {
+                                    echo $leave_score = 30;
+                                } else if ($total >= 21 && $total < 28) {
+                                    echo $leave_score = 25;
+                                } else {
+                                    echo $leave_score;
+                                } ?>
+                            </label>
+                            <input type="hidden" name="up_leave_score_h" id="up_leave_score_h" value="<?php echo $leave_score; ?>">
+                        <?php } else { ?>
+                            <label for="">
+                                <?php
+                                $leave_score = 0;
+                                if ($total >= 0 && $total < 7) {
+                                    echo $leave_score = 40;
+                                } else if ($total >= 7 && $total < 14) {
+                                    echo $leave_score = 35;
+                                } else if ($total >= 14 && $total < 21) {
+                                    echo $leave_score = 30;
+                                } else if ($total >= 21 && $total < 28) {
+                                    echo $leave_score = 25;
+                                } else {
+                                    echo $leave_score;
+                                } ?>
+                            </label>
+                            <input type="hidden" name="leave_score_h" id="leave_score_h" value="<?php echo $leave_score; ?>">
+                        <?php } ?>
+                    </th>
                 </tr>
             </table>
         </div>

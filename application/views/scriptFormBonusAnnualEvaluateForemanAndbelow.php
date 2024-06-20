@@ -69,12 +69,12 @@
             }
         }
 
-        $up_quality_of_work = 0;
-        $up_job_responsibility = 0;
-        $up_cooperation = 0;
-        $up_teamwork = 0;
-        $up_job_knowledge = 0;
-        $up_technical_skill = 0;
+        let up_quality_of_work = 0;
+        let up_job_responsibility = 0;
+        let up_cooperation = 0;
+        let up_teamwork = 0;
+        let up_job_knowledge = 0;
+        let up_technical_skill = 0;
 
         $('input[name="up_quality_of_work[]"]').change(function() {
             up_quality_of_work = parseFloat($(this).val()) || 0;

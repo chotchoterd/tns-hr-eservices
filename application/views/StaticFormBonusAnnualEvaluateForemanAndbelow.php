@@ -197,22 +197,6 @@ include "scriptStaticFormBonusAnnualEvaluateForemanAndbelow.php";
 <div class="container mt-3">
     <div class="row">
         <div class="col">
-            <br>
-            <table class="table table-form">
-                <tr>
-                    <th class="border td_border mit">Leave Score</th>
-                </tr>
-                <tr>
-                    <th class="border td_border mit" style="background-color: #006494; color: #fff;">
-                        <label for="">
-                            <?php echo $data_EvaluateForeman_ids->leave_score ?>
-                        </label>
-                        <input type="hidden" name="up_leave_score_h" id="up_leave_score_h" value="<?php echo $data_EvaluateForeman_ids->leave_score ?>">
-                    </th>
-                </tr>
-            </table>
-        </div>
-        <div class="col">
             <div class="text-center">*** For reference****</div>
             <table class="table table-form">
                 <tr>
@@ -247,6 +231,22 @@ include "scriptStaticFormBonusAnnualEvaluateForemanAndbelow.php";
                     </td>
                     <td class="border td_border mit">ครั้ง</td>
                     <td class="border td_border">นำไปใช้ร่วมการประเมิน</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col">
+            <br>
+            <table class="table table-form">
+                <tr>
+                    <th class="border td_border mit">Leave Score</th>
+                </tr>
+                <tr>
+                    <th class="border td_border mit" style="background-color: #006494; color: #fff;">
+                        <label for="">
+                            <?php echo $data_EvaluateForeman_ids->leave_score ?>
+                        </label>
+                        <input type="hidden" name="up_leave_score_h" id="up_leave_score_h" value="<?php echo $data_EvaluateForeman_ids->leave_score ?>">
+                    </th>
                 </tr>
             </table>
         </div>
