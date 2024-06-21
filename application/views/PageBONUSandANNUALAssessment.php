@@ -1,3 +1,6 @@
+<?php 
+include "checkAdminUser.php";
+?>
 <div class="container mt-3">
     <table class="table table-form">
         <tr>

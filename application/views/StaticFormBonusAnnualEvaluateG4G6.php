@@ -1,5 +1,7 @@
 <?php
+include "checkAdminUser.php";
 include "scriptStaticFormBonusAnnualEvaluateG4G6.php";
+$check_date = date('m/d/Y');
 ?>
 <div class="container-fluid mt-3">
     <table class="table table-form border-0">
@@ -619,10 +621,21 @@ include "scriptStaticFormBonusAnnualEvaluateG4G6.php";
 </div>
 <div class="container mt-3">
     <table class="table table-form border-9">
+        <?php
+        foreach ($period_time as $period_times) {
+            $format_date_from = DateTime::createFromFormat('d/m/Y', $period_times->date_from)->format('d-M-Y');
+            $format_date_to = DateTime::createFromFormat('d/m/Y', $period_times->date_to)->format('d-M-Y');
+            $period_from = DateTime::createFromFormat('d/m/Y', $period_times->date_from)->format('m/d/Y');
+            $period_to = DateTime::createFromFormat('d/m/Y', $period_times->date_to)->format('m/d/Y');
+        } ?>
         <tr>
             <td class="mit border-0">
                 <a href="<?php echo base_url('index.php/bonus_controller/PrintPDFG4G6/') ?><?php echo $data_EvaluateG4G6_ids->id ?>" class="btn btn-primary btn_color_df">Click to PDF</a>
-                <button type="button" class="btn btn-primary btn_color_df" id="up_bt_Submit">Re-Submit</button>
+                <?php if ($check_date >= $period_from && $check_date <= $period_to) { ?>
+                    <button type="button" class="btn btn-primary btn_color_df" id="up_bt_Submit">Re-Submit</button>
+                <?php } else { ?>
+                    <br><u class="red">"Period time for submit From <?php echo $format_date_from ?> To <?php echo $format_date_to ?>"</u>
+                <?php } ?>
             </td>
         </tr>
     </table>

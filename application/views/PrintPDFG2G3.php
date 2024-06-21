@@ -40,8 +40,8 @@ $html .= '</th>';
 $html .= '</tr>';
 $html .= '<tr>';
 $html .= '<th align="left" style="font-size: 20px;">';
-foreach ($data_EvaluateG4G6_id as $data_EvaluateG4G6_ids)
-    $html .= '<u>[' . ($data_EvaluateG4G6_ids->year_submit) . '] BONUS & ANNUAL Assessment for Grade 4 – Grade 6</u>';
+foreach ($data_EvaluateG2G3_id as $data_EvaluateG2G3_ids)
+    $html .= '<u>[' . ($data_EvaluateG2G3_ids->year_submit) . '] BONUS & ANNUAL Assessment for Grade 2 – Grade 3</u>';
 $html .= '</th>';
 $html .= '</tr>';
 $html .= '</table>';
@@ -53,54 +53,54 @@ $html .= '<td></td>';
 $html .= '<td></td>';
 $html .= '<td align="left" style="border: 0.5px solid #adb5bd; width: 100px;"><b>Date</b></td>';
 $html .= '<td align="left" style="border: 0.5px solid #adb5bd; width: 130px;">';
-$html .= '' . $data_EvaluateG4G6_ids->date_submit . '';
+$html .= '' . $data_EvaluateG2G3_ids->date_submit . '';
 $html .= '</td>';
 $html .= '</tr>';
 $html .= '<tr>';
 $html .= '<td align="left" style="border: 0.5px solid #adb5bd; width: 100px;"><b>Employee name</b></td>';
 $html .= '<td align="left" style="border: 0.5px solid #adb5bd; width: 120px;">';
-$html .= '' . $data_EvaluateG4G6_ids->emp_name . '';
+$html .= '' . $data_EvaluateG2G3_ids->emp_name . '';
 $html .= '</td>';
 $html .= '<td align="left" style="border: 0.5px solid #adb5bd; width: 100px;"><b>Employee ID</b></td>';
 $html .= '<td align="left" style="border: 0.5px solid #adb5bd; width: 120px;">';
-$html .= '' . $data_EvaluateG4G6_ids->emp_id . '';
+$html .= '' . $data_EvaluateG2G3_ids->emp_id . '';
 $html .= '</td>';
 $html .= '<td align="left" style="border: 0.5px solid #adb5bd; width: 100px;"><b>Position</b></td>';
 $html .= '<td align="left" style="border: 0.5px solid #adb5bd; width: 120px;">';
-$html .= '' . $data_EvaluateG4G6_ids->position . '';
+$html .= '' . $data_EvaluateG2G3_ids->position . '';
 $html .= '</td>';
 $html .= '</tr>';
 $html .= '<tr>';
 $html .= '<td align="left" style="border: 0.5px solid #adb5bd; width: 100px;"><b>Section</b></td>';
 $html .= '<td align="left" style="border: 0.5px solid #adb5bd; width: 120px;">';
-$html .= '' . $data_EvaluateG4G6_ids->section . '';
+$html .= '' . $data_EvaluateG2G3_ids->section . '';
 $html .= '</td>';
 $html .= '<td align="left" style="border: 0.5px solid #adb5bd; width: 100px;"><b>Employment date</b></td>';
 $html .= '<td align="left" style="border: 0.5px solid #adb5bd; width: 120px;">';
-$html .= '' . $data_EvaluateG4G6_ids->employment_date . '';
+$html .= '' . $data_EvaluateG2G3_ids->employment_date . '';
 $html .= '</td>';
 $html .= '<td align="left" style="border: 0.5px solid #adb5bd; width: 100px;"><b>Years of service</b></td>';
 $html .= '<td align="left" style="border: 0.5px solid #adb5bd; width: 120px;">';
-$html .= '' . $data_EvaluateG4G6_ids->year_fo_service . '';
+$html .= '' . $data_EvaluateG2G3_ids->year_fo_service . '';
 $html .= '</td>';
 $html .= '</tr>';
 $html .= '<tr>';
-$html .= '<div style="' . ($data_EvaluateG4G6_ids->sup_name1 == "" ? "display: none;" : "") . '">';
+$html .= '<div style="' . ($data_EvaluateG2G3_ids->sup_name1 == "" ? "display: none;" : "") . '">';
 $html .= '<td align="left" style="border: 0.5px solid #adb5bd; width: 100px;"><b>Supervisor Name 1</b></td>';
 $html .= '<td align="left" style="border: 0.5px solid #adb5bd; width: 120px;">';
-$html .= '' . $data_EvaluateG4G6_ids->sup_name1 . '';
+$html .= '' . $data_EvaluateG2G3_ids->sup_name1 . '';
 $html .= '</td>';
 $html .= '</div>';
-$html .= '<div style="' . ($data_EvaluateG4G6_ids->sup_name2 == "" ? "display: none" : "") . '">';
+$html .= '<div style="' . ($data_EvaluateG2G3_ids->sup_name2 == "" ? "display: none" : "") . '">';
 $html .= '<td align="left" style="border: 0.5px solid #adb5bd; width: 100px;"><b>Supervisor Name 2</b></td>';
 $html .= '<td align="left" style="border: 0.5px solid #adb5bd; width: 120px;">';
-$html .= '' . $data_EvaluateG4G6_ids->sup_name2 . '';
+$html .= '' . $data_EvaluateG2G3_ids->sup_name2 . '';
 $html .= '</td>';
 $html .= '</div>';
-$html .= '<div style="' . ($data_EvaluateG4G6_ids->Factory_Manager_GM == "" ? "display: none" : "") . '">';
+$html .= '<div style="' . ($data_EvaluateG2G3_ids->Factory_Manager_GM == "" ? "display: none" : "") . '">';
 $html .= '<td align="left" style="border: 0.5px solid #adb5bd; width: 100px;"><b>Factory Manager / GM</b></td>';
 $html .= '<td align="left" style="border: 0.5px solid #adb5bd; width: 120px;">';
-$html .= '' . $data_EvaluateG4G6_ids->Factory_Manager_GM . '';
+$html .= '' . $data_EvaluateG2G3_ids->Factory_Manager_GM . '';
 $html .= '</td>';
 $html .= '</div>';
 $html .= '</tr>';
@@ -118,81 +118,81 @@ $html .= '<th style="border: 0.5px solid #adb5bd; width: 100px;">21 – 27</th>'
 $html .= '<th style="border: 0.5px solid #adb5bd;">28 days up/ 28วันขึ้นไป</th>';
 $html .= '</tr>';
 $html .= '<tr>';
-$html .= '<td align="center" style="border: 0.5px solid #adb5bd;">20 points - 20 คะแนน</td>';
-$html .= '<td align="center" style="border: 0.5px solid #adb5bd;">20</td>';
-$html .= '<td align="center" style="border: 0.5px solid #adb5bd;">17</td>';
-$html .= '<td align="center" style="border: 0.5px solid #adb5bd;">14</td>';
-$html .= '<td align="center" style="border: 0.5px solid #adb5bd;">11</td>';
+$html .= '<td align="center" style="border: 0.5px solid #adb5bd;">16 points - 16 คะแนน</td>';
+$html .= '<td align="center" style="border: 0.5px solid #adb5bd;">16</td>';
+$html .= '<td align="center" style="border: 0.5px solid #adb5bd;">13</td>';
+$html .= '<td align="center" style="border: 0.5px solid #adb5bd;">10</td>';
+$html .= '<td align="center" style="border: 0.5px solid #adb5bd;">7</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">0</td>';
 $html .= '</tr>';
 $html .= '</table>';
 $html .= '<table>';
 $html .= '<tr>';
 $html .= '<th colspan="3" style="border: 0.5px solid #adb5bd; width: 225px;">';
-$html .= 'Leave record between 1 Sep [' . ($data_EvaluateG4G6_ids->year_submit - 1) . '] – 31 Aug [' . ($data_EvaluateG4G6_ids->year_submit) . '] <br>';
-$html .= 'สถิติการลาระหว่าง 1 กันยายน [' . ($data_EvaluateG4G6_ids->year_submit - 1) . '] ถึง 31 สิงหาคม [' . ($data_EvaluateG4G6_ids->year_submit) . ']';
+$html .= 'Leave record between 1 Sep [' . ($data_EvaluateG2G3_ids->year_submit - 1) . '] – 31 Aug [' . ($data_EvaluateG2G3_ids->year_submit) . '] <br>';
+$html .= 'สถิติการลาระหว่าง 1 กันยายน [' . ($data_EvaluateG2G3_ids->year_submit - 1) . '] ถึง 31 สิงหาคม [' . ($data_EvaluateG2G3_ids->year_submit) . ']';
 $html .= '</th>';
 $html .= '</tr>';
 $html .= '<tr>';
 $html .= '<th style="border: 0.5px solid #adb5bd; width: 225px;">Leave record. บันทึกการลา</th>';
 $html .= '<th style="border: 0.5px solid #adb5bd; width: 225px;">';
-$html .= 'From 1 Sep [' . ($data_EvaluateG4G6_ids->year_submit - 1) . ']';
-$html .= ' to 31 Dec [' . ($data_EvaluateG4G6_ids->year_submit - 1) . ']';
+$html .= 'From 1 Sep [' . ($data_EvaluateG2G3_ids->year_submit - 1) . ']';
+$html .= ' to 31 Dec [' . ($data_EvaluateG2G3_ids->year_submit - 1) . ']';
 $html .= '</th>';
 $html .= '<th style="border: 0.5px solid #adb5bd; width: 225px;">';
-$html .= 'From 1 Jan [' . ($data_EvaluateG4G6_ids->year_submit) . ']';
-$html .= ' to 31 Aug [' . ($data_EvaluateG4G6_ids->year_submit) . ']';
+$html .= 'From 1 Jan [' . ($data_EvaluateG2G3_ids->year_submit) . ']';
+$html .= ' to 31 Aug [' . ($data_EvaluateG2G3_ids->year_submit) . ']';
 $html .= '</th>';
 $html .= '</tr>';
 $html .= '<tr>';
 $html .= '<th style="border: 0.5px solid #adb5bd;">Business leave ลากิจ</th>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '' . $data_EvaluateG4G6_ids->business_leave1 . '';
+$html .= '' . $data_EvaluateG2G3_ids->business_leave1 . '';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '' . $data_EvaluateG4G6_ids->business_leave2 . '';
+$html .= '' . $data_EvaluateG2G3_ids->business_leave2 . '';
 $html .= '</td>';
 $html .= '</tr>';
 $html .= '<tr>';
 $html .= '<th style="border: 0.5px solid #adb5bd;">Sick leave ลาป่วย</th>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '' . $data_EvaluateG4G6_ids->sick_leave1 . '';
+$html .= '' . $data_EvaluateG2G3_ids->sick_leave1 . '';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '' . $data_EvaluateG4G6_ids->sick_leave2 . '';
+$html .= '' . $data_EvaluateG2G3_ids->sick_leave2 . '';
 $html .= '</td>';
 $html .= '</tr>';
 $html .= '<tr>';
 $html .= '<th style="border: 0.5px solid #adb5bd;">Absenteeism ขาดงาน</th>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '' . $data_EvaluateG4G6_ids->absenteeism1 . '';
+$html .= '' . $data_EvaluateG2G3_ids->absenteeism1 . '';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '' . $data_EvaluateG4G6_ids->absenteeism2 . '';
+$html .= '' . $data_EvaluateG2G3_ids->absenteeism2 . '';
 $html .= '</td>';
 $html .= '</tr>';
 $html .= '<tr>';
 $html .= '<th style="border: 0.5px solid #adb5bd;">Total รวม</th>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '' . $data_EvaluateG4G6_ids->total_leave1 . '';
+$html .= '' . $data_EvaluateG2G3_ids->total_leave1 . '';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '' . $data_EvaluateG4G6_ids->total_leave2 . '';
+$html .= '' . $data_EvaluateG2G3_ids->total_leave2 . '';
 $html .= '</td>';
 $html .= '</tr>';
 $html .= '<tr>';
 $html .= '<th style="border: 0.5px solid #adb5bd;">Grand Total ผลรวม</th>';
 $html .= '<td align="center" colspan="2" style="border: 0.5px solid #adb5bd;">';
-$html .= '' . $data_EvaluateG4G6_ids->grand_total . '';
+$html .= '' . $data_EvaluateG2G3_ids->grand_total . '';
 $html .= '</td>';
 $html .= '</tr>';
 $html .= '<tr>';
 $html .= '<th style="border: 0.5px solid #adb5bd;">Late มาสาย</th>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '' . $data_EvaluateG4G6_ids->late1 . '';
+$html .= '' . $data_EvaluateG2G3_ids->late1 . '';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '' . $data_EvaluateG4G6_ids->late2 . '';
+$html .= '' . $data_EvaluateG2G3_ids->late2 . '';
 $html .= '</td>';
 $html .= '</tr>';
 $html .= '</table>';
@@ -206,17 +206,17 @@ $html .= '<table>';
 $html .= '<tr>';
 $html .= '<th colspan="3" style="border: 0.5px solid #adb5bd;">';
 $html .= 'การลงโทษทางวินัย / Punishment Record <br>';
-$html .= 'ระหว่าง 1 Sep [' . ($data_EvaluateG4G6_ids->year_submit - 1) . '] - 31 Aug [' . ($data_EvaluateG4G6_ids->year_submit) . ']';
+$html .= 'ระหว่าง 1 Sep [' . ($data_EvaluateG2G3_ids->year_submit - 1) . '] - 31 Aug [' . ($data_EvaluateG2G3_ids->year_submit) . ']';
 $html .= '</th>';
 $html .= '<th style="border: 0.5px solid #adb5bd; width: 150px;">หมายเหตุ / Noted</th>';
 $html .= '</tr>';
 $html .= '<tr>';
 $html .= '<td align="left" style="border: 0.5px solid #adb5bd;">ตักเตือนด้วยวาจา/Verbal Warning</td>';
 $html .= '<td style="border: 0.5px solid #adb5bd;">';
-if ($data_EvaluateG4G6_ids->verbal_warning == 0) {
+if ($data_EvaluateG2G3_ids->verbal_warning == 0) {
     $html .= '-';
 } else {
-    $html .= '' . $data_EvaluateG4G6_ids->verbal_warning . '';
+    $html .= '' . $data_EvaluateG2G3_ids->verbal_warning . '';
 }
 $html .= '</td>';
 $html .= '<td style="border: 0.5px solid #adb5bd;">ครั้ง</td>';
@@ -225,10 +225,10 @@ $html .= '</tr>';
 $html .= '<tr>';
 $html .= '<td align="left" style="border: 0.5px solid #adb5bd;">ตักเตือนด้วยหนังสือ/Letter warning</td>';
 $html .= '<td style="border: 0.5px solid #adb5bd;">';
-if ($data_EvaluateG4G6_ids->letter_warning == 0) {
+if ($data_EvaluateG2G3_ids->letter_warning == 0) {
     $html .= '-';
 } else {
-    $html .= '' . $data_EvaluateG4G6_ids->letter_warning . '';
+    $html .= '' . $data_EvaluateG2G3_ids->letter_warning . '';
 }
 $html .= '</td>';
 $html .= '<td style="border: 0.5px solid #adb5bd;">ครั้ง</td>';
@@ -244,7 +244,7 @@ $html .= '</tr>';
 $html .= '<tr>';
 $html .= '<th style="background-color: #006494; color: #fff; padding: 9px;">';
 $html .= '<label for="">';
-$html .= '' . $data_EvaluateG4G6_ids->leave_score . '';
+$html .= '' . $data_EvaluateG2G3_ids->leave_score . '';
 $html .= '</label>';
 $html .= '</th>';
 $html .= '</tr>';
@@ -257,251 +257,299 @@ $html .= '<tr>';
 $html .= '<th colspan="6" align="left">2. Assessment by Manager / Superior การประเมินผลการปฏิบัติงานโดย ผู้จัดการ / ผู้บังคับบัญชา</th>';
 $html .= '</tr>';
 $html .= '<tr>';
-$html .= '<th style="border: 0.5px solid #adb5bd;">Performance Evaluation / หัวข้อการประเมินผลการปฏิบัติงาน</th>';
-$html .= '<th style="border: 0.5px solid #adb5bd;">Excellent<br>ดีเลิศ<br>(8)</th>';
-$html .= '<th style="border: 0.5px solid #adb5bd;">Good<br>ดี<br>(6)</th>';
+$html .= '<th style="border: 0.5px solid #adb5bd;">Evaluation Item / หัวข้อการประเมิน</th>';
+$html .= '<th style="border: 0.5px solid #adb5bd;">Excellent<br>ดีเลิศ<br>(7)</th>';
+$html .= '<th style="border: 0.5px solid #adb5bd;">Good<br>ดี<br>(5)</th>';
 $html .= '<th style="border: 0.5px solid #adb5bd;">Fair<br>พอใช้<br>(4)</th>';
 $html .= '<th style="border: 0.5px solid #adb5bd;">Need Improvemen<br>ต้องปรับปรุง<br>(2)</th>';
 $html .= '<th style="border: 0.5px solid #adb5bd;">Un Satisfactory<br>ไม่เป็นที่พอใจ<br>(1)</th>';
 $html .= '</tr>';
 $html .= '<tr>';
 $html .= '<th align="left" style="border: 0.5px solid #adb5bd;">';
-foreach ($bonus_evaluate_g4_g6 as $bonus_evaluate_g4_g6s) {
-    if ($bonus_evaluate_g4_g6s->topic == 1) {
-        $html .= '' . $bonus_evaluate_g4_g6s->topic . " . " . $bonus_evaluate_g4_g6s->evaluation_Item_en . "<br>" . $bonus_evaluate_g4_g6s->evaluation_Item_th . '';
+foreach ($bonus_evaluate_g2_g3 as $bonus_evaluate_g2_g3s) {
+    if ($bonus_evaluate_g2_g3s->topic == 1) {
+        $html .= '' . $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th . '';
     }
 }
 $html .= '</th>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="8" ' . ($data_EvaluateG4G6_ids->item1 == "8" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="7" ' . ($data_EvaluateG2G3_ids->item1 == "7" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="6" ' . ($data_EvaluateG4G6_ids->item1 == "6" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="5" ' . ($data_EvaluateG2G3_ids->item1 == "5" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="4" ' . ($data_EvaluateG4G6_ids->item1 == "4" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="4" ' . ($data_EvaluateG2G3_ids->item1 == "4" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="2" ' . ($data_EvaluateG4G6_ids->item1 == "2" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="2" ' . ($data_EvaluateG2G3_ids->item1 == "2" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="1" ' . ($data_EvaluateG4G6_ids->item1 == "1" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="1" ' . ($data_EvaluateG2G3_ids->item1 == "1" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '</tr>';
 $html .= '<tr>';
 $html .= '<th align="left" style="border: 0.5px solid #adb5bd;">';
-foreach ($bonus_evaluate_g4_g6 as $bonus_evaluate_g4_g6s) {
-    if ($bonus_evaluate_g4_g6s->topic == 2) {
-        $html .= '' . $bonus_evaluate_g4_g6s->topic . " . " . $bonus_evaluate_g4_g6s->evaluation_Item_en . "<br>" . $bonus_evaluate_g4_g6s->evaluation_Item_th . '';
+foreach ($bonus_evaluate_g2_g3 as $bonus_evaluate_g2_g3s) {
+    if ($bonus_evaluate_g2_g3s->topic == 2) {
+        $html .= '' . $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th . '';
     }
 }
 $html .= '</th>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="8" ' . ($data_EvaluateG4G6_ids->item2 == "8" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="7" ' . ($data_EvaluateG2G3_ids->item2 == "7" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="6" ' . ($data_EvaluateG4G6_ids->item2 == "6" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="5" ' . ($data_EvaluateG2G3_ids->item2 == "5" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="4" ' . ($data_EvaluateG4G6_ids->item2 == "4" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="4" ' . ($data_EvaluateG2G3_ids->item2 == "4" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="2" ' . ($data_EvaluateG4G6_ids->item2 == "2" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="2" ' . ($data_EvaluateG2G3_ids->item2 == "2" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="1" ' . ($data_EvaluateG4G6_ids->item2 == "1" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="1" ' . ($data_EvaluateG2G3_ids->item2 == "1" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '</tr>';
 $html .= '<tr>';
 $html .= '<th align="left" style="border: 0.5px solid #adb5bd;">';
-foreach ($bonus_evaluate_g4_g6 as $bonus_evaluate_g4_g6s) {
-    if ($bonus_evaluate_g4_g6s->topic == 3) {
-        $html .= '' . $bonus_evaluate_g4_g6s->topic . " . " . $bonus_evaluate_g4_g6s->evaluation_Item_en . "<br>" . $bonus_evaluate_g4_g6s->evaluation_Item_th . '';
+foreach ($bonus_evaluate_g2_g3 as $bonus_evaluate_g2_g3s) {
+    if ($bonus_evaluate_g2_g3s->topic == 3) {
+        $html .= '' . $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th . '';
     }
 }
 $html .= '</th>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="8" ' . ($data_EvaluateG4G6_ids->item3 == "8" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="7" ' . ($data_EvaluateG2G3_ids->item3 == "7" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="6" ' . ($data_EvaluateG4G6_ids->item3 == "6" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="5" ' . ($data_EvaluateG2G3_ids->item3 == "5" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="4" ' . ($data_EvaluateG4G6_ids->item3 == "4" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="4" ' . ($data_EvaluateG2G3_ids->item3 == "4" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="2" ' . ($data_EvaluateG4G6_ids->item3 == "2" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="2" ' . ($data_EvaluateG2G3_ids->item3 == "2" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="1" ' . ($data_EvaluateG4G6_ids->item3 == "1" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="1" ' . ($data_EvaluateG2G3_ids->item3 == "1" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '</tr>';
 $html .= '<tr>';
 $html .= '<th align="left" style="border: 0.5px solid #adb5bd;">';
-foreach ($bonus_evaluate_g4_g6 as $bonus_evaluate_g4_g6s) {
-    if ($bonus_evaluate_g4_g6s->topic == 4) {
-        $html .= '' . $bonus_evaluate_g4_g6s->topic . " . " . $bonus_evaluate_g4_g6s->evaluation_Item_en . "<br>" . $bonus_evaluate_g4_g6s->evaluation_Item_th . '';
+foreach ($bonus_evaluate_g2_g3 as $bonus_evaluate_g2_g3s) {
+    if ($bonus_evaluate_g2_g3s->topic == 4) {
+        $html .= '' . $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th . '';
     }
 }
 $html .= '</th>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="8" ' . ($data_EvaluateG4G6_ids->item4 == "8" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="7" ' . ($data_EvaluateG2G3_ids->item4 == "7" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="6" ' . ($data_EvaluateG4G6_ids->item4 == "6" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="5" ' . ($data_EvaluateG2G3_ids->item4 == "5" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="4" ' . ($data_EvaluateG4G6_ids->item4 == "4" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="4" ' . ($data_EvaluateG2G3_ids->item4 == "4" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="2" ' . ($data_EvaluateG4G6_ids->item4 == "2" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="2" ' . ($data_EvaluateG2G3_ids->item4 == "2" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="1" ' . ($data_EvaluateG4G6_ids->item4 == "1" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="1" ' . ($data_EvaluateG2G3_ids->item4 == "1" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '</tr>';
 $html .= '<tr>';
 $html .= '<th align="left" style="border: 0.5px solid #adb5bd;">';
-foreach ($bonus_evaluate_g4_g6 as $bonus_evaluate_g4_g6s) {
-    if ($bonus_evaluate_g4_g6s->topic == 5) {
-        $html .= '' . $bonus_evaluate_g4_g6s->topic . " . " . $bonus_evaluate_g4_g6s->evaluation_Item_en . "<br>" . $bonus_evaluate_g4_g6s->evaluation_Item_th . '';
+foreach ($bonus_evaluate_g2_g3 as $bonus_evaluate_g2_g3s) {
+    if ($bonus_evaluate_g2_g3s->topic == 5) {
+        $html .= '' . $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th . '';
     }
 }
 $html .= '</th>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="8" ' . ($data_EvaluateG4G6_ids->item5 == "8" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="7" ' . ($data_EvaluateG2G3_ids->item5 == "7" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="6" ' . ($data_EvaluateG4G6_ids->item5 == "6" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="5" ' . ($data_EvaluateG2G3_ids->item5 == "5" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="4" ' . ($data_EvaluateG4G6_ids->item5 == "4" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="4" ' . ($data_EvaluateG2G3_ids->item5 == "4" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="2" ' . ($data_EvaluateG4G6_ids->item5 == "2" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="2" ' . ($data_EvaluateG2G3_ids->item5 == "2" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="1" ' . ($data_EvaluateG4G6_ids->item5 == "1" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="1" ' . ($data_EvaluateG2G3_ids->item5 == "1" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '</tr>';
 $html .= '<tr>';
 $html .= '<th align="left" style="border: 0.5px solid #adb5bd;">';
-foreach ($bonus_evaluate_g4_g6 as $bonus_evaluate_g4_g6s) {
-    if ($bonus_evaluate_g4_g6s->topic == 6) {
-        $html .= '' . $bonus_evaluate_g4_g6s->topic . " . " . $bonus_evaluate_g4_g6s->evaluation_Item_en . "<br>" . $bonus_evaluate_g4_g6s->evaluation_Item_th . '';
+foreach ($bonus_evaluate_g2_g3 as $bonus_evaluate_g2_g3s) {
+    if ($bonus_evaluate_g2_g3s->topic == 6) {
+        $html .= '' . $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th . '';
     }
 }
 $html .= '</th>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="8" ' . ($data_EvaluateG4G6_ids->item6 == "8" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="7" ' . ($data_EvaluateG2G3_ids->item6 == "7" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="6" ' . ($data_EvaluateG4G6_ids->item6 == "6" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="5" ' . ($data_EvaluateG2G3_ids->item6 == "5" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="4" ' . ($data_EvaluateG4G6_ids->item6 == "4" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="4" ' . ($data_EvaluateG2G3_ids->item6 == "4" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="2" ' . ($data_EvaluateG4G6_ids->item6 == "2" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="2" ' . ($data_EvaluateG2G3_ids->item6 == "2" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="1" ' . ($data_EvaluateG4G6_ids->item6 == "1" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="1" ' . ($data_EvaluateG2G3_ids->item6 == "1" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '</tr>';
 $html .= '<tr>';
 $html .= '<th align="left" style="border: 0.5px solid #adb5bd;">';
-foreach ($bonus_evaluate_g4_g6 as $bonus_evaluate_g4_g6s) {
-    if ($bonus_evaluate_g4_g6s->topic == 7) {
-        $html .= '' . $bonus_evaluate_g4_g6s->topic . " . " . $bonus_evaluate_g4_g6s->evaluation_Item_en . "<br>" . $bonus_evaluate_g4_g6s->evaluation_Item_th . '';
+foreach ($bonus_evaluate_g2_g3 as $bonus_evaluate_g2_g3s) {
+    if ($bonus_evaluate_g2_g3s->topic == 7) {
+        $html .= '' . $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th . '';
     }
 }
 $html .= '</th>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="8" ' . ($data_EvaluateG4G6_ids->item7 == "8" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="7" ' . ($data_EvaluateG2G3_ids->item7 == "7" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="6" ' . ($data_EvaluateG4G6_ids->item7 == "6" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="5" ' . ($data_EvaluateG2G3_ids->item7 == "5" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="4" ' . ($data_EvaluateG4G6_ids->item7 == "4" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="4" ' . ($data_EvaluateG2G3_ids->item7 == "4" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="2" ' . ($data_EvaluateG4G6_ids->item7 == "2" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="2" ' . ($data_EvaluateG2G3_ids->item7 == "2" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="1" ' . ($data_EvaluateG4G6_ids->item7 == "1" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="1" ' . ($data_EvaluateG2G3_ids->item7 == "1" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '</tr>';
 $html .= '<tr>';
 $html .= '<th align="left" style="border: 0.5px solid #adb5bd;">';
-foreach ($bonus_evaluate_g4_g6 as $bonus_evaluate_g4_g6s) {
-    if ($bonus_evaluate_g4_g6s->topic == 8) {
-        $html .= '' . $bonus_evaluate_g4_g6s->topic . " . " . $bonus_evaluate_g4_g6s->evaluation_Item_en . "<br>" . $bonus_evaluate_g4_g6s->evaluation_Item_th . '';
+foreach ($bonus_evaluate_g2_g3 as $bonus_evaluate_g2_g3s) {
+    if ($bonus_evaluate_g2_g3s->topic == 8) {
+        $html .= '' . $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th;
     }
 }
 $html .= '</th>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="8" ' . ($data_EvaluateG4G6_ids->item8 == "8" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="7" ' . ($data_EvaluateG2G3_ids->item8 == "7" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="6" ' . ($data_EvaluateG4G6_ids->item8 == "6" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="5" ' . ($data_EvaluateG2G3_ids->item8 == "5" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="4" ' . ($data_EvaluateG4G6_ids->item8 == "4" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="4" ' . ($data_EvaluateG2G3_ids->item8 == "4" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="2" ' . ($data_EvaluateG4G6_ids->item8 == "2" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="2" ' . ($data_EvaluateG2G3_ids->item8 == "2" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="1" ' . ($data_EvaluateG4G6_ids->item8 == "1" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="1" ' . ($data_EvaluateG2G3_ids->item8 == "1" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '</tr>';
 $html .= '<tr>';
 $html .= '<th align="left" style="border: 0.5px solid #adb5bd;">';
-foreach ($bonus_evaluate_g4_g6 as $bonus_evaluate_g4_g6s) {
-    if ($bonus_evaluate_g4_g6s->topic == 9) {
-        $html .= '' . $bonus_evaluate_g4_g6s->topic . " . " . $bonus_evaluate_g4_g6s->evaluation_Item_en . "<br>" . $bonus_evaluate_g4_g6s->evaluation_Item_th . '';
+foreach ($bonus_evaluate_g2_g3 as $bonus_evaluate_g2_g3s) {
+    if ($bonus_evaluate_g2_g3s->topic == 9) {
+        $html .= '' . $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th . '';
     }
 }
 $html .= '</th>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="8" ' . ($data_EvaluateG4G6_ids->item9 == "8" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="7" ' . ($data_EvaluateG2G3_ids->item9 == "7" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="6" ' . ($data_EvaluateG4G6_ids->item9 == "6" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="5" ' . ($data_EvaluateG2G3_ids->item9 == "5" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="4" ' . ($data_EvaluateG4G6_ids->item9 == "4" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="4" ' . ($data_EvaluateG2G3_ids->item9 == "4" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="2" ' . ($data_EvaluateG4G6_ids->item9 == "2" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="2" ' . ($data_EvaluateG2G3_ids->item9 == "2" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="1" ' . ($data_EvaluateG4G6_ids->item9 == "1" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="1" ' . ($data_EvaluateG2G3_ids->item9 == "1" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '</tr>';
 $html .= '<tr>';
 $html .= '<th align="left" style="border: 0.5px solid #adb5bd;">';
-foreach ($bonus_evaluate_g4_g6 as $bonus_evaluate_g4_g6s) {
-    if ($bonus_evaluate_g4_g6s->topic == 10) {
-        $html .= '' . $bonus_evaluate_g4_g6s->topic . " . " . $bonus_evaluate_g4_g6s->evaluation_Item_en . "<br>" . $bonus_evaluate_g4_g6s->evaluation_Item_th . '';
+foreach ($bonus_evaluate_g2_g3 as $bonus_evaluate_g2_g3s) {
+    if ($bonus_evaluate_g2_g3s->topic == 10) {
+        $html .= '' . $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th . '';
     }
 }
 $html .= '</th>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="8" ' . ($data_EvaluateG4G6_ids->item10 == "8" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="7" ' . ($data_EvaluateG2G3_ids->item10 == "7" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="6" ' . ($data_EvaluateG4G6_ids->item10 == "6" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="5" ' . ($data_EvaluateG2G3_ids->item10 == "5" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="4" ' . ($data_EvaluateG4G6_ids->item10 == "4" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="4" ' . ($data_EvaluateG2G3_ids->item10 == "4" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="2" ' . ($data_EvaluateG4G6_ids->item10 == "2" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="2" ' . ($data_EvaluateG2G3_ids->item10 == "2" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
-$html .= '<input type="radio" value="1" ' . ($data_EvaluateG4G6_ids->item10 == "1" ? 'checked="checked"' : '') . '>';
+$html .= '<input type="radio" value="1" ' . ($data_EvaluateG2G3_ids->item10 == "1" ? 'checked="checked"' : '') . '>';
+$html .= '</td>';
+$html .= '</tr>';
+$html .= '<tr>';
+$html .= '<th align="left" style="border: 0.5px solid #adb5bd;">';
+foreach ($bonus_evaluate_g2_g3 as $bonus_evaluate_g2_g3s) {
+    if ($bonus_evaluate_g2_g3s->topic == 11) {
+        $html .= '' . $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th . '';
+    }
+}
+$html .= '</th>';
+$html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
+$html .= '<input type="radio" value="7" ' . ($data_EvaluateG2G3_ids->item11 == "7" ? 'checked="checked"' : '') . '>';
+$html .= '</td>';
+$html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
+$html .= '<input type="radio" value="5" ' . ($data_EvaluateG2G3_ids->item11 == "5" ? 'checked="checked"' : '') . '>';
+$html .= '</td>';
+$html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
+$html .= '<input type="radio" value="4" ' . ($data_EvaluateG2G3_ids->item11 == "4" ? 'checked="checked"' : '') . '>';
+$html .= '</td>';
+$html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
+$html .= '<input type="radio" value="2" ' . ($data_EvaluateG2G3_ids->item11 == "2" ? 'checked="checked"' : '') . '>';
+$html .= '</td>';
+$html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
+$html .= '<input type="radio" value="1" ' . ($data_EvaluateG2G3_ids->item11 == "1" ? 'checked="checked"' : '') . '>';
+$html .= '</td>';
+$html .= '</tr>';
+$html .= '<tr>';
+$html .= '<th align="left" style="border: 0.5px solid #adb5bd;">';
+foreach ($bonus_evaluate_g2_g3 as $bonus_evaluate_g2_g3s) {
+    if ($bonus_evaluate_g2_g3s->topic == 12) {
+        $html .= '' . $bonus_evaluate_g2_g3s->topic . " . " . $bonus_evaluate_g2_g3s->evaluation_Item_en . "<br>" . $bonus_evaluate_g2_g3s->evaluation_Item_th . '';
+    }
+}
+$html .= '</th>';
+$html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
+$html .= '<input type="radio" value="7" ' . ($data_EvaluateG2G3_ids->item12 == "7" ? 'checked="checked"' : '') . '>';
+$html .= '</td>';
+$html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
+$html .= '<input type="radio" value="5" ' . ($data_EvaluateG2G3_ids->item12 == "5" ? 'checked="checked"' : '') . '>';
+$html .= '</td>';
+$html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
+$html .= '<input type="radio" value="4" ' . ($data_EvaluateG2G3_ids->item12 == "4" ? 'checked="checked"' : '') . '>';
+$html .= '</td>';
+$html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
+$html .= '<input type="radio" value="2" ' . ($data_EvaluateG2G3_ids->item12 == "2" ? 'checked="checked"' : '') . '>';
+$html .= '</td>';
+$html .= '<td align="center" style="border: 0.5px solid #adb5bd;">';
+$html .= '<input type="radio" value="1" ' . ($data_EvaluateG2G3_ids->item12 == "1" ? 'checked="checked"' : '') . '>';
 $html .= '</td>';
 $html .= '</tr>';
 $html .= '</table>';
@@ -509,19 +557,19 @@ $html .= '<table>';
 $html .= '<tr>';
 $html .= '<th align="left" style="border: 0.5px solid #adb5bd; width: 350px;">Section Assessment score คะแนนประเมินโดยแผนก</th>';
 $html .= '<th style="border: 0.5px solid #adb5bd; width: 350px;">';
-$html .= '' . $data_EvaluateG4G6_ids->assessment_score . '';
+$html .= '' . $data_EvaluateG2G3_ids->assessment_score . '';
 $html .= '</th>';
 $html .= '</tr>';
 $html .= '<tr>';
 $html .= '<th align="left" style="border: 0.5px solid #adb5bd; width: 350px;">Leave record score คะแนนจากสถิติการลา</th>';
 $html .= '<th style="border: 0.5px solid #adb5bd; width: 350px;">';
-$html .= '' . $data_EvaluateG4G6_ids->leave_score . '';
+$html .= '' . $data_EvaluateG2G3_ids->leave_score . '';
 $html .= '</th>';
 $html .= '</tr>';
 $html .= '<tr>';
 $html .= '<th align="left" style="border: 0.5px solid #adb5bd; width: 350px;">Total Score คะแนนรวม</th>';
 $html .= '<th style="border: 0.5px solid #adb5bd; width: 350px;">';
-$html .= '' . $data_EvaluateG4G6_ids->total_score . '';
+$html .= '' . $data_EvaluateG2G3_ids->total_score . '';
 $html .= '</th>';
 $html .= '</tr>';
 $html .= '</table>';
@@ -530,7 +578,7 @@ $html .= '<tr>';
 $html .= '<td colspan="5">Rating Score / ผลการประเมิน</td>';
 $html .= '</tr>';
 $html .= '<tr>';
-$total_score = $data_EvaluateG4G6_ids->total_score;
+$total_score = $data_EvaluateG2G3_ids->total_score;
 $grade_a_checked = '';
 $grade_b_checked = '';
 $grade_c_checked = '';
@@ -556,48 +604,74 @@ $html .= '<td style="width: 140px;"><b>C </b><input type="checkbox" name="up_gra
 $html .= '<td style="width: 140px;"><b>D </b><input type="checkbox" name="up_grade_d" id="up_grade_d" ' . $grade_d_checked . '> <label for="grade_d">55 Below / ต่ำกว่า 55</label></td>';
 $html .= '</tr>';
 $html .= '</table>';
+$html .= '' . br(7) . '';
 $html .= '<table>';
 $html .= '<tr>';
-$html .= '<th colspan="4" align="left">3. Assessment by Management </th>';
+$html .= '<th colspan="3" align="left">3. Assessment by Sr. Manager / Factory Manager / General Manager</th>';
 $html .= '</tr>';
 $html .= '<tr>';
-$html .= '<th style="border: 0.5px solid #adb5bd; width: 180px;">Position /ตำแหน่ง</th>';
-$html .= '<th style="border: 0.5px solid #adb5bd; width: 180px;">Final Rating</th>';
-$html .= '<th style="border: 0.5px solid #adb5bd; width: 180px;">Comment in writing <br> ความคิดเห็นเป็นลายลักษณ์อักษร</th>';
-$html .= '<th style="border: 0.5px solid #adb5bd; width: 180px;">signed name. <br> ลงนาม</th>';
+$html .= '<th style="border: 0.5px solid #adb5bd; width: 240px;">Position /ตำแหน่ง</th>';
+$html .= '<th style="border: 0.5px solid #adb5bd; width: 240px;">Final Rating</th>';
+$html .= '<th style="border: 0.5px solid #adb5bd; width: 240px;">Comment in writing <br> ความคิดเห็นเป็นลายลักษณ์อักษร</th>';
 $html .= '</tr>';
 $html .= '<tr>';
-$html .= '<td style="height: 60px; border: 0.5px solid #adb5bd;">Manager <br> ผู้จัดการ</td>';
-$html .= '<td style="height: 60px; border: 0.5px solid #adb5bd; text-align: center;" rowspan="4">';
-if ($data_EvaluateG4G6_ids->total_score >= 91) {
+$html .= '<td style="height: 100px; border: 0.5px solid #adb5bd;">Senior Manager <br> ผู้จัดการอาวุโส</td>';
+$html .= '<td style="height: 100px; border: 0.5px solid #adb5bd; text-align: center;" rowspan="2">';
+if ($data_EvaluateG2G3_ids->total_score >= 91) {
     $html .= '<b style="font-size: 50px;">A</b>';
-} else if ($data_EvaluateG4G6_ids->total_score >= 73) {
+} else if ($data_EvaluateG2G3_ids->total_score >= 73) {
     $html .= '<b style="font-size: 50px;">B</b>';
-} else if ($data_EvaluateG4G6_ids->total_score >= 56) {
+} else if ($data_EvaluateG2G3_ids->total_score >= 56) {
     $html .= '<b style="font-size: 50px;">C</b>';
 } else {
     $html .= '<b style="font-size: 50px;">D</b>';
 }
 $html .= '</td>';
-$html .= '<td style="height: 60px; border: 0.5px solid #adb5bd;"></td>';
-$html .= '<td style="height: 60px; border: 0.5px solid #adb5bd;"></td>';
+$html .= '<td style="height: 100px; border: 0.5px solid #adb5bd;"></td>';
 $html .= '</tr>';
 $html .= '<tr>';
-$html .= '<td style="height: 60px; border: 0.5px solid #adb5bd;">Senior Manager <br> ผู้จัดการอาวุโส</td>';
-$html .= '<td style="height: 60px; border: 0.5px solid #adb5bd;"></td>';
-$html .= '<td style="height: 60px; border: 0.5px solid #adb5bd;"></td>';
+$html .= '<td style="height: 100px; border: 0.5px solid #adb5bd;">Fact Mgr / GM <br> ผู้จัดการโรงงาน / ผู้จัดการทั่วไป</td>';
+$html .= '<td style="height: 100px; border: 0.5px solid #adb5bd;"></td>';
 $html .= '</tr>';
+$html .= '</table>';
+$html .= '' . br(2) . '';
+$html .= '<table>';
 $html .= '<tr>';
-$html .= '<td style="height: 60px; border: 0.5px solid #adb5bd;">General Manager <br> ผู้จัดการทั่วไป</td>';
-$html .= '<td style="height: 60px; border: 0.5px solid #adb5bd;"></td>';
-$html .= '<td style="height: 60px; border: 0.5px solid #adb5bd;"></td>';
-$html .= '</tr>';
+$html .= '<th style="vertical-align: bottom;">';
+$html .= '<table>';
 $html .= '<tr>';
-$html .= '<td style="height: 60px; border: 0.5px solid #adb5bd;">Senior Executive Officer <br> เจ้าหน้าที่บริหารอาวุโส</td>';
-$html .= '<td style="height: 60px; border: 0.5px solid #adb5bd;"></td>';
-$html .= '<td style="height: 60px; border: 0.5px solid #adb5bd;"></td>';
+$html .= '<td style="vertical-align: bottom; border-bottom: 0.5px solid #adb5bd; width: 200px;"></td>';
 $html .= '</tr>';
+$html .= '</table>';
+$html .= '<br>';
+$html .= '<label for="">(' . nbs(56) . ')</label><br>';
+$html .= '<label for="">Sr. Mgr / Factory Mgr / GM</label><br>';
+$html .= '<label for="">ผู้จัดการอาวุโส/ผู้จัดการโรงงาน/ผู้จัดการทั่วไป</label>';
+$html .= '</th>';
+$html .= '<th style="vertical-align: bottom;">';
+$html .= '<table>';
+$html .= '<tr>';
+$html .= '<td style="vertical-align: bottom; border-bottom: 0.5px solid #adb5bd; width: 200px;"></td>';
+$html .= '</tr>';
+$html .= '</table>';
+$html .= '<br>';
+$html .= '<label for="">(' . nbs(56) . ')</label><br>';
+$html .= '<label for="">Senior Executive Officer</label><br>';
+$html .= '<label for="">เจ้าหน้าที่บริหารอาวุโส</label>';
+$html .= '</th>';
+$html .= '<th style="vertical-align: bottom;">';
+$html .= '<table>';
+$html .= '<tr>';
+$html .= '<td style="vertical-align: bottom; border-bottom: 0.5px solid #adb5bd; width: 200px;"></td>';
+$html .= '</tr>';
+$html .= '</table>';
+$html .= '<br>';
+$html .= '<label for="">(' . nbs(56) . ')</label><br>';
+$html .= '<label for="">Chief Operation Officer</label><br>';
+$html .= '<label for="">ประธานเจ้าหน้าที่ฝ่ายปฏิบัติการ</label>';
+$html .= '</th>';
+$html .= '</br>';
 $html .= '</table>';
 $html .= '</body>';
 $mpdf->WriteHTML($html);
-$mpdf->Output("PDFG4G6" . $current_year . ".pdf");
+$mpdf->Output("PDFG2G3" . $current_year . ".pdf");

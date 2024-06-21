@@ -1,6 +1,7 @@
 <?php
 include "scriptFormBonusAnnualEvaluateForemanAndbelow.php";
 $update_indicator = 0;
+$check_date = date('m/d/Y');
 ?>
 <div class="container-fluid mt-3">
     <table class="table table-form border-0">
@@ -860,16 +861,31 @@ $update_indicator = 0;
 </div>
 <div class="container mt-3">
     <table class="table table-form border-0">
+        <?php
+        foreach ($period_time as $period_times) {
+            $format_date_from = DateTime::createFromFormat('d/m/Y', $period_times->date_from)->format('d-M-Y');
+            $format_date_to = DateTime::createFromFormat('d/m/Y', $period_times->date_to)->format('d-M-Y');
+            $period_from = DateTime::createFromFormat('d/m/Y', $period_times->date_from)->format('m/d/Y');
+            $period_to = DateTime::createFromFormat('d/m/Y', $period_times->date_to)->format('m/d/Y');
+        } ?>
         <tr>
             <?php if ($update_indicator == 1) { ?>
                 <td colspan="5" class="mit border-0">
                     <button type="button" class="btn btn-primary btn_color_df" id="up_bt_Save_draft">Save Draft</button>
-                    <button type="button" class="btn btn-primary btn_color_df" id="up_bt_Submit">Submit</button>
+                    <?php if ($check_date >= $period_from && $check_date <= $period_to) { ?>
+                        <button type="button" class="btn btn-primary btn_color_df" id="up_bt_Submit">Submit</button>
+                    <?php } else { ?>
+                        <br><u class="red">"Period time for submit From <?php echo $format_date_from ?> To <?php echo $format_date_to ?>"</u>
+                    <?php } ?>
                 </td>
             <?php } else { ?>
                 <td colspan="5" class="mit border-0">
                     <button type="button" class="btn btn-primary btn_color_df" id="bt_Save_draft">Save Draft</button>
-                    <button type="button" class="btn btn-primary btn_color_df" id="bt_Submit">Submit</button>
+                    <?php if ($check_date >= $period_from && $check_date <= $period_to) { ?>
+                        <button type="button" class="btn btn-primary btn_color_df" id="bt_Submit">Submit</button>
+                    <?php } else { ?>
+                        <br><u class="red">"Period time for submit From <?php echo $format_date_from ?> To <?php echo $format_date_to ?>"</u>
+                    <?php } ?>
                 </td>
             <?php } ?>
         </tr>

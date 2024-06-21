@@ -1,5 +1,6 @@
 <?php
 include "scriptManageItemOption.php";
+include "checkAdmin.php";
 $i = 0;
 $update_indicator = 0;
 $check_indicator = 0;

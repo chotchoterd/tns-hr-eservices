@@ -1,5 +1,6 @@
 <?php
 include "scriptManageForemanAndBelow.php";
+include "checkAdmin.php";
 $k = 0;
 $update_indicator = 0;
 if (isset($_GET['s_Evaluation_Item_EN'])) {

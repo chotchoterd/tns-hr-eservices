@@ -1,4 +1,4 @@
-<?php 
+<?php
 include "checkAdminUser.php";
 ?>
 <div class="container mt-3 mb-3" align="center">

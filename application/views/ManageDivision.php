@@ -3,6 +3,7 @@ $n = 0;
 $update_indicator = 0;
 $check_indicator = 0;
 include "scriptManageDivision.php";
+include "checkAdmin.php";
 if (isset($_GET['s_division'])) {
     $s_division = $_GET['s_division'];
 } else {

@@ -1,5 +1,6 @@
 <?php
 include "scriptManageEvaluateG4G6.php";
+include "checkAdmin.php";
 $n = 0;
 $update_indicator = 0;
 if (isset($_GET['s_Evaluation_Item_EN'])) {

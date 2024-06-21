@@ -990,7 +990,6 @@
         let leave_score_h = document.getElementById("leave_score_h").value;
         let total_score_h = document.getElementById("total_score_h").value;
         let assessment_status = "Submit";
-
         let business_leave1 = document.getElementById("business_leave1").value;
         let business_leave2 = document.getElementById("business_leave2").value;
         let sick_leave1 = document.getElementById("sick_leave1").value;

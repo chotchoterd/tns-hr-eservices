@@ -2,6 +2,7 @@
 $i = 0;
 $update_indicator = 0;
 $check_indicator = 0;
+include "checkAdmin.php";
 include "scriptManageSubtopicTwoSelf.php";
 if (isset($_GET['s_main_topic'])) {
     $s_main_topic = $_GET['s_main_topic'];

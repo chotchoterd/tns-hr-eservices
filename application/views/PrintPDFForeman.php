@@ -40,12 +40,12 @@ $html .= '</th>';
 $html .= '</tr>';
 $html .= '<tr>';
 $html .= '<th align="left" style="font-size: 20px;">';
-$html .= '<u>[YYYY] BONUS & ANNUAL Assessment for Foreman & below</u>';
+foreach ($data_EvaluateForeman_id as $data_EvaluateForeman_ids)
+    $html .= '<u>[' . ($data_EvaluateForeman_ids->year_submit) . '] BONUS & ANNUAL Assessment for Foreman & below</u>';
 $html .= '</th>';
 $html .= '</tr>';
 $html .= '</table>';
-foreach ($data_EvaluateForeman_id as $data_EvaluateForeman_ids)
-    $html .= '<table>';
+$html .= '<table>';
 $html .= '<tr>';
 $html .= '<td></td>';
 $html .= '<td></td>';
@@ -137,19 +137,19 @@ $html .= '</table>';
 $html .= '<table>';
 $html .= '<tr>';
 $html .= '<th colspan="3" style="border: 0.5px solid #adb5bd; width: 225px;">';
-$html .= 'Leave record between 1 Sep [YYYY] – 31 Aug [YYYY] <br>';
-$html .= 'สถิติการลาระหว่าง 1 กันยายน [YYYY] ถึง 31 สิงหาคม [YYYY]';
+$html .= 'Leave record between 1 Sep [' . ($data_EvaluateForeman_ids->year_submit - 1) . '] – 31 Aug [' . ($data_EvaluateForeman_ids->year_submit) . '] <br>';
+$html .= 'สถิติการลาระหว่าง 1 กันยายน [' . ($data_EvaluateForeman_ids->year_submit - 1) . '] ถึง 31 สิงหาคม [' . ($data_EvaluateForeman_ids->year_submit) . ']';
 $html .= '</th>';
 $html .= '</tr>';
 $html .= '<tr>';
 $html .= '<th style="border: 0.5px solid #adb5bd; width: 225px;">Leave record. บันทึกการลา</th>';
 $html .= '<th style="border: 0.5px solid #adb5bd; width: 225px;">';
-$html .= 'From 1 Sep [YYYY]';
-$html .= 'to 31 Dec [YYYY]';
+$html .= 'From 1 Sep [' . ($data_EvaluateForeman_ids->year_submit - 1) . ']';
+$html .= ' to 31 Dec [' . ($data_EvaluateForeman_ids->year_submit - 1) . ']';
 $html .= '</th>';
 $html .= '<th style="border: 0.5px solid #adb5bd; width: 225px;">';
-$html .= 'From 1 Jan [YYYY]';
-$html .= 'to 31 Aug [YYYY]';
+$html .= 'From 1 Jan [' . ($data_EvaluateForeman_ids->year_submit) . ']';
+$html .= ' to 31 Aug [' . ($data_EvaluateForeman_ids->year_submit) . ']';
 $html .= '</th>';
 $html .= '</tr>';
 $html .= '<tr>';
@@ -214,7 +214,7 @@ $html .= '<table>';
 $html .= '<tr>';
 $html .= '<th colspan="3" style="border: 0.5px solid #adb5bd;">';
 $html .= 'การลงโทษทางวินัย / Punishment Record <br>';
-$html .= 'ระหว่าง 1 Sep [YYYY] - 31 Aug [YYYY]';
+$html .= 'ระหว่าง 1 Sep [' . ($data_EvaluateForeman_ids->year_submit - 1) . '] - 31 Aug [' . ($data_EvaluateForeman_ids->year_submit) . ']';
 $html .= '</th>';
 $html .= '<th style="border: 0.5px solid #adb5bd; width: 150px;">หมายเหตุ / Noted</th>';
 $html .= '</tr>';
@@ -276,7 +276,7 @@ $html .= '<tr>';
 $html .= '<th align="left" style="border: 0.5px solid #adb5bd;">';
 foreach ($bonus_evaluate_Foreman_below as $bonus_evaluate_Foreman_belows) {
     if ($bonus_evaluate_Foreman_belows->topic == 1) {
-        $html .= $bonus_evaluate_Foreman_belows->topic . " . " . $bonus_evaluate_Foreman_belows->evaluation_Item_en . "<br>" . $bonus_evaluate_Foreman_belows->evaluation_Item_th .'';
+        $html .= $bonus_evaluate_Foreman_belows->topic . " . " . $bonus_evaluate_Foreman_belows->evaluation_Item_en . "<br>" . $bonus_evaluate_Foreman_belows->evaluation_Item_th . '';
     }
 }
 $html .= '</th>';

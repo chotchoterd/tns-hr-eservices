@@ -309,7 +309,7 @@ $check_date = date('m/d/Y');
                     <tr>
                         <td colspan="3" class="mit border topic-background">
                             <l>Job Target <br> เป้าหมายงาน</l>
-                                <div class="mt-1 font-eigth red" id="alert_Job_Target_1" style="display: none;">Please fill in Job Target !</div>
+                            <div class="mt-1 font-eigth red" id="alert_Job_Target_1" style="display: none;">Please fill in Job Target !</div>
                         </td>
                         <td colspan="2" class="mit border topic-background">
                             <l>Actual achievement <br> ผลสำเร็จ</l>
