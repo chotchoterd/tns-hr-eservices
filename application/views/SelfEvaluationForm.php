@@ -478,7 +478,7 @@ $check_date = date('m/d/Y');
                         <?php } ?>
                     </tr>
                     <?php if ($update_indicator == 1) { ?>
-                        <tr <?php if ($self_evaluation_ids->item_option_selfevaluations3_1 == "Fully achieved.") echo "style=\"display: none;\""; ?> class="tr_3_2">
+                        <tr <?php if ($self_evaluation_ids->item_option_selfevaluations3_1 == "Fully achieved. : บรรลุเป้าหมายทั้งหมด") echo "style=\"display: none;\""; ?> class="tr_3_2">
                             <td colspan="6" class="border-0">
                                 <?php foreach ($sub_topic_selfevaluation as $sub_topic_selfevaluations) {
                                     if ($sub_topic_selfevaluations->main_topic == 3 && $sub_topic_selfevaluations->sub_topic == 3.2) {
@@ -488,7 +488,7 @@ $check_date = date('m/d/Y');
                                 <div class="mt-1 font-eigth red" id="alert_3_2item_option" style="display: none;">Please tick in check box all that apply !</div>
                             </td>
                         </tr>
-                        <tr <?php if ($self_evaluation_ids->item_option_selfevaluations3_1 == "Fully achieved.") echo "style=\"display: none;\""; ?> class="tr_3_2">
+                        <tr <?php if ($self_evaluation_ids->item_option_selfevaluations3_1 == "Fully achieved. : บรรลุเป้าหมายทั้งหมด") echo "style=\"display: none;\""; ?> class="tr_3_2">
                             <?php if ($update_indicator == 1) { ?>
                                 <td colspan="3" class="border-0">
                                     <?php

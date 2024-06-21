@@ -240,7 +240,7 @@ foreach ($item_option_selfevaluation as $key => $item_option_selfevaluations) {
 }
 $html .= '</td>';
 $html .= '</tr>';
-$html .= '<div style="' . ($self_evaluation_ids->item_option_selfevaluations3_1 === "Fully achieved."  ? "display: none;" : "") . '">';
+$html .= '<div style="' . ($self_evaluation_ids->item_option_selfevaluations3_1 === "Fully achieved. : บรรลุเป้าหมายทั้งหมด"  ? "display: none;" : "") . '">';
 $html .= '<tr>';
 $html .= '<td colspan="6">';
 foreach ($sub_topic_selfevaluation as $sub_topic_selfevaluations) {

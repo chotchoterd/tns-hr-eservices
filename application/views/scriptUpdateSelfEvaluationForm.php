@@ -274,7 +274,7 @@
                 }
                 up_$check_error = 1;
             }
-            if (up_item_option_selfevaluation3_2.length <= 0 && up_item_option_selfevaluations3_1 != 'Fully achieved.') {
+            if (up_item_option_selfevaluation3_2.length <= 0 && up_item_option_selfevaluations3_1 != 'Fully achieved. : บรรลุเป้าหมายทั้งหมด') {
                 var up_alert_3_2item_option = document.getElementById("alert_3_2item_option");
                 up_alert_3_2item_option.style.display = "block";
                 var up_item_option_3_2 = document.getElementsByName("up_3_2item_option_selfevaluation[]");
