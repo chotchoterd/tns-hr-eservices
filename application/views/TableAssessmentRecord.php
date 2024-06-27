@@ -1,11 +1,6 @@
 <?php
 include "checkAdminUser.php";
 include "scriptTableAssessmentRecord.php";
-if (isset($_GET['s_date'])) {
-    $s_date = $_GET['s_date'];
-} else {
-    $s_date = '';
-}
 if (isset($_GET['s_year'])) {
     $s_year = $_GET['s_year'];
 } else {
@@ -44,7 +39,7 @@ if (isset($_GET['s_status'])) {
                     <input type="text" id="s_date" name="s_date" class="form-control" value="<?php echo $s_date; ?>">
                 </th> -->
                 <th class="border-0">
-                    Year Submit :
+                    Year Assessment :
                     <select name="s_year" id="s_year" class="form-select" aria-label="Default select example">
                         <?php
                         $current_year = date('Y');

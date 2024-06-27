@@ -18,9 +18,9 @@ if (isset($_SESSION['username'])) {
         <div class="collapse navbar-collapse">
             <?php if ($_SESSION["group"] != "") { ?>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link active white" aria-current="page" href="#">Requisition Form</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link active white" aria-current="page" href="<?php echo base_url('index.php/hr_controller/ManageAllPage'); ?>">Management All</a>
                     </li>
@@ -40,9 +40,9 @@ if (isset($_SESSION['username'])) {
                 </form>
             <?php } else { ?>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link active white" aria-current="page" href="#">Requisition Form</a>
-                    </li>
+                    </li> -->
                 </ul>
                 <form class="d-flex text-end">
                     <div class="align-middle">

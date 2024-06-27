@@ -9,14 +9,8 @@ class ModelBonus extends CI_Model
         $this->db_hr = $this->load->database('db_hr', TRUE);
     }
 
-    function model_subordinate_emp()
+    function model_subordinate_emp($s_year, $s_emp_id, $s_emp_name, $s_status)
     {
-        // $sql = "SELECT * FROM `tb_emp_hr_import` WHERE superior_email1 = '" . $_SESSION["emp_email"] . "'
-        // UNION
-        // SELECT * FROM `tb_emp_hr_import` WHERE superior_email2 = '" . $_SESSION["emp_email"] . "'
-        // UNION
-        // SELECT * FROM `tb_emp_hr_import` WHERE factory_Manager_GM_email = '" . $_SESSION["emp_email"] . "'
-        // ORDER BY emp_name ASC";
         $current_year = date('Y');
         $sql = "SELECT subordinate.*,assessment.id AS id_as, assessment.date_submit, assessment.year_submit, assessment.assessment_status FROM
         (SELECT * FROM `tb_emp_hr_import` WHERE superior_email1 = '" . $_SESSION["emp_email"] . "'
@@ -25,14 +19,23 @@ class ModelBonus extends CI_Model
         UNION 
         SELECT * FROM `tb_emp_hr_import` WHERE factory_Manager_GM_email = '" . $_SESSION["emp_email"] . "' 
         ORDER BY emp_name ASC) subordinate 
-        LEFT JOIN (SELECT id, emp_id, date_submit,year_submit,assessment_status FROM `tb_submit_bonus_evaluate_foreman_and_below`
+        LEFT JOIN (SELECT id, emp_name, emp_id, date_submit,year_submit,assessment_status FROM `tb_submit_bonus_evaluate_foreman_and_below`
         UNION
-        SELECT id, emp_id, date_submit,year_submit,assessment_status FROM `tb_submit_bonus_evaluate_g2_g3`
+        SELECT id, emp_name, emp_id, date_submit,year_submit,assessment_status FROM `tb_submit_bonus_evaluate_g2_g3`
         UNION
-        SELECT id, emp_id, date_submit,year_submit,assessment_status FROM `tb_submit_bonus_evaluate_g4_g6`
+        SELECT id, emp_name, emp_id, date_submit,year_submit,assessment_status FROM `tb_submit_bonus_evaluate_g4_g6`
         WHERE status != 0) assessment ON (subordinate.emp_id = assessment.emp_id)
-        WHERE subordinate.status = 1
-        AND (assessment.year_submit = '" . $current_year . "' OR assessment.year_submit IS NULL OR assessment.year_submit = '')";
+        WHERE subordinate.status = 1";
+        if ($s_year == "") {
+            $sql .= " AND (assessment.year_submit = '" . $current_year . "' OR assessment.year_submit IS NULL OR assessment.year_submit = '')";
+        } else {
+            $sql .= " AND assessment.year_submit LIKE '%" . $s_year . "%'";
+        }
+        $sql .= " AND subordinate.emp_id LIKE '%" . $s_emp_id . "%'
+        AND subordinate.emp_name LIKE '%" . $s_emp_name . "%'";
+        if ($s_status != "") {
+            $sql .= " AND assessment.assessment_status LIKE '%" . $s_status . "%'";
+        }
         $rs = $this->db_hr
             ->query($sql)
             ->result();

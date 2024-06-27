@@ -19,7 +19,27 @@ class Bonus_controller extends CI_Controller
 
     function TableAssessmentRecord()
     {
-        $subordinate_emp['subordinate_emp'] = $this->hr->model_subordinate_emp();
+        if (isset($_GET['s_year'])) {
+            $s_year = $_GET['s_year'];
+        } else {
+            $s_year = '';
+        }
+        if (isset($_GET['s_emp_id'])) {
+            $s_emp_id = $_GET['s_emp_id'];
+        } else {
+            $s_emp_id = '';
+        }
+        if (isset($_GET['s_emp_name'])) {
+            $s_emp_name = $_GET['s_emp_name'];
+        } else {
+            $s_emp_name = '';
+        }
+        if (isset($_GET['s_status'])) {
+            $s_status = $_GET['s_status'];
+        } else {
+            $s_status = '';
+        }
+        $subordinate_emp['subordinate_emp'] = $this->hr->model_subordinate_emp($s_year, $s_emp_id, $s_emp_name, $s_status);
         $title['title'] = 'Assessment Record';
         $this->load->view('include/header', $title);
         $this->load->view('include/menu');

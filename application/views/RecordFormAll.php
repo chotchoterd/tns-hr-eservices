@@ -37,13 +37,13 @@ include "checkAdminUser.php";
                 </td>
                 <td class="mit">Record</td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td class="mit">3</td>
                 <td class="mit-v">
                     <a href="" class="record_border">Exit Interview</a>
                 </td>
                 <td class="mit">Record</td>
-            </tr>
+            </tr> -->
         </tbody>
     </table>
 </div>
