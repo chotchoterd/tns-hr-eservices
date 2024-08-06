@@ -49,7 +49,8 @@ class Import_file_controller extends CI_Controller
                             $foreman_email = $worksheet->getCellByColumnAndRow(18, $row)->getValue();
                             $factory_Manager_GM = $worksheet->getCellByColumnAndRow(19, $row)->getValue();
                             $factory_Manager_GM_email = $worksheet->getCellByColumnAndRow(20, $row)->getValue();
-                            $status_excel = $worksheet->getCellByColumnAndRow(21, $row)->getValue();
+                            $branch = $worksheet->getCellByColumnAndRow(21, $row)->getValue();
+                            $status_excel = $worksheet->getCellByColumnAndRow(22, $row)->getValue();
 
                             if ($status_excel == "Active") {
                                 $status = '1';
@@ -80,6 +81,7 @@ class Import_file_controller extends CI_Controller
                                 'foreman_email' => trim($foreman_email),
                                 'factory_Manager_GM' => trim($factory_Manager_GM),
                                 'factory_Manager_GM_email' => trim($factory_Manager_GM_email),
+                                'branch' => trim($branch),
                                 'status' => $status,
                                 'updated_date' => date('Y-m-d H:i:s')
                             );

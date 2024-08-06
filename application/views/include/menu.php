@@ -31,6 +31,13 @@ if (isset($_SESSION['username'])) {
                             <li><a class="dropdown-item" href="<?php echo base_url('index.php/hr_controller/ImportFileExcelLeaveRecord'); ?>">Import Leave record</a></li>
                         </ul>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle white" aria-current="page" role="button" data-bs-toggle="dropdown" aria-expanded="false">Manuals</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="<?php echo base_url('/img/HR-E-Services-Manual-TH.pdf'); ?>" target="_blank">Version Thai</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url('/img/HR-E-Services-Manual-ENG.pdf'); ?>" target="_blank">Version English</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <form class="d-flex text-end">
                     <div class="align-middle">
@@ -43,6 +50,13 @@ if (isset($_SESSION['username'])) {
                     <!-- <li class="nav-item">
                         <a class="nav-link active white" aria-current="page" href="#">Requisition Form</a>
                     </li> -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle white" aria-current="page" role="button" data-bs-toggle="dropdown" aria-expanded="false">Manuals</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="<?php echo base_url('/img/HR-E-Services-Manual-TH.pdf'); ?>" target="_blank">Version Thai</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url('/img/HR-E-Services-Manual-ENG.pdf'); ?>" target="_blank">Version English</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <form class="d-flex text-end">
                     <div class="align-middle">

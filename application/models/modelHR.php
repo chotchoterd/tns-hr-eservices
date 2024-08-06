@@ -319,10 +319,10 @@ class ModelHR extends CI_Model
             $emp_division = $row['emp_division'];
             $emp_section = $row['emp_section'];
             $emp_hired_date = $row['emp_hired_date'];
-            $emp_email = $row['emp_email'];
+            // $emp_email = $row['emp_email'];
             $status = $row['status'];
 
-            if ($emp_name != "" && $emp_grade != "" && $emp_division != "" && $emp_section != "" && $emp_hired_date != "" && $emp_email != "" && $status != "") {
+            if ($emp_name != "" && $emp_grade != "" && $emp_division != "" && $emp_section != "" && $emp_hired_date != "" && $status != "") {
                 $existing_record = $this->db_hr->get_where('tb_emp_hr_import', array('emp_id' => $emp_id))->row();
                 if ($existing_record) {
                     $this->db_hr->where('emp_id', $emp_id);

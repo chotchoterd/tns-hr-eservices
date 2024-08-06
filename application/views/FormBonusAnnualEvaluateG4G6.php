@@ -404,13 +404,13 @@ $check_date = date('m/d/Y');
                                 <?php
                                 $leave_score = 0;
                                 if ($total >= 0 && $total < 7) {
-                                    echo $leave_score = 40;
+                                    echo $leave_score = 20;
                                 } else if ($total >= 7 && $total < 14) {
-                                    echo $leave_score = 35;
+                                    echo $leave_score = 17;
                                 } else if ($total >= 14 && $total < 21) {
-                                    echo $leave_score = 30;
+                                    echo $leave_score = 14;
                                 } else if ($total >= 21 && $total < 28) {
-                                    echo $leave_score = 25;
+                                    echo $leave_score = 11;
                                 } else {
                                     echo $leave_score;
                                 } ?>
@@ -421,13 +421,13 @@ $check_date = date('m/d/Y');
                                 <?php
                                 $leave_score = 0;
                                 if ($total >= 0 && $total < 7) {
-                                    echo $leave_score = 40;
+                                    echo $leave_score = 20;
                                 } else if ($total >= 7 && $total < 14) {
-                                    echo $leave_score = 35;
+                                    echo $leave_score = 17;
                                 } else if ($total >= 14 && $total < 21) {
-                                    echo $leave_score = 30;
+                                    echo $leave_score = 14;
                                 } else if ($total >= 21 && $total < 28) {
-                                    echo $leave_score = 25;
+                                    echo $leave_score = 11;
                                 } else {
                                     echo $leave_score;
                                 } ?>

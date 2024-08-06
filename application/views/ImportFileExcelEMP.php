@@ -133,6 +133,7 @@ if (isset($_GET['s_superior_grade'])) {
             <th class="topic-background mit border">Division</th>
             <th class="topic-background mit border">Superior name</th>
             <th class="topic-background mit border">Superior Grade</th>
+            <!-- <th class="topic-background mit border">Branch</th> -->
             <th class="topic-background mit border">Status</th>
         </tr>
         <?php foreach ($emp_hr_import_page as $emp_hr_import_pages) {
@@ -147,7 +148,7 @@ if (isset($_GET['s_superior_grade'])) {
                 <td class="border">
                     <?php echo $emp_hr_import_pages->emp_name; ?>
                 </td>
-                <td class="border mit">
+                <td class="border text-center">
                     <?php echo $emp_hr_import_pages->emp_grade; ?>
                 </td>
                 <td class="border">
@@ -166,10 +167,13 @@ if (isset($_GET['s_superior_grade'])) {
                 <td class="border">
                     <?php echo $emp_hr_import_pages->superior_name1; ?>
                 </td>
-                <td class="border mit">
+                <td class="border text-center">
                     <?php echo $emp_hr_import_pages->superior_grade1; ?>
                 </td>
-                <td class="border">
+                <!-- <td class="border mit">
+                    <?php echo $emp_hr_import_pages->branch; ?>
+                </td> -->
+                <td class="border text-center">
                     <?php
                     if ($emp_hr_import_pages->status == "1") {
                         echo "Active";
